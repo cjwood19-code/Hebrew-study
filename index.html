@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#243447">
+<title>Hebrew Adaptive Trainer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>Hebrew Adaptive Trainer</h1>
+    <p>Safari + Apple Pencil • progress stays on this device</p>
+  </div>
+  <button id="resetBtn" class="secondary">Reset</button>
+</header>
+<main>
+  <section id="statusCard" class="card">
+    <div class="statusTop">
+      <div><span id="levelBadge" class="badge"></span><span id="modeLabel" class="mode"></span></div>
+      <div id="sessionCount" class="sessionCount"></div>
+    </div>
+    <div class="stats">
+      <div><span>Score</span><b id="score">0 / 0</b></div>
+      <div><span>Accuracy</span><b id="accuracy">0%</b></div>
+      <div><span>Best</span><b id="best">—</b></div>
+      <div><span>Review</span><b id="reviewCount">0</b></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </section>
+
+  <section id="message" class="message hidden"></section>
+
+  <section id="quizCard" class="card">
+    <div id="category" class="category"></div>
+    <div id="prompt" class="prompt"></div>
+    <div id="instruction" class="instruction"></div>
+
+    <div id="choiceArea" class="choices"></div>
+
+    <div id="typedArea" class="hidden">
+      <input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button id="checkTypedBtn" class="primary wide">Check answer</button>
+    </div>
+
+    <div id="tilesArea" class="hidden">
+      <div id="answerLine" class="answerLine"></div>
+      <div id="wordTiles" class="wordTiles"></div>
+      <div class="buttonRow">
+        <button id="clearTilesBtn" class="secondary">Clear</button>
+        <button id="checkTilesBtn" class="primary">Check sentence</button>
+      </div>
+    </div>
+
+    <div id="handArea" class="hidden">
+      <canvas id="pad"></canvas>
+      <div class="buttonRow">
+        <button id="clearPadBtn" class="secondary">Clear</button>
+        <button id="revealBtn" class="primary">Reveal answer</button>
+      </div>
+      <div id="selfGrade" class="hidden">
+        <div class="reveal">Correct answer: <strong id="revealedAnswer" dir="rtl"></strong></div>
+        <div class="buttonRow">
+          <button id="missedBtn" class="danger">Missed / unsure</button>
+          <button id="correctBtn" class="success">Correct</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedback" class="feedback hidden"></div>
+    <button id="nextBtn" class="primary wide hidden">Next</button>
+  </section>
+
+  <section class="card">
+    <h2>Difficulty progression</h2>
+    <p>Each session has 12 scored questions. <strong>Above 85%</strong> advances one level. 70–85% repeats the level with missed words weighted more heavily. Below 70% starts a focused review at the same level.</p>
+    <ol class="levels">
+      <li>Hebrew → English recognition</li>
+      <li>English → Hebrew recognition</li>
+      <li>Mixed recognition</li>
+      <li>Type the English meaning</li>
+      <li>Type the Hebrew word</li>
+      <li>Build short Hebrew sentences</li>
+      <li>Apple Pencil handwriting recall</li>
+      <li>Mixed cumulative challenge</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <div class="sectionTitle">
+      <h2>Words to review</h2>
+      <button id="practiceMissedBtn" class="secondary">Practice missed</button>
+    </div>
+    <div id="reviewList" class="reviewList"></div>
+  </section>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
