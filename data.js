@@ -17,7 +17,19 @@ sentences:[
 {en:"We study Hebrew.",he:"אנחנו לומדים עברית"},
 {en:"There are books on the table.",he:"יש ספרים על השולחן"},
 {en:"She works at home.",he:"היא עובדת בבית"},
-{en:"They travel to Tel Aviv.",he:"הם נוסעים לתל אביב"}
+{en:"They travel to Tel Aviv.",he:"הם נוסעים לתל אביב"},
+{en:"The student reads a book.",he:"התלמיד קורא ספר"},
+{en:"The teacher writes at the table.",he:"המורה כותב ליד השולחן"},
+{en:"I drink water at home.",he:"אני שותה מים בבית"},
+{en:"We travel to Haifa.",he:"אנחנו נוסעים לחיפה"},
+{en:"She reads a new book.",he:"היא קוראת ספר חדש"},
+{en:"He works in Jerusalem.",he:"הוא עובד בירושלים"},
+{en:"The children are at home.",he:"הילדים בבית"},
+{en:"There is coffee on the table.",he:"יש קפה על השולחן"},
+{en:"I usually read at home.",he:"אני בדרך כלל קורא בבית"},
+{en:"They sometimes drink coffee.",he:"הם לפעמים שותים קפה"},
+{en:"We always study Hebrew.",he:"אנחנו תמיד לומדים עברית"},
+{en:"She goes to Tel Aviv.",he:"היא הולכת לתל אביב"}
 ],
 verbs:[
 {
@@ -104,7 +116,12 @@ connectors:[
 {sentence:"אני אוכל, ___ אני שותה קפה.",answer:"ואחר כך"},
 {sentence:"___ הולך לעבודה, אני שותה קפה.",answer:"לפני שאני"},
 {sentence:"___ חוזר הביתה, אני קורא ספר.",answer:"אחרי שאני"},
-{sentence:"___ נוסע באוטובוס, אני קורא.",answer:"כשאני"}
+{sentence:"___ נוסע באוטובוס, אני קורא.",answer:"כשאני"},
+{sentence:"אני לומד עברית ___ אני רוצה לקרוא ספרים.",answer:"כי"},
+{sentence:"היא גרה בחיפה, ___ היא עובדת בתל אביב.",answer:"אבל"},
+{sentence:"___ אנחנו מסיימים ללמוד, אנחנו שותים קפה.",answer:"אחרי שאנחנו"},
+{sentence:"___ אנחנו מתחילים ללמוד, אנחנו קוראים.",answer:"לפני שאנחנו"},
+{sentence:"___ אתה רוצה ללמוד, אתה צריך לקרוא.",answer:"אם"}
 ],
 matches:[
 {prompt:"ספר",answer:"דבר שאפשר לקרוא"},
