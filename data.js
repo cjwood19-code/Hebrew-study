@@ -12,6 +12,8 @@ vocab:[
 ["יש","there is / there are","Grammar"],["אין","there isn't / there aren't","Grammar"],["של","of / belonging to","Grammar"],["שלי","mine / my","Grammar"],["שלך","yours / your","Grammar"],["שלו","his","Grammar"],["שלה","hers","Grammar"],["שלנו","ours / our","Grammar"],
 ["ברכה","blessing / greeting","Book B · Greetings"],["כרטיס ברכה","greeting card","Book B · Greetings"],["חג","holiday","Book B · Greetings"],["אושר","happiness","Book B · Greetings"],["זריחה","sunrise","Book B · Greetings"],["שקיעה","sunset","Book B · Greetings"],["מחשבה","thought","Book B · Greetings"],["משמעות","meaning / significance","Book B · Greetings"],["צורך","need","Book B · Greetings"],["געגועים","longing / missing someone","Book B · Greetings"],["ילדות","childhood","Book B · Greetings"],["מיתוס","myth","Book B · Reading"],
 ["סטודנט","student","Book B · Study"],["פרופסור","professor","Book B · Study"],["רפואה","medicine","Book B · Study"],["מבחן","exam / test","Book B · Study"],["אוניברסיטה","university","Book B · Study"],["ציון","grade / score","Book B · Study"],["דיאטה","diet","Book B · Health"],["ארוחה","meal","Book B · Health"],["מרפאה","clinic","Book B · Health"],["רופא","doctor","Book B · Health"],["בחור","young man","Book B · People"],["בחורה","young woman","Book B · People"],["חרוץ","diligent / hardworking","Book B · Adjectives"],["קצר","short","Book B · Adjectives"],["ארוך","long","Book B · Adjectives"],["קל","easy / light","Book B · Adjectives"],["קשה","difficult / hard","Book B · Adjectives"],["נחמד","nice / pleasant","Book B · Adjectives"],["בטוח","safe / sure","Book B · Adjectives"]
+,
+["גלויה","postcard","Teacher notes · Holidays"],["מנהג","custom","Teacher notes · Holidays"],["המצאה","invention","Teacher notes · Holidays"],["השפעה","influence","Teacher notes · Holidays"],["טלפון נייד","mobile phone","Teacher notes · Daily life"],["נפלא","wonderful","Teacher notes · Adjectives"],["זריחה","sunrise","Teacher notes · Time"],["שקיעה","sunset","Teacher notes · Time"],["חגיגה","celebration","Teacher notes · Holidays"],["תפילה","prayer","Teacher notes · Jewish life"],["אורח","guest","Teacher notes · People"],["לוח השנה","calendar","Teacher notes · Daily life"],["מיתוס","myth","Teacher notes · Reading"],["תרבות","culture","Teacher notes · Reading"],["מסורת","tradition","Teacher notes · Jewish life"],["טקס","ceremony","Teacher notes · Jewish life"],["חתונה","wedding","Teacher notes · Jewish life"],["מסוכן","dangerous","Teacher notes · Adjectives"],["געגוע","longing / nostalgia","Teacher notes · Feelings"],["אווירה","atmosphere","Teacher notes · Feelings"],["הרצאה","lecture","Teacher notes · Study"],["גיבור","hero","Teacher notes · Reading"],["חוכמה","wisdom","Teacher notes · Reading"],["התנהגות","behavior","Teacher notes · People"],["ערך","value","Teacher notes · Reading"],["שקט","quiet / silence","Teacher notes · Daily life"],["ממלכה","kingdom","Teacher notes · Reading"],["חבילה","package","Teacher notes · Daily life"],["הבטחה","promise","Teacher notes · Daily life"],["הפתעה","surprise","Teacher notes · Daily life"],["מאמר","article","Teacher notes · Study"],["חללית","spacecraft","Teacher notes · Reading"],["מאדים","Mars","Teacher notes · Reading"],["מחקר","research","Teacher notes · Study"],["חקירה","investigation","Teacher notes · Study"],["קיר","wall","Teacher notes · Home"],["קבוצה","team / group","Teacher notes · People"],["סכנה","danger","Teacher notes · Daily life"],["רעל","poison","Teacher notes · Daily life"],["כריכים","sandwiches","Teacher notes · Food"],["שטיח","rug / carpet","Teacher notes · Home"],["צעצועים","toys","Teacher notes · Home"],["כיור","sink","Teacher notes · Home"],["גדר","fence","Teacher notes · Places"],["מדרגות","stairs","Teacher notes · Places"],["מעלית","elevator","Teacher notes · Places"],["פינה","corner","Teacher notes · Places"],["שוער","goalkeeper","Teacher notes · Sports"],["כניסה","entrance","Teacher notes · Action nouns"],["יציאה","exit","Teacher notes · Action nouns"],["ירידה","descent / going down","Teacher notes · Action nouns"],["עלייה","ascent / going up","Teacher notes · Action nouns"],["כורסה","armchair","Teacher notes · Home"],["ספה","sofa","Teacher notes · Home"],["מנורה","lamp","Teacher notes · Home"],["מגרה","drawer","Teacher notes · Home"],["ברז","faucet","Teacher notes · Home"],["תנור","oven","Teacher notes · Home"],["תריס","shutter","Teacher notes · Home"],["וילון","curtain","Teacher notes · Home"],["אגרטל","vase","Teacher notes · Home"],["מדף","shelf","Teacher notes · Home"]
 ].map(function(x){return{he:x[0],en:x[1],cat:x[2]}}),
 sentences:[
 {en:"I live in Jerusalem.",he:"אני גר בירושלים"},
@@ -43,6 +45,22 @@ sentences:[
 {en:"The student studies in order to succeed on the exam.",he:"הסטודנט לומד כדי להצליח במבחן"},
 {en:"The young woman writes a greeting card for the holiday.",he:"הבחורה כותבת כרטיס ברכה לחג"},
 {en:"The professor asks a question and the student answers.",he:"הפרופסור שואל שאלה והסטודנט עונה"}
+,
+{en:"I greet you for your birthday.",he:"אני מברך אותך ליום ההולדת שלך"},
+{en:"Mom prepares a cake.",he:"אמא מכינה עוגה"},
+{en:"You prepare homework.",he:"אתה מכין שיעורי בית"},
+{en:"I miss Grandma.",he:"אני מתגעגע לסבתא"},
+{en:"She hangs the picture on the wall.",he:"היא תולה את התמונה על הקיר"},
+{en:"It is written on the calendar.",he:"זה כתוב בלוח השנה"},
+{en:"They are very happy at the wedding.",he:"הם שמחים מאוד בחתונה"},
+{en:"She throws the garbage into the bin.",he:"היא זורקת את האשפה לפח"},
+{en:"She crosses the road at the crosswalk.",he:"היא חוצה את הכביש במעבר חצייה"},
+{en:"I am going to sleep now so that in the morning I can get up early.",he:"אני הולך לישון עכשיו כדי שבבוקר אוכל לקום מוקדם"},
+{en:"I bought a car so that I can travel.",he:"קניתי מכונית כדי שאוכל לנסוע לטייל"},
+{en:"The students come to all the lessons so that they can understand the texts.",he:"התלמידים באים לכל השיעורים כדי שהם יוכלו להבין את הטקסטים"},
+{en:"She serves meals in a restaurant.",he:"היא מגישה ארוחות במסעדה"},
+{en:"The children fall asleep at eight in the evening.",he:"הילדים נרדמים בשמונה בערב"},
+{en:"She washes dishes at home.",he:"היא שוטפת כלים בבית"}
 ],
 verbs:[
 {
@@ -194,6 +212,12 @@ connectors:[
 {sentence:"הוא רצה להיות רופא, ___ הוא פחד להיכשל.",answer:"אבל"},
 {sentence:"אפשר ללמוד עוד חודש ___ לנסות שוב עכשיו.",answer:"או"},
 {sentence:"היא כתבה כרטיס ברכה ___ שלחה אותו למשפחה.",answer:"ואחר כך"}
+,
+{sentence:"האריה אמר לזאב: אני תוקף אותך ___ אינך יודע לחלק שלל.",answer:"משום ש"},
+{sentence:"היום האישה עובדת יותר מאשר בעבר, ___ היא רצה לעבודה.",answer:"מפני ש"},
+{sentence:"התייר פחד מאוד. ___ הוא ביקש עזרה מאנשי החברה.",answer:"בגלל זה"},
+{sentence:"הם חקרו אותו הרבה זמן, ___ הוא לא גילה להם דבר.",answer:"אך"},
+{sentence:"בעבר היה קשה להגיע לשם, ___ היום זה קל.",answer:"ואילו"}
 ],
 matches:[
 {prompt:"ספר",answer:"דבר שאפשר לקרוא"},
@@ -253,4 +277,48 @@ grammarQuestions:[
 {cat:"יידוע שם ותואר",prompt:"השלימו: התלמיד ___",answer:"החדש",options:["החדש","חדש","החדשה","חדשה"]},
 {cat:"יידוע שם ותואר",prompt:"השלימו: המרפאה ___",answer:"הגדולה",options:["הגדולה","גדולה","הגדול","גדול"]},
 {cat:"משפט מטרה",prompt:"אני לומד הרבה ___ להצליח במבחן.",answer:"כדי",options:["כדי","אבל","או","כי"]}
+,
+{cat:"כדי / כדי ש",prompt:"חברת הנסיעות מביאה את התייר אל האי ___ ללמד אותו לחיות לבד.",answer:"כדי",options:["כדי","כדי ש","אבל","מפני ש"]},
+{cat:"כדי / כדי ש",prompt:"חברת הנסיעות מביאה את התייר אל האי ___ הוא ילמד לחיות לבד.",answer:"כדי ש",options:["כדי ש","כדי","רק","אך"]},
+{cat:"כדי / כדי ש",prompt:"האישה הצעירה הלכה לקופת חולים ___ לדבר עם הרופא.",answer:"כדי",options:["כדי","כדי ש","לכן","אלא"]},
+{cat:"כדי / כדי ש",prompt:"האישה הצעירה הלכה לקופת חולים ___ הרופא יבדוק אותה.",answer:"כדי ש",options:["כדי ש","כדי","כי","ואילו"]},
+{cat:"כדי / כדי ש",prompt:"דני לומד באוניברסיטה ___ לשמח את אימו.",answer:"כדי",options:["כדי","כדי ש","משום ש","אך"]},
+{cat:"כדי / כדי ש",prompt:"דני לומד באוניברסיטה ___ אימו תשמח.",answer:"כדי ש",options:["כדי ש","כדי","מפני ש","רק"]},
+{cat:"צורת ההרגל",prompt:"כשהייתי ילד, אני ___ מבקר אצל סבא וסבתא כל יום שישי.",answer:"הייתי",options:["הייתי","היה","הייתה","היו"]},
+{cat:"צורת ההרגל",prompt:"בכל חג, סבא ___ נותן לנכדים ממתקים.",answer:"היה",options:["היה","הייתה","הייתי","היו"]},
+{cat:"צורת ההרגל",prompt:"בכל חג, סבתא ___ קוראת לנכדים סיפורים.",answer:"הייתה",options:["הייתה","היה","היו","היינו"]},
+{cat:"צורת ההרגל",prompt:"לפני כל חג, בני הדודים ___ מציירים כרטיסי ברכה.",answer:"היו",options:["היו","היה","הייתה","הייתי"]},
+{cat:"ציווי שלילי",prompt:"___ לרדיו בזמן השיעור.",answer:"אל תקשיב",options:["אל תקשיב","לא מקשיב","אל הקשבת","לא לשמוע"]},
+{cat:"ציווי שלילי",prompt:"___ לכל הבטחה!",answer:"אל תאמיני",options:["אל תאמיני","לא מאמינה","אל האמנת","לא להאמין"]},
+{cat:"ציווי שלילי",prompt:"___ את כל האורות בבית!",answer:"אל תדליקו",options:["אל תדליקו","לא מדליקים","אל הדלקתם","לא להדליק"]},
+{cat:"משפטי רצייה",prompt:"הוא רוצה שהספר ___ על הקוראים.",answer:"ישפיע",options:["ישפיע","משפיע","השפיע","להשפיע"]},
+{cat:"משפטי רצייה",prompt:"המורה דרשה שהתלמידים ___ לשיר.",answer:"יקשיבו",options:["יקשיבו","מקשיבים","הקשיבו","להקשיב"]},
+{cat:"משפטי רצייה",prompt:"אני מקווה שהספר שלי ___.",answer:"יצליח",options:["יצליח","מצליח","הצליח","להצליח"]}
+
+],
+classVerbQuestions:[
+{cat:"פעלים מהשיעור • עבר",prompt:"עבר • אני • להמציא",answer:"המצאתי",options:["המצאתי","המציא","המציאה","המציאו"]},
+{cat:"פעלים מהשיעור • עבר",prompt:"עבר • הוא • להמציא",answer:"המציא",options:["המציא","המצאתי","ממציא","ימציא"]},
+{cat:"פעלים מהשיעור • עבר",prompt:"עבר • הם • להמציא",answer:"המציאו",options:["המציאו","המציא","ממציאים","ימציאו"]},
+{cat:"פעלים מהשיעור • להזמין",prompt:"עתיד • אני • להזמין",answer:"אזמין",options:["אזמין","הזמנתי","מזמינה","יזמין"]},
+{cat:"פעלים מהשיעור • להתאים",prompt:"עתיד • אתה • להתאים",answer:"תתאים",options:["תתאים","התאמת","מתאים","יתאים"]},
+{cat:"פעלים מהשיעור • להרגיש",prompt:"עבר • את • להרגיש",answer:"הרגשת",options:["הרגשת","מרגישה","תרגישי","הרגיש"]},
+{cat:"פעלים מהשיעור • להשפיע",prompt:"עתיד • הוא • להשפיע",answer:"ישפיע",options:["ישפיע","השפיע","משפיע","תשפיע"]},
+{cat:"פעלים מהשיעור • להדליק",prompt:"עבר • היא • להדליק",answer:"הדליקה",options:["הדליקה","מדליקה","תדליק","הדליק"]},
+{cat:"פעלים מהשיעור • להצליח",prompt:"עתיד • אנחנו • להצליח",answer:"נצליח",options:["נצליח","הצלחנו","מצליחים","יצליחו"]},
+{cat:"פעלים מהשיעור • להעביר",prompt:"עתיד • אתן • להעביר",answer:"תעבירו",options:["תעבירו","העברתן","מעבירות","יעבירו"]},
+{cat:"פעלים מהשיעור • לשבת",prompt:"עתיד • אני • לשבת",answer:"אשב",options:["אשב","ישבתי","יושב","נשב"]},
+{cat:"פעלים מהשיעור • לשבת",prompt:"עתיד • את • לשבת",answer:"תשבי",options:["תשבי","תשב","ישבה","יושבת"]},
+{cat:"פעלים מהשיעור • לשבת",prompt:"עתיד • אנחנו • לשבת",answer:"נשב",options:["נשב","אשב","תשבו","ישבנו"]},
+{cat:"פעלים מהשיעור • לתת",prompt:"עתיד • אני • לתת",answer:"אתן",options:["אתן","נתתי","נותן","ניתן"]},
+{cat:"פעלים מהשיעור • לתת",prompt:"עתיד • את • לתת",answer:"תתני",options:["תתני","תיתן","נתת","נותנת"]},
+{cat:"פעלים מהשיעור • לקחת",prompt:"עתיד • אני • לקחת",answer:"אקח",options:["אקח","לקחתי","לוקח","ניקח"]},
+{cat:"פעלים מהשיעור • לקחת",prompt:"עתיד • אתם • לקחת",answer:"תיקחו",options:["תיקחו","לקחתם","לוקחים","ייקחו"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להפסיק?",answer:"הפסקה",options:["הפסקה","הקשבה","הפרעה","החלטה"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להקשיב?",answer:"הקשבה",options:["הקשבה","הפסקה","אמונה","הפתעה"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להפריע?",answer:"הפרעה",options:["הפרעה","הסבר","החלטה","הקשבה"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להאמין?",answer:"אמונה",options:["אמונה","החלטה","הפתעה","הפסקה"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להסביר?",answer:"הסבר",options:["הסבר","הפרעה","אמונה","החלטה"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להחליט?",answer:"החלטה",options:["החלטה","הפתעה","הקשבה","הסבר"]},
+{cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להפתיע?",answer:"הפתעה",options:["הפתעה","הפסקה","הפרעה","אמונה"]}
 ]};
