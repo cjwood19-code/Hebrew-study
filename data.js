@@ -236,7 +236,8 @@ opposites:[
 {prompt:"שמן",answer:"רזה"},
 {prompt:"רזה",answer:"שמן"},
 {prompt:"מצליח",answer:"נכשל"},
-{prompt:"נכשל",answer:"מצליח"},
+{prompt:"נכשל",answer:"מצליח"}
+],
 grammarQuestions:[
 {cat:"הפועל להיות • עבר",prompt:"אני ___ בעיר אתמול.",answer:"הייתי",options:["הייתי","היה","הייתה","היו"]},
 {cat:"הפועל להיות • עבר",prompt:"הוא ___ בבית אתמול.",answer:"היה",options:["היה","הייתי","הייתה","היו"]},
