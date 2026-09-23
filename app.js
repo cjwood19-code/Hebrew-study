@@ -132,7 +132,7 @@ function answerSentenceWord(btn,opt){
   Array.from($("choiceArea").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(current.correctWord))b.classList.add("correct")});
   if(!ok)btn.classList.add("wrong");
   $("prompt").textContent=current.fullHebrew;$("prompt").dir="rtl";
-  showFeedback(ok,ok?"Part 1 correct. Now choose the translation.":"The missing word was "+current.correctWord+". Now choose the translation.");
+  showFeedback(ok,ok?"Part 1 correct. Now choose the translation.":"The missing word was "+answerWithEnglish(current.correctWord,current)+". Now choose the translation.");
   renderSentenceTranslationPart()
 }
 function renderSentenceTranslationPart(){
@@ -145,12 +145,54 @@ function answerSentenceTranslation(btn,opt){
   Array.from($("choiceArea").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(current.translation))b.classList.add("correct")});
   if(!ok)btn.classList.add("wrong");
   let overall=!!current.part1Correct&&ok;
-  showFeedback(overall,overall?"Both parts correct.":(!current.part1Correct&&!ok?"Both parts need review. Correct translation: "+current.translation:!current.part1Correct?"Translation correct; review the missing Hebrew word.":"Word correct; correct translation: "+current.translation));
+  showFeedback(overall,overall?"Both parts correct.":(!current.part1Correct&&!ok?"Both parts need review. Correct translation: "+current.translation:!current.part1Correct?"Translation correct; review the missing Hebrew word: "+answerWithEnglish(current.correctWord,current)+".":"Word correct; correct English translation: "+current.translation));
   record(overall)
 }
 function addTile(word){let b=document.createElement("button");b.className="tile";b.textContent=word;b.onclick=function(){tileAnswer.push(word);b.disabled=true;renderTileAnswer()};$("wordTiles").appendChild(b)}
 function renderTileAnswer(){$("answerLine").innerHTML="";tileAnswer.forEach(function(w){let s=document.createElement("span");s.className="answerPiece";s.textContent=w;$("answerLine").appendChild(s)})}
 function clearTiles(){tileAnswer=[];renderTileAnswer();Array.from($("wordTiles").children).forEach(function(b){b.disabled=false})}
+const answerEnglish={
+"כי":"because","לכן":"therefore / so","או":"or","וגם":"and also","אבל":"but","אם":"if","אז":"then","ואחר כך":"and afterward","לפני שאני":"before I","אחרי שאני":"after I","כשאני":"when I","אחרי שאנחנו":"after we","לפני שאנחנו":"before we","כדי":"in order to","כאשר":"when","משום ש":"because","מפני ש":"because","בגלל זה":"because of this / therefore","אך":"but / however","ואילו":"whereas","כדי ש":"so that",
+"ימין":"right","שמאל":"left","צפון":"north","דרום":"south","מזרח":"east","מערב":"west","ישן":"old","רע":"bad","גדול":"big / large","קטן":"small","חם":"hot","קר":"cold","מהר":"fast","לאט":"slowly","פתוח":"open","סגור":"closed","קרוב":"near / close","רחוק":"far","מוקדם":"early","מאוחר":"late","יש":"there is / there are","אין":"there is not / there are not","קצר":"short","ארוך":"long","קל":"easy / light","קשה":"difficult / hard","שמן":"fat / overweight","רזה":"thin","מצליח":"succeeds / successful","נכשל":"fails",
+"דבר שאפשר לקרוא":"something that can be read","אדם שמלמד":"a person who teaches","אדם שלומד":"a person who studies / learns","רהיט שיושבים עליו":"a piece of furniture you sit on","רהיט שישנים עליו":"a piece of furniture you sleep on","פתח בבית שרואים דרכו החוצה":"an opening in a house through which you can see outside","דבר שפותחים כדי להיכנס":"something you open in order to enter","מכשיר שמדברים איתו":"a device used for speaking / calling","מכשיר שעובדים ולומדים איתו":"a device used for work and study","קבוצה של הורים וילדים":"a group of parents and children","דבר שבודק מה למדנו":"something that checks what we learned","מקום שבו רופא מטפל באנשים":"a place where a doctor treats people","אדם שמלמד וחוקר באוניברסיטה":"a person who teaches and researches at a university","כרטיס ששולחים בחג או באירוע":"a card sent for a holiday or event","השנים שבהן אדם היה ילד":"the years when a person was a child","הרגשה כשרוצים להיות שוב עם אדם או במקום":"the feeling of wanting to be with a person or in a place again","הזמן שבו השמש עולה":"the time when the sun rises","הזמן שבו השמש יורדת":"the time when the sun sets","הרגשה של שמחה גדולה":"a feeling of great happiness",
+"הייתי":"I was","היה":"he was / there was","הייתה":"she was","היינו":"we were","הייתם":"you (plural) were","הייתן":"you (feminine plural) were","היו":"they were",
+"חדש":"new","חדשה":"new (feminine)","חדשים":"new (masculine plural)","חדשות":"new (feminine plural)","חרוץ":"diligent / hardworking","חרוצה":"diligent / hardworking (feminine)","חרוצים":"diligent / hardworking (masculine plural)","חרוצות":"diligent / hardworking (feminine plural)","קצרה":"short (feminine)","קצרים":"short (masculine plural)","קצרות":"short (feminine plural)","גדולה":"big / large (feminine)","גדולים":"big / large (masculine plural)","גדולות":"big / large (feminine plural)","החדש":"the new (masculine)","החדשה":"the new (feminine)","הגדול":"the big / large (masculine)","הגדולה":"the big / large (feminine)",
+"אל תקשיב":"do not listen (masculine singular)","אל תאמיני":"do not believe (feminine singular)","אל תדליקו":"do not turn on / light (plural)",
+"כתיבה":"writing","קריאה":"reading","אכילה":"eating","שתייה":"drinking","הליכה":"walking","למידה":"learning / studying","עבודה":"work / working","מגורים":"residence / living","נסיעה":"travel / traveling","קנייה":"buying / purchase","ראייה":"seeing / sight","עשייה":"doing / making","הפסקה":"stopping / a break","הקשבה":"listening","הפרעה":"interruption / disturbance","אמונה":"belief / faith","הסבר":"explanation","החלטה":"decision","הפתעה":"surprise","כישלון":"failure"
+};
+const pronounEnglish={"אני":"I","אתה":"you (masculine singular)","את":"you (feminine singular)","הוא":"he","היא":"she","אנחנו":"we","אתם":"you (masculine plural)","אתן":"you (feminine plural)","הם":"they","הן":"they"};
+const tenseEnglish={present:"present",past:"past",future:"future"};
+function baseVerbEnglish(inf){let d=verbDefinitions.find(function(x){return norm(x.he)===norm(inf)});return d?d.en:null}
+function verbFormEnglish(value,q){
+  let matchesFound=[];
+  verbs.forEach(function(v){["present","past","future"].forEach(function(t){Object.keys(v[t]||{}).forEach(function(p){if(norm(v[t][p])===norm(value))matchesFound.push({v:v,tense:t,pron:p})})})});
+  if(matchesFound.length){
+    let hit=matchesFound.find(function(x){return q&&q.prompt&&q.prompt.includes(x.v.infinitive)})||matchesFound[0],base=baseVerbEnglish(hit.v.infinitive);
+    if(base)return base+" ("+tenseEnglish[hit.tense]+", "+(pronounEnglish[hit.pron]||hit.pron)+")"
+  }
+  if(q&&q.prompt){
+    let inf=verbDefinitions.find(function(x){return q.prompt.includes(x.he)});
+    if(inf){
+      let t=q.prompt.includes("עבר")?"past":q.prompt.includes("עתיד")?"future":q.prompt.includes("הווה")?"present":null;
+      let p=Object.keys(pronounEnglish).find(function(k){return q.prompt.includes("• "+k+" •")});
+      return inf.en+(t||p?" ("+[t,p?pronounEnglish[p]:null].filter(Boolean).join(", ")+")":"")
+    }
+  }
+  return null
+}
+function englishMeaningFor(value,q){
+  if(!value||!/[\u0590-\u05FF]/.test(value))return null;
+  if(q&&q.item&&norm(value)===norm(q.item.he))return q.item.en;
+  if(answerEnglish[value])return answerEnglish[value];
+  let vd=verbDefinitions.find(function(x){return norm(x.he)===norm(value)});if(vd)return vd.en;
+  let action=verbs.find(function(v){return v.actionNoun&&norm(v.actionNoun)===norm(value)});if(action){let b=baseVerbEnglish(action.infinitive);if(b)return "action noun: "+b.replace(/^to\s+/,"")}
+  let vf=verbFormEnglish(value,q);if(vf)return vf;
+  let vv=vocab.find(function(x){return norm(x.he)===norm(value)});if(vv)return vv.en;
+  return null
+}
+function answerWithEnglish(value,q){
+  let en=englishMeaningFor(value,q);return en?value+" — "+en:value
+}
 function showFeedback(ok,msg){let f=$("feedback");f.textContent=msg;f.className="feedback "+(ok?"good":"bad")}
 function record(ok){
   if(locked)return;locked=true;let isTest=state.session&&state.session.isTest;
@@ -159,12 +201,12 @@ function record(ok){
   if(isTest){if(ok)clearRememberedTestMiss(current);else rememberTestMiss(current,current._testLevel,state.session.testBlockEnd)}
   save();renderHeader();$("nextBtn").textContent=state.session.answered>=sessionLength()?"Finish":"Next";$("nextBtn").classList.remove("hidden")
 }
-function answerMC(btn,opt){if(locked)return;let ok=norm(opt)===norm(current.correct);Array.from(document.querySelectorAll(".choice")).forEach(function(b){if(norm(b.textContent)===norm(current.correct))b.classList.add("correct")});if(!ok)btn.classList.add("wrong");showFeedback(ok,ok?"Correct.":"Correct answer: "+current.correct);record(ok)}
+function answerMC(btn,opt){if(locked)return;let ok=norm(opt)===norm(current.correct);Array.from(document.querySelectorAll(".choice")).forEach(function(b){if(norm(b.textContent)===norm(current.correct))b.classList.add("correct")});if(!ok)btn.classList.add("wrong");showFeedback(ok,ok?"Correct.":"Correct answer: "+answerWithEnglish(current.correct,current));record(ok)}
 function englishMatch(a,c){let aa=norm(a);if(!aa)return false;let parts=c.split("/").map(norm);return parts.some(function(p){return aa===p||aa.includes(p)||p.includes(aa)})}
-function checkTyped(){if(locked)return;let a=$("answerInput").value;if(!norm(a)){showFeedback(false,"No answer entered. Correct answer: "+current.correct);record(false);return}let ok=current.type==="typedEn"?englishMatch(a,current.correct):norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct answer: "+current.correct);record(ok)}
-function checkTiles(){if(locked)return;let a=tileAnswer.join(" "),ok=norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct sentence: "+current.correct);record(ok)}
+function checkTyped(){if(locked)return;let a=$("answerInput").value;if(!norm(a)){showFeedback(false,"No answer entered. Correct answer: "+answerWithEnglish(current.correct,current));record(false);return}let ok=current.type==="typedEn"?englishMatch(a,current.correct):norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct answer: "+answerWithEnglish(current.correct,current));record(ok)}
+function checkTiles(){if(locked)return;let a=tileAnswer.join(" "),ok=norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct sentence: "+current.correct+" — "+current.prompt);record(ok)}
 function revealHand(){if(locked)return;$("revealedAnswer").textContent=current.correct;$("selfGrade").classList.remove("hidden")}
-function gradeHand(ok){if(locked)return;showFeedback(ok,ok?"Marked correct.":"Added to your review list.");record(ok)}
+function gradeHand(ok){if(locked)return;showFeedback(ok,ok?"Marked correct.":"Correct answer: "+answerWithEnglish(current.correct,current)+". Added to your review list.");record(ok)}
 function showSessionComplete(msg,buttonLabel){
   $("message").textContent=msg;$("message").classList.remove("hidden");
   $("quizCard").innerHTML='<div style="text-align:center"><h2>Session complete</h2><p>'+msg+'</p><button class="primary" id="newSessionBtn">'+buttonLabel+'</button></div>';
@@ -241,8 +283,8 @@ function answerSprint(btn,opt){
   if(!sprint)return;
   let q=sprint.current,ok=norm(opt)===norm(q.correct);sprint.attempted++;if(ok)sprint.correct++;
   Array.from($("sprintChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(q.correct))b.classList.add("correct")});
-  if(!ok)btn.classList.add("wrong");updateSprintStats();
-  setTimeout(function(){if(sprint&&sprint.seconds>0)nextSprintQuestion()},220)
+  if(!ok){btn.classList.add("wrong");$("sprintInstruction").textContent="Correct: "+answerWithEnglish(q.correct,q)}else $("sprintInstruction").textContent="Correct.";updateSprintStats();
+  setTimeout(function(){if(sprint&&sprint.seconds>0)nextSprintQuestion()},ok?220:950)
 }
 function startSprint(minutes){
   if(sprint)return;
