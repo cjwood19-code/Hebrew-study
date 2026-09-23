@@ -23,6 +23,29 @@ if(!state.runningAccuracy){
   if(state.session&&state.session.answered){attempted+=state.session.answered;correct+=state.session.correct||0}
   state.runningAccuracy={attempted:attempted,correct:correct};save()
 }
+if(!state.levelAccuracy){
+  state.levelAccuracy={};
+  (state.history||[]).forEach(function(h){
+    if(!Number.isFinite(h.level)||!Number.isFinite(h.score))return;
+    let k=String(h.level),rec=state.levelAccuracy[k]||{attempted:0,correct:0};
+    rec.attempted+=SESSION_LEN;rec.correct+=Math.round((h.score/100)*SESSION_LEN);state.levelAccuracy[k]=rec
+  });
+  save()
+}
+if(!state.masteryReview){
+  state.masteryReview={};
+  Object.keys(state.missed||{}).forEach(function(he){
+    if((state.missed[he]||0)<=0)return;
+    let v=vocab.find(function(x){return x.he===he});if(!v)return;
+    let q={type:"typedHe",item:v,prompt:v.en,correct:v.he};
+    state.masteryReview["vocab:"+he]={key:"vocab:"+he,level:Math.min(state.level||1,5),correctCount:0,question:q,date:new Date().toISOString()}
+  });
+  ((state.blockTests&&state.blockTests.missed)||[]).forEach(function(rec){
+    if(!rec||!rec.question)return;let q=rec.question,key=masteryKey(q);
+    if(!state.masteryReview[key])state.masteryReview[key]={key:key,level:rec.level||state.level||1,correctCount:0,question:cleanQuestionForMemory(q),date:rec.date||new Date().toISOString()}
+  });
+  save()
+}
 function norm(s){return(s||"").normalize("NFKD").replace(/[\u0591-\u05C7]/g,"").replace(/[.,!?;:'"״׳]/g,"").replace(/\s+/g," ").trim().toLowerCase()}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function rand(a){return a[Math.floor(Math.random()*a.length)]}
@@ -57,8 +80,70 @@ if(r<.40&&v.actionNoun){let reverse=Math.random()<.35,correct=reverse?v.infiniti
 let tense=rand(["present","past","future"]),pron=rand(["אני","אתה","את","הוא","היא","אנחנו","אתם","הם"]),correct=v[tense][pron],label=tense==="present"?"הווה":tense==="past"?"עבר":"עתיד",prompt=label+" • "+pron+" • "+v.infinitive;let pool=[];verbs.forEach(function(x){if(x[tense]&&x[tense][pron]&&x[tense][pron]!==correct)pool.push(x[tense][pron])});Object.keys(v[tense]).forEach(function(p){if(v[tense][p]!==correct)pool.push(v[tense][p])});let opts=[correct];shuffle(pool).forEach(function(x){if(opts.length<4&&!opts.includes(x))opts.push(x)});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • "+label,prompt:prompt,correct:correct,options:typed?null:shuffle(opts)}}
 function makeQuestion(levelOverride){let L=levelOverride||state.level,item=pickItem();if(L===12&&state.blockTests.missed.length&&Math.random()<.16){let rq=reviveTestMiss(rand(state.blockTests.missed));if(rq)return rq}if(L===1)return mc(item,false);if(L===2)return mc(item,true);if(L===3)return mc(item,Math.random()<.5);if(L===4)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(L===5)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(L===6)return sentenceQuestion();if(L===7)return matchQuestion();if(L===8)return Math.random()<.52?connectorQuestion():grammarQuestion();if(L===9)return verbQuestion(Math.random()<.45);if(L===10){let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}if(L===11)return{type:"hand",item:item,prompt:item.en,correct:item.he};let r=Math.random();if(r<.10)return mc(item,Math.random()<.5);if(r<.18)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(r<.26)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(r<.38)return sentenceQuestion();if(r<.48)return matchQuestion();if(r<.56)return connectorQuestion();if(r<.64)return grammarQuestion();if(r<.82)return verbQuestion(Math.random()<.5);if(r<.90)return{type:"hand",item:item,prompt:item.en,correct:item.he};let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}
 function questionSignature(q){return [q.type,q.prompt,q.correct].join("||")}
+function masteryKey(q){
+  if(q&&q.item&&q.item.he)return "vocab:"+q.item.he;
+  if(q&&q.fullHebrew)return "sentence:"+q.fullHebrew;
+  if(q&&q.type==="tiles"&&q.correct)return "sentence:"+q.correct;
+  if(q&&q.prompt)return (q.type||"question")+":"+q.prompt+"||"+(q.correct||"");
+  return questionSignature(q||{})
+}
+function masteryItems(){return Object.values(state.masteryReview||{}).filter(function(x){return (x.correctCount||0)<10})}
+function masteryReviewCount(){return masteryItems().length}
+function questionLevel(q){
+  if(q&&Number.isFinite(q._testLevel))return q._testLevel;
+  if(q&&Number.isFinite(q._reviewLevel))return q._reviewLevel;
+  return state.session&&Number.isFinite(state.session.level)?state.session.level:state.level
+}
+function updateLevelAccuracy(level,ok){
+  let k=String(level||state.level),rec=state.levelAccuracy[k]||{attempted:0,correct:0};
+  rec.attempted++;if(ok)rec.correct++;state.levelAccuracy[k]=rec
+}
+function levelAccuracyPercent(level){
+  let rec=state.levelAccuracy[String(level)]||{attempted:0,correct:0};
+  return rec.attempted?Math.round(rec.correct/rec.attempted*100):null
+}
+function blockAccuracyPercent(blockEnd){
+  let attempted=0,correct=0,start=blockEnd-4;
+  for(let l=start;l<=blockEnd;l++){let r=state.levelAccuracy[String(l)];if(r){attempted+=r.attempted||0;correct+=r.correct||0}}
+  return attempted?Math.round(correct/attempted*100):null
+}
+function updateMastery(q,ok,level){
+  let key=masteryKey(q),rec=state.masteryReview[key];
+  if(!ok){
+    if(!rec)state.masteryReview[key]={key:key,level:level||state.level,correctCount:0,question:cleanQuestionForMemory(q),date:new Date().toISOString()};
+    else{rec.question=cleanQuestionForMemory(q);rec.level=rec.level||level||state.level;rec.date=new Date().toISOString()}
+    return false
+  }
+  if(!rec)return false;
+  rec.correctCount=(rec.correctCount||0)+1;
+  if(rec.correctCount>=10){
+    delete state.masteryReview[key];
+    if(q&&q.item&&q.item.he)state.missed[q.item.he]=0;
+    if(state.blockTests&&state.blockTests.missed)state.blockTests.missed=state.blockTests.missed.filter(function(x){return !x.question||masteryKey(x.question)!==key});
+    return true
+  }
+  return false
+}
+function reviveMasteryReview(rec){
+  if(!rec||!rec.question)return null;
+  let q=JSON.parse(JSON.stringify(rec.question));q.part1Correct=null;q._reviewLevel=rec.level||state.level;
+  if(q.options)q.options=shuffle(q.options);if(q.wordOptions)q.wordOptions=shuffle(q.wordOptions);if(q.translationOptions)q.translationOptions=shuffle(q.translationOptions);if(q.words)q.words=shuffle(q.words);
+  return q
+}
+function pickMasteryReviewQuestion(seen){
+  let pool=shuffle(masteryItems()).filter(function(rec){let q=rec.question;return q&&!seen.includes(questionSignature(q))});
+  return pool.length?reviveMasteryReview(pool[0]):null
+}
+function masteryLabel(rec){
+  let q=rec.question||{},base="";
+  if(q.item)base=q.item.he+" — "+q.item.en;
+  else if(q.fullHebrew)base=q.fullHebrew+" — "+(q.translation||"sentence");
+  else if(q.correct)base=answerWithEnglish(q.correct,q);
+  else base=q.prompt||"Review item";
+  return base+" · "+(rec.correctCount||0)+"/10"
+}
 function cleanQuestionForMemory(q){
-  let c=JSON.parse(JSON.stringify(q));delete c._testLevel;c.part1Correct=null;
+  let c=JSON.parse(JSON.stringify(q));delete c._testLevel;delete c._reviewLevel;c.part1Correct=null;
   return c
 }
 function reviveTestMiss(rec){
@@ -98,7 +183,11 @@ function makeUniqueQuestion(){
         q=reviveTestMiss(remembered);state.session.rememberedUsed.push(remembered.sig)
       }else q=makeQuestion(levelOverride);
       q._testLevel=levelOverride
-    }else q=makeQuestion();
+    }else{
+      let useReview=masteryReviewCount()&&(state.focus?Math.random()<.72:Math.random()<.28);
+      q=useReview?pickMasteryReviewQuestion(state.session.seen):null;
+      if(!q)q=makeQuestion()
+    }
     sig=questionSignature(q);
     if(!state.session.seen.includes(sig))break
   }
@@ -115,26 +204,34 @@ function startSession(){
   state.session={answered:0,correct:0,level:state.level,seen:[],rememberedUsed:[]};save();renderHeader();nextQuestion()
 }
 function renderHeader(){
-  let s=state.session||{answered:0,correct:0},len=sessionLength(),isTest=!!s.isTest;
+  let s=state.session||{answered:0,correct:0},len=sessionLength(),isTest=!!s.isTest,levelPct=null;
   if(isTest){
     let startLevel=s.testBlockEnd-4;
     $("levelBadge").textContent="Block Test";
     $("modeLabel").textContent="Levels "+startLevel+"–"+s.testBlockEnd+" • 85% required";
     $("best").textContent=state.blockTests.best[String(s.testBlockEnd)]!==undefined?state.blockTests.best[String(s.testBlockEnd)]+"%":"—";
-    $("reviewCount").textContent=state.blockTests.missed.length
+    levelPct=blockAccuracyPercent(s.testBlockEnd);$("levelAccuracyLabel").textContent="Block accuracy"
   }else if(!state.session&&state.blockTestDue){
-    $("levelBadge").textContent="Test Due";$("modeLabel").textContent="20-question checkpoint required";$("best").textContent="—";$("reviewCount").textContent=state.blockTests.missed.length
+    $("levelBadge").textContent="Test Due";$("modeLabel").textContent="20-question checkpoint required";$("best").textContent="—";
+    levelPct=levelAccuracyPercent(state.level);$("levelAccuracyLabel").textContent="Level accuracy"
   }else{
     $("levelBadge").textContent="Level "+state.level;$("modeLabel").textContent=levelNames[state.level];
-    $("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";$("reviewCount").textContent=reviewWords().length
+    $("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";
+    levelPct=levelAccuracyPercent(state.level);$("levelAccuracyLabel").textContent="Level accuracy"
   }
+  $("reviewCount").textContent=masteryReviewCount();
+  $("levelAccuracy").textContent=levelPct===null?"—":levelPct+"%";
   $("sessionCount").textContent=(isTest?"Test question ":"Question ")+Math.min(s.answered+1,len)+" of "+len;
   $("score").textContent=s.correct+" / "+s.answered;
   let ra=state.runningAccuracy||{correct:0,attempted:0};
   $("accuracy").textContent=(ra.attempted?Math.round(ra.correct/ra.attempted*100):0)+"%";
   $("progressBar").style.width=Math.min(100,s.answered/len*100)+"%";renderReview();renderSprintDue()
 }
-function renderReview(){let box=$("reviewList"),r=reviewWords().slice(0,24);box.innerHTML="";if(!r.length){box.innerHTML='<span class="empty">No missed words yet.</span>';return}r.forEach(function(x){let v=vocab.find(function(z){return z.he===x[0]}),e=document.createElement("span");e.className="reviewChip";e.dir="rtl";e.textContent=v?v.he+" — "+v.en:x[0];box.appendChild(e)})}
+function renderReview(){
+  let box=$("reviewList"),items=masteryItems().sort(function(a,b){return (a.correctCount||0)-(b.correctCount||0)}).slice(0,24);box.innerHTML="";
+  if(!items.length){box.innerHTML='<span class="empty">No items awaiting mastery.</span>';return}
+  items.forEach(function(rec){let e=document.createElement("span");e.className="reviewChip";e.dir="auto";e.textContent=masteryLabel(rec);box.appendChild(e)})
+}
 function hideAll(){["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
 function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
 function renderSentenceWordPart(){
@@ -210,10 +307,12 @@ function answerWithEnglish(value,q){
 }
 function showFeedback(ok,msg){let f=$("feedback");f.textContent=msg;f.className="feedback "+(ok?"good":"bad")}
 function record(ok){
-  if(locked)return;locked=true;let isTest=state.session&&state.session.isTest;
-  state.session.answered++;if(ok)state.session.correct++;state.runningAccuracy.attempted++;if(ok)state.runningAccuracy.correct++;
+  if(locked)return;locked=true;let isTest=state.session&&state.session.isTest,sourceLevel=questionLevel(current);
+  state.session.answered++;if(ok)state.session.correct++;
+  state.runningAccuracy.attempted++;if(ok)state.runningAccuracy.correct++;
+  updateLevelAccuracy(sourceLevel,ok);updateMastery(current,ok,sourceLevel);
   if(current.item){let k=current.item.he;if(ok)state.missed[k]=Math.max(0,(state.missed[k]||0)-1);else state.missed[k]=(state.missed[k]||0)+1}
-  if(isTest){if(ok)clearRememberedTestMiss(current);else rememberTestMiss(current,current._testLevel,state.session.testBlockEnd)}
+  if(isTest&&!ok)rememberTestMiss(current,current._testLevel,state.session.testBlockEnd);
   save();renderHeader();$("nextBtn").textContent=state.session.answered>=sessionLength()?"Finish":"Next";$("nextBtn").classList.remove("hidden")
 }
 function answerMC(btn,opt){if(locked)return;let ok=norm(opt)===norm(current.correct);Array.from(document.querySelectorAll(".choice")).forEach(function(b){if(norm(b.textContent)===norm(current.correct))b.classList.add("correct")});if(!ok)btn.classList.add("wrong");showFeedback(ok,ok?"Correct.":"Correct answer: "+answerWithEnglish(current.correct,current));record(ok)}
@@ -263,7 +362,7 @@ function finishSession(){
   }
   state.session=null;save();showSessionComplete(msg,buttonLabel)
 }
-$("checkTypedBtn").onclick=checkTyped;$("checkTilesBtn").onclick=checkTiles;$("clearTilesBtn").onclick=clearTiles;$("revealBtn").onclick=revealHand;$("missedBtn").onclick=function(){gradeHand(false)};$("correctBtn").onclick=function(){gradeHand(true)};$("nextBtn").onclick=nextQuestion;$("resetBtn").onclick=function(){if(confirm("Reset all scores, levels, and missed-word history?")){localStorage.removeItem("hebrewTrainerState");location.reload()}};$("practiceMissedBtn").onclick=function(){if(reviewWords().length){state.focus=true;save();alert("Focused review is on. Missed words will be heavily weighted in the next session.")}else alert("You have no missed words yet.")};
+$("checkTypedBtn").onclick=checkTyped;$("checkTilesBtn").onclick=checkTiles;$("clearTilesBtn").onclick=clearTiles;$("revealBtn").onclick=revealHand;$("missedBtn").onclick=function(){gradeHand(false)};$("correctBtn").onclick=function(){gradeHand(true)};$("nextBtn").onclick=nextQuestion;$("resetBtn").onclick=function(){if(confirm("Reset all scores, levels, and missed-word history?")){localStorage.removeItem("hebrewTrainerState");location.reload()}};$("practiceMissedBtn").onclick=function(){if(masteryReviewCount()){state.focus=true;save();alert("Focused review is on. Items awaiting mastery will be heavily weighted until they reach 10 correct answers.")}else alert("You have no items awaiting mastery.")};
 function renderSprintDue(){
   let badge=$("sprintDueLabel");if(!badge)return;
   badge.classList.toggle("hidden",!state.sprintDue);
