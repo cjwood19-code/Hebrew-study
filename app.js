@@ -10,6 +10,19 @@ if(!state.blockTests.passed)state.blockTests.passed={};if(!state.blockTests.best
 if(state.blockTestDue===undefined)state.blockTestDue=null;
 if(!state.blockTests.migrated){if(state.level>5)state.blockTests.passed["5"]=true;if(state.level>10)state.blockTests.passed["10"]=true;state.blockTests.migrated=true;save()}
 if(!state.appVersion){if(state.level>=7){state.level=Math.min(12,state.level+3);state.session=null}state.appVersion=2;save()}
+if(!state.runningAccuracy){
+  let attempted=0,correct=0;
+  (state.history||[]).forEach(function(h){
+    if(Number.isFinite(h.score)){attempted+=SESSION_LEN;correct+=Math.round((h.score/100)*SESSION_LEN)}
+  });
+  ((state.blockTests&&state.blockTests.history)||[]).forEach(function(h){
+    let total=Number.isFinite(h.total)?h.total:TEST_LEN;
+    attempted+=total;
+    correct+=Number.isFinite(h.correct)?h.correct:Math.round(((h.score||0)/100)*total)
+  });
+  if(state.session&&state.session.answered){attempted+=state.session.answered;correct+=state.session.correct||0}
+  state.runningAccuracy={attempted:attempted,correct:correct};save()
+}
 function norm(s){return(s||"").normalize("NFKD").replace(/[\u0591-\u05C7]/g,"").replace(/[.,!?;:'"״׳]/g,"").replace(/\s+/g," ").trim().toLowerCase()}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function rand(a){return a[Math.floor(Math.random()*a.length)]}
@@ -116,7 +129,9 @@ function renderHeader(){
     $("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";$("reviewCount").textContent=reviewWords().length
   }
   $("sessionCount").textContent=(isTest?"Test question ":"Question ")+Math.min(s.answered+1,len)+" of "+len;
-  $("score").textContent=s.correct+" / "+s.answered;$("accuracy").textContent=(s.answered?Math.round(s.correct/s.answered*100):0)+"%";
+  $("score").textContent=s.correct+" / "+s.answered;
+  let ra=state.runningAccuracy||{correct:0,attempted:0};
+  $("accuracy").textContent=(ra.attempted?Math.round(ra.correct/ra.attempted*100):0)+"%";
   $("progressBar").style.width=Math.min(100,s.answered/len*100)+"%";renderReview();renderSprintDue()
 }
 function renderReview(){let box=$("reviewList"),r=reviewWords().slice(0,24);box.innerHTML="";if(!r.length){box.innerHTML='<span class="empty">No missed words yet.</span>';return}r.forEach(function(x){let v=vocab.find(function(z){return z.he===x[0]}),e=document.createElement("span");e.className="reviewChip";e.dir="rtl";e.textContent=v?v.he+" — "+v.en:x[0];box.appendChild(e)})}
@@ -196,7 +211,7 @@ function answerWithEnglish(value,q){
 function showFeedback(ok,msg){let f=$("feedback");f.textContent=msg;f.className="feedback "+(ok?"good":"bad")}
 function record(ok){
   if(locked)return;locked=true;let isTest=state.session&&state.session.isTest;
-  state.session.answered++;if(ok)state.session.correct++;
+  state.session.answered++;if(ok)state.session.correct++;state.runningAccuracy.attempted++;if(ok)state.runningAccuracy.correct++;
   if(current.item){let k=current.item.he;if(ok)state.missed[k]=Math.max(0,(state.missed[k]||0)-1);else state.missed[k]=(state.missed[k]||0)+1}
   if(isTest){if(ok)clearRememberedTestMiss(current);else rememberTestMiss(current,current._testLevel,state.session.testBlockEnd)}
   save();renderHeader();$("nextBtn").textContent=state.session.answered>=sessionLength()?"Finish":"Next";$("nextBtn").classList.remove("hidden")
