@@ -7,7 +7,7 @@ main{max-width:850px;margin:auto;padding:16px 14px 40px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 3px 12px rgba(0,0,0,.045)}
 .statusTop,.sectionTitle,.buttonRow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .badge{display:inline-block;background:#e8eff4;color:var(--navy);font-weight:800;border-radius:999px;padding:7px 11px}.mode{margin-left:9px;color:var(--muted);font-size:13px}.sessionCount{color:var(--muted);font-size:13px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.stats div{background:#eef3f6;border-radius:13px;padding:10px}.stats span{display:block;color:var(--muted);font-size:12px}.stats b{font-size:19px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.stats div{background:#eef3f6;border-radius:13px;padding:10px}.stats span{display:block;color:var(--muted);font-size:12px}.stats b{font-size:19px}
 .progress{height:9px;background:#dfe6eb;border-radius:99px;overflow:hidden;margin-top:12px}.progress div{height:100%;width:0;background:var(--blue)}
 .category{text-align:center;color:var(--muted);font-size:13px}.prompt{text-align:center;font-size:32px;font-weight:800;margin:18px 0 6px;direction:auto}.instruction{text-align:center;color:var(--muted);margin-bottom:15px}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:11px}.choice,button{font:inherit;border:0;border-radius:14px;padding:14px;min-height:50px;cursor:pointer}.choice{background:#edf2f5;border:2px solid transparent;font-size:18px}.choice.correct{background:#e8f5e9;border-color:var(--green)}.choice.wrong{background:#fdebea;border-color:var(--red)}
