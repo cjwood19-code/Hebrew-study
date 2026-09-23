@@ -59,6 +59,60 @@
     <div id="sprintResult" class="feedback hidden"></div>
   </section>
 
+  <section id="scriptPracticeCard" class="card">
+    <div class="sectionTitle">
+      <div>
+        <h2>Optional Script Practice</h2>
+        <p class="compact">Match each printed Hebrew letter to its handwritten script form. This practice is separate from your scored lesson rotation.</p>
+      </div>
+      <span class="badge">Not graded</span>
+    </div>
+
+    <div id="scriptSetup" class="buttonRow scriptSetup">
+      <button id="startScriptBtn" class="secondary">Start 12-letter match</button>
+      <button id="toggleScriptRefBtn" class="secondary">Show script reference</button>
+    </div>
+
+    <div id="scriptResult" class="feedback hidden"></div>
+    <div id="scriptReference" class="scriptReference hidden"></div>
+
+    <div id="scriptPanel" class="hidden">
+      <div class="sprintStats">
+        <div><span>Letter</span><b id="scriptProgress">1 / 12</b></div>
+        <div><span>Correct</span><b id="scriptScore">0 / 0</b></div>
+      </div>
+
+      <div class="scriptPromptWrap">
+        <div class="category">Printed letter</div>
+        <div id="scriptBlockLetter" class="scriptBlockLetter" dir="rtl">א</div>
+        <div id="scriptLetterName" class="instruction"></div>
+      </div>
+
+      <div id="scriptInstruction" class="instruction">Choose the matching handwritten script form.</div>
+      <div id="scriptChoices" class="scriptChoices"></div>
+      <div id="scriptFeedback" class="feedback hidden"></div>
+
+      <div id="scriptCopyArea" class="scriptCopyArea hidden">
+        <div class="scriptCopyHeader">
+          <div>
+            <strong>Copy it with Apple Pencil</strong>
+            <div class="compact">Use the model, then write the letter in the box.</div>
+          </div>
+          <div id="scriptCorrectModel" class="scriptCorrectModel"></div>
+        </div>
+        <canvas id="scriptPad"></canvas>
+        <div class="buttonRow">
+          <button id="clearScriptPadBtn" class="secondary">Clear writing</button>
+          <button id="nextScriptBtn" class="primary">Next letter</button>
+        </div>
+      </div>
+
+      <button id="exitScriptBtn" class="secondary wide">Return to lesson</button>
+    </div>
+
+    <p class="scriptSource compact">Handwritten letter models are from the Wikimedia Commons “Handwritten Hebrew letters (SVG set).”</p>
+  </section>
+
   <section id="quizCard" class="card">
     <div id="category" class="category"></div>
     <div id="prompt" class="prompt"></div>
