@@ -1,9 +1,10 @@
-const D=window.TRAINER_DATA,vocab=D.vocab,sentences=D.sentences,verbs=D.verbs||[],connectors=D.connectors||[],matches=D.matches||[],opposites=D.opposites||[],grammarQuestions=D.grammarQuestions||[],classVerbQuestions=D.classVerbQuestions||[],SESSION_LEN=12,PASS=85;
+const D=window.TRAINER_DATA,vocab=D.vocab,sentences=D.sentences,verbs=D.verbs||[],connectors=D.connectors||[],matches=D.matches||[],opposites=D.opposites||[],grammarQuestions=D.grammarQuestions||[],classVerbQuestions=D.classVerbQuestions||[],verbDefinitions=D.verbDefinitions||[],SESSION_LEN=15,PASS=85;
 const levelNames=["","Hebrew → English","English → Hebrew","Mixed recognition","Typed English meaning","Typed Hebrew recall","Sentence reading & comprehension","Hebrew matching & opposites","Grammar in context: connectors, agreement & היה","Verbs: infinitive + שם פעולה + past/present/future","Sentence building","Apple Pencil handwriting","Mixed cumulative challenge"];
 let state=JSON.parse(localStorage.getItem("hebrewTrainerState")||"null")||{level:1,best:{},missed:{},history:[],session:null,focus:false};
-let current=null,locked=false,tileAnswer=[];
+let current=null,locked=false,tileAnswer=[],sprint=null,sprintTimer=null;
 const $=function(id){return document.getElementById(id)};
 function save(){localStorage.setItem("hebrewTrainerState",JSON.stringify(state))}
+if(state.sprintDue===undefined)state.sprintDue=false;if(!state.sprintHistory)state.sprintHistory=[];if(!state.sprintBest)state.sprintBest={};
 if(!state.appVersion){if(state.level>=7){state.level=Math.min(12,state.level+3);state.session=null}state.appVersion=2;save()}
 function norm(s){return(s||"").normalize("NFKD").replace(/[\u0591-\u05C7]/g,"").replace(/[.,!?;:'"״׳]/g,"").replace(/\s+/g," ").trim().toLowerCase()}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -27,11 +28,17 @@ function matchQuestion(){let useOpp=opposites.length&&Math.random()<.5,src=useOp
 function connectorQuestion(){let c=rand(connectors),opts=[c.answer];shuffle(connectors.filter(function(x){return x.answer!==c.answer})).forEach(function(x){if(opts.length<4&&!opts.includes(x.answer))opts.push(x.answer)});return{type:"connector",cat:"מילות קישור",prompt:c.sentence,correct:c.answer,options:shuffle(opts)}}
 function grammarQuestion(){let g=rand(grammarQuestions);return{type:"grammar",cat:g.cat||"דקדוק",prompt:g.prompt,correct:g.answer,options:shuffle(g.options||[g.answer])}}
 function classVerbQuestion(typed){let q=rand(classVerbQuestions);return{type:typed?"verbTyped":"verbMC",cat:q.cat||"פעלים מהשיעור",prompt:q.prompt,correct:q.answer,options:typed?null:shuffle(q.options)}}
-function verbQuestion(typed){if(classVerbQuestions.length&&Math.random()<.45)return classVerbQuestion(typed);let v=rand(verbs),r=Math.random();
+function verbDefinitionQuestion(){
+  let v=rand(verbDefinitions),reverse=Math.random()<.5,correct=reverse?v.he:v.en,prompt=reverse?v.en:v.he,pool=[];
+  verbDefinitions.filter(function(x){return x.he!==v.he}).forEach(function(x){pool.push(reverse?x.he:x.en)});
+  let opts=[correct];shuffle(pool).forEach(function(x){if(opts.length<4&&!opts.includes(x))opts.push(x)});
+  return{type:"verbDefMC",cat:"פעלים • משמעות",prompt:prompt,correct:correct,options:shuffle(opts)}
+}
+function verbQuestion(typed){let mix=Math.random();if(verbDefinitions.length&&mix<.35)return verbDefinitionQuestion();if(classVerbQuestions.length&&mix<.72)return classVerbQuestion(typed);let v=rand(verbs),r=Math.random();
 if(r<.18){let pres=v.present["הוא"],prompt="מה שם הפועל של: "+pres+" ?";return{type:typed?"verbTyped":"verbMC",cat:"פעלים • שם הפועל",prompt:prompt,correct:v.infinitive,options:typed?null:shuffle([v.infinitive,...shuffle(verbs.filter(function(x){return x.infinitive!==v.infinitive})).slice(0,3).map(function(x){return x.infinitive})])}}
 if(r<.40&&v.actionNoun){let reverse=Math.random()<.35,correct=reverse?v.infinitive:v.actionNoun,prompt=reverse?"מה שם הפועל של שם הפעולה: "+v.actionNoun+" ?":"מה שם הפעולה של: "+v.infinitive+" ?",pool=verbs.filter(function(x){return x.infinitive!==v.infinitive&&x.actionNoun}).map(function(x){return reverse?x.infinitive:x.actionNoun});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • שם פעולה",prompt:prompt,correct:correct,options:typed?null:shuffle([correct,...shuffle(pool).slice(0,3)])}}
 let tense=rand(["present","past","future"]),pron=rand(["אני","אתה","את","הוא","היא","אנחנו","אתם","הם"]),correct=v[tense][pron],label=tense==="present"?"הווה":tense==="past"?"עבר":"עתיד",prompt=label+" • "+pron+" • "+v.infinitive;let pool=[];verbs.forEach(function(x){if(x[tense]&&x[tense][pron]&&x[tense][pron]!==correct)pool.push(x[tense][pron])});Object.keys(v[tense]).forEach(function(p){if(v[tense][p]!==correct)pool.push(v[tense][p])});let opts=[correct];shuffle(pool).forEach(function(x){if(opts.length<4&&!opts.includes(x))opts.push(x)});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • "+label,prompt:prompt,correct:correct,options:typed?null:shuffle(opts)}}
-function makeQuestion(){let L=state.level,item=pickItem();if(L===1)return mc(item,false);if(L===2)return mc(item,true);if(L===3)return mc(item,Math.random()<.5);if(L===4)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(L===5)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(L===6)return sentenceQuestion();if(L===7)return matchQuestion();if(L===8)return Math.random()<.52?connectorQuestion():grammarQuestion();if(L===9)return verbQuestion(Math.random()<.45);if(L===10){let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}if(L===11)return{type:"hand",item:item,prompt:item.en,correct:item.he};let r=Math.random();if(r<.12)return mc(item,Math.random()<.5);if(r<.23)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(r<.34)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(r<.47)return sentenceQuestion();if(r<.58)return matchQuestion();if(r<.67)return connectorQuestion();if(r<.76)return grammarQuestion();if(r<.86)return verbQuestion(Math.random()<.5);if(r<.94)return{type:"hand",item:item,prompt:item.en,correct:item.he};let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}
+function makeQuestion(){let L=state.level,item=pickItem();if(L===1)return mc(item,false);if(L===2)return mc(item,true);if(L===3)return mc(item,Math.random()<.5);if(L===4)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(L===5)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(L===6)return sentenceQuestion();if(L===7)return matchQuestion();if(L===8)return Math.random()<.52?connectorQuestion():grammarQuestion();if(L===9)return verbQuestion(Math.random()<.45);if(L===10){let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}if(L===11)return{type:"hand",item:item,prompt:item.en,correct:item.he};let r=Math.random();if(r<.10)return mc(item,Math.random()<.5);if(r<.18)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(r<.26)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(r<.38)return sentenceQuestion();if(r<.48)return matchQuestion();if(r<.56)return connectorQuestion();if(r<.64)return grammarQuestion();if(r<.82)return verbQuestion(Math.random()<.5);if(r<.90)return{type:"hand",item:item,prompt:item.en,correct:item.he};let s=rand(practiceSentences());return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}}
 function questionSignature(q){return [q.type,q.prompt,q.correct].join("||")}
 function makeUniqueQuestion(){
   if(!state.session.seen)state.session.seen=[];
@@ -45,10 +52,10 @@ function makeUniqueQuestion(){
   return q;
 }
 function startSession(){state.session={answered:0,correct:0,level:state.level,seen:[]};save();renderHeader();nextQuestion()}
-function renderHeader(){let s=state.session||{answered:0,correct:0};$("levelBadge").textContent="Level "+state.level;$("modeLabel").textContent=levelNames[state.level];$("sessionCount").textContent="Question "+Math.min(s.answered+1,SESSION_LEN)+" of "+SESSION_LEN;$("score").textContent=s.correct+" / "+s.answered;$("accuracy").textContent=(s.answered?Math.round(s.correct/s.answered*100):0)+"%";$("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";$("reviewCount").textContent=reviewWords().length;$("progressBar").style.width=Math.min(100,s.answered/SESSION_LEN*100)+"%";renderReview()}
+function renderHeader(){let s=state.session||{answered:0,correct:0};$("levelBadge").textContent="Level "+state.level;$("modeLabel").textContent=levelNames[state.level];$("sessionCount").textContent="Question "+Math.min(s.answered+1,SESSION_LEN)+" of "+SESSION_LEN;$("score").textContent=s.correct+" / "+s.answered;$("accuracy").textContent=(s.answered?Math.round(s.correct/s.answered*100):0)+"%";$("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";$("reviewCount").textContent=reviewWords().length;$("progressBar").style.width=Math.min(100,s.answered/SESSION_LEN*100)+"%";renderReview();renderSprintDue()}
 function renderReview(){let box=$("reviewList"),r=reviewWords().slice(0,24);box.innerHTML="";if(!r.length){box.innerHTML='<span class="empty">No missed words yet.</span>';return}r.forEach(function(x){let v=vocab.find(function(z){return z.he===x[0]}),e=document.createElement("span");e.className="reviewChip";e.dir="rtl";e.textContent=v?v.he+" — "+v.en:x[0];box.appendChild(e)})}
 function hideAll(){["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
-function nextQuestion(){if(!state.session||state.session.answered>=SESSION_LEN){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(["mc","reading","match","connector","grammar","verbMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+function nextQuestion(){if(!state.session||state.session.answered>=SESSION_LEN){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
 function renderSentenceWordPart(){
   let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Choose the Hebrew word that completes the sentence.";
   current.wordOptions.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerSentenceWord(b,opt)};a.appendChild(b)})
@@ -86,8 +93,63 @@ function checkTyped(){if(locked)return;let a=$("answerInput").value;if(!norm(a))
 function checkTiles(){if(locked)return;let a=tileAnswer.join(" "),ok=norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct sentence: "+current.correct);record(ok)}
 function revealHand(){if(locked)return;$("revealedAnswer").textContent=current.correct;$("selfGrade").classList.remove("hidden")}
 function gradeHand(ok){if(locked)return;showFeedback(ok,ok?"Marked correct.":"Added to your review list.");record(ok)}
-function finishSession(){let s=state.session,p=Math.round(s.correct/s.answered*100),oldLevel=state.level;state.best[oldLevel]=Math.max(state.best[oldLevel]||0,p);state.history.push({date:new Date().toISOString(),level:oldLevel,score:p});let msg;if(p>PASS){state.focus=false;if(state.level<12){state.level++;msg=p+"% — advanced to Level "+state.level+": "+levelNames[state.level]+"."}else msg=p+"% — highest level cleared; cumulative practice continues."}else if(p>=70){state.focus=false;msg=p+"% — staying at Level "+state.level+". Missed words will appear more often."}else{state.focus=true;reviewWords().forEach(function(x){state.missed[x[0]]=x[1]+1});msg=p+"% — focused review at Level "+state.level+"."}state.session=null;save();$("message").textContent=msg;$("message").classList.remove("hidden");$("quizCard").innerHTML='<div style="text-align:center"><h2>Session complete</h2><p>'+msg+'</p><button class="primary" id="newSessionBtn">Start next session</button></div>';$("newSessionBtn").onclick=function(){location.reload()};renderHeader();window.scrollTo({top:0,behavior:"smooth"})}
+function finishSession(){let s=state.session,p=Math.round(s.correct/s.answered*100),oldLevel=state.level;state.best[oldLevel]=Math.max(state.best[oldLevel]||0,p);state.history.push({date:new Date().toISOString(),level:oldLevel,score:p});let msg;if(p>PASS){state.focus=false;if([3,6,9,12].includes(oldLevel))state.sprintDue=true;if(state.level<12){state.level++;msg=p+"% — advanced to Level "+state.level+": "+levelNames[state.level]+"."}else msg=p+"% — highest level cleared; cumulative practice continues."}else if(p>=70){state.focus=false;msg=p+"% — staying at Level "+state.level+". Missed words will appear more often."}else{state.focus=true;reviewWords().forEach(function(x){state.missed[x[0]]=x[1]+1});msg=p+"% — focused review at Level "+state.level+"."}state.session=null;save();$("message").textContent=msg;$("message").classList.remove("hidden");$("quizCard").innerHTML='<div style="text-align:center"><h2>Session complete</h2><p>'+msg+'</p><button class="primary" id="newSessionBtn">Start next session</button></div>';$("newSessionBtn").onclick=function(){location.reload()};renderHeader();window.scrollTo({top:0,behavior:"smooth"})}
 $("checkTypedBtn").onclick=checkTyped;$("checkTilesBtn").onclick=checkTiles;$("clearTilesBtn").onclick=clearTiles;$("revealBtn").onclick=revealHand;$("missedBtn").onclick=function(){gradeHand(false)};$("correctBtn").onclick=function(){gradeHand(true)};$("nextBtn").onclick=nextQuestion;$("resetBtn").onclick=function(){if(confirm("Reset all scores, levels, and missed-word history?")){localStorage.removeItem("hebrewTrainerState");location.reload()}};$("practiceMissedBtn").onclick=function(){if(reviewWords().length){state.focus=true;save();alert("Focused review is on. Missed words will be heavily weighted in the next session.")}else alert("You have no missed words yet.")};
+function renderSprintDue(){
+  let badge=$("sprintDueLabel");if(!badge)return;
+  badge.classList.toggle("hidden",!state.sprintDue);
+}
+function sprintQuestion(){
+  let q;
+  for(let tries=0;tries<40;tries++){
+    let r=Math.random();
+    if(r<.34&&verbDefinitions.length)q=verbDefinitionQuestion();
+    else if(r<.68&&classVerbQuestions.length){let c=rand(classVerbQuestions);q={type:"sprint",cat:c.cat||"פעלים",prompt:c.prompt,correct:c.answer,options:shuffle(c.options)}}
+    else{let item=rand(vocab),reverse=Math.random()<.35,m=mc(item,reverse);q={type:"sprint",cat:item.cat,prompt:m.prompt,correct:m.correct,options:m.options}}
+    let sig=[q.prompt,q.correct].join("||");
+    if(!sprint.seen.includes(sig)){sprint.seen.push(sig);return q}
+  }
+  return q
+}
+function updateSprintStats(){
+  if(!sprint)return;
+  let m=Math.floor(sprint.seconds/60),s=sprint.seconds%60;
+  $("sprintTime").textContent=m+":"+String(s).padStart(2,"0");
+  $("sprintScore").textContent=sprint.correct+" / "+sprint.attempted;
+}
+function nextSprintQuestion(){
+  if(!sprint||sprint.seconds<=0)return finishSprint();
+  let q=sprintQuestion();sprint.current=q;
+  $("sprintPrompt").textContent=q.prompt;$("sprintPrompt").dir=/[\u0590-\u05FF]/.test(q.prompt)?"rtl":"ltr";
+  $("sprintInstruction").textContent="Say the answer aloud first, then tap.";
+  let area=$("sprintChoices");area.innerHTML="";
+  q.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerSprint(b,opt)};area.appendChild(b)})
+}
+function answerSprint(btn,opt){
+  if(!sprint)return;
+  let q=sprint.current,ok=norm(opt)===norm(q.correct);sprint.attempted++;if(ok)sprint.correct++;
+  Array.from($("sprintChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(q.correct))b.classList.add("correct")});
+  if(!ok)btn.classList.add("wrong");updateSprintStats();
+  setTimeout(function(){if(sprint&&sprint.seconds>0)nextSprintQuestion()},220)
+}
+function startSprint(minutes){
+  if(sprint)return;
+  state.sprintDue=false;save();renderSprintDue();
+  sprint={minutes:minutes,seconds:minutes*60,attempted:0,correct:0,seen:[],current:null};
+  $("sprintSetup").classList.add("hidden");$("sprintPanel").classList.remove("hidden");$("sprintResult").classList.add("hidden");$("quizCard").classList.add("hidden");
+  updateSprintStats();nextSprintQuestion();
+  sprintTimer=setInterval(function(){if(!sprint)return;sprint.seconds--;updateSprintStats();if(sprint.seconds<=0)finishSprint()},1000)
+}
+function finishSprint(){
+  if(!sprint)return;
+  clearInterval(sprintTimer);sprintTimer=null;
+  let done=sprint,accuracy=done.attempted?Math.round(done.correct/done.attempted*100):0,rate=done.minutes?Math.round(done.correct/done.minutes):0;
+  state.sprintHistory.push({date:new Date().toISOString(),minutes:done.minutes,attempted:done.attempted,correct:done.correct,accuracy:accuracy});
+  let key=String(done.minutes),best=state.sprintBest[key]||0;state.sprintBest[key]=Math.max(best,done.correct);save();
+  sprint=null;$("sprintPanel").classList.add("hidden");$("sprintSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");
+  let result=$("sprintResult");result.textContent="Rapid review: "+done.correct+" correct out of "+done.attempted+" attempts ("+accuracy+"%). About "+rate+" correct per minute. No pass/fail — this does not affect your level.";result.classList.remove("hidden")
+}
+$("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=function(){startSprint(3)};$("stopSprintBtn").onclick=finishSprint;
 const canvas=$("pad"),ctx=canvas.getContext("2d");let drawing=false,last=null;
 function sizeCanvas(){let r=canvas.getBoundingClientRect(),d=window.devicePixelRatio||1;if(!r.width)return;canvas.width=Math.round(r.width*d);canvas.height=Math.round(270*d);ctx.setTransform(d,0,0,d,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#111"}
 function clearPad(){if(canvas.width)ctx.clearRect(0,0,canvas.width,canvas.height)}
