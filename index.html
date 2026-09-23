@@ -34,6 +34,31 @@
 
   <section id="message" class="message hidden"></section>
 
+  <section id="rapidCard" class="card">
+    <div class="sectionTitle">
+      <div>
+        <h2>Rapid Recognition</h2>
+        <p class="compact">Fast tap practice for automatic word and verb recognition. Say the answer aloud before tapping. This never affects level advancement.</p>
+      </div>
+      <span id="sprintDueLabel" class="badge hidden">Review due</span>
+    </div>
+    <div id="sprintSetup" class="buttonRow sprintSetup">
+      <button id="sprint2Btn" class="secondary">2-minute review</button>
+      <button id="sprint3Btn" class="secondary">3-minute review</button>
+    </div>
+    <div id="sprintPanel" class="hidden">
+      <div class="sprintStats">
+        <div><span>Time</span><b id="sprintTime">2:00</b></div>
+        <div><span>Correct</span><b id="sprintScore">0 / 0</b></div>
+      </div>
+      <div id="sprintPrompt" class="prompt"></div>
+      <div id="sprintInstruction" class="instruction"></div>
+      <div id="sprintChoices" class="choices"></div>
+      <button id="stopSprintBtn" class="secondary wide">Stop review</button>
+    </div>
+    <div id="sprintResult" class="feedback hidden"></div>
+  </section>
+
   <section id="quizCard" class="card">
     <div id="category" class="category"></div>
     <div id="prompt" class="prompt"></div>
@@ -76,7 +101,7 @@
 
   <section class="card">
     <h2>Difficulty progression</h2>
-    <p>Each session has 12 scored questions. <strong>Above 85%</strong> advances one level. 70–85% repeats the level with missed words weighted more heavily. Below 70% starts a focused review at the same level.</p><p>The practice pool follows your two Level B Hebrew books and your teacher-created class notes, including the grammar and vocabulary actually covered in class.</p>
+    <p>Each session has 15 scored questions. <strong>Above 85%</strong> advances one level. 70–85% repeats the level with missed words weighted more heavily. Below 70% starts a focused review at the same level. After every three scored stages, a non-graded rapid-recognition review is flagged for you.</p><p>The practice pool follows your two Level B Hebrew books and your teacher-created class notes, including the grammar and vocabulary actually covered in class.</p>
     <ol class="levels">
       <li>Hebrew → English recognition</li>
       <li>English → Hebrew recognition</li>
@@ -86,7 +111,7 @@
       <li>Two-part sentence comprehension: choose the missing Hebrew word, then choose the correct English translation</li>
       <li>Match Hebrew words to Hebrew descriptor phrases and opposites</li>
       <li>Practice connectors, adjective agreement, definite noun/adjective forms, and past-tense להיות</li>
-      <li>Practice infinitives, שם פעולה (gerund/action noun), and verb forms in past, present, and future</li>
+      <li>Heavy verb practice: definitions, infinitives, שם פעולה, and conjugation in past, present, and future</li>
       <li>Build short Hebrew sentences</li>
       <li>Apple Pencil handwriting recall</li>
       <li>Mixed cumulative challenge with two-part sentences, verbs, grammar, connectors, and matching</li>
