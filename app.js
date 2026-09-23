@@ -150,6 +150,111 @@ function finishSprint(){
   let result=$("sprintResult");result.textContent="Rapid review: "+done.correct+" correct out of "+done.attempted+" attempts ("+accuracy+"%). About "+rate+" correct per minute. No pass/fail — this does not affect your level.";result.classList.remove("hidden")
 }
 $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=function(){startSprint(3)};$("stopSprintBtn").onclick=finishSprint;
+
+const scriptLetters=[
+  {letter:"א",name:"Alef",file:"Hebrew letter Alef handwriting.svg"},
+  {letter:"ב",name:"Bet",file:"Hebrew letter Bet handwriting.svg"},
+  {letter:"ג",name:"Gimel",file:"Hebrew letter Gimel handwriting.svg"},
+  {letter:"ד",name:"Dalet",file:"Hebrew letter Daled handwriting.svg"},
+  {letter:"ה",name:"He",file:"Hebrew letter He handwriting.svg"},
+  {letter:"ו",name:"Vav",file:"Hebrew letter Vav handwriting.svg"},
+  {letter:"ז",name:"Zayin",file:"Hebrew letter Zayin handwriting.svg"},
+  {letter:"ח",name:"Het",file:"Hebrew letter Het handwriting.svg"},
+  {letter:"ט",name:"Tet",file:"Hebrew letter Tet handwriting.svg"},
+  {letter:"י",name:"Yod",file:"Hebrew letter Yud handwriting.svg"},
+  {letter:"כ",name:"Kaf",file:"Hebrew letter Kaf handwriting.svg"},
+  {letter:"ך",name:"Final Kaf",file:"Hebrew letter Kaf-final handwriting.svg"},
+  {letter:"ל",name:"Lamed",file:"Hebrew letter Lamed handwriting.svg"},
+  {letter:"מ",name:"Mem",file:"Hebrew letter Mem handwriting.svg"},
+  {letter:"ם",name:"Final Mem",file:"Hebrew letter Mem-final handwriting.svg"},
+  {letter:"נ",name:"Nun",file:"Hebrew letter Nun handwriting.svg"},
+  {letter:"ן",name:"Final Nun",file:"Hebrew letter Nun-final handwriting.svg"},
+  {letter:"ס",name:"Samekh",file:"Hebrew letter Samekh handwriting.svg"},
+  {letter:"ע",name:"Ayin",file:"Hebrew letter Ayin handwriting.svg"},
+  {letter:"פ",name:"Pe",file:"Hebrew letter Pe handwriting.svg"},
+  {letter:"ף",name:"Final Pe",file:"Hebrew letter Pe-final handwriting.svg"},
+  {letter:"צ",name:"Tsadi",file:"Hebrew letter Tsadik handwriting.svg"},
+  {letter:"ץ",name:"Final Tsadi",file:"Hebrew letter Tsadik-final handwriting.svg"},
+  {letter:"ק",name:"Qof",file:"Hebrew letter Kuf handwriting.svg"},
+  {letter:"ר",name:"Resh",file:"Hebrew letter Resh handwriting.svg"},
+  {letter:"ש",name:"Shin",file:"Hebrew letter Shin handwriting.svg"},
+  {letter:"ת",name:"Tav",file:"Hebrew letter Taf handwriting.svg"}
+];
+let scriptPractice=null,scriptDrawing=false,scriptLast=null;
+function scriptImageUrl(file){return "https://commons.wikimedia.org/wiki/Special:Redirect/file/"+encodeURIComponent(file)}
+function makeScriptImage(entry,altPrefix){
+  let img=document.createElement("img");img.src=scriptImageUrl(entry.file);img.alt=(altPrefix||"Handwritten script form of ")+entry.name;img.loading="eager";return img
+}
+function buildScriptReference(){
+  let box=$("scriptReference");if(box.dataset.ready==="1")return;
+  scriptLetters.forEach(function(entry){
+    let cell=document.createElement("div");cell.className="scriptRefItem";
+    let block=document.createElement("div");block.className="scriptRefBlock";block.textContent=entry.letter;block.dir="rtl";
+    let img=makeScriptImage(entry);img.loading="lazy";
+    let name=document.createElement("div");name.className="scriptRefName";name.textContent=entry.name;
+    cell.appendChild(block);cell.appendChild(img);cell.appendChild(name);box.appendChild(cell)
+  });
+  box.dataset.ready="1"
+}
+function toggleScriptReference(){
+  buildScriptReference();let box=$("scriptReference"),show=box.classList.contains("hidden");
+  box.classList.toggle("hidden",!show);$("toggleScriptRefBtn").textContent=show?"Hide script reference":"Show script reference"
+}
+function startScriptPractice(){
+  if(sprint){alert("Stop the rapid-recognition review before starting script practice.");return}
+  scriptPractice={queue:shuffle(scriptLetters).slice(0,12),index:0,correct:0,attempted:0,current:null};
+  $("scriptSetup").classList.add("hidden");$("scriptResult").classList.add("hidden");$("scriptPanel").classList.remove("hidden");
+  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");
+  nextScriptQuestion();window.scrollTo({top:$("scriptPracticeCard").offsetTop-10,behavior:"smooth"})
+}
+function nextScriptQuestion(){
+  if(!scriptPractice)return;
+  if(scriptPractice.index>=scriptPractice.queue.length){finishScriptPractice();return}
+  let entry=scriptPractice.queue[scriptPractice.index];scriptPractice.current=entry;
+  $("scriptProgress").textContent=(scriptPractice.index+1)+" / "+scriptPractice.queue.length;
+  $("scriptScore").textContent=scriptPractice.correct+" / "+scriptPractice.attempted;
+  $("scriptBlockLetter").textContent=entry.letter;$("scriptLetterName").textContent=entry.name;
+  $("scriptFeedback").classList.add("hidden");$("scriptCopyArea").classList.add("hidden");clearScriptPad();
+  $("scriptInstruction").textContent="Choose the matching handwritten script form.";
+  let choices=[entry];shuffle(scriptLetters.filter(function(x){return x.letter!==entry.letter})).slice(0,3).forEach(function(x){choices.push(x)});
+  let area=$("scriptChoices");area.innerHTML="";
+  shuffle(choices).forEach(function(choice){
+    let b=document.createElement("button");b.className="choice scriptChoice";b.type="button";b.appendChild(makeScriptImage(choice));
+    b.setAttribute("aria-label","Choose handwritten form "+choice.name);b.onclick=function(){answerScriptChoice(b,choice)};area.appendChild(b)
+  })
+}
+function answerScriptChoice(btn,choice){
+  if(!scriptPractice||$("scriptCopyArea").classList.contains("hidden")===false)return;
+  let currentLetter=scriptPractice.current,ok=choice.letter===currentLetter.letter;scriptPractice.attempted++;if(ok)scriptPractice.correct++;
+  Array.from($("scriptChoices").children).forEach(function(b,i){
+    b.disabled=true;
+    let img=b.querySelector("img");
+    if(img&&img.alt.endsWith(currentLetter.name))b.classList.add("correct")
+  });
+  if(!ok)btn.classList.add("wrong");
+  $("scriptScore").textContent=scriptPractice.correct+" / "+scriptPractice.attempted;
+  let f=$("scriptFeedback");f.textContent=ok?"Correct. Copy the script form below if you want.":"That was not the match. The correct script form is shown below.";f.className="feedback "+(ok?"good":"bad");
+  let model=$("scriptCorrectModel");model.innerHTML="";model.appendChild(makeScriptImage(currentLetter));
+  $("scriptCopyArea").classList.remove("hidden");setTimeout(sizeScriptCanvas,0)
+}
+function finishScriptPractice(){
+  if(!scriptPractice)return;
+  let done=scriptPractice,percent=done.attempted?Math.round(done.correct/done.attempted*100):0;scriptPractice=null;
+  $("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");
+  let result=$("scriptResult");result.textContent="Script matching: "+done.correct+" correct out of "+done.attempted+" ("+percent+"%). This practice does not affect your lesson level.";result.className="feedback good"
+}
+function exitScriptPractice(){
+  scriptPractice=null;$("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");clearScriptPad()
+}
+$("startScriptBtn").onclick=startScriptPractice;$("toggleScriptRefBtn").onclick=toggleScriptReference;$("nextScriptBtn").onclick=function(){if(!scriptPractice)return;scriptPractice.index++;nextScriptQuestion()};$("exitScriptBtn").onclick=exitScriptPractice;
+const scriptCanvas=$("scriptPad"),scriptCtx=scriptCanvas.getContext("2d");
+function sizeScriptCanvas(){let r=scriptCanvas.getBoundingClientRect(),d=window.devicePixelRatio||1;if(!r.width)return;scriptCanvas.width=Math.round(r.width*d);scriptCanvas.height=Math.round(220*d);scriptCtx.setTransform(d,0,0,d,0,0);scriptCtx.lineCap="round";scriptCtx.lineJoin="round";scriptCtx.strokeStyle="#111"}
+function clearScriptPad(){if(scriptCanvas.width)scriptCtx.clearRect(0,0,scriptCanvas.width,scriptCanvas.height)}
+function scriptPt(e){let r=scriptCanvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+scriptCanvas.addEventListener("pointerdown",function(e){scriptDrawing=true;scriptLast=scriptPt(e);scriptCanvas.setPointerCapture(e.pointerId)});
+scriptCanvas.addEventListener("pointermove",function(e){if(!scriptDrawing)return;let p=scriptPt(e),pressure=e.pressure||.5;scriptCtx.lineWidth=2.2+pressure*3;scriptCtx.beginPath();scriptCtx.moveTo(scriptLast.x,scriptLast.y);scriptCtx.lineTo(p.x,p.y);scriptCtx.stroke();scriptLast=p});
+scriptCanvas.addEventListener("pointerup",function(){scriptDrawing=false;scriptLast=null});scriptCanvas.addEventListener("pointercancel",function(){scriptDrawing=false;scriptLast=null});$("clearScriptPadBtn").onclick=clearScriptPad;window.addEventListener("resize",sizeScriptCanvas);
+
 const canvas=$("pad"),ctx=canvas.getContext("2d");let drawing=false,last=null;
 function sizeCanvas(){let r=canvas.getBoundingClientRect(),d=window.devicePixelRatio||1;if(!r.width)return;canvas.width=Math.round(r.width*d);canvas.height=Math.round(270*d);ctx.setTransform(d,0,0,d,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#111"}
 function clearPad(){if(canvas.width)ctx.clearRect(0,0,canvas.width,canvas.height)}
