@@ -34,6 +34,9 @@ if(!state.levelAccuracy){
 }
 if(!state.sentenceProgress)state.sentenceProgress={};
 if(!state.generatedSentences)state.generatedSentences=[];
+if(!state.infinitiveMastery)state.infinitiveMastery={};
+if(!state.infinitiveQuizHistory)state.infinitiveQuizHistory=[];
+
 if(!state.masteryReview){
   state.masteryReview={};
   Object.keys(state.missed||{}).forEach(function(he){
@@ -308,7 +311,7 @@ function renderHeader(){
   $("score").textContent=s.correct+" / "+s.answered;
   let ra=state.runningAccuracy||{correct:0,attempted:0};
   $("accuracy").textContent=(ra.attempted?Math.round(ra.correct/ra.attempted*100):0)+"%";
-  $("progressBar").style.width=Math.min(100,s.answered/len*100)+"%";renderReview();renderSprintDue()
+  $("progressBar").style.width=Math.min(100,s.answered/len*100)+"%";renderReview();renderSprintDue();if($("verbMasteredCount"))renderVerbInfinitiveSummary()
 }
 function renderReview(){
   let box=$("reviewList"),generic=masteryItems().sort(function(a,b){return (a.correctCount||0)-(b.correctCount||0)}).map(function(rec){return{kind:"generic",rec:rec}}),
@@ -496,10 +499,10 @@ function answerSprint(btn,opt){
   setTimeout(function(){if(sprint&&sprint.seconds>0)nextSprintQuestion()},ok?220:950)
 }
 function startSprint(minutes){
-  if(sprint)return;
+  if(sprint)return;if(infinitiveQuiz||scriptPractice){alert("Finish the other optional practice first.");return}
   state.sprintDue=false;save();renderSprintDue();
   sprint={minutes:minutes,seconds:minutes*60,attempted:0,correct:0,seen:[],current:null};
-  $("sprintSetup").classList.add("hidden");$("sprintPanel").classList.remove("hidden");$("sprintResult").classList.add("hidden");$("quizCard").classList.add("hidden");
+  $("sprintSetup").classList.add("hidden");$("sprintPanel").classList.remove("hidden");$("sprintResult").classList.add("hidden");$("quizCard").classList.add("hidden");$("verbInfinitiveCard").classList.add("hidden");$("scriptPracticeCard").classList.add("hidden");
   updateSprintStats();nextSprintQuestion();
   sprintTimer=setInterval(function(){if(!sprint)return;sprint.seconds--;updateSprintStats();if(sprint.seconds<=0)finishSprint()},1000)
 }
@@ -509,10 +512,138 @@ function finishSprint(){
   let done=sprint,accuracy=done.attempted?Math.round(done.correct/done.attempted*100):0,rate=done.minutes?Math.round(done.correct/done.minutes):0;
   state.sprintHistory.push({date:new Date().toISOString(),minutes:done.minutes,attempted:done.attempted,correct:done.correct,accuracy:accuracy});
   let key=String(done.minutes),best=state.sprintBest[key]||0;state.sprintBest[key]=Math.max(best,done.correct);save();
-  sprint=null;$("sprintPanel").classList.add("hidden");$("sprintSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");
+  sprint=null;$("sprintPanel").classList.add("hidden");$("sprintSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");$("scriptPracticeCard").classList.remove("hidden");
   let result=$("sprintResult");result.textContent="Rapid review: "+done.correct+" correct out of "+done.attempted+" attempts ("+accuracy+"%). About "+rate+" correct per minute. No pass/fail — this does not affect your level.";result.classList.remove("hidden")
 }
 $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=function(){startSprint(3)};$("stopSprintBtn").onclick=finishSprint;
+
+
+const INFINITIVE_QUIZ_TARGET=20;
+const infinitiveQuizVerbs=verbDefinitions.filter(function(v,i,a){return v&&v.he&&v.en&&a.findIndex(function(x){return x.he===v.he})===i});
+let infinitiveQuiz=null;
+
+function localDateKey(d){
+  d=d||new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")
+}
+function addCalendarDaysKey(days){
+  let d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+days);return localDateKey(d)
+}
+function formatDateKey(key){
+  if(!key)return "—";let p=key.split("-").map(Number),d=new Date(p[0],p[1]-1,p[2],12);
+  return d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})
+}
+function infinitiveProgress(he){
+  if(!state.infinitiveMastery[he])state.infinitiveMastery[he]={correctCount:0,mastered:false,nextDue:null,lastSeen:null};
+  return state.infinitiveMastery[he]
+}
+function infinitiveIsDue(v){
+  let p=infinitiveProgress(v.he);return p.mastered&&(!p.nextDue||p.nextDue<=localDateKey())
+}
+function infinitiveEligible(){
+  return infinitiveQuizVerbs.filter(function(v){let p=infinitiveProgress(v.he);return !p.mastered||infinitiveIsDue(v)})
+}
+function renderVerbInfinitiveSummary(){
+  if(!$("verbMasteredCount"))return;
+  let mastered=infinitiveQuizVerbs.filter(function(v){return infinitiveProgress(v.he).mastered}).length;
+  let due=infinitiveQuizVerbs.filter(infinitiveIsDue).length;
+  $("verbMasteredCount").textContent=mastered+" / "+infinitiveQuizVerbs.length;
+  $("verbDueCount").textContent=due;
+  $("verbDueBadge").classList.toggle("hidden",due===0)
+}
+function buildInfinitiveQuizQueue(){
+  let due=shuffle(infinitiveQuizVerbs.filter(infinitiveIsDue)),unmastered=shuffle(infinitiveQuizVerbs.filter(function(v){return !infinitiveProgress(v.he).mastered}));
+  let q=due.slice(0,INFINITIVE_QUIZ_TARGET);
+  if(q.length<INFINITIVE_QUIZ_TARGET&&unmastered.length){
+    let focus=unmastered.slice(0,Math.min(10,unmastered.length)),last=null,guard=0;
+    while(q.length<INFINITIVE_QUIZ_TARGET&&guard<200){
+      let choices=focus.filter(function(v){return !last||v.he!==last.he}),v=rand(choices.length?choices:focus);
+      q.push(v);last=v;guard++
+    }
+  }
+  return shuffle(q)
+}
+function infinitiveOptions(v){
+  let opts=[v.he];shuffle(infinitiveQuizVerbs.filter(function(x){return x.he!==v.he})).forEach(function(x){if(opts.length<4&&!opts.includes(x.he))opts.push(x.he)});
+  return shuffle(opts)
+}
+function startVerbInfinitiveQuiz(){
+  if(sprint||scriptPractice){alert("Finish the other optional practice first.");return}
+  let queue=buildInfinitiveQuizQueue();
+  if(!queue.length){
+    let dates=infinitiveQuizVerbs.map(function(v){return infinitiveProgress(v.he).nextDue}).filter(Boolean).sort();
+    $("verbInfinitiveResult").textContent=dates.length?"All infinitives are mastered and none are due today. Next reinforcement: "+formatDateKey(dates[0])+".":"No infinitive verbs are available yet.";
+    $("verbInfinitiveResult").className="feedback good";return
+  }
+  infinitiveQuiz={queue:queue,index:0,attempted:0,correct:0,current:null};
+  $("verbInfinitiveSetup").classList.add("hidden");$("verbInfinitiveResult").classList.add("hidden");$("verbInfinitivePanel").classList.remove("hidden");
+  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");$("verbInfinitiveCard").classList.add("hidden");$("scriptPracticeCard").classList.add("hidden");
+  nextVerbInfinitiveQuestion();window.scrollTo({top:$("verbInfinitiveCard").offsetTop-10,behavior:"smooth"})
+}
+function nextVerbInfinitiveQuestion(){
+  if(!infinitiveQuiz)return;
+  while(infinitiveQuiz.index<infinitiveQuiz.queue.length){
+    let candidate=infinitiveQuiz.queue[infinitiveQuiz.index],p=infinitiveProgress(candidate.he);
+    if(!p.mastered||infinitiveIsDue(candidate))break;
+    infinitiveQuiz.index++
+  }
+  if(infinitiveQuiz.index>=infinitiveQuiz.queue.length){finishVerbInfinitiveQuiz();return}
+  let v=infinitiveQuiz.queue[infinitiveQuiz.index];infinitiveQuiz.current=v;
+  $("verbInfinitiveProgress").textContent=(infinitiveQuiz.attempted+1)+" / "+infinitiveQuiz.queue.length;
+  $("verbInfinitiveScore").textContent=infinitiveQuiz.correct+" / "+infinitiveQuiz.attempted;
+  $("verbInfinitivePrompt").textContent=v.en;
+  let p=infinitiveProgress(v.he);
+  $("verbInfinitiveInstruction").textContent=p.mastered?"Weekly reinforcement: choose the Hebrew infinitive.":"Choose the Hebrew infinitive. Mastery: "+p.correctCount+"/10";
+  $("verbInfinitiveFeedback").classList.add("hidden");$("nextVerbInfinitiveBtn").classList.add("hidden");
+  let area=$("verbInfinitiveChoices");area.innerHTML="";
+  infinitiveOptions(v).forEach(function(opt){
+    let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerVerbInfinitive(b,opt)};area.appendChild(b)
+  })
+}
+function answerVerbInfinitive(btn,opt){
+  if(!infinitiveQuiz||$("nextVerbInfinitiveBtn").classList.contains("hidden")===false)return;
+  let v=infinitiveQuiz.current,p=infinitiveProgress(v.he),wasMastered=p.mastered,ok=norm(opt)===norm(v.he),today=localDateKey();
+  infinitiveQuiz.attempted++;if(ok)infinitiveQuiz.correct++;
+  Array.from($("verbInfinitiveChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(v.he))b.classList.add("correct")});
+  if(!ok)btn.classList.add("wrong");
+  p.lastSeen=today;
+  let msg;
+  if(wasMastered){
+    p.nextDue=addCalendarDaysKey(7);
+    msg=(ok?"Reinforcement correct. ":"Correct infinitive: "+v.he+" — "+v.en+". ")+"Mastery remains active. Next reinforcement: "+formatDateKey(p.nextDue)+"."
+  }else if(ok){
+    p.correctCount=Math.min(10,(p.correctCount||0)+1);
+    if(p.correctCount>=10){
+      p.mastered=true;p.nextDue=addCalendarDaysKey(7);
+      msg=v.he+" — "+v.en+". Mastered at 10/10. Next reinforcement: "+formatDateKey(p.nextDue)+"."
+    }else msg=v.he+" — "+v.en+". Mastery progress: "+p.correctCount+"/10."
+  }else{
+    msg="Correct infinitive: "+v.he+" — "+v.en+". Mastery remains "+(p.correctCount||0)+"/10."
+  }
+  save();renderVerbInfinitiveSummary();
+  $("verbInfinitiveScore").textContent=infinitiveQuiz.correct+" / "+infinitiveQuiz.attempted;
+  let f=$("verbInfinitiveFeedback");f.textContent=msg;f.className="feedback "+(ok?"good":"bad");
+  $("nextVerbInfinitiveBtn").textContent=infinitiveQuiz.index>=infinitiveQuiz.queue.length-1?"Finish":"Next verb";
+  $("nextVerbInfinitiveBtn").classList.remove("hidden")
+}
+function advanceVerbInfinitiveQuiz(){
+  if(!infinitiveQuiz)return;infinitiveQuiz.index++;nextVerbInfinitiveQuestion()
+}
+function finishVerbInfinitiveQuiz(){
+  if(!infinitiveQuiz)return;
+  let done=infinitiveQuiz,accuracy=done.attempted?Math.round(done.correct/done.attempted*100):0;
+  state.infinitiveQuizHistory.push({date:new Date().toISOString(),attempted:done.attempted,correct:done.correct,accuracy:accuracy});save();
+  infinitiveQuiz=null;$("verbInfinitivePanel").classList.add("hidden");$("verbInfinitiveSetup").classList.remove("hidden");
+  $("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("scriptPracticeCard").classList.remove("hidden");
+  let r=$("verbInfinitiveResult");r.textContent="Infinitive quiz: "+done.correct+" correct out of "+done.attempted+" ("+accuracy+"%). This quiz is separate from level scoring.";r.className="feedback good";
+  renderVerbInfinitiveSummary()
+}
+function exitVerbInfinitiveQuiz(){
+  infinitiveQuiz=null;$("verbInfinitivePanel").classList.add("hidden");$("verbInfinitiveSetup").classList.remove("hidden");
+  $("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("scriptPracticeCard").classList.remove("hidden");
+  renderVerbInfinitiveSummary()
+}
+$("startVerbInfinitiveBtn").onclick=startVerbInfinitiveQuiz;$("nextVerbInfinitiveBtn").onclick=advanceVerbInfinitiveQuiz;$("exitVerbInfinitiveBtn").onclick=exitVerbInfinitiveQuiz;
+renderVerbInfinitiveSummary();
 
 const scriptLetters=[
   {letter:"א",name:"Alef",file:"Hebrew letter Alef handwriting.svg"},
@@ -564,7 +695,7 @@ function toggleScriptReference(){
   box.classList.toggle("hidden",!show);$("toggleScriptRefBtn").textContent=show?"Hide script reference":"Show script reference"
 }
 function startScriptPractice(){
-  if(sprint){alert("Stop the rapid-recognition review before starting script practice.");return}
+  if(sprint||infinitiveQuiz){alert("Finish the other optional practice first.");return}
   scriptPractice={queue:shuffle(scriptLetters).slice(0,12),index:0,correct:0,attempted:0,current:null};
   $("scriptSetup").classList.add("hidden");$("scriptResult").classList.add("hidden");$("scriptPanel").classList.remove("hidden");
   $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");
@@ -603,7 +734,7 @@ function answerScriptChoice(btn,choice){
 function finishScriptPractice(){
   if(!scriptPractice)return;
   let done=scriptPractice,percent=done.attempted?Math.round(done.correct/done.attempted*100):0;scriptPractice=null;
-  $("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");
+  $("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");
   let result=$("scriptResult");result.textContent="Script matching: "+done.correct+" correct out of "+done.attempted+" ("+percent+"%). This practice does not affect your lesson level.";result.className="feedback good"
 }
 function exitScriptPractice(){
