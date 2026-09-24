@@ -52,6 +52,7 @@ if(!state.sentenceProgress)state.sentenceProgress={};
 if(!state.generatedSentences)state.generatedSentences=[];
 if(!state.infinitiveMastery)state.infinitiveMastery={};
 if(!state.infinitiveQuizHistory)state.infinitiveQuizHistory=[];
+if(!state.readingHistory)state.readingHistory=[];
 
 if(!state.masteryReview){
   state.masteryReview={};
@@ -171,7 +172,15 @@ function connectorQuestion(){
   let full=c.sentence.replace("___",c.answer);
   return{type:"connector2",cat:"מילות קישור • שני חלקים",prompt:c.sentence,correct:c.answer+"||"+c.en,correctConnector:c.answer,fullHebrew:full,translation:c.en,options:shuffle(opts),translationOptions:connectorTranslationChoices(c),part1Correct:null}
 }
-function grammarQuestion(){let g=rand(grammarQuestions);return{type:"grammar",cat:g.cat||"דקדוק",prompt:g.prompt,correct:g.answer,options:shuffle(g.options||[g.answer])}}
+function grammarTranslationChoices(g){
+  let opts=[g.en];shuffle(grammarQuestions.filter(function(x){return x.en&&x.prompt!==g.prompt})).forEach(function(x){if(opts.length<4&&!opts.includes(x.en))opts.push(x.en)});
+  return shuffle(opts)
+}
+function grammarQuestion(){
+  let g=rand(grammarQuestions),opts=shuffle(g.options||[g.answer]);
+  if(!g.en)return{type:"grammar",cat:g.cat||"דקדוק",prompt:g.prompt,correct:g.answer,options:opts};
+  return{type:"grammar2",cat:(g.cat||"דקדוק")+" • שני חלקים",prompt:g.prompt,correct:g.answer+"||"+g.en,correctGrammar:g.answer,fullHebrew:g.prompt.replace("___",g.answer),translation:g.en,options:opts,translationOptions:grammarTranslationChoices(g),part1Correct:null}
+}
 function classVerbQuestion(typed){let q=rand(classVerbQuestions);return{type:typed?"verbTyped":"verbMC",cat:q.cat||"פעלים מהשיעור",prompt:q.prompt,correct:q.answer,options:typed?null:shuffle(q.options)}}
 function verbDefinitionQuestion(){
   let v=rand(verbDefinitions),reverse=Math.random()<.5,correct=reverse?v.he:v.en,prompt=reverse?v.en:v.he,pool=[];
@@ -213,7 +222,7 @@ function blockAccuracyPercent(blockEnd){
   return attempted?Math.round(correct/attempted*100):null
 }
 function updateMastery(q,ok,level){
-  if(q&&(q.type==="sentence2"||q.type==="connector2"))return false;
+  if(q&&(q.type==="sentence2"||q.type==="connector2"||q.type==="grammar2"))return false;
   let key=masteryKey(q),rec=state.masteryReview[key];
   if(!ok){
     if(!rec)state.masteryReview[key]={key:key,level:level||state.level,correctCount:0,question:cleanQuestionForMemory(q),date:new Date().toISOString()};
@@ -350,7 +359,31 @@ function renderReview(){
   })
 }
 function hideAll(){["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
-function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(current.type==="grammar2"){renderGrammarSentencePart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+function renderGrammarSentencePart(){
+  let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Complete the Hebrew sentence.";
+  current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerGrammarSentencePart(b,opt)};a.appendChild(b)})
+}
+function answerGrammarSentencePart(btn,opt){
+  if(locked)return;let ok=norm(opt)===norm(current.correctGrammar);current.part1Correct=ok;
+  Array.from($("choiceArea").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(current.correctGrammar))b.classList.add("correct")});
+  if(!ok)btn.classList.add("wrong");
+  $("prompt").textContent=current.fullHebrew;$("prompt").dir="rtl";
+  showFeedback(ok,ok?"Part 1 correct. Now translate the sentence.":"Correct answer: "+answerWithEnglish(current.correctGrammar,current)+". Now translate the sentence.");
+  renderGrammarTranslationPart()
+}
+function renderGrammarTranslationPart(){
+  let a=$("choiceArea");a.innerHTML="";$("instruction").textContent="Part 2 of 2: Choose the correct English translation.";
+  current.translationOptions.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="ltr";b.onclick=function(){answerGrammarTranslation(b,opt)};a.appendChild(b)})
+}
+function answerGrammarTranslation(btn,opt){
+  if(locked)return;let ok=norm(opt)===norm(current.translation);
+  Array.from($("choiceArea").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(current.translation))b.classList.add("correct")});
+  if(!ok)btn.classList.add("wrong");
+  let overall=!!current.part1Correct&&ok;
+  showFeedback(overall,overall?"Both parts correct.":(!current.part1Correct&&!ok?"Both parts need review. Correct translation: "+current.translation:!current.part1Correct?"Translation correct; review the Hebrew answer: "+answerWithEnglish(current.correctGrammar,current)+".":"Hebrew answer correct; correct English translation: "+current.translation));
+  record(overall)
+}
 function renderConnectorPart(){
   let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Choose the connector that completes the Hebrew sentence.";
   current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerConnectorPart(b,opt)};a.appendChild(b)})
@@ -567,6 +600,91 @@ function finishSprint(){
 }
 $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=function(){startSprint(3)};$("stopSprintBtn").onclick=finishSprint;
 
+
+const readingPassages=[
+  {
+    id:"secret-investigation",title:"המחקר הסודי",source:"Uploaded intermediate Hebrew notes • p. 149",
+    he:'בעיתון "מעריב" התפרסם סיפור על מחקר סודי שנעשה בצה"ל. ראש הממשלה כעס מאוד, וביקש מהמשטרה לחקור מי גילה את הסוד. חוקרי המשטרה הזמינו לחקירה את העיתונאי, שפרסם את הסיפור. הם חקרו אותו הרבה זמן, אך הוא לא גילה להם דבר. החקירה נמשכה כשבועיים, אבל חוקרי המשטרה לא הצליחו לגלות איך הגיעו לעיתון הידיעות על המחקר הסודי הזה.',
+    en:'A story was published in the newspaper Maariv about secret research conducted in the IDF. The prime minister was very angry and asked the police to investigate who revealed the secret. Police investigators summoned the journalist who published the story for questioning. They questioned him for a long time, but he did not reveal anything to them. The investigation lasted about two weeks, but the police investigators did not succeed in discovering how the information about the secret research reached the newspaper.',
+    vocab:[["מחקר סודי","secret research"],["לחקור","to investigate"],["עיתונאי","journalist"],["חקירה","investigation"],["ידיעות","information / news"]],
+    questions:[
+      {q:'איפה התפרסם הסיפור?',a:'בעיתון "מעריב"',opts:['בעיתון "מעריב"','בטלוויזיה','באוניברסיטה','במשטרה']},
+      {q:'מי ביקש מהמשטרה לחקור?',a:'ראש הממשלה',opts:['ראש הממשלה','העיתונאי','החייל','הפרופסור']},
+      {q:'את מי הזמינו החוקרים לחקירה?',a:'את העיתונאי',opts:['את העיתונאי','את ראש הממשלה','את הקורא','את הרופא']},
+      {q:'כמה זמן נמשכה החקירה?',a:'כשבועיים',opts:['כשבועיים','יום אחד','שנה','שעתיים']}
+    ]
+  },
+  {
+    id:"lonely-tourist",title:"התייר הבודד",source:"Uploaded intermediate Hebrew notes • p. 170 material",
+    he:'התייר הבודד נסע לאי שאין בו אנשים, בגלל שהוא רצה לראות אם הוא יכול להסתדר ללא עזרה. אריות וזאבים התקרבו אל האוהל של התייר בגלל ריחות הבישול. התייר פחד מאוד. בגלל זה הוא ביקש עזרה מאנשי החברה.',
+    en:'The lone tourist traveled to an island where there were no people because he wanted to see whether he could manage without help. Lions and wolves approached the tourist’s tent because of the smells of cooking. The tourist became very afraid. Because of this, he asked the company staff for help.',
+    vocab:[["תייר בודד","lone tourist"],["אי","island"],["להסתדר","to manage / get by"],["אוהל","tent"],["ריחות הבישול","smells of cooking"]],
+    questions:[
+      {q:'למה נסע התייר לאי?',a:'כדי לראות אם הוא יכול להסתדר ללא עזרה',opts:['כדי לראות אם הוא יכול להסתדר ללא עזרה','כדי לעבוד במשרד','כדי לבקר משפחה','כדי ללמוד באוניברסיטה']},
+      {q:'מה התקרב אל האוהל?',a:'אריות וזאבים',opts:['אריות וזאבים','תיירים','חקלאים','ילדים']},
+      {q:'למה התקרבו החיות?',a:'בגלל ריחות הבישול',opts:['בגלל ריחות הבישול','בגלל הגשם','בגלל המכונית','בגלל הספרים']},
+      {q:'מה עשה התייר כשהוא פחד?',a:'ביקש עזרה מאנשי החברה',opts:['ביקש עזרה מאנשי החברה','חזר לישון','קרא ספר','נסע לחיפה']}
+    ]
+  },
+  {
+    id:"family-meal",title:"הארוחה המשפחתית",source:"Uploaded intermediate Hebrew notes • p. 155",
+    he:'רבקה אשתו של יוסף, הזמינה את כל משפחתם לארוחה. דודתו של יוסף הגיעה מחיפה עם בעלה ועם בתם. מתל אביב הגיעה דודתה של רבקה, עם בנה ועם חברתו. כולם הביאו ליוסף מתנות יפות, אבל מתנתה של דודתו מחיפה הייתה היפה ביותר. לפני הארוחה לבש יוסף את חולצתו הלבנה, ורבקה אשתו לבשה את שמלתה החדשה. בזמן הארוחה סיפרו הדודים מחיפה על עבודתם בחנות, והדודים מתל אביב סיפרו על נסיעתם לחו"ל. כולם נהנו מאוד, וחזרו לביתם מאוחר בערב.',
+    en:'Rebecca, Joseph’s wife, invited their whole family for a meal. Joseph’s aunt arrived from Haifa with her husband and their daughter. Rebecca’s aunt arrived from Tel Aviv with her son and his girlfriend. Everyone brought Joseph beautiful gifts, but the gift from his aunt from Haifa was the most beautiful. Before the meal Joseph put on his white shirt, and Rebecca put on her new dress. During the meal, the relatives from Haifa talked about their work in the store, and the relatives from Tel Aviv talked about their trip abroad. Everyone enjoyed themselves very much and returned home late in the evening.',
+    vocab:[["הזמינה","invited"],["דודתו","his aunt"],["מתנות","gifts"],["בזמן הארוחה","during the meal"],["לחו״ל","abroad"]],
+    questions:[
+      {q:'מי הזמינה את המשפחה לארוחה?',a:'רבקה',opts:['רבקה','יוסף','דודתו של יוסף','בנה של רבקה']},
+      {q:'מאיפה הגיעה דודתו של יוסף?',a:'מחיפה',opts:['מחיפה','מתל אביב','מירושלים','מבאר שבע']},
+      {q:'מה לבש יוסף לפני הארוחה?',a:'את חולצתו הלבנה',opts:['את חולצתו הלבנה','את שמלתה החדשה','מעיל שחור','בגדי עבודה']},
+      {q:'מתי חזרו כולם לביתם?',a:'מאוחר בערב',opts:['מאוחר בערב','בבוקר','לפני הארוחה','בצהריים']}
+    ]
+  }
+];
+let readingSession=null;
+function renderReadingLibrary(){
+  if(!$("readingStoryButtons"))return;
+  let box=$("readingStoryButtons");box.innerHTML="";
+  readingPassages.forEach(function(p){let b=document.createElement("button");b.className="secondary";b.textContent=p.title;b.onclick=function(){openReadingPassage(p.id)};box.appendChild(b)})
+}
+function openReadingPassage(id){
+  let p=readingPassages.find(function(x){return x.id===id});if(!p)return;
+  readingSession={passage:p,index:0,correct:0,answered:0};
+  $("readingSetup").classList.add("hidden");$("readingPanel").classList.remove("hidden");$("readingResult").classList.add("hidden");
+  $("readingTitle").textContent=p.title;$("readingSource").textContent=p.source;$("readingPassage").textContent=p.he;
+  $("readingTranslation").textContent=p.en;$("readingTranslation").classList.add("hidden");$("toggleReadingTranslationBtn").textContent="Show English translation";
+  let v=$("readingVocab");v.innerHTML="";p.vocab.forEach(function(x){let chip=document.createElement("span");chip.className="reviewChip";chip.textContent=x[0]+" — "+x[1];v.appendChild(chip)});
+  nextReadingQuestion();window.scrollTo({top:$("readingLibraryCard").offsetTop-10,behavior:"smooth"})
+}
+function nextReadingQuestion(){
+  if(!readingSession)return;
+  if(readingSession.index>=readingSession.passage.questions.length){finishReadingPassage();return}
+  let q=readingSession.passage.questions[readingSession.index];
+  $("readingQuestionProgress").textContent="Question "+(readingSession.index+1)+" of "+readingSession.passage.questions.length;
+  $("readingQuestion").textContent=q.q;$("readingQuestionFeedback").classList.add("hidden");$("nextReadingQuestionBtn").classList.add("hidden");
+  let a=$("readingChoices");a.innerHTML="";
+  shuffle(q.opts).forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerReadingQuestion(b,opt)};a.appendChild(b)})
+}
+function answerReadingQuestion(btn,opt){
+  if(!readingSession||!$("nextReadingQuestionBtn").classList.contains("hidden"))return;
+  let q=readingSession.passage.questions[readingSession.index],ok=norm(opt)===norm(q.a);
+  readingSession.answered++;if(ok)readingSession.correct++;
+  Array.from($("readingChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(q.a))b.classList.add("correct")});
+  if(!ok)btn.classList.add("wrong");
+  let f=$("readingQuestionFeedback");f.textContent=ok?"Correct.":"Correct answer: "+q.a;f.className="feedback "+(ok?"good":"bad");
+  $("nextReadingQuestionBtn").classList.remove("hidden")
+}
+function advanceReadingQuestion(){if(!readingSession)return;readingSession.index++;nextReadingQuestion()}
+function finishReadingPassage(){
+  let s=readingSession,pct=s.answered?Math.round(s.correct/s.answered*100):0;
+  state.readingHistory.push({date:new Date().toISOString(),id:s.passage.id,correct:s.correct,total:s.answered,score:pct});save();
+  $("readingChoices").innerHTML="";$("readingQuestion").textContent="Reading complete";$("readingQuestionProgress").textContent="";
+  $("nextReadingQuestionBtn").classList.add("hidden");let f=$("readingQuestionFeedback");f.textContent=s.correct+" / "+s.answered+" correct ("+pct+"%).";f.className="feedback good"
+}
+function closeReadingPassage(){readingSession=null;$("readingPanel").classList.add("hidden");$("readingSetup").classList.remove("hidden");$("readingResult").classList.add("hidden")}
+function toggleReadingTranslation(){
+  let t=$("readingTranslation"),show=t.classList.contains("hidden");t.classList.toggle("hidden",!show);$("toggleReadingTranslationBtn").textContent=show?"Hide English translation":"Show English translation"
+}
+$("nextReadingQuestionBtn").onclick=advanceReadingQuestion;$("closeReadingBtn").onclick=closeReadingPassage;$("toggleReadingTranslationBtn").onclick=toggleReadingTranslation;
+renderReadingLibrary();
 
 const INFINITIVE_QUIZ_TARGET=20;
 const infinitiveQuizVerbs=verbDefinitions.filter(function(v,i,a){return v&&v.he&&v.en&&a.findIndex(function(x){return x.he===v.he})===i});
