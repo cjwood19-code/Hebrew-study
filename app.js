@@ -1,5 +1,15 @@
 const D=window.TRAINER_DATA,vocab=D.vocab,sentences=D.sentences,verbs=D.verbs||[],connectors=D.connectors||[],matches=D.matches||[],opposites=D.opposites||[],grammarQuestions=D.grammarQuestions||[],classVerbQuestions=D.classVerbQuestions||[],verbDefinitions=D.verbDefinitions||[],SESSION_LEN=15,PASS=85,TEST_LEN=20,TEST_PASS=85;
 const levelNames=["","Hebrew → English","English → Hebrew","Mixed recognition","Typed English meaning","Typed Hebrew recall","Sentence reading & comprehension","Hebrew matching & opposites","Grammar in context: connectors, agreement & היה","Verbs: infinitive + שם פעולה + past/present/future","Sentence building","Apple Pencil handwriting","Mixed cumulative challenge"];
+const advancedFocusNames=["Sentence reading & comprehension","Hebrew matching & opposites","Grammar in context: connectors, agreement & היה","Verbs: infinitive + שם פעולה + past/present/future","Sentence building","Apple Pencil handwriting","Mixed cumulative challenge"];
+function levelName(level){
+  if(level<=12)return levelNames[level]||"Practice";
+  let cycle=Math.floor((level-13)/7)+1,focus=advancedFocusNames[(level-13)%7];
+  return focus+" • Advanced cycle "+cycle
+}
+function exerciseLevel(level){
+  if(level<=12)return level;
+  return 6+((level-13)%7)
+}
 let state=JSON.parse(localStorage.getItem("hebrewTrainerState")||"null")||{level:1,best:{},missed:{},history:[],session:null,focus:false};
 let current=null,locked=false,tileAnswer=[],sprint=null,sprintTimer=null;
 const $=function(id){return document.getElementById(id)};
@@ -8,8 +18,14 @@ if(state.sprintDue===undefined)state.sprintDue=false;if(!state.sprintHistory)sta
 if(!state.blockTests)state.blockTests={passed:{},best:{},history:[],missed:[]};
 if(!state.blockTests.passed)state.blockTests.passed={};if(!state.blockTests.best)state.blockTests.best={};if(!state.blockTests.history)state.blockTests.history=[];if(!state.blockTests.missed)state.blockTests.missed=[];
 if(state.blockTestDue===undefined)state.blockTestDue=null;
+if(!state.endlessLevelMigration){
+  if(state.level>15){
+    for(let b=15;b<state.level;b+=5)state.blockTests.passed[String(b)]=true
+  }
+  state.endlessLevelMigration=true;save()
+}
 if(!state.blockTests.migrated){if(state.level>5)state.blockTests.passed["5"]=true;if(state.level>10)state.blockTests.passed["10"]=true;state.blockTests.migrated=true;save()}
-if(!state.appVersion){if(state.level>=7){state.level=Math.min(12,state.level+3);state.session=null}state.appVersion=2;save()}
+if(!state.appVersion){if(state.level>=7){state.level=state.level+3;state.session=null}state.appVersion=2;save()}
 if(!state.runningAccuracy){
   let attempted=0,correct=0;
   (state.history||[]).forEach(function(h){
@@ -167,7 +183,7 @@ function verbQuestion(typed){let mix=Math.random();if(verbDefinitions.length&&mi
 if(r<.18){let pres=v.present["הוא"],prompt="מה שם הפועל של: "+pres+" ?";return{type:typed?"verbTyped":"verbMC",cat:"פעלים • שם הפועל",prompt:prompt,correct:v.infinitive,options:typed?null:shuffle([v.infinitive,...shuffle(verbs.filter(function(x){return x.infinitive!==v.infinitive})).slice(0,3).map(function(x){return x.infinitive})])}}
 if(r<.40&&v.actionNoun){let reverse=Math.random()<.35,correct=reverse?v.infinitive:v.actionNoun,prompt=reverse?"מה שם הפועל של שם הפעולה: "+v.actionNoun+" ?":"מה שם הפעולה של: "+v.infinitive+" ?",pool=verbs.filter(function(x){return x.infinitive!==v.infinitive&&x.actionNoun}).map(function(x){return reverse?x.infinitive:x.actionNoun});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • שם פעולה",prompt:prompt,correct:correct,options:typed?null:shuffle([correct,...shuffle(pool).slice(0,3)])}}
 let tense=rand(["present","past","future"]),pron=rand(["אני","אתה","את","הוא","היא","אנחנו","אתם","הם"]),correct=v[tense][pron],label=tense==="present"?"הווה":tense==="past"?"עבר":"עתיד",prompt=label+" • "+pron+" • "+v.infinitive;let pool=[];verbs.forEach(function(x){if(x[tense]&&x[tense][pron]&&x[tense][pron]!==correct)pool.push(x[tense][pron])});Object.keys(v[tense]).forEach(function(p){if(v[tense][p]!==correct)pool.push(v[tense][p])});let opts=[correct];shuffle(pool).forEach(function(x){if(opts.length<4&&!opts.includes(x))opts.push(x)});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • "+label,prompt:prompt,correct:correct,options:typed?null:shuffle(opts)}}
-function makeQuestion(levelOverride){let L=levelOverride||state.level,item=pickItem();if(L===12&&state.blockTests.missed.length&&Math.random()<.16){let rq=reviveTestMiss(rand(state.blockTests.missed));if(rq)return rq}if(L===1)return mc(item,false);if(L===2)return mc(item,true);if(L===3)return mc(item,Math.random()<.5);if(L===4)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(L===5)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(L===6)return sentenceQuestion();if(L===7)return matchQuestion();if(L===8)return Math.random()<.52?connectorQuestion():grammarQuestion();if(L===9)return verbQuestion(Math.random()<.45);if(L===10){let s=rand(practiceSentences());return sentenceTilesQuestion(s)}if(L===11)return{type:"hand",item:item,prompt:item.en,correct:item.he};let r=Math.random();if(r<.10)return mc(item,Math.random()<.5);if(r<.18)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(r<.26)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(r<.38)return sentenceQuestion();if(r<.48)return matchQuestion();if(r<.56)return connectorQuestion();if(r<.64)return grammarQuestion();if(r<.82)return verbQuestion(Math.random()<.5);if(r<.90)return{type:"hand",item:item,prompt:item.en,correct:item.he};let s=rand(practiceSentences());return sentenceTilesQuestion(s)}
+function makeQuestion(levelOverride){let actualLevel=levelOverride||state.level,L=exerciseLevel(actualLevel),item=pickItem();if(L===12&&state.blockTests.missed.length&&Math.random()<.16){let rq=reviveTestMiss(rand(state.blockTests.missed));if(rq)return rq}if(L===1)return mc(item,false);if(L===2)return mc(item,true);if(L===3)return mc(item,Math.random()<.5);if(L===4)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(L===5)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(L===6)return sentenceQuestion();if(L===7)return matchQuestion();if(L===8)return Math.random()<.52?connectorQuestion():grammarQuestion();if(L===9)return verbQuestion(Math.random()<.45);if(L===10){let s=rand(practiceSentences());return sentenceTilesQuestion(s)}if(L===11)return{type:"hand",item:item,prompt:item.en,correct:item.he};let r=Math.random();if(r<.10)return mc(item,Math.random()<.5);if(r<.18)return{type:"typedHe",item:item,prompt:item.en,correct:item.he};if(r<.26)return{type:"typedEn",item:item,prompt:item.he,correct:item.en};if(r<.38)return sentenceQuestion();if(r<.48)return matchQuestion();if(r<.56)return connectorQuestion();if(r<.64)return grammarQuestion();if(r<.82)return verbQuestion(Math.random()<.5);if(r<.90)return{type:"hand",item:item,prompt:item.en,correct:item.he};let s=rand(practiceSentences());return sentenceTilesQuestion(s)}
 function questionSignature(q){return [q.type,q.prompt,q.correct].join("||")}
 function masteryKey(q){
   if(q&&q.item&&q.item.he)return "vocab:"+q.item.he;
@@ -309,7 +325,7 @@ function renderHeader(){
     $("levelBadge").textContent="Test Due";$("modeLabel").textContent="20-question checkpoint required";$("best").textContent="—";
     levelPct=levelAccuracyPercent(state.level);$("levelAccuracyLabel").textContent="Level accuracy"
   }else{
-    $("levelBadge").textContent="Level "+state.level;$("modeLabel").textContent=levelNames[state.level];
+    $("levelBadge").textContent="Level "+state.level;$("modeLabel").textContent=levelName(state.level);
     $("best").textContent=state.best[state.level]!==undefined?state.best[state.level]+"%":"—";
     levelPct=levelAccuracyPercent(state.level);$("levelAccuracyLabel").textContent="Level accuracy"
   }
@@ -465,7 +481,7 @@ function finishBlockTest(){
   let msg,buttonLabel;
   if(passed){
     state.blockTests.passed[key]=true;state.blockTestDue=null;state.focus=false;
-    state.level=Math.min(12,blockEnd+1);
+    state.level=blockEnd+1;
     msg=p+"% ("+s.correct+"/20) — block test passed. Level "+state.level+" is now unlocked.";
     buttonLabel="Start Level "+state.level
   }else{
@@ -479,14 +495,14 @@ function finishSession(){
   let s=state.session;if(s&&s.isTest){finishBlockTest();return}
   let p=Math.round(s.correct/s.answered*100),oldLevel=state.level;state.best[oldLevel]=Math.max(state.best[oldLevel]||0,p);state.history.push({date:new Date().toISOString(),level:oldLevel,score:p});let msg,buttonLabel="Start next session";
   if(p>PASS){
-    state.focus=false;if([3,6,9,12].includes(oldLevel))state.sprintDue=true;
-    if(oldLevel===5||oldLevel===10){
+    state.focus=false;if(oldLevel%3===0)state.sprintDue=true;
+    if(oldLevel%5===0){
       state.blockTestDue=oldLevel;
       msg=p+"% — Level "+oldLevel+" cleared. Before Level "+(oldLevel+1)+", you must pass the 20-question review test for Levels "+(oldLevel-4)+"–"+oldLevel+".";
       buttonLabel="Start 20-question block test"
-    }else if(state.level<12){
-      state.level++;msg=p+"% — advanced to Level "+state.level+": "+levelNames[state.level]+"."
-    }else msg=p+"% — highest level cleared; cumulative practice continues."
+    }else{
+      state.level++;msg=p+"% — advanced to Level "+state.level+": "+levelName(state.level)+"."
+    }
   }else if(p>=70){
     state.focus=false;msg=p+"% — staying at Level "+state.level+". Missed words will appear more often."
   }else{
