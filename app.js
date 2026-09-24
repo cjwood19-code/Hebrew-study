@@ -576,7 +576,7 @@ function startVerbInfinitiveQuiz(){
   }
   infinitiveQuiz={queue:queue,index:0,attempted:0,correct:0,current:null};
   $("verbInfinitiveSetup").classList.add("hidden");$("verbInfinitiveResult").classList.add("hidden");$("verbInfinitivePanel").classList.remove("hidden");
-  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");$("verbInfinitiveCard").classList.add("hidden");$("scriptPracticeCard").classList.add("hidden");
+  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");$("scriptPracticeCard").classList.add("hidden");
   nextVerbInfinitiveQuestion();window.scrollTo({top:$("verbInfinitiveCard").offsetTop-10,behavior:"smooth"})
 }
 function nextVerbInfinitiveQuestion(){
@@ -698,7 +698,7 @@ function startScriptPractice(){
   if(sprint||infinitiveQuiz){alert("Finish the other optional practice first.");return}
   scriptPractice={queue:shuffle(scriptLetters).slice(0,12),index:0,correct:0,attempted:0,current:null};
   $("scriptSetup").classList.add("hidden");$("scriptResult").classList.add("hidden");$("scriptPanel").classList.remove("hidden");
-  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");
+  $("quizCard").classList.add("hidden");$("rapidCard").classList.add("hidden");$("verbInfinitiveCard").classList.add("hidden");
   nextScriptQuestion();window.scrollTo({top:$("scriptPracticeCard").offsetTop-10,behavior:"smooth"})
 }
 function nextScriptQuestion(){
@@ -734,11 +734,11 @@ function answerScriptChoice(btn,choice){
 function finishScriptPractice(){
   if(!scriptPractice)return;
   let done=scriptPractice,percent=done.attempted?Math.round(done.correct/done.attempted*100):0;scriptPractice=null;
-  $("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");
+  $("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");
   let result=$("scriptResult");result.textContent="Script matching: "+done.correct+" correct out of "+done.attempted+" ("+percent+"%). This practice does not affect your lesson level.";result.className="feedback good"
 }
 function exitScriptPractice(){
-  scriptPractice=null;$("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");clearScriptPad()
+  scriptPractice=null;$("scriptPanel").classList.add("hidden");$("scriptSetup").classList.remove("hidden");$("quizCard").classList.remove("hidden");$("rapidCard").classList.remove("hidden");$("verbInfinitiveCard").classList.remove("hidden");clearScriptPad()
 }
 $("startScriptBtn").onclick=startScriptPractice;$("toggleScriptRefBtn").onclick=toggleScriptReference;$("nextScriptBtn").onclick=function(){if(!scriptPractice)return;scriptPractice.index++;nextScriptQuestion()};$("exitScriptBtn").onclick=exitScriptPractice;
 const scriptCanvas=$("scriptPad"),scriptCtx=scriptCanvas.getContext("2d");
