@@ -140,7 +140,7 @@ function sentenceQuestion(){
   return sentenceQuestionFrom(s)
 }
 function sentenceTilesQuestion(s){
-  let pool=practiceSentences();return{type:"tiles2",cat:"בניית משפטים • שני חלקים",prompt:s.en,correct:s.he,fullHebrew:s.he,translation:s.en,sentenceObj:s,words:shuffle(s.he.split(" ")),translationOptions:translationChoicesFor(s,pool),part1Correct:null}
+  return{type:"tiles",cat:"בניית משפטים",prompt:s.en,correct:s.he,words:shuffle(s.he.split(" "))}
 }
 function matchQuestion(){let useOpp=opposites.length&&Math.random()<.5,src=useOpp?opposites:matches,m=rand(src),opts=[m.answer];shuffle(src.filter(function(x){return x.answer!==m.answer})).forEach(function(x){if(opts.length<4&&!opts.includes(x.answer))opts.push(x.answer)});return{type:"match",cat:useOpp?"מילים הפוכות":"התאמה בעברית",prompt:m.prompt,correct:m.answer,options:shuffle(opts)}}
 function connectorQuestion(){let c=rand(connectors),opts=[c.answer];shuffle(connectors.filter(function(x){return x.answer!==c.answer})).forEach(function(x){if(opts.length<4&&!opts.includes(x.answer))opts.push(x.answer)});return{type:"connector",cat:"מילות קישור",prompt:c.sentence,correct:c.answer,options:shuffle(opts)}}
@@ -186,7 +186,7 @@ function blockAccuracyPercent(blockEnd){
   return attempted?Math.round(correct/attempted*100):null
 }
 function updateMastery(q,ok,level){
-  if(q&&(q.type==="sentence2"||q.type==="tiles2"))return false;
+  if(q&&q.type==="sentence2")return false;
   let key=masteryKey(q),rec=state.masteryReview[key];
   if(!ok){
     if(!rec)state.masteryReview[key]={key:key,level:level||state.level,correctCount:0,question:cleanQuestionForMemory(q),date:new Date().toISOString()};
@@ -206,6 +206,7 @@ function updateMastery(q,ok,level){
 function reviveMasteryReview(rec){
   if(!rec||!rec.question)return null;
   let q=JSON.parse(JSON.stringify(rec.question));q.part1Correct=null;q._reviewLevel=rec.level||state.level;
+  if(q.type==="tiles2"){q.type="tiles";q.cat="בניית משפטים";delete q.translationOptions;delete q.sentenceObj;delete q.fullHebrew;delete q.translation}
   if(q.options)q.options=shuffle(q.options);if(q.wordOptions)q.wordOptions=shuffle(q.wordOptions);if(q.translationOptions)q.translationOptions=shuffle(q.translationOptions);if(q.words)q.words=shuffle(q.words);
   return q
 }
@@ -230,6 +231,7 @@ function cleanQuestionForMemory(q){
 function reviveTestMiss(rec){
   if(!rec||!rec.question)return null;
   let q=JSON.parse(JSON.stringify(rec.question));q.part1Correct=null;
+  if(q.type==="tiles2"){q.type="tiles";q.cat="בניית משפטים";delete q.translationOptions;delete q.sentenceObj;delete q.fullHebrew;delete q.translation}
   if(q.options)q.options=shuffle(q.options);if(q.wordOptions)q.wordOptions=shuffle(q.wordOptions);if(q.translationOptions)q.translationOptions=shuffle(q.translationOptions);if(q.words)q.words=shuffle(q.words);
   return q
 }
@@ -321,7 +323,7 @@ function renderReview(){
   })
 }
 function hideAll(){["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
-function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"||current.type==="tiles2"){$("tilesArea").classList.remove("hidden");$("instruction").textContent=current.type==="tiles2"?"Part 1 of 2: Build the Hebrew sentence.":"Tap the words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=makeUniqueQuestion();$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent="Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
 function renderSentenceWordPart(){
   let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Choose the Hebrew word that completes the sentence.";
   current.wordOptions.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerSentenceWord(b,opt)};a.appendChild(b)})
@@ -408,28 +410,9 @@ function record(ok){
 function answerMC(btn,opt){if(locked)return;let ok=norm(opt)===norm(current.correct);Array.from(document.querySelectorAll(".choice")).forEach(function(b){if(norm(b.textContent)===norm(current.correct))b.classList.add("correct")});if(!ok)btn.classList.add("wrong");showFeedback(ok,ok?"Correct.":"Correct answer: "+answerWithEnglish(current.correct,current));record(ok)}
 function englishMatch(a,c){let aa=norm(a);if(!aa)return false;let parts=c.split("/").map(norm);return parts.some(function(p){return aa===p||aa.includes(p)||p.includes(aa)})}
 function checkTyped(){if(locked)return;let a=$("answerInput").value;if(!norm(a)){showFeedback(false,"No answer entered. Correct answer: "+answerWithEnglish(current.correct,current));record(false);return}let ok=current.type==="typedEn"?englishMatch(a,current.correct):norm(a)===norm(current.correct);showFeedback(ok,ok?"Correct.":"Correct answer: "+answerWithEnglish(current.correct,current));record(ok)}
-function renderTilesTranslationPart(){
-  $("tilesArea").classList.add("hidden");let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");
-  $("prompt").textContent=current.fullHebrew;$("prompt").dir="rtl";$("instruction").textContent="Part 2 of 2: Choose the correct English translation.";
-  current.translationOptions.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="ltr";b.onclick=function(){answerTilesTranslation(b,opt)};a.appendChild(b)})
-}
-function answerTilesTranslation(btn,opt){
-  if(locked)return;let ok=norm(opt)===norm(current.translation);
-  Array.from($("choiceArea").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(current.translation))b.classList.add("correct")});
-  if(!ok)btn.classList.add("wrong");
-  let mastered=markSentencePart(current.sentenceObj||{he:current.fullHebrew,en:current.translation},2,ok),overall=!!current.part1Correct&&ok;
-  let msg=overall?"Both parts correct.":(!current.part1Correct&&!ok?"Both parts need review. Correct translation: "+current.translation:!current.part1Correct?"Translation correct; review the Hebrew sentence.":"Sentence correct; correct English translation: "+current.translation);
-  if(mastered)msg+=" Sentence mastered at 5/5 for both parts; it has been retired and a new sentence was added.";
-  showFeedback(overall,msg);record(overall)
-}
 function checkTiles(){
   if(locked)return;let a=tileAnswer.join(" "),ok=norm(a)===norm(current.correct);
-  if(current.type==="tiles2"){
-    current.part1Correct=ok;markSentencePart(current.sentenceObj||{he:current.fullHebrew,en:current.translation},1,ok);
-    showFeedback(ok,ok?"Part 1 correct. Now translate the sentence.":"Correct Hebrew sentence: "+current.correct+". Now translate it.");
-    renderTilesTranslationPart();return
-  }
-  showFeedback(ok,ok?"Correct.":"Correct sentence: "+current.correct+" — "+current.prompt);record(ok)
+  showFeedback(ok,ok?"Correct.":"Correct Hebrew sentence: "+current.correct+" — "+current.prompt);record(ok)
 }
 function revealHand(){if(locked)return;$("revealedAnswer").textContent=current.correct;$("selfGrade").classList.remove("hidden")}
 function gradeHand(ok){if(locked)return;showFeedback(ok,ok?"Marked correct.":"Correct answer: "+answerWithEnglish(current.correct,current)+". Added to your review list.");record(ok)}
