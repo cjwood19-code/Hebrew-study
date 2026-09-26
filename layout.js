@@ -1,67 +1,47 @@
 (function(){
   function el(id){return document.getElementById(id)}
+  function addStyles(){
+    if(el('compactLayoutStyles'))return;
+    const s=document.createElement('style');s.id='compactLayoutStyles';
+    s.textContent=`
+      .practiceHub{padding:16px 18px}.practiceNav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+      .practiceNavBtn{display:flex;align-items:center;justify-content:flex-start;gap:9px;text-align:left;background:#eef3f6;color:var(--ink);border:2px solid transparent;min-height:58px;padding:10px 12px;font-weight:700}
+      .practiceNavBtn.active{background:#e5eef4;border-color:var(--blue);color:var(--navy)}.practiceNavIcon{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:0 0 30px;border-radius:9px;background:#fff;font-size:18px;font-weight:800}
+      .practiceToolCard{scroll-margin-top:88px}.referenceGuide{font-size:14px;line-height:1.55}.referenceGuide .levels{line-height:1.5}
+      .reviewCardCompact{padding:13px 16px}.reviewCardCompact .sectionTitle h2{margin:0}.reviewCardCompact #practiceMissedBtn{min-height:40px;padding:8px 12px}.reviewCardCompact #reviewList:empty{display:none}.reviewCardCompact .reviewList{margin-top:8px}
+      #quizCard{border-top:4px solid var(--blue)}
+      @media(max-width:650px){
+        main{padding-top:10px}.card{margin-bottom:11px;padding:15px;border-radius:15px}header{padding-bottom:10px}header h1{font-size:19px}
+        .stats{gap:7px;margin-top:10px}.stats div{padding:8px}.stats b{font-size:17px}.progress{margin-top:9px}
+        .practiceNav{grid-template-columns:1fr 1fr}.practiceNavBtn{font-size:14px;min-height:54px}.practiceNavIcon{width:27px;height:27px;flex-basis:27px}
+        #quizCard .prompt{margin-top:13px}.reviewCardCompact .sectionTitle{align-items:center}
+      }
+      @media(max-width:390px){.practiceNav{grid-template-columns:1fr}.practiceNavBtn{min-height:48px}.practiceHub .compact{font-size:13px}}
+    `;
+    document.head.appendChild(s)
+  }
   function makeButton(label,id,icon){
-    const b=document.createElement('button');
-    b.className='practiceNavBtn';
-    b.dataset.target=id;
-    b.innerHTML='<span class="practiceNavIcon">'+icon+'</span><span>'+label+'</span>';
-    return b
+    const b=document.createElement('button');b.className='practiceNavBtn';b.dataset.target=id;
+    b.innerHTML='<span class="practiceNavIcon">'+icon+'</span><span>'+label+'</span>';return b
   }
   function install(){
-    const main=document.querySelector('main'),quiz=el('quizCard');
-    if(!main||!quiz||el('practiceHub'))return;
-
-    // Keep the active lesson where it belongs: immediately after progress/status messaging.
-    const message=el('message');
-    if(message)message.insertAdjacentElement('afterend',quiz);
-
-    // Make the review list compact and keep it close to the lesson.
+    addStyles();
+    const main=document.querySelector('main'),quiz=el('quizCard');if(!main||!quiz||el('practiceHub'))return;
+    const message=el('message');if(message)message.insertAdjacentElement('afterend',quiz);
     const reviewCard=Array.from(main.querySelectorAll(':scope > section.card')).find(function(s){return s.querySelector('#reviewList')});
     if(reviewCard){reviewCard.classList.add('reviewCardCompact');quiz.insertAdjacentElement('afterend',reviewCard)}
-
-    const hub=document.createElement('section');
-    hub.id='practiceHub';hub.className='card practiceHub';
-    hub.innerHTML='<div class="sectionTitle"><div><h2>Practice Library</h2><p class="compact">Choose one activity. Only the activity you are using opens, keeping the main screen uncluttered.</p></div><span class="badge">Practice</span></div><div id="practiceNav" class="practiceNav"></div><button id="closePracticeTool" class="secondary wide hidden">Close practice activity</button>';
+    const hub=document.createElement('section');hub.id='practiceHub';hub.className='card practiceHub';
+    hub.innerHTML='<div class="sectionTitle"><div><h2>Practice Library</h2><p class="compact">Choose an activity. The rest stay tucked away until you need them.</p></div><span class="badge">Practice</span></div><div id="practiceNav" class="practiceNav"></div><button id="closePracticeTool" class="secondary wide hidden">Close practice activity</button>';
     (reviewCard||quiz).insertAdjacentElement('afterend',hub);
-
-    const tools=[
-      ['Rapid Recognition','rapidCard','⚡'],
-      ['Reading','readingLibraryCard','א'],
-      ['Conjugated Verbs','conjVerbCard','↔'],
-      ['Infinitives','verbInfinitiveCard','ל'],
-      ['Script Practice','scriptPracticeCard','✍︎']
-    ];
+    const tools=[['Rapid Recognition','rapidCard','⚡'],['Reading','readingLibraryCard','א'],['Conjugated Verbs','conjVerbCard','↔'],['Infinitives','verbInfinitiveCard','ל'],['Script Practice','scriptPracticeCard','✍︎']];
     const nav=el('practiceNav');
-    tools.forEach(function(t){
-      const card=el(t[1]);if(!card)return;
-      card.classList.add('practiceToolCard','hidden');
-      hub.insertAdjacentElement('afterend',card);
-      nav.appendChild(makeButton(t[0],t[1],t[2]));
-    });
-
-    // Put the long explanation behind a single reference button.
+    tools.forEach(function(t){const card=el(t[1]);if(!card)return;card.classList.add('practiceToolCard','hidden');hub.insertAdjacentElement('afterend',card);nav.appendChild(makeButton(t[0],t[1],t[2]))});
     const guide=Array.from(main.querySelectorAll(':scope > section.card')).find(function(s){const h=s.querySelector('h2');return h&&h.textContent.trim()==='Difficulty progression'});
-    if(guide){
-      guide.id='progressionGuide';guide.classList.add('practiceToolCard','referenceGuide','hidden');
-      hub.insertAdjacentElement('afterend',guide);
-      nav.appendChild(makeButton('Progression Guide','progressionGuide','?'));
-    }
-
-    function closeAll(){
-      document.querySelectorAll('.practiceToolCard').forEach(function(c){c.classList.add('hidden')});
-      document.querySelectorAll('.practiceNavBtn').forEach(function(b){b.classList.remove('active')});
-      el('closePracticeTool').classList.add('hidden')
-    }
-    nav.addEventListener('click',function(e){
-      const b=e.target.closest('.practiceNavBtn');if(!b)return;
-      const target=el(b.dataset.target),already=b.classList.contains('active');
-      closeAll();if(already)return;
-      if(target){target.classList.remove('hidden');b.classList.add('active');el('closePracticeTool').classList.remove('hidden');target.scrollIntoView({behavior:'smooth',block:'start'})}
-    });
+    if(guide){guide.id='progressionGuide';guide.classList.add('practiceToolCard','referenceGuide','hidden');hub.insertAdjacentElement('afterend',guide);nav.appendChild(makeButton('Progression Guide','progressionGuide','?'))}
+    function closeAll(){document.querySelectorAll('.practiceToolCard').forEach(function(c){c.classList.add('hidden')});document.querySelectorAll('.practiceNavBtn').forEach(function(b){b.classList.remove('active')});el('closePracticeTool').classList.add('hidden')}
+    nav.addEventListener('click',function(e){const b=e.target.closest('.practiceNavBtn');if(!b)return;const target=el(b.dataset.target),already=b.classList.contains('active');closeAll();if(already)return;if(target){target.classList.remove('hidden');b.classList.add('active');el('closePracticeTool').classList.remove('hidden');target.scrollIntoView({behavior:'smooth',block:'start'})}});
     el('closePracticeTool').addEventListener('click',function(){closeAll();hub.scrollIntoView({behavior:'smooth',block:'start'})});
-
-    // Shorter header copy on small screens; full title remains intact.
-    document.body.classList.add('compactTrainerLayout');
+    document.body.classList.add('compactTrainerLayout')
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
