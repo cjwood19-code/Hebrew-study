@@ -100,3 +100,9 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
+
+// Load the manual answer-correction extension after the main trainer is ready.
+(function(){
+  if(document.querySelector('script[data-answer-override]'))return;
+  const s=document.createElement('script');s.src='answer-override.js';s.dataset.answerOverride='1';document.body.appendChild(s)
+})();
