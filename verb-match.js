@@ -65,3 +65,12 @@
   if(document.querySelector('script[data-compact-layout]'))return;
   const s=document.createElement('script');s.src='layout.js';s.dataset.compactLayout='1';document.body.appendChild(s)
 })();
+
+// Keep saved sentence questions synchronized with their current source answer,
+// and make the manual answer override available on every deployment.
+(function(){
+  [['sentence-fix.js','sentenceFix'],['answer-override.js','answerOverride']].forEach(function(entry){
+    if(document.querySelector('script[data-'+entry[1]+']'))return;
+    const s=document.createElement('script');s.src=entry[0];s.dataset[entry[1]]='1';document.body.appendChild(s)
+  })
+})();
