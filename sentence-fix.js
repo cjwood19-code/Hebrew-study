@@ -1,6 +1,17 @@
 (function(){
   if(typeof upgradeTwoPartQuestion!=="function"||typeof sentences==="undefined")return;
 
+  // Explicit corrections for sentences whose unpointed Hebrew is ambiguous to
+  // an automatic translator. In this sentence אוכל is uchal ("I will be able"),
+  // not ochel ("I eat").
+  const sentenceCorrections={
+    "אני הולך לישון עכשיו כדי שבבוקר אוכל לקום מוקדם":"I am going to sleep now so that in the morning I can get up early.",
+    "אני הולך לישון עכשיו כדי שאוכל לקום מוקדם בבוקר":"I am going to sleep now so that I can get up early in the morning.",
+    "אני הולך לישון כדי שאני אקום מוקדם":"I am going to sleep so that I will get up early."
+  };
+
+  function correctedEnglish(he,fallback){return sentenceCorrections[he]||fallback}
+
   function syncSentence(q){
     if(!q||q.type!=="sentence2")return q;
     const full=(q.fullHebrew||(q.sentenceObj&&q.sentenceObj.he)||"").trim();
@@ -8,14 +19,17 @@
     const canonical=sentences.find(function(s){return (s.he||"").trim()===full});
     if(!canonical)return q;
 
+    const english=correctedEnglish(canonical.he,canonical.en);
     q.sentenceObj=canonical;
     q.fullHebrew=canonical.he;
-    q.translation=canonical.en;
-    if(q.correctWord)q.correct=q.correctWord+"||"+canonical.en;
+    q.translation=english;
+    if(q.correctWord)q.correct=q.correctWord+"||"+english;
 
     let opts=Array.isArray(q.translationOptions)?q.translationOptions.slice():[];
-    opts=opts.filter(function(x){return x&&x!==canonical.en});
-    opts.unshift(canonical.en);
+    // Remove both the old canonical translation and the corrected answer so a
+    // stale/wrong translation cannot remain among the choices.
+    opts=opts.filter(function(x){return x&&x!==canonical.en&&x!==english});
+    opts.unshift(english);
     q.translationOptions=typeof shuffle==="function"?shuffle(opts.slice(0,4)):opts.slice(0,4);
     return q
   }
