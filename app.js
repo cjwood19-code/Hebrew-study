@@ -619,6 +619,7 @@ $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=funct
 
 
 const readingPassages=[
+  ...(D.readingPassages||[]),
   {
     id:"secret-investigation",title:"המחקר הסודי",source:"Uploaded intermediate Hebrew notes • p. 149",
     he:'בעיתון "מעריב" התפרסם סיפור על מחקר סודי שנעשה בצה"ל. ראש הממשלה כעס מאוד, וביקש מהמשטרה לחקור מי גילה את הסוד. חוקרי המשטרה הזמינו לחקירה את העיתונאי, שפרסם את הסיפור. הם חקרו אותו הרבה זמן, אך הוא לא גילה להם דבר. החקירה נמשכה כשבועיים, אבל חוקרי המשטרה לא הצליחו לגלות איך הגיעו לעיתון הידיעות על המחקר הסודי הזה.',

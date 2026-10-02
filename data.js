@@ -347,3 +347,3463 @@ classVerbQuestions:[
 {cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להחליט?",answer:"החלטה",options:["החלטה","הפתעה","הקשבה","הסבר"]},
 {cat:"שם הפעולה מהשיעור",prompt:"מה שם הפעולה של להפתיע?",answer:"הפתעה",options:["הפתעה","הפסקה","הפרעה","אמונה"]}
 ]};
+
+// Source-backed additions; existing weighting and progress keys are preserved.
+(function(){
+const D=window.TRAINER_DATA, additions={
+  "vocab": [
+    {
+      "he": "כוכב",
+      "en": "star",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "רגיל",
+      "en": "usual / regular",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "צבעוני",
+      "en": "colourful",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "שער",
+      "en": "gate",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "אות",
+      "en": "letter",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "אירוע",
+      "en": "event",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 1
+      }
+    },
+    {
+      "he": "מצב",
+      "en": "situation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 3
+      }
+    },
+    {
+      "he": "כלכלי",
+      "en": "economic",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 3
+      }
+    },
+    {
+      "he": "משותף",
+      "en": "shared / in common",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 3
+      }
+    },
+    {
+      "he": "עני",
+      "en": "poor",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 4
+      }
+    },
+    {
+      "he": "שמחה",
+      "en": "happiness / joy",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 3
+      }
+    },
+    {
+      "he": "מסגד",
+      "en": "mosque",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 5
+      }
+    },
+    {
+      "he": "שלם",
+      "en": "complete",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 5
+      }
+    },
+    {
+      "he": "תאריך",
+      "en": "date",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 6
+      }
+    },
+    {
+      "he": "בודד",
+      "en": "lonely",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 6
+      }
+    },
+    {
+      "he": "מילון",
+      "en": "dictionary",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 7
+      }
+    },
+    {
+      "he": "כפתור",
+      "en": "button",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 8
+      }
+    },
+    {
+      "he": "תקופה",
+      "en": "period",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "נדודים",
+      "en": "wanderings",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "מצוין",
+      "en": "excellent",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "מרצה",
+      "en": "lecturer",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 11
+      }
+    },
+    {
+      "he": "סיפור עם",
+      "en": "folk story",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 11
+      }
+    },
+    {
+      "he": "מיתולוגיה",
+      "en": "mythology",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 12
+      }
+    },
+    {
+      "he": "גרעין",
+      "en": "seed",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 12
+      }
+    },
+    {
+      "he": "אמת",
+      "en": "truth",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 12
+      }
+    },
+    {
+      "he": "חברתי",
+      "en": "social",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 12
+      }
+    },
+    {
+      "he": "ידוע",
+      "en": "known",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 12
+      }
+    },
+    {
+      "he": "מלך",
+      "en": "king",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "כלה",
+      "en": "bride",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "ארמון",
+      "en": "palace",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "ממשלה",
+      "en": "government",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "דתי",
+      "en": "religious",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "חילוני",
+      "en": "secular",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "גמל",
+      "en": "camel",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 24
+      }
+    },
+    {
+      "he": "פרה",
+      "en": "cow",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 24
+      }
+    },
+    {
+      "he": "דוב",
+      "en": "bear",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 24
+      }
+    },
+    {
+      "he": "טבעת",
+      "en": "ring",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 25
+      }
+    },
+    {
+      "he": "דור",
+      "en": "generation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "הסכם",
+      "en": "agreement",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "משי",
+      "en": "silk",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "ריח",
+      "en": "smell",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "אצבעון",
+      "en": "thimble",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "אונייה",
+      "en": "ship",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "נהר",
+      "en": "river",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "יומן",
+      "en": "diary",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "תירס",
+      "en": "corn",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 30
+      }
+    },
+    {
+      "he": "מידע",
+      "en": "information",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 30
+      }
+    },
+    {
+      "he": "אי",
+      "en": "island",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 30
+      }
+    },
+    {
+      "he": "מדבר",
+      "en": "desert",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 31
+      }
+    },
+    {
+      "he": "צר",
+      "en": "narrow",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 31
+      }
+    },
+    {
+      "he": "רחב",
+      "en": "wide",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 31
+      }
+    },
+    {
+      "he": "מוכן",
+      "en": "ready",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 31
+      }
+    },
+    {
+      "he": "אכסניה",
+      "en": "hostel",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 33
+      }
+    },
+    {
+      "he": "קומה",
+      "en": "floor",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 33
+      }
+    },
+    {
+      "he": "מחיר",
+      "en": "price",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 33
+      }
+    },
+    {
+      "he": "בחינם",
+      "en": "for free",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 34
+      }
+    },
+    {
+      "he": "כיס",
+      "en": "pocket",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 34
+      }
+    },
+    {
+      "he": "קהילה",
+      "en": "community",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 34
+      }
+    },
+    {
+      "he": "מסורתי",
+      "en": "traditional",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 34
+      }
+    },
+    {
+      "he": "נושא",
+      "en": "subject",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 35
+      }
+    },
+    {
+      "he": "מפגש",
+      "en": "meeting / reunion",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 35
+      }
+    },
+    {
+      "he": "מנהיג",
+      "en": "leader",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 36
+      }
+    },
+    {
+      "he": "קשר",
+      "en": "connection",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 36
+      }
+    },
+    {
+      "he": "מערה",
+      "en": "cave",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 36
+      }
+    },
+    {
+      "he": "כפר",
+      "en": "village",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "תבלין",
+      "en": "spice",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "צמח",
+      "en": "plant",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "שמן זית",
+      "en": "olive oil",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "בוסתן",
+      "en": "garden of trees",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "צל",
+      "en": "shadow",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "פעילות",
+      "en": "activity",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "מנוחה",
+      "en": "rest",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "דיון",
+      "en": "discussion",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 39
+      }
+    },
+    {
+      "he": "צום",
+      "en": "fast",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 39
+      }
+    },
+    {
+      "he": "ספסל",
+      "en": "bench",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 40
+      }
+    },
+    {
+      "he": "אגם",
+      "en": "lake",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 40
+      }
+    },
+    {
+      "he": "אגס",
+      "en": "pear",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "אורן",
+      "en": "pine",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "זית",
+      "en": "olive",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "לפי",
+      "en": "according to",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "מוזר",
+      "en": "weird",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "בתוך",
+      "en": "inside",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "שלט",
+      "en": "sign / street sign",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "פסגה",
+      "en": "summit",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 42
+      }
+    },
+    {
+      "he": "שיחה",
+      "en": "conversation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 42
+      }
+    },
+    {
+      "he": "שפה",
+      "en": "language",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 42
+      }
+    },
+    {
+      "he": "תחבורה",
+      "en": "transport / transportation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 42
+      }
+    },
+    {
+      "he": "חלום",
+      "en": "dream",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "יער",
+      "en": "forest",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "בעיקר",
+      "en": "mainly",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "נזיר",
+      "en": "monk",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "חינוך",
+      "en": "education",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "דו-לשוני",
+      "en": "bilingual",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "חד-לשוני",
+      "en": "monolingual",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "נזירה",
+      "en": "nun",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "רוח",
+      "en": "wind / spirit",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "רוחני",
+      "en": "spiritual",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "השתתפות",
+      "en": "participation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "תושב",
+      "en": "resident",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "עירייה",
+      "en": "municipality",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 45
+      }
+    },
+    {
+      "he": "הזדמנות",
+      "en": "opportunity",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 45
+      }
+    },
+    {
+      "he": "מזוודה",
+      "en": "luggage",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 45
+      }
+    },
+    {
+      "he": "מטרה",
+      "en": "goal",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 46
+      }
+    },
+    {
+      "he": "אפשרות",
+      "en": "possibility",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 46
+      }
+    },
+    {
+      "he": "בקרוב",
+      "en": "soon",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 47
+      }
+    },
+    {
+      "he": "מפלגה",
+      "en": "political party",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "אוהל",
+      "en": "tent",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "כרית",
+      "en": "pillow",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "שמיכה",
+      "en": "blanket",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "שק שינה",
+      "en": "sleeping bag",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "מקלחת",
+      "en": "shower",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "אפילו",
+      "en": "even",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 48
+      }
+    },
+    {
+      "he": "גנב",
+      "en": "thief",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "שודד",
+      "en": "robber",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "חושך",
+      "en": "darkness",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "בריא",
+      "en": "healthy",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "ריק",
+      "en": "empty",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "מלא",
+      "en": "full",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "זול",
+      "en": "cheap",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "he": "יבשה",
+      "en": "continent",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "שר",
+      "en": "minister",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "אבן",
+      "en": "stone",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "כביש",
+      "en": "road",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "שביל",
+      "en": "path",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "תוף",
+      "en": "drum",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "תרמיל",
+      "en": "backpack",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 51
+      }
+    },
+    {
+      "he": "המלצה",
+      "en": "recommendation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 51
+      }
+    },
+    {
+      "he": "מסלול",
+      "en": "path / runway",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 51
+      }
+    },
+    {
+      "he": "תקשורת",
+      "en": "communication",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "he": "הגדרה",
+      "en": "definition",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "he": "כביסה",
+      "en": "laundry",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    },
+    {
+      "he": "חתן",
+      "en": "groom",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    },
+    {
+      "he": "קימה",
+      "en": "getting up",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "he": "לינה",
+      "en": "spending the night",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "he": "הזמנה",
+      "en": "invitation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "he": "התאמה",
+      "en": "matching",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "he": "ריצה",
+      "en": "running",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "he": "טיסה",
+      "en": "flight",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "he": "תמרים",
+      "en": "dates",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "he": "נווה מדבר",
+      "en": "oasis",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "נחש",
+      "en": "snake",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "שועל",
+      "en": "fox",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "מכתש",
+      "en": "crater",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "יישוב",
+      "en": "settlement",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "צד",
+      "en": "side",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "מלוח",
+      "en": "salty",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "רמז",
+      "en": "hint",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "מרחק",
+      "en": "distance",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "אומנות",
+      "en": "arts",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "מחול",
+      "en": "dance",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "ריקוד",
+      "en": "dance",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "רקדן",
+      "en": "dancer",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "רקדנית",
+      "en": "dancer",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "כבד",
+      "en": "heavy",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "נפש",
+      "en": "soul",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "ותיק",
+      "en": "veteran",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "אורך",
+      "en": "length",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "נוף",
+      "en": "view",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "חול",
+      "en": "sand",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "אזור",
+      "en": "zone / area",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "מפואר",
+      "en": "luxurious",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "חומה",
+      "en": "wall",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "דת",
+      "en": "religion",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "מעיין",
+      "en": "spring",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "שליט",
+      "en": "governor",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "סבון",
+      "en": "soap",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "רעידת אדמה",
+      "en": "earthquake",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 59
+      }
+    },
+    {
+      "he": "כנסייה",
+      "en": "church",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 59
+      }
+    },
+    {
+      "he": "שבט",
+      "en": "tribe",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 59
+      }
+    },
+    {
+      "he": "קדום",
+      "en": "ancient",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 59
+      }
+    },
+    {
+      "he": "שיטפון",
+      "en": "flood",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "תחביב",
+      "en": "hobby",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "פריחה",
+      "en": "blossom",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "פסיפס",
+      "en": "mosaic",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "חשמלאי",
+      "en": "electrician",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "חשמלאית",
+      "en": "electrician",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "מומחה",
+      "en": "specialist",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "מומחית",
+      "en": "specialist",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "פיסול",
+      "en": "sculpture",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "שיטה",
+      "en": "method",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "שמיעה",
+      "en": "hearing / listening",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "he": "פחד",
+      "en": "fear",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "he": "צדק",
+      "en": "justice",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "שתיקה",
+      "en": "silence",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "מפתח",
+      "en": "key",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "נוח",
+      "en": "comfortable",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "בולען",
+      "en": "sinkhole",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "עצירה",
+      "en": "stopping",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "פגיעה",
+      "en": "harm / harming",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "סגירה",
+      "en": "closing",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "דרישה",
+      "en": "demand",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "פגישה",
+      "en": "meeting",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "מציאה",
+      "en": "finding",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "פעולה",
+      "en": "activity",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "פתרון",
+      "en": "solution",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "ריאיון",
+      "en": "interview",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "מרפסת",
+      "en": "balcony",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "צמחייה",
+      "en": "vegetation",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "עממי",
+      "en": "popular / for the people",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "חוף",
+      "en": "shore",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "עשן",
+      "en": "smoke",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "he": "עדיין",
+      "en": "still",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "he": "ביצה",
+      "en": "egg",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "he": "ציפור",
+      "en": "bird",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "he": "מילה",
+      "en": "word",
+      "cat": "Teacher notes · Intermediate 2",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    }
+  ],
+  "verbDefinitions": [
+    {
+      "he": "להפסיק",
+      "en": "to stop",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 7
+      }
+    },
+    {
+      "he": "לשיר",
+      "en": "to sing",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 9
+      }
+    },
+    {
+      "he": "לכעוס",
+      "en": "to get mad",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "להתנהג",
+      "en": "to behave",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "לחלום",
+      "en": "to dream",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 10
+      }
+    },
+    {
+      "he": "להתאים",
+      "en": "to match / suit",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 11
+      }
+    },
+    {
+      "he": "לדרוש",
+      "en": "to demand",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 13
+      }
+    },
+    {
+      "he": "לשבור",
+      "en": "to break",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 22
+      }
+    },
+    {
+      "he": "לסיים",
+      "en": "to finish",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 23
+      }
+    },
+    {
+      "he": "לצום",
+      "en": "to fast",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 28
+      }
+    },
+    {
+      "he": "לחצות",
+      "en": "to cross",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "לטפס",
+      "en": "to climb",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "לשוט",
+      "en": "to navigate",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "ללון",
+      "en": "to spend the night",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "לעזוב",
+      "en": "to leave",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "לריב",
+      "en": "to fight",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 29
+      }
+    },
+    {
+      "he": "לדון",
+      "en": "to discuss",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 30
+      }
+    },
+    {
+      "he": "לתכנן",
+      "en": "to plan",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 30
+      }
+    },
+    {
+      "he": "להיעלם",
+      "en": "to disappear",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 31
+      }
+    },
+    {
+      "he": "לכבוש",
+      "en": "to conquer",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 37
+      }
+    },
+    {
+      "he": "להחביא",
+      "en": "to hide",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 37
+      }
+    },
+    {
+      "he": "לאסוף",
+      "en": "to gather",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "he": "לטוס",
+      "en": "to fly",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "לבחור",
+      "en": "to choose",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "לתרגל",
+      "en": "to exercise",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 42
+      }
+    },
+    {
+      "he": "לחיות",
+      "en": "to live",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "להתחתן",
+      "en": "to get married",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 43
+      }
+    },
+    {
+      "he": "להשתתף",
+      "en": "to participate",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 44
+      }
+    },
+    {
+      "he": "לטפל",
+      "en": "to take care of",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 46
+      }
+    },
+    {
+      "he": "לנגן",
+      "en": "to play an instrument",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 47
+      }
+    },
+    {
+      "he": "להתאהב",
+      "en": "to fall in love",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 47
+      }
+    },
+    {
+      "he": "להיזכר",
+      "en": "to recall",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 47
+      }
+    },
+    {
+      "he": "לשכוח",
+      "en": "to forget",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "להרוס",
+      "en": "to destroy",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 50
+      }
+    },
+    {
+      "he": "להתחיל",
+      "en": "to begin",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "he": "להתיישב",
+      "en": "to settle / sit down",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "ליצור",
+      "en": "to create",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "להגזים",
+      "en": "to exaggerate",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 57
+      }
+    },
+    {
+      "he": "להקים",
+      "en": "to establish / found",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "לשתול",
+      "en": "to plant",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 58
+      }
+    },
+    {
+      "he": "למכור",
+      "en": "to sell",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 59
+      }
+    },
+    {
+      "he": "לרדוף",
+      "en": "to chase",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "לטבוע",
+      "en": "to drown",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "לשמר",
+      "en": "to preserve",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 61
+      }
+    },
+    {
+      "he": "לשפוט",
+      "en": "to judge",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "לנהוג",
+      "en": "to drive",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "לרכוב",
+      "en": "to ride",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "לגדול",
+      "en": "to grow",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "לשכב",
+      "en": "to lie down",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "לפגוש",
+      "en": "to meet / run into",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "he": "למצוא",
+      "en": "to find",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לדאוג",
+      "en": "to worry",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לצחוק",
+      "en": "to laugh",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לצבוע",
+      "en": "to paint",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לצעוק",
+      "en": "to shout",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לנעול",
+      "en": "to wear shoes / lock",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לשאול",
+      "en": "to ask / borrow",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "he": "לצמוח",
+      "en": "to grow",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "למסור",
+      "en": "to hand out",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "לבלוע",
+      "en": "to swallow",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "להתייבש",
+      "en": "to get dry",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "לפגוע",
+      "en": "to harm",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "לעצור",
+      "en": "to stop",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "לנשום",
+      "en": "to breathe",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "לגנוב",
+      "en": "to steal",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    },
+    {
+      "he": "ללעוס",
+      "en": "to chew",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 67
+      }
+    }
+  ],
+  "sentences": [
+    {
+      "he": "הכלב רודף אחרי החתול",
+      "en": "The dog chases the cat.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "ים המלח הוא מלוח",
+      "en": "The Dead Sea is salty.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "הגבינה מלוחה",
+      "en": "The cheese is salty.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "בנגב חיים לא רק יהודים, אלא גם בדואים",
+      "en": "Not only Jews live in the Negev, but also Bedouins.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "he": "ים המלח מתייבש",
+      "en": "The Dead Sea is drying up.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "he": "אני אנעל את הדלת",
+      "en": "I will lock the door.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "he": "אנחנו נשאל את המרצה את כל השאלות החשובות",
+      "en": "We will ask the lecturer all the important questions.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "he": "השוטרת תחקור את הנהג אחרי התאונה בכביש",
+      "en": "The policewoman will investigate the driver after the accident on the road.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "he": "לפני ששותלים עצים בבוסתן בונים בית",
+      "en": "Before planting trees in the garden of trees, a house is built.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "אחרי שבנו את המסגד הגדול, הזמינו אנשים להתפלל שם",
+      "en": "After building the large mosque, they invited people to pray there.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "כאשר מטיילים בעיר רמלה, שומעים עברית וערבית",
+      "en": "When touring the city of Ramla, one hears Hebrew and Arabic.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "he": "בואו נטוס להונולולו",
+      "en": "Let's fly to Honolulu.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "בוא נזמין חברים לארוחת ערב",
+      "en": "Let's invite friends to dinner.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "he": "לא היה לשמואל מפתח לדירה",
+      "en": "Shmuel did not have a key to the apartment.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 46
+      }
+    },
+    {
+      "he": "יהיו לי חלומות רבים",
+      "en": "I will have many dreams.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 45
+      }
+    }
+  ],
+  "classVerbQuestions": [
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לשפוט",
+      "answer": "אשפוט",
+      "options": [
+        "אשפוט",
+        "אפתור",
+        "אנהג",
+        "אפתח"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לפתור",
+      "answer": "אפתור",
+      "options": [
+        "אפתור",
+        "אשפוט",
+        "אנהג",
+        "אפתח"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לנהוג",
+      "answer": "אנהג",
+      "options": [
+        "אנהג",
+        "אשפוט",
+        "אפתור",
+        "אפתח"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לפתוח",
+      "answer": "אפתח",
+      "options": [
+        "אפתח",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • ללבוש",
+      "answer": "אלבש",
+      "options": [
+        "אלבש",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לרכוב",
+      "answer": "ארכב",
+      "options": [
+        "ארכב",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לגדול",
+      "answer": "אגדל",
+      "options": [
+        "אגדל",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לשכב",
+      "answer": "אשכב",
+      "options": [
+        "אשכב",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • לפגוש",
+      "answer": "אפגוש",
+      "options": [
+        "אפגוש",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אני • להרוס",
+      "answer": "אהרוס",
+      "options": [
+        "אהרוס",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • את • להרוס",
+      "answer": "תהרסי",
+      "options": [
+        "תהרסי",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אנחנו • להרוס",
+      "answer": "נהרוס",
+      "options": [
+        "נהרוס",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 62
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • את • להחליט",
+      "answer": "תחליטי",
+      "options": [
+        "תחליטי",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אנחנו • לבוא",
+      "answer": "נבוא",
+      "options": [
+        "נבוא",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אתם • להמשיך",
+      "answer": "תמשיכו",
+      "options": [
+        "תמשיכו",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אתם • להעדיף",
+      "answer": "תעדיפו",
+      "options": [
+        "תעדיפו",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אנחנו • לשתול",
+      "answer": "נשתול",
+      "options": [
+        "נשתול",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "cat": "Intermediate 2 · עתיד",
+      "prompt": "עתיד • אתה • לחקור",
+      "answer": "תחקור",
+      "options": [
+        "תחקור",
+        "אשפוט",
+        "אפתור",
+        "אנהג"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לקום?",
+      "answer": "קימה",
+      "options": [
+        "קימה",
+        "שירה",
+        "לינה",
+        "מנוחה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לשיר?",
+      "answer": "שירה",
+      "options": [
+        "שירה",
+        "קימה",
+        "לינה",
+        "מנוחה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של ללון?",
+      "answer": "לינה",
+      "options": [
+        "לינה",
+        "קימה",
+        "שירה",
+        "מנוחה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לנוח?",
+      "answer": "מנוחה",
+      "options": [
+        "מנוחה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 38
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לדון?",
+      "answer": "דיון",
+      "options": [
+        "דיון",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 39
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לצום?",
+      "answer": "צום",
+      "options": [
+        "צום",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 39
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של להדליק?",
+      "answer": "הדלקה",
+      "options": [
+        "הדלקה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של להזמין?",
+      "answer": "הזמנה",
+      "options": [
+        "הזמנה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של להתאים?",
+      "answer": "התאמה",
+      "options": [
+        "התאמה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 54
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לרוץ?",
+      "answer": "ריצה",
+      "options": [
+        "ריצה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לטוס?",
+      "answer": "טיסה",
+      "options": [
+        "טיסה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 55
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של למכור?",
+      "answer": "מכירה",
+      "options": [
+        "מכירה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 63
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לשמוע?",
+      "answer": "שמיעה",
+      "options": [
+        "שמיעה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לחקור?",
+      "answer": "מחקר",
+      "options": [
+        "מחקר",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 64
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לשתוק?",
+      "answer": "שתיקה",
+      "options": [
+        "שתיקה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 65
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לעצור?",
+      "answer": "עצירה",
+      "options": [
+        "עצירה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לפגוע?",
+      "answer": "פגיעה",
+      "options": [
+        "פגיעה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לסגור?",
+      "answer": "סגירה",
+      "options": [
+        "סגירה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לדרוש?",
+      "answer": "דרישה",
+      "options": [
+        "דרישה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של לפגוש?",
+      "answer": "פגישה",
+      "options": [
+        "פגישה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    },
+    {
+      "cat": "Intermediate 2 · שם הפעולה",
+      "prompt": "מה שם הפעולה של למצוא?",
+      "answer": "מציאה",
+      "options": [
+        "מציאה",
+        "קימה",
+        "שירה",
+        "לינה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 66
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "sentence": "בנגב חיים ___ יהודים, אלא גם בדואים",
+      "answer": "לא רק",
+      "en": "Not only Jews live in the Negev, but also Bedouins.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 56
+      }
+    },
+    {
+      "sentence": "___שותלים עצים בבוסתן בונים בית",
+      "answer": "לפני ש",
+      "en": "Before planting trees in the garden of trees, a house is built.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "sentence": "___בנו את המסגד הגדול, הזמינו אנשים להתפלל שם",
+      "answer": "אחרי ש",
+      "en": "After building the large mosque, they invited people to pray there.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    },
+    {
+      "sentence": "___ מטיילים בעיר רמלה, שומעים עברית וערבית",
+      "answer": "כאשר",
+      "en": "When touring the city of Ramla, one hears Hebrew and Arabic.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 60
+      }
+    }
+  ],
+  "grammarQuestions": [
+    {
+      "cat": "Intermediate 2 · Grammar in context",
+      "prompt": "לא ___ לשמואל מפתח לדירה.",
+      "answer": "היה",
+      "options": [
+        "היה",
+        "הייתה",
+        "היו",
+        "הייתי"
+      ],
+      "en": "Shmuel did not have a key to the apartment.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 46
+      }
+    },
+    {
+      "cat": "Intermediate 2 · Grammar in context",
+      "prompt": "___ לי חלומות רבים.",
+      "answer": "יהיו",
+      "options": [
+        "יהיו",
+        "יהיה",
+        "היו",
+        "הייתה"
+      ],
+      "en": "I will have many dreams.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 45
+      }
+    },
+    {
+      "cat": "Intermediate 2 · Grammar in context",
+      "prompt": "בואו ___ להונולולו!",
+      "answer": "נטוס",
+      "options": [
+        "נטוס",
+        "טס",
+        "טסתי",
+        "לטוס"
+      ],
+      "en": "Let's fly to Honolulu.",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 41
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: היישובים ___",
+      "answer": "הקטנים",
+      "options": [
+        "הקטנים",
+        "הקטנות",
+        "קטנים",
+        "הקטן"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: הערים ___",
+      "answer": "הגדולות",
+      "options": [
+        "הגדולות",
+        "הגדולים",
+        "גדולות",
+        "הגדולה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: התרבויות ___",
+      "answer": "השונות",
+      "options": [
+        "השונות",
+        "השונים",
+        "שונות",
+        "השונה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: הדרכים ___",
+      "answer": "החדשות",
+      "options": [
+        "החדשות",
+        "החדשים",
+        "חדשות",
+        "החדשה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: הביצים ___",
+      "answer": "הקשות",
+      "options": [
+        "הקשות",
+        "הקשים",
+        "קשות",
+        "הקשה"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    },
+    {
+      "cat": "Intermediate 2 · יידוע והתאמת שם ותואר",
+      "prompt": "השלימו: האורות ___",
+      "answer": "החזקים",
+      "options": [
+        "החזקים",
+        "החזקות",
+        "חזקים",
+        "החזק"
+      ],
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 68
+      }
+    }
+  ],
+  "matches": [
+    {
+      "prompt": "אונייה",
+      "answer": "כלי תחבורה בים",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "ממשלה",
+      "answer": "קבוצה של שרים ושרות",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "מנהג",
+      "answer": "חלק ממסורת",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "מערה",
+      "answer": "פתח בהר",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "מפלגה",
+      "answer": "קבוצה פוליטית",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "קהילה",
+      "answer": "קבוצה של אנשים שחיים ביחד",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 52
+      }
+    },
+    {
+      "prompt": "שיחה",
+      "answer": "דיבור עם אחרים",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    },
+    {
+      "prompt": "שמיכה",
+      "answer": "כשקר בלילה, משתמשים בה",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    },
+    {
+      "prompt": "שר",
+      "answer": "חבר בממשלה",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    },
+    {
+      "prompt": "אי",
+      "answer": "אדמה עם ים מסביב",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 53
+      }
+    }
+  ],
+  "opposites": [
+    {
+      "prompt": "ריק",
+      "answer": "מלא",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "prompt": "יקר",
+      "answer": "זול",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "prompt": "משעמם",
+      "answer": "מעניין",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "prompt": "בריא",
+      "answer": "חולה",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    },
+    {
+      "prompt": "חושך",
+      "answer": "אור",
+      "source": {
+        "document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf",
+        "pdfPage": 49
+      }
+    }
+  ],
+  "readingPassages": [
+    {
+      "id": "intermediate2-ramla-time",
+      "title": "רמלה · ביטויי זמן",
+      "source": "Intermediate 2 PDF p. 60 · separate class examples, not a continuous source story",
+      "he": "לפני ששותלים עצים בבוסתן בונים בית.\nאחרי שבנו את המסגד הגדול, הזמינו אנשים להתפלל שם.\nכאשר מטיילים בעיר רמלה, שומעים עברית וערבית.",
+      "en": "Before planting trees in the garden of trees, a house is built.\nAfter building the large mosque, they invited people to pray there.\nWhen touring the city of Ramla, one hears Hebrew and Arabic.",
+      "vocab": [
+        [
+          "לפני ש",
+          "before"
+        ],
+        [
+          "אחרי ש",
+          "after"
+        ],
+        [
+          "כאשר",
+          "when"
+        ]
+      ],
+      "questions": [
+        {
+          "q": "מה בונים לפני ששותלים עצים בבוסתן?",
+          "a": "בית",
+          "opts": [
+            "בית",
+            "מסגד",
+            "ארמון",
+            "חומה"
+          ]
+        },
+        {
+          "q": "מה שומעים כאשר מטיילים בעיר רמלה?",
+          "a": "עברית וערבית",
+          "opts": [
+            "עברית וערבית",
+            "רק עברית",
+            "רק ערבית",
+            "אנגלית וספרדית"
+          ]
+        }
+      ]
+    }
+  ]
+};
+const keys={vocab:'he',verbDefinitions:'he',sentences:'he',connectors:'sentence',grammarQuestions:'prompt',classVerbQuestions:'prompt',matches:'prompt',opposites:'prompt',readingPassages:'id'};
+Object.keys(additions).forEach(function(pool){
+  const target=D[pool]||(D[pool]=[]), key=keys[pool];
+  additions[pool].forEach(function(item){
+    const canonical=function(s){return String(s).replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim()};
+    const existing=target.find(function(x){return canonical(x[key])===canonical(item[key])});
+    if(existing){
+      if(pool==='vocab'||pool==='verbDefinitions'){
+        const senses=existing.en.split(' / ');
+        item.en.split(' / ').forEach(function(s){if(!senses.includes(s))senses.push(s)});
+        existing.en=senses.join(' / ');
+        (existing.additionalSources||(existing.additionalSources=[])).push(item.source);
+      }
+      return;
+    }
+    target.push(item);
+  });
+});
+})();
+
+[{"infinitive": "לריב", "actionNoun": "ריב", "present": {"אני": "רב", "אתה": "רב", "את": "רבה", "הוא": "רב", "היא": "רבה", "אנחנו": "רבים", "אתם": "רבים", "הם": "רבים"}, "past": {"אני": "רבתי", "אתה": "רבת", "את": "רבת", "הוא": "רב", "היא": "רבה", "אנחנו": "רבנו", "אתם": "רבתם", "הם": "רבו"}, "future": {"אני": "אריב", "אתה": "תריב", "את": "תריבי", "הוא": "יריב", "היא": "תריב", "אנחנו": "נריב", "אתם": "תריבו", "הם": "יריבו"}, "source": {"document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf", "pdfPages": [39, 40]}}, {"infinitive": "ללון", "actionNoun": "לינה", "present": {"אני": "לן", "אתה": "לן", "את": "לנה", "הוא": "לן", "היא": "לנה", "אנחנו": "לנים", "אתם": "לנים", "הם": "לנים"}, "past": {"אני": "לנתי", "אתה": "לנת", "את": "לנת", "הוא": "לן", "היא": "לנה", "אנחנו": "לנו", "אתם": "לנתם", "הם": "לנו"}, "future": {"אני": "אלון", "אתה": "תלון", "את": "תלוני", "הוא": "ילון", "היא": "תלון", "אנחנו": "נלון", "אתם": "תלונו", "הם": "ילונו"}, "source": {"document": "CHRIS WOOD-HEBREW-INTERMEDIATE 2.pdf", "pdfPages": [39, 40]}}].forEach(function(v){if(!window.TRAINER_DATA.verbs.some(function(x){return x.infinitive===v.infinitive}))window.TRAINER_DATA.verbs.push(v)});
+
