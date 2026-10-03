@@ -53,3 +53,8 @@ h2{font-size:17px;margin:0 0 8px}.levels{padding-left:22px;line-height:1.7;margi
 #readingVocab{margin:10px 0 14px}
 #readingStoryButtons{align-items:stretch}
 @media(max-width:650px){.readingPassage{font-size:20px;padding:14px}}
+
+.promptAudioRow{display:flex;align-items:center;justify-content:center;gap:9px;min-width:0}
+.promptAudioRow .prompt{min-width:0}
+.pronounceBtn{flex:0 0 auto;min-height:42px;min-width:48px;padding:8px 11px;border:1px solid var(--line);background:#eef3f6;color:var(--ink);font-size:21px;line-height:1;border-radius:12px}
+.pronounceBtn:active{transform:scale(.97)}
