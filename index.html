@@ -75,7 +75,7 @@
   </section>
 
   <section id="quizCard" class="card">
-    <div id="category" class="category"></div><div id="prompt" class="prompt"></div><div id="instruction" class="instruction"></div><div id="choiceArea" class="choices"></div>
+    <div id="category" class="category"></div><div class="promptAudioRow"><div id="prompt" class="prompt"></div><button id="pronounceBtn" class="pronounceBtn hidden" type="button" aria-label="Hear Hebrew pronunciation" title="Hear Hebrew pronunciation">🔊</button></div><div id="instruction" class="instruction"></div><div id="choiceArea" class="choices"></div>
     <div id="typedArea" class="hidden"><input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><button id="checkTypedBtn" class="primary wide">Check answer</button></div>
     <div id="tilesArea" class="hidden"><div id="answerLine" class="answerLine"></div><div id="wordTiles" class="wordTiles"></div><div class="buttonRow"><button id="clearTilesBtn" class="secondary">Clear</button><button id="checkTilesBtn" class="primary">Check sentence</button></div></div>
     <div id="handArea" class="hidden"><canvas id="pad"></canvas><div class="buttonRow"><button id="clearPadBtn" class="secondary">Clear</button><button id="revealBtn" class="primary">Reveal answer</button></div><div id="selfGrade" class="hidden"><div class="reveal">Correct answer: <strong id="revealedAnswer" dir="rtl"></strong></div><div class="buttonRow"><button id="missedBtn" class="danger">Missed / unsure</button><button id="correctBtn" class="success">Correct</button></div></div></div>
@@ -84,6 +84,7 @@
 
   <section class="card">
     <h2>Difficulty progression</h2>
+    <p><strong>Pronunciation:</strong> when Hebrew is visible, tap the 🔊 button to hear it with the device's Hebrew voice. Audio is on demand and never affects scoring. Missing-word sentences keep audio hidden until the Hebrew sentence is completed so the sound does not reveal the answer.</p>
     <p><strong>Running accuracy</strong> is your cumulative percentage across all scored lesson and checkpoint questions, so it changes as you progress. Optional Rapid Recognition and Script Practice do not affect it.</p>
     <p><strong>Level accuracy</strong> tracks your cumulative scored performance for the current level. The <strong>Review</strong> number is the count of items still awaiting mastery. An item enters review when it is missed and stays there until you answer that item correctly 10 times; its progress is shown as x/10 below.</p>
     <p><strong>Sentence mastery</strong> applies only when the question itself is a Hebrew sentence with a missing word. Those questions have a required English-translation second part. A sentence is retired after 5 correct Hebrew completions and 5 correct English translations, then a new sentence is added. English-prompt sentence-building questions remain one-part exercises.</p>
