@@ -247,12 +247,15 @@ if(r<.18){let pres=v.present["הוא"],prompt="מה שם הפועל של: "+pres
 if(r<.40&&v.actionNoun){let reverse=Math.random()<.35,correct=reverse?v.infinitive:v.actionNoun,prompt=reverse?"מה שם הפועל של שם הפעולה: "+v.actionNoun+" ?":"מה שם הפעולה של: "+v.infinitive+" ?",pool=verbs.filter(function(x){return x.infinitive!==v.infinitive&&x.actionNoun}).map(function(x){return reverse?x.infinitive:x.actionNoun});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • שם פעולה",prompt:prompt,correct:correct,options:typed?null:shuffle([correct,...shuffle(pool).slice(0,3)])}}
 let tense=rand(["present","past","future"]),pron=rand(["אני","אתה","את","הוא","היא","אנחנו","אתם","הם"]),correct=v[tense][pron],label=tense==="present"?"הווה":tense==="past"?"עבר":"עתיד",prompt=label+" • "+pron+" • "+v.infinitive;let pool=[];verbs.forEach(function(x){if(x[tense]&&x[tense][pron]&&x[tense][pron]!==correct)pool.push(x[tense][pron])});Object.keys(v[tense]).forEach(function(p){if(v[tense][p]!==correct)pool.push(v[tense][p])});let opts=[correct];shuffle(pool).forEach(function(x){if(opts.length<4&&!opts.includes(x))opts.push(x)});return{type:typed?"verbTyped":"verbMC",cat:"פעלים • "+label,prompt:prompt,correct:correct,options:typed?null:shuffle(opts)}}
 function bookExercisePoolFor(L){
-  let skills=L===6?["reading"]:
+  // Full book reading exercises belong in the dedicated Reading Practice library.
+  // Keep them out of ordinary scored levels; Level 6 continues to use short
+  // sentence-comprehension questions, not full source reading exercises.
+  let skills=L===6?[]:
     L===7?["meaning"]:
-    L===8?["number","smichut"]:
+    L===8?["context","number","smichut"]:
     L===9?["tense","actionNoun"]:
     L===10?["transformation","tense","number","smichut"]:
-    L===12?["reading","meaning","number","smichut","tense","actionNoun","transformation"]:[];
+    L===12?["context","meaning","number","smichut","tense","actionNoun","transformation"]:[];
   return bookExercises.filter(function(e){return (!e.levelMin||state.level>=e.levelMin)&&skills.includes(e.skill)})
 }
 function bookExerciseQuestion(L){
