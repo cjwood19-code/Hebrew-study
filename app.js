@@ -516,6 +516,7 @@ function addTile(word){let b=document.createElement("button");b.className="tile"
 function renderTileAnswer(){$("answerLine").innerHTML="";tileAnswer.forEach(function(w){let s=document.createElement("span");s.className="answerPiece";s.textContent=w;$("answerLine").appendChild(s)})}
 function clearTiles(){tileAnswer=[];renderTileAnswer();Array.from($("wordTiles").children).forEach(function(b){b.disabled=false})}
 const answerEnglish={
+"הזמינו":"they invited (in this sentence; also: they ordered)",
 "כי":"because","לכן":"therefore / so","או":"or","וגם":"and also","אבל":"but","אם":"if","אז":"then","ואחר כך":"and afterward","לפני שאני":"before I","אחרי שאני":"after I","כשאני":"when I","אחרי שאנחנו":"after we","לפני שאנחנו":"before we","כדי":"in order to","כאשר":"when","משום ש":"because","מפני ש":"because","בגלל זה":"because of this / therefore","אך":"but / however","ואילו":"whereas","כדי ש":"so that",
 "ימין":"right","שמאל":"left","צפון":"north","דרום":"south","מזרח":"east","מערב":"west","ישן":"old","רע":"bad","גדול":"big / large","קטן":"small","חם":"hot","קר":"cold","מהר":"fast","לאט":"slowly","פתוח":"open","סגור":"closed","קרוב":"near / close","רחוק":"far","מוקדם":"early","מאוחר":"late","יש":"there is / there are","אין":"there is not / there are not","קצר":"short","ארוך":"long","קל":"easy / light","קשה":"difficult / hard","שמן":"fat / overweight","רזה":"thin","מצליח":"succeeds / successful","נכשל":"fails",
 "דבר שאפשר לקרוא":"something that can be read","אדם שמלמד":"a person who teaches","אדם שלומד":"a person who studies / learns","רהיט שיושבים עליו":"a piece of furniture you sit on","רהיט שישנים עליו":"a piece of furniture you sleep on","פתח בבית שרואים דרכו החוצה":"an opening in a house through which you can see outside","דבר שפותחים כדי להיכנס":"something you open in order to enter","מכשיר שמדברים איתו":"a device used for speaking / calling","מכשיר שעובדים ולומדים איתו":"a device used for work and study","קבוצה של הורים וילדים":"a group of parents and children","דבר שבודק מה למדנו":"something that checks what we learned","מקום שבו רופא מטפל באנשים":"a place where a doctor treats people","אדם שמלמד וחוקר באוניברסיטה":"a person who teaches and researches at a university","כרטיס ששולחים בחג או באירוע":"a card sent for a holiday or event","השנים שבהן אדם היה ילד":"the years when a person was a child","הרגשה כשרוצים להיות שוב עם אדם או במקום":"the feeling of wanting to be with a person or in a place again","הזמן שבו השמש עולה":"the time when the sun rises","הזמן שבו השמש יורדת":"the time when the sun sets","הרגשה של שמחה גדולה":"a feeling of great happiness",
@@ -534,7 +535,10 @@ function verbFormEnglish(value,q){
     let hit=matchesFound.find(function(x){return q&&q.prompt&&q.prompt.includes(x.v.infinitive)})||matchesFound[0],base=baseVerbEnglish(hit.v.infinitive);
     if(base)return base+" ("+tenseEnglish[hit.tense]+", "+(pronounEnglish[hit.pron]||hit.pron)+")"
   }
-  if(q&&q.prompt){
+  if(q&&q.prompt&&/^(עבר|עתיד|הווה)\s*•/.test(q.prompt)){
+    // Only infer an English meaning from an infinitive in an explicit verb drill.
+    // Reading/cloze sentences may contain a DIFFERENT infinitive (e.g. להתפלל)
+    // from the answer verb (e.g. הזמינו), so inferring there is incorrect.
     let inf=verbDefinitions.find(function(x){return q.prompt.includes(x.he)});
     if(inf){
       let t=q.prompt.includes("עבר")?"past":q.prompt.includes("עתיד")?"future":q.prompt.includes("הווה")?"present":null;
