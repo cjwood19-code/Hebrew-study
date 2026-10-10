@@ -69,10 +69,10 @@ const exercises=[
   {id:"i2-smichut-3",skill:"smichut",cat:"מהספר • סמיכות",prompt:"כתבו בסמיכות: תלמידים שלומדים באולפן",answer:"תלמידי אולפן",levelMin:8,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 74"},
   {id:"i2-smichut-4",skill:"smichut",cat:"מהספר • סמיכות",prompt:"כתבו בסמיכות: תלמידות שלומדות באולפן",answer:"תלמידות אולפן",levelMin:8,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 74"},
 
-  {id:"i2-cloze-1",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: לפני ששותלים עצים בבוסתן ___ בית.",answer:"בונים",levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
-  {id:"i2-cloze-2",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: אחרי שבנו את המסגד הגדול, ___ אנשים להתפלל שם.",answer:"הזמינו",levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
-  {id:"i2-cloze-3",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: כאשר מטיילים בעיר רמלה, ___ עברית וערבית.",answer:"שומעים",levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
-  {id:"i2-cloze-4",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: השומרונים חיים כיום בהר גריזים ובחולון. לפני כן הם ___ בשומרון.",answer:"חיו",levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"}
+  {id:"i2-cloze-1",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: לפני ששותלים עצים בבוסתן ___ בית.",answer:"בונים",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
+  {id:"i2-cloze-2",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: אחרי שבנו את המסגד הגדול, ___ אנשים להתפלל שם.",answer:"הזמינו",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
+  {id:"i2-cloze-3",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: כאשר מטיילים בעיר רמלה, ___ עברית וערבית.",answer:"שומעים",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
+  {id:"i2-cloze-4",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: השומרונים חיים כיום בהר גריזים ובחולון. לפני כן הם ___ בשומרון.",answer:"חיו",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"}
 ];
 D.bookExercises=(D.bookExercises||[]).concat(exercises.filter(function(e){
   return !(D.bookExercises||[]).some(function(x){return x.id===e.id});
