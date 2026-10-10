@@ -272,7 +272,7 @@ function bookExerciseQuestion(L){
       return x.id!==e.id&&x.skill===e.skill&&x.answer&&
         x.answer.trim().split(/\s+/).length<=3
     }).map(function(x){return x.answer}).filter(function(x){
-      return !answers.some(function(a){return norm(a)===norm(x)}
+      return !answers.some(function(a){return norm(a)===norm(x)})
     }));
     let choices=[e.answer];
     distractors.forEach(function(x){if(choices.length<4&&!choices.includes(x))choices.push(x)});
