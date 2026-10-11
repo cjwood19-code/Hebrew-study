@@ -29,14 +29,14 @@ const past=[
  ["___וּ","הם / הן — they","The ־וּ ending marks third-person plural past."]
 ];
 const future=[
- ["א___","אני — I (singular)","א־ marks first-person singular future."],
- ["נ___","אנחנו — we","נ־ marks first-person plural future."],
- ["י___","הוא — he","י־ without a plural ending can mark third-person masculine singular future."],
- ["ת___","אתה / היא — you (masculine singular) OR she","ת־ without a suffix is shared by 2ms and 3fs; context is needed."],
- ["ת___י","את — you (feminine singular)","ת־ ... ־י marks second-person feminine singular future."],
- ["ת___וּ","אתם — you (masculine plural)","ת־ ... ־ו marks second-person masculine plural future."],
- ["י___וּ","הם — they (masculine plural)","י־ ... ־ו marks third-person masculine plural future."],
- ["ת___נָה","אתן / הן — you (feminine plural) OR they (feminine plural)","The ־נה feminine plural future is mainly formal/literary in modern Hebrew."]
+ ["א־___","אני — I (singular)","א־ marks first-person singular future."],
+ ["נ־___","אנחנו — we","נ־ marks first-person plural future."],
+ ["י־___","הוא — he","י־ without a plural ending can mark third-person masculine singular future."],
+ ["ת־___","אתה / היא — you (masculine singular) OR she","ת־ without a suffix is shared by 2ms and 3fs; context is needed."],
+ ["ת־___־י","את — you (feminine singular)","ת־ ... ־י marks second-person feminine singular future."],
+ ["ת־___־וּ","אתם — you (masculine plural)","ת־ ... ־ו marks second-person masculine plural future."],
+ ["י־___־וּ","הם — they (masculine plural)","י־ ... ־ו marks third-person masculine plural future."],
+ ["ת־___־נָה","אתן / הן — you (feminine plural) OR they (feminine plural)","The ־נה feminine plural future is mainly formal/literary in modern Hebrew."]
 ];
 const roots=[
  ["כָּתַב","כ־ת־ב","Past Pa'al; identify the three root consonants."],
@@ -48,11 +48,21 @@ const roots=[
  ["דִּבֵּר","ד־ב־ר","Pi'el pattern; the consonants of the root are ד־ב־ר."],
  ["הִתְלַבֵּשׁ","ל־ב־שׁ","Hitpa'el prefix הת is not part of the root."]
 ];
+// Every tense template is practiced in both directions: recognize its
+// person/number, then choose the matching template from a grammatical cue.
+// No invented verb stem is needed, so the focus stays on affixes.
+function addTenseQuestions(pool,rows,tense,key){
+ const patterns=rows.map(x=>x[0]),meanings=[...new Set(rows.map(x=>x[1]))];
+ rows.forEach((x,i)=>{
+   pool.push({id:key+i,cat:"Recognize the "+tense+" pattern • pattern → person",prompt:x[0],answer:x[1],options:meanings,why:x[2]});
+   pool.push({id:key+"rev"+i,cat:"Choose the "+tense+" pattern • person → pattern",prompt:tense+" • "+x[1],answer:x[0],options:patterns,why:x[2]});
+ })
+}
 function buildPool(mode){
  const pool=[];
  if(mode==="all"||mode==="binyan")binyanim.forEach((b,i)=>pool.push({id:"b"+i,cat:"Identify the binyan • past 3ms",prompt:b.pattern,answer:b.he,options:binyanim.map(x=>x.he),why:b.en+": "+b.note}));
- if(mode==="all"||mode==="past")past.forEach((x,i)=>pool.push({id:"p"+i,cat:"Identify person / number • past",prompt:x[0],answer:x[1],options:past.map(y=>y[1]),why:x[2]}));
- if(mode==="all"||mode==="future")future.forEach((x,i)=>pool.push({id:"f"+i,cat:"Identify person / number • future",prompt:x[0],answer:x[1],options:future.map(y=>y[1]),why:x[2]}));
+ if(["all","past","tense"].includes(mode))addTenseQuestions(pool,past,"past","p");
+ if(["all","future","tense"].includes(mode))addTenseQuestions(pool,future,"future","f");
  if(mode==="all"||mode==="root")roots.forEach((x,i)=>pool.push({id:"r"+i,cat:"Find the root (שורש)",prompt:x[0],answer:x[1],options:["כ־ת־ב","ל־מ־ד","ש־מ־ר","ד־ב־ר","ל־ב־שׁ"],why:x[2]}));
  return pool
 }
