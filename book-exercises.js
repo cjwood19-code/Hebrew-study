@@ -74,6 +74,58 @@ const exercises=[
   {id:"i2-cloze-3",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: כאשר מטיילים בעיר רמלה, ___ עברית וערבית.",answer:"שומעים",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"},
   {id:"i2-cloze-4",skill:"context",cat:"מהספר • השלמה מתוך ההקשר",prompt:"השלימו מתוך ההקשר: השומרונים חיים כיום בהר גריזים ובחולון. לפני כן הם ___ בשומרון.",answer:"חיו",options:["בונים","הזמינו","שומעים","חיו"],levelMin:6,source:"CHRIS WOOD-HEBREW-INTERMEDIATE 2 • עמוד 60"}
 ];
+// Human-reviewed English meanings of the completed course sentences. These
+// are paired with the Hebrew answer to test comprehension after grammar work.
+const sentenceMeanings={
+  "l2-being-1-past": "Life was difficult.",
+  "l2-being-1-future": "Life will be difficult.",
+  "l2-being-2-past": "The book was Italian.",
+  "l2-being-2-future": "The book will be Italian.",
+  "l2-being-3-past": "I was overweight and you (feminine) were thin.",
+  "l2-being-3-future": "I will be overweight and you (feminine) will be thin.",
+  "l2-being-4-past": "You (feminine) were a famous writer.",
+  "l2-being-4-future": "You (feminine) will be a famous writer.",
+  "l2-being-5-past": "You (masculine) were very sad.",
+  "l2-being-5-future": "You (masculine) will be very sad.",
+  "l2-being-6-past": "Gabi and Yoram were the best students in the class.",
+  "l2-being-6-future": "Gabi and Yoram will be the best students in the class.",
+  "l2-being-7-past": "Yael was rich, but her brothers were poor.",
+  "l2-being-7-future": "Yael will be rich, but her brothers will be poor.",
+  "l2-indirect-1": "The student asked whether studying for one month was enough to succeed.",
+  "l2-indirect-2": "The old professor answered the student that he needed to study throughout the year.",
+  "l2-indirect-3": "The neighbor asked why he always returned two instead of one.",
+  "l2-indirect-4": "The man answered that he returned two instead of one because utensils are like living creatures.",
+  "l2-future-1": "You (masculine) will get angry with your friend and shout at him.",
+  "l2-future-2": "Danny will be happy when he finds a pen in the street.",
+  "l2-future-3": "I will put on jeans and wear boots.",
+  "l2-future-4": "The girl will study at a new school.",
+  "l2-future-5": "The king will lie down to rest.",
+  "l2-future-6": "You (feminine) will worry about your son because he will drive a new car.",
+  "l2-future-7": "Moshe will meet Hannah and give her a package from her parents.",
+  "l2-future-8": "The woman will shout at the girl when she spills the tea.",
+  "l2-future-9": "You (feminine) will open the window and close the door.",
+  "l2-future-10": "I will study for the exam, and you (masculine) will lie down to sleep.",
+  "l2-future-11": "You (masculine) will help me when I drive a car for the first time.",
+  "l2-future-12": "We will hear the interesting story and write it in the notebook.",
+  "i2-future-1": "We will be happy to hear that the school year will begin without problems.",
+  "i2-future-2": "The members of parliament will be angry at the journalist's remarks.",
+  "i2-future-3": "Will you (masculine) study for the international physics competition?",
+  "i2-future-4": "Will the culture minister open a center to preserve ancient traditions?",
+  "i2-number-1": "I saw the green field and the new road.",
+  "i2-number-2": "Is this the dry plant that you found in the desert?",
+  "i2-number-4": "The artist placed a special statue near the tall building.",
+  "i2-number-5": "The lecturer told about a distant, ancient culture.",
+  "i2-number-7": "Be careful! The deep pit is near the dangerous road.",
+  "i2-number-8": "The archaeologist says that this stone is expensive.",
+  "i2-plural-1": "Which new words are you (plural) translating?",
+  "i2-plural-3": "The female guides will explain the routes to the ancient cities to the female tourists.",
+  "i2-plural-5": "Dear residents, you need to put the signs with the street names on high walls.",
+  "i2-cloze-1": "Before planting trees in the orchard, they build a house.",
+  "i2-cloze-2": "After they built the large mosque, they invited people to pray there.",
+  "i2-cloze-3": "When walking around the city of Ramla, one hears Hebrew and Arabic.",
+  "i2-cloze-4": "The Samaritans live today on Mount Gerizim and in Holon. Before that they lived in Samaria."
+};
+exercises.forEach(function(e){if(sentenceMeanings[e.id])e.en=sentenceMeanings[e.id]});
 D.bookExercises=(D.bookExercises||[]).concat(exercises.filter(function(e){
   return !(D.bookExercises||[]).some(function(x){return x.id===e.id});
 }));
