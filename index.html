@@ -51,6 +51,42 @@
     <div id="readingResult" class="feedback hidden"></div>
   </section>
 
+  <section id="verbPatternCard" class="card">
+    <div class="sectionTitle"><div><h2>Verb Patterns • בניינים ושורשים</h2>
+      <p class="compact">Recognize the seven binyanim, past endings, future prefixes and suffixes, and three-letter roots. Tap answers instead of typing.</p>
+    </div></div>
+    <div class="miniStats">
+      <div><span>Correct / attempted</span><b id="patternTotal">0 / 0</b></div>
+      <div><span>Pattern accuracy</span><b id="patternAccuracy">—</b></div>
+      <div><span>Patterns to review</span><b id="patternReview">0</b></div>
+    </div>
+    <div id="patternSetup">
+      <label for="patternMode" style="display:block;margin:12px 0 6px">Choose a practice focus</label>
+      <select id="patternMode" style="width:100%;max-width:500px;padding:12px;border:1px solid #b9cbd6;border-radius:10px;font-size:1rem">
+        <option value="all">Mixed practice — all patterns</option>
+        <option value="binyan">All seven binyanim (past 3ms templates)</option>
+        <option value="past">Past-tense endings</option>
+        <option value="future">Future prefixes and suffixes</option>
+        <option value="root">Identify the root • שורש</option>
+      </select>
+      <div class="buttonRow" style="margin-top:12px"><button id="patternStart" class="secondary" type="button">Start pattern practice</button></div>
+      <p class="compact" style="margin-top:10px">Templates use placeholders, not vocabulary words. Niqqud is shown where it distinguishes forms; unpointed Hebrew can be ambiguous. Practice scores are separate from your main lesson level.</p>
+      <p class="compact">Reference: <a href="https://lilmod-aleph-beth.com/7-binyanim-hebrew-verb-conjugation/" target="_blank" rel="noopener noreferrer">The 7 Binyanim: Hebrew Verb Conjugation Guide</a>.</p>
+    </div>
+    <div id="patternSession" class="hidden">
+      <div id="patternQuestion" class="category"></div>
+      <div id="patternLabel" class="instruction"></div>
+      <div id="patternPrompt" class="prompt" style="text-align:center;margin:16px 0" dir="rtl"></div>
+      <div id="patternOptions" class="choices"></div>
+      <div id="patternFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
+      <div class="buttonRow" style="margin-top:12px">
+        <button id="patternNext" class="primary hidden" type="button">Next pattern</button>
+        <button id="patternDone" class="primary hidden" type="button">Back to practice menu</button>
+        <button id="patternExit" class="secondary" type="button">Exit practice</button>
+      </div>
+    </div>
+  </section>
+
   <section id="verbInfinitiveCard" class="card">
     <div class="sectionTitle"><div><h2>Verb Infinitive Quiz</h2><p class="compact">English meaning → Hebrew infinitive only. This optional quiz has its own mastery tracking and does not affect your lesson level.</p></div><span id="verbDueBadge" class="badge hidden">Reinforcement due</span></div>
     <div class="miniStats"><div><span>Mastered</span><b id="verbMasteredCount">0 / 0</b></div><div><span>Weekly reinforcement due</span><b id="verbDueCount">0</b></div></div>
@@ -116,5 +152,6 @@ window.addEventListener("load",function(){
 <script src="vocab-safety.js?v=20261011-comprehension"></script>
 <script src="app.js?v=20261011-comprehension"></script>
 <script src="verb-match.js?v=20261011-comprehension"></script>
+<script src="verb-patterns.js?v=20261011-patterns"></script>
 </body>
 </html>
