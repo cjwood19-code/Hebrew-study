@@ -53,7 +53,7 @@
 
   <section id="verbPatternCard" class="card">
     <div class="sectionTitle"><div><h2>Verb Patterns • בניינים ושורשים</h2>
-      <p class="compact">Recognize the seven binyanim, past endings, future prefixes and suffixes, and three-letter roots. Tap answers instead of typing.</p>
+      <p class="compact">Recognize and choose patterns in both directions: א־___ (I will), ת־___־י (you will, feminine), ___תי (I did), ___נו (we did), plus all seven binyanim and roots. No typing.</p>
     </div></div>
     <div class="miniStats">
       <div><span>Correct / attempted</span><b id="patternTotal">0 / 0</b></div>
@@ -64,9 +64,10 @@
       <label for="patternMode" style="display:block;margin:12px 0 6px">Choose a practice focus</label>
       <select id="patternMode" style="width:100%;max-width:500px;padding:12px;border:1px solid #b9cbd6;border-radius:10px;font-size:1rem">
         <option value="all">Mixed practice — all patterns</option>
+        <option value="tense">Past + future patterns — both directions</option>
         <option value="binyan">All seven binyanim (past 3ms templates)</option>
-        <option value="past">Past-tense endings</option>
-        <option value="future">Future prefixes and suffixes</option>
+        <option value="past">Past-tense endings — recognize and select</option>
+        <option value="future">Future prefixes and suffixes — recognize and select</option>
         <option value="root">Identify the root • שורש</option>
       </select>
       <div class="buttonRow" style="margin-top:12px"><button id="patternStart" class="secondary" type="button">Start pattern practice</button></div>
@@ -152,6 +153,6 @@ window.addEventListener("load",function(){
 <script src="vocab-safety.js?v=20261011-comprehension"></script>
 <script src="app.js?v=20261011-comprehension"></script>
 <script src="verb-match.js?v=20261011-comprehension"></script>
-<script src="verb-patterns.js?v=20261011-patterns"></script>
+<script src="verb-patterns.js?v=20261011-tense-patterns"></script>
 </body>
 </html>
