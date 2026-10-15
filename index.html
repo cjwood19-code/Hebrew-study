@@ -51,6 +51,39 @@
     <div id="readingResult" class="feedback hidden"></div>
   </section>
 
+  <section id="standaloneVocabCard" class="card">
+    <div class="sectionTitle"><div><h2>Word Recognition • מילות פתיחה ואוצר מילים</h2>
+      <p class="compact">Stand-alone Hebrew words and useful opening expressions such as כדאי, אסור, מותר, אפשר, צריך and רצוי. No sentences or typing.</p>
+    </div></div>
+    <div class="miniStats">
+      <div><span>Correct / attempted</span><b id="standaloneOverall">0 / 0</b></div>
+      <div><span>Recognition accuracy</span><b id="standaloneAccuracy">—</b></div>
+      <div><span>Words to review</span><b id="standaloneReview">0</b></div>
+    </div>
+    <div id="standaloneSetup">
+      <label for="standaloneMode" style="display:block;margin:12px 0 6px">Choose vocabulary focus</label>
+      <select id="standaloneMode" style="width:100%;max-width:500px;padding:12px;border:1px solid #b9cbd6;border-radius:10px;font-size:1rem">
+        <option value="mixed">Mixed — opening expressions + general vocabulary</option>
+        <option value="openings">Opening expressions only</option>
+        <option value="general">General vocabulary only</option>
+      </select>
+      <div class="buttonRow" style="margin-top:12px"><button id="standaloneStart" class="secondary" type="button">Start 15-word recognition</button></div>
+      <p class="compact" style="margin-top:10px">Hebrew ↔ English multiple choice. Missed words repeat more often in future sessions. New expressions also appear in regular lesson vocabulary.</p>
+    </div>
+    <div id="standalonePanel" class="hidden">
+      <div class="sprintStats"><div><span>Question</span><b id="standaloneProgress">1 / 15</b></div><div><span>Correct</span><b id="standaloneScore">0 / 0</b></div></div>
+      <div id="standaloneDirection" class="category"></div>
+      <div id="standalonePrompt" class="prompt"></div>
+      <div id="standaloneChoices" class="choices"></div>
+      <div id="standaloneFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
+      <div class="buttonRow" style="margin-top:12px">
+        <button id="standaloneNext" class="primary hidden" type="button">Next word</button>
+        <button id="standaloneExit" class="secondary" type="button">Return to word library</button>
+      </div>
+    </div>
+    <div id="standaloneResult" class="feedback hidden"></div>
+  </section>
+
   <section id="verbPatternCard" class="card">
     <div class="sectionTitle"><div><h2>Verb Patterns • בניינים ושורשים</h2>
       <p class="compact">Recognize and choose patterns in both directions: א־___ (I will), ת־___־י (you will, feminine), ___תי (I did), ___נו (we did), plus all seven binyanim and roots. No typing.</p>
@@ -151,8 +184,10 @@ window.addEventListener("load",function(){
 <script src="data.js?v=20261011-comprehension"></script>
 <script src="book-exercises.js?v=20261011-comprehension"></script>
 <script src="vocab-safety.js?v=20261011-comprehension"></script>
+<script src="opening-vocab.js?v=20261015-word-recognition"></script>
 <script src="app.js?v=20261011-comprehension"></script>
 <script src="verb-match.js?v=20261011-comprehension"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
+<script src="word-recognition.js?v=20261015-word-recognition"></script>
 </body>
 </html>
