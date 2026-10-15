@@ -66,9 +66,10 @@
         <option value="mixed">Mixed — opening expressions + general vocabulary</option>
         <option value="openings">Opening expressions only</option>
         <option value="general">General vocabulary only</option>
+        <option value="grammar">Infinitive recognition • כדאי + שם פועל</option>
       </select>
       <div class="buttonRow" style="margin-top:12px"><button id="standaloneStart" class="secondary" type="button">Start 15-word recognition</button></div>
-      <p class="compact" style="margin-top:10px">Hebrew ↔ English multiple choice. Missed words repeat more often in future sessions. New expressions also appear in regular lesson vocabulary.</p>
+      <p class="compact" style="margin-top:10px">Hebrew ↔ English recognition, plus a separate infinitive-pattern drill (כדאי + ללמוד). Many expressions also permit other constructions, including כדאי ש־ + conjugated verb. Missed items receive extra review.</p>
     </div>
     <div id="standalonePanel" class="hidden">
       <div class="sprintStats"><div><span>Question</span><b id="standaloneProgress">1 / 15</b></div><div><span>Correct</span><b id="standaloneScore">0 / 0</b></div></div>
@@ -188,6 +189,6 @@ window.addEventListener("load",function(){
 <script src="app.js?v=20261011-comprehension"></script>
 <script src="verb-match.js?v=20261015-word-recognition"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
-<script src="word-recognition.js?v=20261015-word-recognition"></script>
+<script src="word-recognition.js?v=20261015-infinitive-patterns"></script>
 </body>
 </html>
