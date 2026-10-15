@@ -63,7 +63,7 @@
 // Load the compact interface after the conjugated-verb card has been created.
 (function(){
   if(document.querySelector('script[data-compact-layout]'))return;
-  const s=document.createElement('script');s.src='layout.js';s.dataset.compactLayout='1';document.body.appendChild(s)
+  const s=document.createElement('script');s.src='layout.js?v=20261015-word-recognition';s.dataset.compactLayout='1';document.body.appendChild(s)
 })();
 
 // Keep saved sentence questions synchronized with their current source answer,
