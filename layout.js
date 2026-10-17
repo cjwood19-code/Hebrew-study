@@ -104,5 +104,5 @@
 // Load the manual answer-correction extension after the main trainer is ready.
 (function(){
   if(document.querySelector('script[data-answer-override]'))return;
-  const s=document.createElement('script');s.src='answer-override.js';s.dataset.answerOverride='1';document.body.appendChild(s)
+  const s=document.createElement('script');s.src='answer-override.js?v=20261016-no-rewind';s.dataset.answerOverride='1';document.body.appendChild(s)
 })();
