@@ -46,7 +46,7 @@ function begin(){
  if(!selected().ready)return;
  // Every question uses the printed Hebrew alphabet and letter-name variants
  // on PDF pages 1–2 of the uploaded אולפן עברית scan.
- questions=shuffle(letters).slice(0,15).map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));
+ questions=shuffle(letters).map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));
  idx=0;score=0;
  $("chapterMenu").classList.add("hidden");
  $("chapterQuiz").classList.remove("hidden");
