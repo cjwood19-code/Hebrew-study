@@ -12,13 +12,13 @@
 <body>
 <header>
   <div>
-    <h1>Hebrew Adaptive Trainer</h1>
+    <h1>Hebrew Textbook Trainer</h1>
     <p>Safari + Apple Pencil • progress stays on this device</p>
   </div>
-  <button id="resetBtn" class="secondary">Reset</button>
+  <button id="resetBtn" class="secondary hidden">Reset old adaptive practice</button>
 </header>
 <main>
-  <section id="statusCard" class="card">
+  <section id="statusCard" class="card hidden">
     <div class="statusTop">
       <div><span id="levelBadge" class="badge"></span><span id="modeLabel" class="mode"></span></div>
       <div id="sessionCount" class="sessionCount"></div>
@@ -34,6 +34,41 @@
   </section>
 
   <section id="message" class="message hidden"></section>
+
+  <section id="textbookCurriculumCard" class="card">
+    <div class="sectionTitle"><div>
+      <h2>Textbook Levels • לפי סדר הספרים</h2>
+      <p class="compact">39 chapters in the books' printed order: אולפן עברית → ללמוד עברית ברמה ב׳ → עברית בשניים לרמה ב׳. Only chapter-verified exercises count toward textbook progress.</p>
+    </div></div>
+    <div id="chapterMenu">
+      <label for="chapterSelect" style="display:block;margin:12px 0 6px">Select a chapter to view its place in the curriculum</label>
+      <select id="chapterSelect" style="width:100%;max-width:720px;padding:12px;border:1px solid #b9cbd6;border-radius:10px;font-size:1rem"></select>
+      <div style="margin-top:14px"><div id="chapterTitle" style="font-weight:700"></div>
+        <div id="chapterTopic" style="font-size:1.2rem;margin-top:6px" dir="auto"></div>
+        <p id="chapterPages" class="compact"></p>
+        <p id="chapterIndex" class="compact"></p>
+        <p id="chapterBest" class="compact"></p>
+        <p id="chapterAvailability" class="compact"></p>
+      </div>
+      <div class="buttonRow" style="margin-top:12px">
+        <button id="chapterStart" class="primary" type="button">Practice this chapter</button>
+        <button id="chapterLegacy" class="secondary" type="button">Open previous adaptive practice</button>
+      </div>
+      <p class="compact">The previous adaptive levels and their saved progress remain available separately. Chapters without verified question banks are indexed but not presented as completed lessons.</p>
+      <div id="chapterOutcome" class="feedback hidden" role="status" aria-live="polite"></div>
+    </div>
+    <div id="chapterQuiz" class="hidden">
+      <div class="sprintStats"><div><span id="chapterQuestion">Question 1 of 15</span></div><div><span>Correct</span><b id="chapterScore">0 / 0</b></div></div>
+      <div id="chapterDirection" class="category"></div>
+      <div id="chapterPrompt" class="prompt" style="text-align:center;margin:14px 0" dir="rtl"></div>
+      <div id="chapterOptions" class="choices"></div>
+      <div id="chapterFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
+      <div class="buttonRow" style="margin-top:12px">
+        <button id="chapterNext" class="primary hidden" type="button">Next</button>
+        <button id="chapterExit" class="secondary" type="button">Back to chapters</button>
+      </div>
+    </div>
+  </section>
 
   <section id="rapidCard" class="card">
     <div class="sectionTitle"><div><h2>Rapid Recognition</h2><p class="compact">Fast tap practice for automatic word and verb recognition. Say the answer aloud before tapping. This never affects level advancement.</p></div><span id="sprintDueLabel" class="badge hidden">Review due</span></div>
@@ -145,7 +180,7 @@
     <p class="scriptSource compact">Handwritten letter models are from the Wikimedia Commons “Handwritten Hebrew letters (SVG set).”</p>
   </section>
 
-  <section id="quizCard" class="card">
+  <section id="quizCard" class="card hidden">
     <div id="category" class="category"></div><div class="promptAudioRow"><div id="prompt" class="prompt"></div><button id="pronounceBtn" class="pronounceBtn hidden" type="button" aria-label="Hear Hebrew pronunciation" title="Hear Hebrew pronunciation">🔊</button></div><div id="instruction" class="instruction"></div><div id="choiceArea" class="choices"></div>
     <div id="typedArea" class="hidden"><input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><button id="checkTypedBtn" class="primary wide">Check answer</button></div>
     <div id="tilesArea" class="hidden"><div id="answerLine" class="answerLine"></div><div id="wordTiles" class="wordTiles"></div><div class="buttonRow"><button id="clearTilesBtn" class="secondary">Clear</button><button id="checkTilesBtn" class="primary">Check sentence</button></div></div>
@@ -190,5 +225,6 @@ window.addEventListener("load",function(){
 <script src="verb-match.js?v=20261015-word-recognition"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
 <script src="word-recognition.js?v=20261015-infinitive-patterns"></script>
+<script src="textbook-curriculum.js?v=20261016-textbook-levels"></script>
 </body>
 </html>
