@@ -70,7 +70,7 @@
 // make the manual answer override available on every deployment, and keep
 // high-frequency conversation vocabulary in continuous rotation.
 (function(){
-  [['sentence-fix.js','sentenceFix'],['answer-override.js','answerOverride'],['core-vocab.js','coreVocab']].forEach(function(entry){
+  [['sentence-fix.js','sentenceFix'],['answer-override.js?v=20261016-no-rewind','answerOverride'],['core-vocab.js','coreVocab']].forEach(function(entry){
     if(document.querySelector('script[data-'+entry[1]+']'))return;
     const s=document.createElement('script');s.src=entry[0];s.dataset[entry[1]]='1';document.body.appendChild(s)
   })
