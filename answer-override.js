@@ -33,7 +33,7 @@
     let next=document.getElementById("nextBtn"),feedback=document.getElementById("feedback");
     if(!next||!feedback)return;
     let b=document.createElement("button");
-    b.id="answerOverrideBtn";b.className="secondary wide answerOverrideBtn";
+    b.id="answerOverrideBtn";b.type="button";b.className="secondary wide answerOverrideBtn";
     b.textContent="My answer should count as correct";
     b.onclick=applyOverride;
     next.parentNode.insertBefore(b,next);
@@ -85,12 +85,26 @@
   nextQuestion=function(){
     removeOverrideButton();pendingWrong=null;
     originalNextQuestion();
+    // Take the snapshot of the question actually being displayed, not the
+    // question that preceded it. A correction must not rewind the session.
     questionSnapshot=captureQuestionState()
   };
+  // app.js attached the old function to the Next button before this extension
+  // loaded. Rebind it: otherwise later overrides restore question one's state.
+  const nextButton=document.getElementById("nextBtn");
+  if(nextButton)nextButton.onclick=nextQuestion;
 
   const originalRecord=record;
   record=function(ok){
-    let snap=questionSnapshot?clone(questionSnapshot):captureQuestionState();
+    // Guard against any other code advancing the question through an old
+    // callback: the snapshot must match the current pre-answer progress.
+    let snap=questionSnapshot?clone(questionSnapshot):null;
+    if(!snap||!state.session||!snap.session||
+       snap.session.answered!==state.session.answered||
+       snap.session.level!==state.session.level||
+       !!snap.session.isTest!==!!state.session.isTest){
+      snap=captureQuestionState();
+    }
     let userAnswer=currentUserAnswer();
     originalRecord(ok);
     if(!ok&&snap){pendingWrong={snapshot:snap,userAnswer:userAnswer};showOverrideButton()}
