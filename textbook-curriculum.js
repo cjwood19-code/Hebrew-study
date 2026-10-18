@@ -71,7 +71,7 @@ function next(){
  })
 }
 function choose(btn,opt,answer,q){
- if(chosen)return;chosen=true;let ok=opt===answer;if(ok)score++;
+ if(chosen)return;chosen=true;const isBank=Array.isArray(q.options);let ok=opt===answer;if(ok)score++;
  Array.from($("chapterOptions").children).forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add("correct")});
  if(!ok)btn.classList.add("wrong");
  $("chapterFeedback").textContent=(ok?"Correct. ":"Correct answer: "+answer+". ")+(isBank?q.category+" • PDF page "+q.sourcePage:q.letter+" — "+q.name);
