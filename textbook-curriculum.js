@@ -2,10 +2,11 @@
 "use strict";
 const chapters=[
 ["ulpan",1,"האלפבית העברי",1,14],["ulpan",2,"אני • אתה • את • הוא • היא",15,30],["ulpan",3,"שם עצם",31,38],["ulpan",4,"ה״א הידיעה",39,49],["ulpan",5,"לאן? ל־ / ל...",50,62],["ulpan",6,"שם הפועל",63,72],["ulpan",7,"הפתק",73,80],["ulpan",8,"ל־... יש / אין",81,89],["ulpan",9,"מה השעה?",90,101],["ulpan",10,"לכן",102,112],
+["ulpan4",30,"חיפוש עבודה",1,7],["ulpan4",31,"זמן עתיד",8,18],["ulpan4",32,"הציווי",19,22],["ulpan4",33,"הסביל • בניין נפעל",23,31],["ulpan4",34,"הסביל • בניין הופעל",32,39],["ulpan4",35,"הסביל • בניין פועל",40,43],["ulpan4",36,"המשפט הסביל",44,55],
 ["lilmod",1,"לאט אבל בטוח",11,23],["lilmod",2,"כל כך הרבה אבנים",24,34],["lilmod",3,"בכל מקום אפשר ללמוד עברית",35,47],["lilmod",4,"מרי מאמין לכל דבר",48,60],["lilmod",5,"התרופה הטובה של אימא",61,72],["lilmod",6,"שרלוק הולמס",73,85],["lilmod",7,"סוס וחמור – כלי התחבורה",86,98],["lilmod",8,"השודדת הבלונדינית",99,108],["lilmod",9,"בית ספר על גלגלים",109,118],["lilmod",10,"כך נגלה הכותל המערבי",119,131],["lilmod",11,"טיול מסוכן",132,142],["lilmod",12,"הצבעים",143,154],["lilmod",13,"אישה משוחררת",155,164],["lilmod",14,"חלוקת השלל",165,177],["lilmod",15,"סיפור המציאות",178,185],["lilmod",16,"השודדים והברווזים הקטנים",186,195],["lilmod",17,"העבודה והבטלה",196,204],["lilmod",18,"התינוק הגדול ביותר בעולם",205,213],["lilmod",19,"כל נדרי בארץ רחוקה",214,227],
 ["shnayim",1,"ברכות",13,37],["shnayim",2,"יוצאים לדרך",38,65],["shnayim",3,"נופים",66,101],["shnayim",4,"בית",102,125],["shnayim",5,"חינוך",126,151],["shnayim",6,"אדם לאדם",152,180],["shnayim",7,"אומנות",181,211],["shnayim",8,"נשים",212,239],["shnayim",9,"אדם וטבע",240,274],["shnayim",10,"שפה",275,308]
 ].map((x,i)=>({level:i+1,book:x[0],unit:x[1],title:x[2],firstPage:x[3],lastPage:x[4],ready:i<=8}));
-const names={ulpan:"אולפן עברית",lilmod:"ללמוד עברית ברמה ב׳",shnayim:"עברית בשניים לרמה ב׳"};
+const names={ulpan:"אולפן עברית",ulpan4:"אולפן עברית — חלק רביעי",lilmod:"ללמוד עברית ברמה ב׳",shnayim:"עברית בשניים לרמה ב׳"};
 window.HEBREW_TEXTBOOK_CHAPTERS=chapters;
 const $=id=>document.getElementById(id);
 const host=$("textbookCurriculumCard");if(!host)return;
@@ -21,7 +22,7 @@ let questions=[],idx=0,score=0,chosen=false;
 function selected(){return chapters[Math.min(chapters.length-1,Math.max(0,Number($("chapterSelect").value)-1))]}
 function renderMenu(){
  const ch=selected();
- $("chapterTitle").textContent="Level "+ch.level+" • "+names[ch.book]+" • "+(ch.book==="ulpan"?"שיעור ":ch.book==="lilmod"?"יחידה ":"פרק ")+ch.unit;
+ $("chapterTitle").textContent="Level "+ch.level+" • "+names[ch.book]+" • "+((ch.book==="ulpan"||ch.book==="ulpan4")?"שיעור ":ch.book==="lilmod"?"יחידה ":"פרק ")+ch.unit;
  $("chapterTopic").textContent=ch.title;
  $("chapterPages").textContent="PDF pages "+ch.firstPage+"–"+ch.lastPage;
  $("chapterBest").textContent=state.best[ch.level]===undefined?"Not attempted":state.best[ch.level]+"% best";
@@ -34,11 +35,11 @@ function renderMenu(){
 }
 function initMenu(){
  const sel=$("chapterSelect");sel.innerHTML="";
- for(const book of ["ulpan","lilmod","shnayim"]){
+ for(const book of ["ulpan","ulpan4","lilmod","shnayim"]){
   let group=document.createElement("optgroup");group.label=names[book];
   chapters.filter(c=>c.book===book).forEach(ch=>{
    let option=document.createElement("option");option.value=String(ch.level);
-   option.textContent="Level "+ch.level+" — "+(ch.book==="ulpan"?"שיעור ":ch.book==="lilmod"?"יחידה ":"פרק ")+ch.unit+" • "+ch.title+(ch.ready?"":" (index only)");
+   option.textContent="Level "+ch.level+" — "+((ch.book==="ulpan"||ch.book==="ulpan4")?"שיעור ":ch.book==="lilmod"?"יחידה ":"פרק ")+ch.unit+" • "+ch.title+(ch.ready?"":" (index only)");
    group.appendChild(option)
   });sel.appendChild(group)
  }
@@ -83,7 +84,7 @@ function finish(){
  const pct=Math.round(score/questions.length*100),level=selected().level;
  state.best[level]=Math.max(state.best[level]||0,pct);
  state.history.push({level,correct:score,attempted:questions.length,date:new Date().toISOString()});
- if(pct>=85&&state.level===level)state.level=Math.min(39,level+1);
+ if(pct>=85&&state.level===level)state.level=Math.min(chapters.length,level+1);
  save();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
  $("chapterOutcome").className="feedback "+(pct>=85?"good":"bad");
  $("chapterSelect").value=String(level);renderMenu()
