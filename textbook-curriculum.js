@@ -34,9 +34,10 @@ function renderProgress(){
  $("textbookLatest").textContent=last?"Latest: chapter "+last.level+" — "+last.correct+"/"+last.attempted+" correct ("+Math.round(100*last.correct/last.attempted)+"%).":"No completed chapter sessions yet.";
 }
 function renderSession(){
- $("chapterScore").textContent=score+" / "+idx;
- $("chapterSessionAccuracy").textContent="Session accuracy: "+(idx?Math.round(score*100/idx)+"%":"—");
- $("chapterSessionBar").style.width=(questions.length?100*idx/questions.length:0)+"%";
+ const answered=idx+(chosen?1:0);
+ $("chapterScore").textContent=score+" / "+answered;
+ $("chapterSessionAccuracy").textContent="Session accuracy: "+(answered?Math.round(score*100/answered)+"%":"—");
+ $("chapterSessionBar").style.width=(questions.length?100*answered/questions.length:0)+"%";
 }
 function renderMenu(){
  renderProgress();
@@ -77,7 +78,7 @@ function next(){
  if(idx>=questions.length){finish();return}
  chosen=false;const q=questions[idx],isBank=Array.isArray(q.options),answer=isBank?q.answer:(q.reverse?q.letter:q.name);
  $("chapterQuestion").textContent="Question "+(idx+1)+" of "+questions.length;
- $("chapterScore").textContent=score+" / "+idx;
+ renderSession();
  $("chapterDirection").textContent=isBank?q.category+" • Source PDF page "+q.sourcePage:(q.reverse?"Choose the Hebrew letter":"Identify the Hebrew letter");
  $("chapterPrompt").textContent=isBank?q.prompt:(q.reverse?q.name:q.letter);
  $("chapterPrompt").dir=isBank?(/[\u0590-\u05FF]/.test(q.prompt)?"rtl":"ltr"):(q.reverse?"ltr":"rtl");
@@ -91,7 +92,7 @@ function next(){
  })
 }
 function choose(btn,opt,answer,q){
- if(chosen)return;chosen=true;const isBank=Array.isArray(q.options);let ok=opt===answer;if(ok)score++;
+ if(chosen)return;chosen=true;const isBank=Array.isArray(q.options);let ok=opt===answer;if(ok)score++;renderSession();
  Array.from($("chapterOptions").children).forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add("correct")});
  if(!ok)btn.classList.add("wrong");
  $("chapterFeedback").textContent=(ok?"Correct. ":"Correct answer: "+answer+". ")+(isBank?q.category+" • PDF page "+q.sourcePage:q.letter+" — "+q.name);
