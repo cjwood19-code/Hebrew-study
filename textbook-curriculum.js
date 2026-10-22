@@ -34,7 +34,7 @@ function renderProgress(){
  $("textbookLatest").textContent=last?"Latest: chapter "+last.level+" — "+last.correct+"/"+last.attempted+" correct ("+Math.round(100*last.correct/last.attempted)+"%).":"No completed chapter sessions yet.";
 }
 function renderSession(){
- renderSession();
+ $("chapterScore").textContent=score+" / "+idx;
  $("chapterSessionAccuracy").textContent="Session accuracy: "+(idx?Math.round(score*100/idx)+"%":"—");
  $("chapterSessionBar").style.width=(questions.length?100*idx/questions.length:0)+"%";
 }
