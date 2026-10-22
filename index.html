@@ -35,7 +35,13 @@
 
   <section id="message" class="message hidden"></section>
 
-  <section id="textbookCurriculumCard" class="card">
+  <div id="textbookProgress" class="card" aria-label="Textbook scores and progress" style="margin-bottom:14px">
+<h2 style="margin:0 0 12px">Your textbook progress</h2>
+<div class="stats"><div><span>Current chapter</span><b id="textbookCurrent">1 / 46</b></div><div><span>Chapters passed</span><b id="textbookPassed">0 / 46</b></div><div><span>Sessions completed</span><b id="textbookSessions">0</b></div><div><span>Overall accuracy</span><b id="textbookAccuracy">—</b></div></div>
+<div class="progress" aria-label="Chapters passed"><div id="textbookProgressBar" style="width:0%"></div></div>
+<p class="compact" id="textbookLatest" style="margin-top:8px">Your saved chapter results will appear here.</p>
+</div>
+<section id="textbookCurriculumCard" class="card">
     <div class="sectionTitle"><div>
       <h2>Textbook Levels • לפי סדר הספרים</h2>
       <p class="compact">46 chapters in the books' printed order: אולפן עברית חלק ראשון → אולפן עברית חלק רביעי → ללמוד עברית ברמה ב׳ → עברית בשניים לרמה ב׳. Only chapter-verified exercises count toward textbook progress.</p>
@@ -59,7 +65,7 @@
     </div>
     <div id="chapterQuiz" class="hidden">
       <div class="sprintStats"><div><span id="chapterQuestion">Question 1 of 15</span></div><div><span>Correct</span><b id="chapterScore">0 / 0</b></div></div>
-      <div id="chapterDirection" class="category"></div>
+      <div class="progress" aria-label="Current quiz progress"><div id="chapterSessionBar" style="width:0%"></div></div><p class="compact" id="chapterSessionAccuracy">Session accuracy: —</p><div id="chapterDirection" class="category"></div>
       <div id="chapterPrompt" class="prompt" style="text-align:center;margin:14px 0" dir="rtl"></div>
       <div id="chapterOptions" class="choices"></div>
       <div id="chapterFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
@@ -225,15 +231,15 @@ window.addEventListener("load",function(){
 <script src="verb-match.js?v=20261016-no-rewind"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
 <script src="word-recognition.js?v=20261015-infinitive-patterns"></script>
-<script src="textbook-question-banks.js?v=20261018-ulpan-2-3"></script>
-<script src="textbook-question-banks-4-5.js?v=20261018-ulpan-4-5"></script>
-<script src="textbook-question-banks-6.js?v=20261019-ulpan-6"></script>
-<script src="textbook-question-banks-7.js?v=20261019-ulpan-7"></script>
-<script src="textbook-question-banks-8-9.js?v=20261020-ulpan-8-9"></script>
-<script src="textbook-question-banks-10.js?v=20261020-ulpan-10"></script>
-<script src="textbook-question-banks-11.js?v=20261020-ulpan-30"></script>
-<script src="textbook-question-banks-12-13.js?v=20261020-ulpan-31-32"></script>
-<script src="textbook-question-banks-14-15.js?v=20261021-ulpan-33-34"></script>
-<script src="textbook-curriculum.js?v=20261021-ulpan-33-34"></script>
+<script src="textbook-question-banks.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-4-5.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-6.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-7.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-8-9.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-10.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-11.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-12-13.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-14-15.js?v=20261021-progress-restored"></script>
+<script src="textbook-curriculum.js?v=20261021-progress-restored"></script>
 </body>
 </html>
