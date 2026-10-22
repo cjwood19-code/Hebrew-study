@@ -20,7 +20,26 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Mat
 const save=()=>{try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}};
 let questions=[],idx=0,score=0,chosen=false;
 function selected(){return chapters[Math.min(chapters.length-1,Math.max(0,Number($("chapterSelect").value)-1))]}
+function renderProgress(){
+ const history=Array.isArray(state.history)?state.history:[];
+ const correct=history.reduce((n,h)=>n+(Number(h.correct)||0),0);
+ const attempted=history.reduce((n,h)=>n+(Number(h.attempted)||0),0);
+ const passed=Object.values(state.best||{}).filter(x=>Number(x)>=85).length;
+ $("textbookCurrent").textContent=state.level+" / "+chapters.length;
+ $("textbookPassed").textContent=passed+" / "+chapters.length;
+ $("textbookSessions").textContent=String(history.length);
+ $("textbookAccuracy").textContent=attempted?Math.round(100*correct/attempted)+"%":"—";
+ $("textbookProgressBar").style.width=(100*passed/chapters.length)+"%";
+ const last=history[history.length-1];
+ $("textbookLatest").textContent=last?"Latest: chapter "+last.level+" — "+last.correct+"/"+last.attempted+" correct ("+Math.round(100*last.correct/last.attempted)+"%).":"No completed chapter sessions yet.";
+}
+function renderSession(){
+ renderSession();
+ $("chapterSessionAccuracy").textContent="Session accuracy: "+(idx?Math.round(score*100/idx)+"%":"—");
+ $("chapterSessionBar").style.width=(questions.length?100*idx/questions.length:0)+"%";
+}
 function renderMenu(){
+ renderProgress();
  const ch=selected();
  $("chapterTitle").textContent="Level "+ch.level+" • "+names[ch.book]+" • "+((ch.book==="ulpan"||ch.book==="ulpan4")?"שיעור ":ch.book==="lilmod"?"יחידה ":"פרק ")+ch.unit;
  $("chapterTopic").textContent=ch.title;
@@ -85,7 +104,7 @@ function finish(){
  state.best[level]=Math.max(state.best[level]||0,pct);
  state.history.push({level,correct:score,attempted:questions.length,date:new Date().toISOString()});
  if(pct>=85&&state.level===level)state.level=Math.min(chapters.length,level+1);
- save();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
+ save();renderProgress();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
  $("chapterOutcome").className="feedback "+(pct>=85?"good":"bad");
  $("chapterSelect").value=String(level);renderMenu()
 }
