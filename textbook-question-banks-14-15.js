@@ -12,3 +12,6 @@ for(const [level,raw] of Object.entries(rows)){
  });
 }
 })();
+
+/* Context guard: exclude source-dependent recall until the reading/map is displayed. */
+(function(){const b=window.HEBREW_TEXTBOOK_QUESTION_BANKS||{};const blocked={"14":["In שלושה ספרים, how many books are opened at the start of the year?","In שלושה ספרים, which group is described as נכתבים ונחתמים מיד לחיים?"],"15":["In הטרגדיה של סנט לואיס, in what year did the ship leave Germany?","About how many Jewish refugees were aboard the St. Louis?","Where did the ship initially sail seeking refuge?","Which country did NOT permit the passengers to enter when the ship reached it?","Which countries later agreed to receive refugees?","In which year was a film about the St. Louis voyage made?","According to ים המלח וים כנרת, what is the approximate salt concentration of the Dead Sea?","According to ים המלח וים כנרת, what is the approximate salt concentration of the Mediterranean Sea?","Which lake is in northern Israel in the reading?","Which sea lies in the south of the Jordan Valley according to the reading?"]};for(const [level,prompts] of Object.entries(blocked)){if(b[level])b[level]=b[level].filter(q=>!prompts.includes(q.prompt));}})();
