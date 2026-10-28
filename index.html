@@ -15,7 +15,7 @@
     <h1>Hebrew Textbook Trainer</h1>
     <p>Safari + Apple Pencil • progress stays on this device</p>
   </div>
-  <button id="resetBtn" class="secondary hidden">Reset old adaptive practice</button>
+  <button id="resetBtn" class="secondary hidden">Reset all adaptive progress</button>
 </header>
 <main>
   <section id="statusCard" class="card hidden">
@@ -188,7 +188,7 @@
     <p class="scriptSource compact">Handwritten letter models are from the Wikimedia Commons “Handwritten Hebrew letters (SVG set).”</p>
   </section>
 
-  <section id="quizCard" class="card hidden">
+  <section id="quizCard" class="card hidden"><div class="buttonRow" style="justify-content:flex-end"><button id="restartPracticeBtn" type="button" class="secondary">Reset current session</button></div>
     <div id="category" class="category"></div><div class="promptAudioRow"><div id="prompt" class="prompt"></div><button id="pronounceBtn" class="pronounceBtn hidden" type="button" aria-label="Hear Hebrew pronunciation" title="Hear Hebrew pronunciation">🔊</button></div><div id="instruction" class="instruction"></div><div id="choiceArea" class="choices"></div>
     <div id="typedArea" class="hidden"><input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><button id="checkTypedBtn" class="primary wide">Check answer</button></div>
     <div id="tilesArea" class="hidden"><div id="answerLine" class="answerLine"></div><div id="wordTiles" class="wordTiles"></div><div class="buttonRow"><button id="clearTilesBtn" class="secondary">Clear</button><button id="checkTilesBtn" class="primary">Check sentence</button></div></div>
@@ -210,7 +210,7 @@
     <ol class="levels"><li>Hebrew → English recognition</li><li>English → Hebrew recognition</li><li>Mixed recognition</li><li>Type the English meaning</li><li>Type the Hebrew word</li><li>Two-part sentence comprehension: complete the Hebrew sentence, then always translate it into English. Each sentence retires after 5 correct completions and 5 correct translations.</li><li>Match Hebrew words to Hebrew descriptor phrases and opposites</li><li>Practice connectors in two parts: complete the Hebrew sentence, then translate the completed sentence into English; also practice adjective agreement, definite noun/adjective forms, and past-tense להיות</li><li>Heavy verb practice: definitions, infinitives, שם פעולה, and conjugation in past, present, and future</li><li>Build short Hebrew sentences from an English prompt</li><li>Apple Pencil handwriting recall</li><li>Mixed cumulative challenge with two-part sentences, verbs, grammar, connectors, and matching</li><li><strong>Level 13 and beyond:</strong> advanced cycles continue indefinitely through the exercise types above, with a checkpoint every five levels.</li></ol>
   </section>
 
-  <section class="card"><div class="sectionTitle"><h2>Items to review</h2><button id="practiceMissedBtn" class="secondary">Practice review items</button></div><div id="reviewList" class="reviewList"></div></section>
+  <section class="card"><div class="sectionTitle"><h2>Items to review</h2><button id="practiceMissedBtn" class="secondary">Focus on review items</button></div><p class="compact">Focused review uses only items on this list. Correct answers build mastery; items disappear when their required repetitions are completed.</p><div id="reviewList" class="reviewList"></div></section>
 </main>
 <script>
 window.addEventListener("error",function(e){
@@ -229,7 +229,7 @@ window.addEventListener("load",function(){
 <script src="book-exercises.js?v=20261011-comprehension"></script>
 <script src="vocab-safety.js?v=20261011-comprehension"></script>
 <script src="opening-vocab.js?v=20261015-word-recognition"></script>
-<script src="app.js?v=20261011-comprehension"></script>
+<script src="app.js?v=20261027-review-reset"></script>
 <script src="verb-match.js?v=20261016-no-rewind"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
 <script src="word-recognition.js?v=20261015-infinitive-patterns"></script>
