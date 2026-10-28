@@ -104,7 +104,7 @@ function finish(){
  const pct=Math.round(score/questions.length*100),level=selected().level;
  state.best[level]=Math.max(state.best[level]||0,pct);
  state.history.push({level,correct:score,attempted:questions.length,date:new Date().toISOString()});
- if(pct>=85&&level>=state.level)state.level=Math.min(chapters.length,level+1);
+ if(pct>=85&&level===state.level)state.level=Math.min(chapters.length,level+1);
  save();renderProgress();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
  $("chapterOutcome").className="feedback "+(pct>=85?"good":"bad");
  $("chapterSelect").value=String(pct>=85&&level<chapters.length?level+1:level);renderMenu()
