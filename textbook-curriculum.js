@@ -120,6 +120,7 @@ const continueBtn=$("chapterContinue");
 if(continueBtn)continueBtn.onclick=()=>selectAndBegin(Math.min(state.level,chapters.length));
 $("chapterStart").onclick=begin;
 $("chapterNext").onclick=()=>{idx++;next()};
+$("chapterRestart").onclick=()=>{if(!confirm("Restart this chapter session? Your previously saved chapter scores will remain."))return;begin()};
 $("chapterExit").onclick=()=>{$("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");renderMenu()};
 $("chapterLegacy").onclick=()=>{let quiz=$("quizCard");if(!quiz)return;let wasHidden=quiz.classList.contains("hidden");["quizCard","statusCard","resetBtn"].forEach(id=>{let e=$(id);if(e){if(wasHidden)e.classList.remove("hidden");else e.classList.add("hidden")}});$("chapterLegacy").textContent=wasHidden?"Hide previous adaptive practice":"Open previous adaptive practice"};
 initMenu();
