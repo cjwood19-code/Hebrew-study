@@ -63,12 +63,12 @@ function initMenu(){
    group.appendChild(option)
   });sel.appendChild(group)
  }
- sel.value=String(state.level);sel.onchange=renderMenu;renderMenu()
+ sel.value="1";sel.onchange=renderMenu;renderMenu()
 }
 function begin(){
  const ch=selected();if(!ch.ready)return;
- if(ch.level===1){questions=shuffle(letters).map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));}
- else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;questions=shuffle(bank);}
+ if(ch.level===1){questions=letters.map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));}
+ else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;questions=bank.slice();}
  idx=0;score=0;
  $("chapterMenu").classList.add("hidden");
  $("chapterQuiz").classList.remove("hidden");
@@ -104,11 +104,20 @@ function finish(){
  const pct=Math.round(score/questions.length*100),level=selected().level;
  state.best[level]=Math.max(state.best[level]||0,pct);
  state.history.push({level,correct:score,attempted:questions.length,date:new Date().toISOString()});
- if(pct>=85&&state.level===level)state.level=Math.min(chapters.length,level+1);
+ if(pct>=85&&level>=state.level)state.level=Math.min(chapters.length,level+1);
  save();renderProgress();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
  $("chapterOutcome").className="feedback "+(pct>=85?"good":"bad");
- $("chapterSelect").value=String(level);renderMenu()
+ $("chapterSelect").value=String(pct>=85&&level<chapters.length?level+1:level);renderMenu()
 }
+function selectAndBegin(level){
+ $("chapterSelect").value=String(level);
+ renderMenu();
+ if(!$("chapterStart").disabled)begin();
+}
+const fromStart=$("chapterFromStart");
+if(fromStart)fromStart.onclick=()=>selectAndBegin(1);
+const continueBtn=$("chapterContinue");
+if(continueBtn)continueBtn.onclick=()=>selectAndBegin(Math.min(state.level,chapters.length));
 $("chapterStart").onclick=begin;
 $("chapterNext").onclick=()=>{idx++;next()};
 $("chapterExit").onclick=()=>{$("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");renderMenu()};
