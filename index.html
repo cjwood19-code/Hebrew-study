@@ -47,7 +47,7 @@
       <p class="compact">46 chapters in the books' printed order: אולפן עברית חלק ראשון → אולפן עברית חלק רביעי → ללמוד עברית ברמה ב׳ → עברית בשניים לרמה ב׳. Only chapter-verified exercises count toward textbook progress.</p>
     </div></div>
     <div id="chapterMenu">
-      <label for="chapterSelect" style="display:block;margin:12px 0 6px">Select a chapter to view its place in the curriculum</label>
+      <label for="chapterSelect" style="display:block;margin:12px 0 6px">Select any available chapter to study, or begin at Chapter 1 and progress in order</label>
       <select id="chapterSelect" style="width:100%;max-width:720px;padding:12px;border:1px solid #b9cbd6;border-radius:10px;font-size:1rem"></select>
       <div style="margin-top:14px"><div id="chapterTitle" style="font-weight:700"></div>
         <div id="chapterTopic" style="font-size:1.2rem;margin-top:6px" dir="auto"></div>
@@ -57,10 +57,12 @@
         <p id="chapterAvailability" class="compact"></p>
       </div>
       <div class="buttonRow" style="margin-top:12px">
+        <button id="chapterFromStart" class="secondary" type="button">Start at Chapter 1</button>
+        <button id="chapterContinue" class="secondary" type="button">Continue my progression</button>
         <button id="chapterStart" class="primary" type="button">Practice this chapter</button>
         <button id="chapterLegacy" class="secondary" type="button">Open previous adaptive practice</button>
       </div>
-      <p class="compact">The previous adaptive levels and their saved progress remain available separately. Chapters without verified question banks are indexed but not presented as completed lessons.</p>
+      <p class="compact">Chapters follow the textbook order, with questions presented from beginning to end. Pass at 85% to advance; you can also choose any available chapter for extra study. Saved scores are retained. Previous adaptive practice remains separate.</p>
       <div id="chapterOutcome" class="feedback hidden" role="status" aria-live="polite"></div>
     </div>
     <div id="chapterQuiz" class="hidden">
@@ -243,6 +245,6 @@ window.addEventListener("load",function(){
 <script src="textbook-question-banks-16-17.js?v=20261021-ulpan-35-36"></script>
 <script src="textbook-question-banks-18-19.js?v=20261022-lilmod-1-2"></script>
 <script src="textbook-question-banks-20-21.js?v=20261027-lilmod-3-4"></script>
-<script src="textbook-curriculum.js?v=20261027-lilmod-3-4"></script>
+<script src="textbook-curriculum.js?v=20261027-sequential-study"></script>
 </body>
 </html>
