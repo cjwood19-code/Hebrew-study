@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#243447">
 <title>Hebrew Adaptive Trainer</title>
-<link rel="stylesheet" href="styles.css?v=20261011-comprehension">
+<link rel="stylesheet" href="styles.css?v=20261030-flashcards">
 </head>
 <body>
 <header>
@@ -93,6 +93,39 @@
       <h3 id="readingTitle"></h3><p id="readingSource" class="compact"></p><div id="readingPassage" class="readingPassage" dir="rtl"></div><div id="readingVocab" class="reviewList"></div><button id="toggleReadingTranslationBtn" class="secondary wide">Show English translation</button><div id="readingTranslation" class="readingTranslation hidden" dir="ltr"></div><div id="readingQuestionProgress" class="category"></div><div id="readingQuestion" class="prompt readingQuestion" dir="rtl"></div><div id="readingChoices" class="choices"></div><div id="readingQuestionFeedback" class="feedback hidden"></div><button id="nextReadingQuestionBtn" class="primary wide hidden">Next question</button><button id="closeReadingBtn" class="secondary wide">Back to reading library</button>
     </div>
     <div id="readingResult" class="feedback hidden"></div>
+  </section>
+
+  <section id="generalFlashcardsCard" class="card">
+    <h2>General Vocabulary Flashcards</h2>
+    <p class="compact">Everyday words from your textbook. Recall the other side, reveal it, then choose whether to review again. Card ratings are saved separately from chapter scores.</p>
+    <p id="flashcardSummary" aria-live="polite"></p>
+    <div id="flashcardSetup">
+      <div class="flashcardControls">
+        <label for="flashcardSet">Vocabulary set
+          <select id="flashcardSet"><option value="all">All vocabulary cards</option><option value="24">Chapter 24 · Transport and everyday life</option><option value="25">Chapter 25 · Correspondence and people</option><option value="review">Cards to review</option></select>
+        </label>
+        <label for="flashcardDirection">Direction
+          <select id="flashcardDirection"><option value="he-en">Hebrew → English</option><option value="en-he">English → Hebrew</option></select>
+        </label>
+      </div>
+      <p id="flashcardEmpty" class="compact" role="status"></p>
+      <button id="flashcardStart" type="button" class="primary">Study flashcards</button>
+    </div>
+    <div id="flashcardPanel" hidden>
+      <p id="flashcardPosition" class="category"></p>
+      <div class="vocabularyFlashcard">
+        <div id="flashcardFront" class="prompt"></div>
+        <div id="flashcardBack" class="flashcardAnswer" aria-live="polite" hidden></div>
+      </div>
+      <p id="flashcardSource" class="compact" dir="auto"></p>
+      <button id="flashcardReveal" type="button" class="primary">Show answer</button>
+      <div id="flashcardRating" hidden>
+        <div class="buttonRow"><button id="flashcardReview" type="button" class="secondary">Review again</button><button id="flashcardKnown" type="button" class="success">I remembered</button></div>
+      </div>
+      <p id="flashcardFeedback" role="status"></p>
+      <div class="buttonRow"><button id="flashcardNext" type="button" class="primary" hidden>Next card</button><button id="flashcardExit" type="button" class="secondary">Back to card sets</button></div>
+    </div>
+    <p id="flashcardResult" role="status"></p>
   </section>
 
   <section id="standaloneVocabCard" class="card">
@@ -240,13 +273,16 @@ window.addEventListener("load",function(){
 <script src="textbook-question-banks-7.js?v=20261027-context-fix"></script>
 <script src="textbook-question-banks-8-9.js?v=20261021-progress-restored"></script>
 <script src="textbook-question-banks-10.js?v=20261021-progress-restored"></script>
-<script src="textbook-question-banks-11.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-11.js?v=20261030-options-repair"></script>
 <script src="textbook-question-banks-12-13.js?v=20261021-progress-restored"></script>
 <script src="textbook-question-banks-14-15.js?v=20261021-progress-restored"></script>
 <script src="textbook-question-banks-16-17.js?v=20261021-ulpan-35-36"></script>
 <script src="textbook-question-banks-18-19.js?v=20261022-lilmod-1-2"></script>
 <script src="textbook-question-banks-20-21.js?v=20261027-lilmod-3-4"></script>
 <script src="textbook-question-banks-22-23.js?v=20261028-lilmod-5-6"></script>
-<script src="textbook-curriculum.js?v=20261028-lilmod-5-6"></script>
+<script src="textbook-question-banks-24-25.js?v=20261030-lilmod-7-8"></script>
+<script src="textbook-curriculum.js?v=20261030-lilmod-7-8"></script>
+<script src="general-vocabulary-cards.js?v=20261030"></script>
+<script src="general-flashcards.js?v=20261030"></script>
 </body>
 </html>
