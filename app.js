@@ -419,7 +419,7 @@ function beginFocusedReview(){
  renderHeader();nextQuestion();
  $("quizCard").scrollIntoView({behavior:"smooth",block:"start"});
 }
-function restartPracticeSession(){
+function restartPracticeSession(){cancelAdaptiveAdvance();
  if(!confirm("Restart this practice session? Saved scores, progress and review items will remain."))return;
  state.session=null;save();
  try{sessionStorage.setItem("hebrewTrainerLaunch","normal")}catch(e){}
@@ -499,7 +499,9 @@ function renderReview(){
   })
 }
 function hideAll(){if("speechSynthesis" in window)window.speechSynthesis.cancel();["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
-function nextQuestion(){if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=upgradeTwoPartQuestion(makeUniqueQuestion());if(!current){finishSession();return}$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";updatePronunciationButton(pronunciationTextForQuestion(current,false));$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(current.type==="grammar2"){renderGrammarSentencePart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC","bookMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":current.type==="bookMC"?(current.translation?"Part 1 of 2: Complete the Hebrew exercise.":"Complete the exercise from your course material."):"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"||current.type==="bookTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="bookTyped"?"Complete the exercise from your course material in Hebrew.":current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"||current.type==="bookTiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent=current.type==="bookTiles"?"Part 1"+(current.translation?" of 2":"")+": Tap words to build the Hebrew answer. Extra words may be included.":current.translation?"Part 1 of 2: Build the Hebrew sentence.":"Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+let adaptiveAdvanceTimer=null;
+function cancelAdaptiveAdvance(){if(adaptiveAdvanceTimer!==null){clearTimeout(adaptiveAdvanceTimer);adaptiveAdvanceTimer=null}}
+function nextQuestion(){cancelAdaptiveAdvance();if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=upgradeTwoPartQuestion(makeUniqueQuestion());if(!current){finishSession();return}$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";updatePronunciationButton(pronunciationTextForQuestion(current,false));$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(current.type==="grammar2"){renderGrammarSentencePart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC","bookMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":current.type==="bookMC"?(current.translation?"Part 1 of 2: Complete the Hebrew exercise.":"Complete the exercise from your course material."):"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"||current.type==="bookTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="bookTyped"?"Complete the exercise from your course material in Hebrew.":current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"||current.type==="bookTiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent=current.type==="bookTiles"?"Part 1"+(current.translation?" of 2":"")+": Tap words to build the Hebrew answer. Extra words may be included.":current.translation?"Part 1 of 2: Build the Hebrew sentence.":"Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
 function renderGrammarSentencePart(){
   let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Complete the Hebrew sentence.";
   current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerGrammarSentencePart(b,opt)};a.appendChild(b)})
@@ -636,7 +638,14 @@ function record(ok){
   if(current.item){let k=current.item.he;if(ok)state.missed[k]=Math.max(0,(state.missed[k]||0)-1);else state.missed[k]=(state.missed[k]||0)+1}
   if(isTest&&!ok)rememberTestMiss(current,current._testLevel,state.session.testBlockEnd);
   updatePronunciationButton(pronunciationTextForQuestion(current,true));
-  save();renderHeader();$("nextBtn").textContent=state.session.answered>=sessionLength()?"Finish":"Next";$("nextBtn").classList.remove("hidden")
+  save();renderHeader();$("nextBtn").textContent=state.session.answered>=sessionLength()?"Finish":"Next";
+  if(ok){
+    // Preserve existing question selection, review weighting, and mastery counters.
+    adaptiveAdvanceTimer=setTimeout(function(){adaptiveAdvanceTimer=null;nextQuestion()},650)
+  }else{
+    // Incorrect answers remain visible with the correction until Next is pressed.
+    $("nextBtn").classList.remove("hidden")
+  }
 }
 function beginComprehensionPart(ok){
   current.part1Correct=ok;
@@ -685,7 +694,7 @@ function showSessionComplete(msg,buttonLabel){
   $("quizCard").innerHTML='<div style="text-align:center"><h2>Session complete</h2><p>'+msg+'</p><button class="primary" id="newSessionBtn">'+buttonLabel+'</button></div>';
   $("newSessionBtn").onclick=function(){if(msg.startsWith("Focused review:")&&masteryReviewCount()){try{sessionStorage.setItem("hebrewTrainerLaunch","review")}catch(e){}}location.reload()};renderHeader();window.scrollTo({top:0,behavior:"smooth"})
 }
-function finishBlockTest(){
+function finishBlockTest(){cancelAdaptiveAdvance();
   let s=state.session,p=Math.round(s.correct/TEST_LEN*100),blockEnd=s.testBlockEnd,key=String(blockEnd),passed=p>=TEST_PASS;
   state.blockTests.best[key]=Math.max(state.blockTests.best[key]||0,p);
   state.blockTests.history.push({date:new Date().toISOString(),blockEnd:blockEnd,score:p,correct:s.correct,total:TEST_LEN,passed:passed});
@@ -702,7 +711,7 @@ function finishBlockTest(){
   }
   state.session=null;save();showSessionComplete(msg,buttonLabel)
 }
-function finishSession(){
+function finishSession(){cancelAdaptiveAdvance();
   let s=state.session;
   if(s&&s.reviewOnly){
     const remaining=masteryReviewCount();
