@@ -65,7 +65,11 @@ function initMenu(){
  }
  sel.value="1";sel.onchange=renderMenu;renderMenu()
 }
+let chapterAdvanceTimer=null;
+function cancelChapterAdvance(){if(chapterAdvanceTimer!==null){clearTimeout(chapterAdvanceTimer);chapterAdvanceTimer=null}}
+function advanceChapter(){cancelChapterAdvance();idx++;next()}
 function begin(){
+ cancelChapterAdvance();
  const ch=selected();if(!ch.ready)return;
  if(ch.level===1){questions=letters.map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));}
  else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;questions=bank.slice();}
@@ -75,6 +79,7 @@ function begin(){
  next()
 }
 function next(){
+ cancelChapterAdvance();
  if(idx>=questions.length){finish();return}
  chosen=false;const q=questions[idx],isBank=Array.isArray(q.options),answer=isBank?q.answer:(q.reverse?q.letter:q.name);
  $("chapterQuestion").textContent="Question "+(idx+1)+" of "+questions.length;
@@ -97,9 +102,16 @@ function choose(btn,opt,answer,q){
  if(!ok)btn.classList.add("wrong");
  $("chapterFeedback").textContent=(ok?"Correct. ":"Correct answer: "+answer+". ")+(isBank?q.category+" • PDF page "+q.sourcePage:q.letter+" — "+q.name);
  $("chapterFeedback").className="feedback "+(ok?"good":"bad");
- $("chapterNext").classList.remove("hidden")
+ if(ok){
+  // Correct answers advance automatically. The existing chapter question order and scoring stay unchanged.
+  chapterAdvanceTimer=setTimeout(()=>{chapterAdvanceTimer=null;advanceChapter()},650)
+ }else{
+  // Leave the correct answer visible until the learner chooses Next.
+  $("chapterNext").classList.remove("hidden")
+ }
 }
 function finish(){
+ cancelChapterAdvance();
  $("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");
  const pct=Math.round(score/questions.length*100),level=selected().level;
  state.best[level]=Math.max(state.best[level]||0,pct);
@@ -119,9 +131,9 @@ if(fromStart)fromStart.onclick=()=>selectAndBegin(1);
 const continueBtn=$("chapterContinue");
 if(continueBtn)continueBtn.onclick=()=>selectAndBegin(Math.min(state.level,chapters.length));
 $("chapterStart").onclick=begin;
-$("chapterNext").onclick=()=>{idx++;next()};
+$("chapterNext").onclick=advanceChapter;
 $("chapterRestart").onclick=()=>{if(!confirm("Restart this chapter session? Your previously saved chapter scores will remain."))return;begin()};
-$("chapterExit").onclick=()=>{$("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");renderMenu()};
+$("chapterExit").onclick=()=>{cancelChapterAdvance();$("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");renderMenu()};
 $("chapterLegacy").onclick=()=>{let quiz=$("quizCard");if(!quiz)return;let wasHidden=quiz.classList.contains("hidden");["quizCard","statusCard","resetBtn"].forEach(id=>{let e=$(id);if(e){if(wasHidden)e.classList.remove("hidden");else e.classList.add("hidden")}});$("chapterLegacy").textContent=wasHidden?"Hide previous adaptive practice":"Open previous adaptive practice"};
 initMenu();
 })();
