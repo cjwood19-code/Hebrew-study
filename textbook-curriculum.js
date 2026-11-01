@@ -18,7 +18,7 @@ const letters=[
 ];
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const save=()=>{try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}};
-let questions=[],idx=0,score=0,chosen=false;
+let questions=[],idx=0,score=0,chosen=false,interpretationCorrect=0,interpretationAttempted=0;
 function selected(){return chapters[Math.min(chapters.length-1,Math.max(0,Number($("chapterSelect").value)-1))]}
 function renderProgress(){
  const history=Array.isArray(state.history)?state.history:[];
@@ -48,7 +48,7 @@ function renderMenu(){
  $("chapterBest").textContent=state.best[ch.level]===undefined?"Not attempted":state.best[ch.level]+"% best";
  const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];
  const available=ch.ready&&(ch.level===1||(Array.isArray(bank)&&bank.length>0));
- $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice is ready.":"Source-matched vocabulary, grammar and comprehension: "+bank.length+" questions. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
+ $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice is ready.":"Source-matched vocabulary, grammar and comprehension: "+bank.length+" questions plus 3 Hebrew-to-English interpretation checks. At least 2 of 3 interpretation answers and 85% overall are required to pass. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
  $("chapterStart").disabled=!available;
  $("chapterStart").textContent=available?"Practice this chapter":"Chapter content not mapped yet";
  $("chapterIndex").textContent="Chapter "+ch.level+" of "+chapters.length+" • "+(available?"ready":"awaiting exercise mapping");
@@ -72,8 +72,8 @@ function begin(){
  cancelChapterAdvance();
  const ch=selected();if(!ch.ready)return;
  if(ch.level===1){questions=letters.map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));}
- else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;questions=bank.slice();}
- idx=0;score=0;
+ else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;const checks=(window.HEBREW_CHAPTER_INTERPRETATION||{})[ch.level];if(!Array.isArray(checks)||checks.length!==3)return;questions=[...bank,...checks];}
+ idx=0;score=0;interpretationCorrect=0;interpretationAttempted=0;
  $("chapterMenu").classList.add("hidden");
  $("chapterQuiz").classList.remove("hidden");
  next()
@@ -84,7 +84,7 @@ function next(){
  chosen=false;const q=questions[idx],isBank=Array.isArray(q.options),answer=isBank?q.answer:(q.reverse?q.letter:q.name);
  $("chapterQuestion").textContent="Question "+(idx+1)+" of "+questions.length;
  renderSession();
- $("chapterDirection").textContent=isBank?q.category+" • Source PDF page "+q.sourcePage:(q.reverse?"Choose the Hebrew letter":"Identify the Hebrew letter");
+ $("chapterDirection").textContent=isBank?q.category+(q.sourcePage?" • Source PDF page "+q.sourcePage:""):(q.reverse?"Choose the Hebrew letter":"Identify the Hebrew letter");
  $("chapterPrompt").textContent=isBank?q.prompt:(q.reverse?q.name:q.letter);
  $("chapterPrompt").dir=isBank?(/[\u0590-\u05FF]/.test(q.prompt)?"rtl":"ltr"):(q.reverse?"ltr":"rtl");
  $("chapterOptions").innerHTML="";
@@ -97,10 +97,10 @@ function next(){
  })
 }
 function choose(btn,opt,answer,q){
- if(chosen)return;chosen=true;const isBank=Array.isArray(q.options);let ok=opt===answer;if(ok)score++;renderSession();
+ if(chosen)return;chosen=true;const isBank=Array.isArray(q.options);let ok=opt===answer;if(ok)score++;if(q.interpretation){interpretationAttempted++;if(ok)interpretationCorrect++}renderSession();
  Array.from($("chapterOptions").children).forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add("correct")});
  if(!ok)btn.classList.add("wrong");
- $("chapterFeedback").textContent=(ok?"Correct. ":"Correct answer: "+answer+". ")+(isBank?q.category+" • PDF page "+q.sourcePage:q.letter+" — "+q.name);
+ $("chapterFeedback").textContent=(ok?"Correct. ":"Correct answer: "+answer+". ")+(isBank?q.category+(q.sourcePage?" • PDF page "+q.sourcePage:""):q.letter+" — "+q.name);
  $("chapterFeedback").className="feedback "+(ok?"good":"bad");
  if(ok){
   // Correct answers advance automatically. The existing chapter question order and scoring stay unchanged.
@@ -113,13 +113,13 @@ function choose(btn,opt,answer,q){
 function finish(){
  cancelChapterAdvance();
  $("chapterQuiz").classList.add("hidden");$("chapterMenu").classList.remove("hidden");
- const pct=Math.round(score/questions.length*100),level=selected().level;
+ const pct=Math.round(score/questions.length*100),level=selected().level,understood=interpretationAttempted===0||interpretationCorrect>=2,passed=pct>=85&&understood;
  state.best[level]=Math.max(state.best[level]||0,pct);
- state.history.push({level,correct:score,attempted:questions.length,date:new Date().toISOString()});
- if(pct>=85&&level===state.level)state.level=Math.min(chapters.length,level+1);
- save();renderProgress();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(pct>=85?"Checkpoint passed.":"85% required to pass.")+(state.level>level?" The next chapter will open when its content is mapped.":"");
- $("chapterOutcome").className="feedback "+(pct>=85?"good":"bad");
- $("chapterSelect").value=String(pct>=85&&level<chapters.length?level+1:level);renderMenu()
+ state.history.push({level,correct:score,attempted:questions.length,interpretationCorrect,interpretationAttempted,passed,date:new Date().toISOString()});
+ if(passed&&level===state.level)state.level=Math.min(chapters.length,level+1);
+ save();renderProgress();$("chapterOutcome").textContent="Chapter "+level+": "+score+"/"+questions.length+" ("+pct+"%). "+(passed?"Checkpoint passed.":!understood?"Interpretation checkpoint not passed (2 of 3 required).":"85% overall required to pass.")+(interpretationAttempted?" Interpretation: "+interpretationCorrect+"/"+interpretationAttempted+".":"")+(state.level>level?" The next chapter will open when its content is mapped.":"");
+ $("chapterOutcome").className="feedback "+(passed?"good":"bad");
+ $("chapterSelect").value=String(passed&&level<chapters.length?level+1:level);renderMenu()
 }
 function selectAndBegin(level){
  $("chapterSelect").value=String(level);
