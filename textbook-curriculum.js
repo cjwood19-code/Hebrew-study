@@ -5,7 +5,7 @@ const chapters=[
 ["ulpan4",30,"חיפוש עבודה",1,7],["ulpan4",31,"זמן עתיד",8,18],["ulpan4",32,"הציווי",19,22],["ulpan4",33,"הסביל • בניין נפעל",23,31],["ulpan4",34,"הסביל • בניין פועל",32,39],["ulpan4",35,"הסביל • בניין הופעל",40,43],["ulpan4",36,"המשפט הסביל",44,55],
 ["lilmod",1,"לאט אבל בטוח",11,23],["lilmod",2,"כל כך הרבה אבנים",24,34],["lilmod",3,"בכל מקום אפשר ללמוד עברית",35,47],["lilmod",4,"פתי מאמין לכל דבר",48,60],["lilmod",5,"התרופה הטובה של אימא",61,72],["lilmod",6,"שרלוק הולמס",73,85],["lilmod",7,"סוס וחמור – כלי התחבורה",86,98],["lilmod",8,"השודדת הבלונדינית",99,108],["lilmod",9,"בית ספר על גלגלים",109,118],["lilmod",10,"כך נגלה הכותל המערבי",119,131],["lilmod",11,"טיול מסוכן",132,142],["lilmod",12,"הצבעים",143,154],["lilmod",13,"אישה משוחררת",155,164],["lilmod",14,"חלוקת השלל",165,177],["lilmod",15,"סיפור המציאות",178,185],["lilmod",16,"השודדים והברווזים הקטנים",186,195],["lilmod",17,"העבודה והבטלה",196,204],["lilmod",18,"התינוק הגדול ביותר בעולם",205,213],["lilmod",19,"כל נדרי בארץ רחוקה",214,227],
 ["shnayim",1,"ברכות",13,37],["shnayim",2,"יוצאים לדרך",38,65],["shnayim",3,"נופים",66,101],["shnayim",4,"בית",102,125],["shnayim",5,"חינוך",126,151],["shnayim",6,"אדם לאדם",152,180],["shnayim",7,"אומנות",181,211],["shnayim",8,"נשים",212,239],["shnayim",9,"אדם וטבע",240,274],["shnayim",10,"שפה",275,308]
-].map((x,i)=>({level:i+1,book:x[0],unit:x[1],title:x[2],firstPage:x[3],lastPage:x[4],ready:i<=24}));
+].map((x,i)=>({level:i+1,book:x[0],unit:x[1],title:x[2],firstPage:x[3],lastPage:x[4],ready:i<=26}));
 const names={ulpan:"אולפן עברית",ulpan4:"אולפן עברית — חלק רביעי",lilmod:"ללמוד עברית ברמה ב׳",shnayim:"עברית בשניים לרמה ב׳"};
 window.HEBREW_TEXTBOOK_CHAPTERS=chapters;
 const $=id=>document.getElementById(id);
@@ -24,7 +24,12 @@ function renderProgress(){
  const history=Array.isArray(state.history)?state.history:[];
  const correct=history.reduce((n,h)=>n+(Number(h.correct)||0),0);
  const attempted=history.reduce((n,h)=>n+(Number(h.attempted)||0),0);
- const passed=Object.values(state.best||{}).filter(x=>Number(x)>=85).length;
+ const passed=Object.entries(state.best||{}).filter(([level,pct])=>{
+  const attempts=history.filter(h=>Number(h.level)===Number(level));
+  if(attempts.some(h=>h.passed===true))return true;
+  if(attempts.some(h=>typeof h.passed==="boolean"))return false;
+  return Number(pct)>=85; // Preserve legacy scores recorded before explicit pass outcomes.
+ }).length;
  $("textbookCurrent").textContent=state.level+" / "+chapters.length;
  $("textbookPassed").textContent=passed+" / "+chapters.length;
  $("textbookSessions").textContent=String(history.length);
@@ -137,3 +142,4 @@ $("chapterExit").onclick=()=>{cancelChapterAdvance();$("chapterQuiz").classList.
 $("chapterLegacy").onclick=()=>{let quiz=$("quizCard");if(!quiz)return;let wasHidden=quiz.classList.contains("hidden");["quizCard","statusCard","resetBtn"].forEach(id=>{let e=$(id);if(e){if(wasHidden)e.classList.remove("hidden");else e.classList.add("hidden")}});$("chapterLegacy").textContent=wasHidden?"Hide previous adaptive practice":"Open previous adaptive practice"};
 initMenu();
 })();
+
