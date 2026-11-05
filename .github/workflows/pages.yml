@@ -23,6 +23,7 @@ jobs:
         run: |
           node validate-trainer.cjs
           node verify-chapters-26-27.cjs
+          node verify-chapters-28-29.cjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

@@ -62,7 +62,7 @@ assert.ok(saved().best[27]>=85);assert.equal(get('textbookPassed').textContent,'
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
 begin(27);for(let i=0;i<89;i++){answer();tick()}
 assert.equal(saved().level,28);assert.equal(saved().best[27],100);
-assert.equal(get('chapterSelect').value,'28');assert.equal(get('chapterStart').disabled,true);
+assert.equal(get('chapterSelect').value,'28');assert.equal(get('chapterStart').disabled,false);
 assert.equal(get('textbookPassed').textContent,'3 / 46');
 // Reload the production controller against the same saved data.
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
@@ -84,4 +84,4 @@ assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved(
 // Original alphabet mode still starts and records a single tap.
 get('chapterFromStart').click();get('chapterOptions').children[0].click();
 assert.equal(get('chapterScore').textContent.endsWith('/ 1'),true);
-console.log('PASS: 26 → 27 → unavailable 28; correct-answer timer; wrong-answer Next; double taps; interpretation gate (0/3 and 2/3); actual pass count; existing scores; reload; exit/restart timer cancellation; separate storage preservation; alphabet mode.');
+console.log('PASS: 26 → 27 → ready 28; correct-answer timer; wrong-answer Next; double taps; interpretation gate (0/3 and 2/3); actual pass count; existing scores; reload; exit/restart timer cancellation; separate storage preservation; alphabet mode.');
