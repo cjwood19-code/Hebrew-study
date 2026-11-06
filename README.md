@@ -11,7 +11,7 @@ A Safari-friendly Hebrew vocabulary study app designed for iPad and Apple Pencil
 
 ## Textbook chapters and vocabulary cards
 
-33 of the 46 indexed textbook chapters are available. Chapters 24–25 add
+35 of the 46 indexed textbook chapters are available. Chapters 24–25 add
 66 source-based questions from ללמוד עברית ברמה ב׳ units 7–8.
 Chapters 26–27 add 151 source-based questions from units 9–10, plus six
 Hebrew interpretation checks. See [units 9–10 coverage](source-audit-26-27.md).
@@ -21,6 +21,8 @@ Chapters 30–31 add 85 source-based questions from units 13–14, plus six
 interpretation checks. See [units 13–14 coverage](source-audit-30-31.md).
 Chapters 32–33 add 68 source-based questions from units 15–16, plus six
 interpretation checks. See [units 15–16 coverage](source-audit-32-33.md).
+Chapters 34–35 add source-based questions from units 17–18, plus six
+interpretation checks. See [units 17–18 coverage](source-audit-34-35.md).
 See [source coverage and validation](source-audit-24-25.md) for the inspected
 pages and the limits of the multiple-choice adaptations.
 
@@ -47,3 +49,6 @@ Run `node verify-chapters-32-33.cjs` to check units 15–16, including the
 interpretation gate and the next unavailable chapter.
 
 
+
+Run `node verify-chapters-34-35.cjs` to check units 17–18, including the
+interpretation gate, correction and Next, and saved progress.
