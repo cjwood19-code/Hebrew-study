@@ -60,7 +60,7 @@ assert.equal(saved().level,29);assert.equal(saved().history.at(-1).passed,false)
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
 begin(29);for(let i=0;i<50;i++){answer();tick()}
 assert.equal(saved().level,30);assert.equal(saved().best[29],100);
-assert.equal(get('chapterSelect').value,'30');assert.equal(get('chapterStart').disabled,true);
+assert.equal(get('chapterSelect').value,'30');assert.equal(get('chapterStart').disabled,false);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
 assert.equal(get('textbookCurrent').textContent,'30 / 46');
 assert.equal(storage.get('hebrewGeneralFlashcardsV1'),previousCards);
@@ -73,4 +73,4 @@ storage.set('hebrewTextbookProgressV1',JSON.stringify({level:28,best:{},history:
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
 begin(28);for(let i=0;i<44;i++){const wrong=i===41;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
-console.log('PASS: 28 → 29 → unavailable 30; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');
+console.log('PASS: 28 → 29 → ready 30; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');
