@@ -1,14 +1,14 @@
 # Chapters 30–31: units 13–14
 
 Source: the user-supplied 228-page `ללמוד עברית ברמה ב'(2).pdf`. PDF pages
-155–177 were rendered, rotated 180 degrees, and visually read. PDF page
+155–178 were rendered, rotated 180 degrees, and visually read. PDF page
 numbers are four greater than printed page numbers here. The scans are not
 included in the public repository.
 
 | Chapter | Unit | PDF pages | Bank questions | Interpretation checks |
 |---|---|---:|---:|---:|
 | 30 | 13: אישה משוחררת | 155–164 | 41 | 3 |
-| 31 | 14: חלוקת השלל | 165–177 | 44 | 3 |
+| 31 | 14: חלוקת השלל | 165–178 | 44 | 3 |
 
 Each question carries a `sourcePage` and `sourceExercise`; questions are
 ordered by source page. Hebrew passages, exercise sentences, and target forms
@@ -29,6 +29,7 @@ and the translation checkpoints are adaptations for automatic grading.
 | 172–173 | 168–169 | Reasons with מפני ש / משום ש / כי and בגלל |
 | 176 | 172 | Vocabulary choices and verb meanings |
 | 177 | 173 | Selected Kruger Park story completions |
+| 178 | 174 | Final Unit 14 exercise on inflected בין; indexed, not graded |
 
 The open response questions, full compositions, picture interpretation, and
 unselected transformations remain outside automatic grading. No picture is
