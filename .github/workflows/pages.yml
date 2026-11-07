@@ -31,6 +31,7 @@ jobs:
           node verify-chapters-38-39.cjs
           node verify-chapters-40-41.cjs
           node verify-chapters-42-43.cjs
+          node verify-chapters-44-45.cjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

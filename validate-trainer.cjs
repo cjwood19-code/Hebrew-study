@@ -10,7 +10,7 @@ for(const f of scripts)assert.ok(fs.existsSync(path.join(root,f)),'Missing scrip
 const context={window:{},document:{getElementById:()=>null}};vm.createContext(context);
 for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
-assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,43);
+assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,45);
 let count=0;
 for(const [level,bank] of Object.entries(banks)){
   assert.ok(Array.isArray(bank)&&bank.length,'Empty bank '+level);
@@ -85,6 +85,13 @@ for(const level of [42,43]){
 }
 assert.equal(chapters[41].firstPage,152);assert.equal(chapters[41].lastPage,180);
 assert.equal(chapters[42].firstPage,181);assert.equal(chapters[42].lastPage,211);
+for(const level of [44,45]){
+  assert.equal(banks[level].length,level===44?32:35);
+  assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
+  assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
+}
+assert.equal(chapters[43].firstPage,212);assert.equal(chapters[43].lastPage,239);
+assert.equal(chapters[44].firstPage,240);assert.equal(chapters[44].lastPage,274);
 assert.equal(chapters[39].firstPage,102);assert.equal(chapters[39].lastPage,125);
 assert.equal(chapters[40].firstPage,126);assert.equal(chapters[40].lastPage,151);
 assert.equal(chapters[37].firstPage,38);assert.equal(chapters[37].lastPage,65);
@@ -103,5 +110,5 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
 }
 assert.equal(cards.length,57);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);}
-console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:43,totalChapters:46,bankQuestions:count,newQuestions:688,flashcards:cards.length}));
+console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:45,totalChapters:46,bankQuestions:count,newQuestions:755,flashcards:cards.length}));
 
