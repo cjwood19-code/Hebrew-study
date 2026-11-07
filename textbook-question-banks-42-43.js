@@ -1,0 +1,58 @@
+/* Multiple-choice adaptations of original exercises in the user's עברית בשניים לרמה ב׳ scan, chapters 6–7. PDF page indices are one-based. */
+(function(){"use strict";
+const rows={
+42:[
+[152,"reading.ghetto.1","Reading • גטו","In which city is the ghetto described in the reading?","ונציה","ברלין","ירושלים","ורשה"],
+[152,"reading.ghetto.2","Reading • גטו","What happened in 1516 according to the passage?","היהודים גורשו לגטו","נפתח בית ספר חדש","הוקם מוזאון לאומנות","נחתם הסכם שלום"],
+[152,"reading.ghetto.3","Reading • גטו","Who opened the ghetto gates in 1797?","החיילים של נפוליאון","הציירים של ונציה","תלמידי בית הספר","ארגון הצוענים"],
+[154,"choice.1","Choice • למרות / אף על פי ש","Complete the printed contrast: היהודים הצליחו לשרוד בגטו בוונציה _____ התנאים הקשים.","למרות","משום ש","כדי","לכן"],
+[154,"choice.2","Choice • למרות / אף על פי ש","Complete the printed contrast: _____ היהודים נאלצו לגור בגטאות בארצות האסלאם, הם הצליחו ליצור אומנות.","אף על פי ש","למרות","כדי","לכן"],
+[154,"reading.righteous.1","Reading • חסידי אומות העולם","Which organization grants the חסידי אומות העולם recognition described here?","יד ושם","הדסה","אונסקו","בית השנטי"],
+[154,"reading.righteous.2","Reading • חסידי אומות העולם","What did Dr. Mohamed Helmy do?","עזר ליהודים בגרמניה","בנה את הגטו בוונציה","צייר פסלים בברלין","לימד ילדים בפינלנד"],
+[158,"reading.roma.1","Reading • הצוענים","When does the passage say the Roma reached Europe?","במאה ה־10","במאה ה־20","בשנת 1939","בשנת 1797"],
+[158,"reading.roma.2","Reading • הצוענים","What name does the passage say the English use for the Roma?","ג'יפסי","וונציה","אביטל","יד ושם"],
+[158,"reading.roma.3","Reading • הצוענים","Which two groups are said to have been killed by the Nazis?","יהודים וצוענים","אדריכלים ומורים","ציירים ופסלים","ילדים ומנהלים"],
+[160,"interview.1","Interview • מנהל בית הספר","Why did the school director take pupils to Poland?","כדי ללמוד על מלחמת העולם השנייה ועל מה שקרה ליהודים","כדי ללמוד ציור רחוב","כדי לבנות גן חיות","כדי להקים מוזאון"],
+[160,"interview.2","Interview • מנהל בית הספר","Why did parents want their children to visit the camps?","כדי להבין את סבלם של היהודים","כדי ללמוד ציור רחוב","כדי להשתתף בספורט","כדי לבנות גן חיות"],
+[164,"verb.yarad.1","Verb table • לרדת","Choose the future first-person singular of לרדת from the printed verb table.","ארד","ירדתי","יורד","ירדו"],
+[164,"verb.yarad.2","Verb table • לרדת","Choose the feminine singular past form of לרדת.","ירדה","ירד","תרד","יורדת"],
+[166,"completion.animals.1","Completion • לחיות עם חיות","Complete the animal story with the future form: אביטל _____ מהבית במשך חודש ורק _____ בגורים הקטנים.","לא יצאה; טיפלה","לא תצא; תטפל","לא יוצאת; מטפלת","לא תצאו; תטפלו"],
+[166,"reading.animals.1","Reading • לחיות עם חיות","What kind of animal did Avital care for?","גורי כלבים","גורי אריות","ציפורים","סוסים"],
+[170,"verb.latet.1","Verb table • לתת","Choose the future form of לתת for אני.","אתן","נתתי","נותן","ייתן"],
+[170,"verb.latet.2","Verb table • לתת","Choose the past form of לתת for אנחנו.","נתנו","ניתן","נותנים","נתן"],
+[172,"preposition.min.1","Preposition • מן","Choose the form of מן meaning 'from us' in the printed table.","מאתנו","ממני","מכם","מהם"],
+[176,"choice.penguin.1","Choice • פינגווין מיוחד","Who became attached to the penguin in the reading?","ז'ואאו פריירה דה סוזה","פאוזי אבו גוש","אמין אל־חוסייני","נפוליאון"],
+[176,"choice.penguin.2","Choice • פינגווין מיוחד","What did João do when he found the penguin?","טיפל בו","מכר אותו","צייר אותו","שלח אותו לבית ספר"],
+[178,"choice.1","Choice • תרגילי חיזוק","Choose the printed contrast: לא נתתי לך את התרגיל מפני ש / למרות / למרות זאת היה לי רק דף אחד.","מפני ש","למרות","למרות זאת","אף על פי ש"],
+[178,"classification.1","Classification • בגדים ואופנה","Which word from the printed sorting exercise belongs to בגדים ואופנה?","חולצה","שמח","עמוק","מלחמה"],
+[178,"classification.2","Classification • צבעים","Which word from the printed sorting exercise belongs to צבעים?","שחור","שולחן","שדה","דמעה"]
+],
+43:[
+[181,"reading.art.1","Reading • יא פסל ולא מסכה","Which Jewish art form does the opening text say can be found in many places?","קליגרפיה","ג'ודו","גאולוגיה","חקלאות"],
+[181,"reading.art.2","Reading • יא פסל ולא מסכה","What material does the passage say Jewish artists use in their works?","מילים ואותיות","רק ברזל","רק חול","רק זכוכית"],
+[182,"truefalse.1","True or false • אומנות יהודית","According to the unit exercise, is it true that many Jewish prayer houses have paintings and sculptures?","לא נכון","נכון","לא מוזכר","רק באיטליה"],
+[182,"truefalse.2","True or false • אומנות יהודית","According to the unit exercise, can human images be seen in Jewish manuscripts?","נכון","לא נכון","רק בספרי ילדים","רק ברחוב"],
+[182,"reading.anisa.1","Interview • אניסה אשקר","What art form did Anisa Ashkar learn in order to write on faces?","קליגרפיה","פיסול","גרפיטי","אדריכלות"],
+[182,"reading.anisa.2","Interview • אניסה אשקר","Which language does Anisa say is her mother tongue?","ערבית","עברית","אנגלית","איטלקית"],
+[186,"reading.found.1","Reading • לא כל מה שמוצא חן בעיניי","What is the writer's opinion of abstract art?","היא אוהבת אומנות מופשטת","היא שונאת כל אומנות","היא מציירת רק קירות","היא מעדיפה רק פסלים"],
+[186,"reading.found.2","Reading • לא כל מה שמוצא חן בעיניי","What does the writer say about the small figures of David Reubeni?","הן מוצאות חן בעיניה","הן מכוערות בעיניה","הן פסלים יווניים","הן תמונות מגטו ונציה"],
+[186,"expression.1","Expression • מוצא חן בעיניי","What does מוצא חן בעיניי mean in the reading?","I like it","I forgot it","I sculpted it","I paid for it"],
+[188,"interview.graffiti.1","Interview • דניאל","Where does Daniel say he paints?","בכל מקום","רק במוזאון","רק בבית הספר","רק בבית"],
+[188,"interview.graffiti.2","Interview • דניאל","What does Daniel say will happen if someone catches him painting?","הוא ינסה לברוח","הוא יבקש פרס","הוא יקנה כרטיס","הוא יפסיק ללמוד"],
+[188,"conditional.1","Conditional • אם","Complete the printed conditional pattern: אם תבוא למסיבה, _____ הרבה אנשים.","תפגוש","פגשת","פוגש","פגשו"],
+[192,"reading.vangogh.1","Reading • ואן גוך","What is the date in the heading of Van Gogh's letter?","16 באוקטובר 1888","24 באוגוסט 1979","בשנת 1907","בשנת 1950"],
+[192,"reading.vangogh.2","Reading • ואן גוך","What does Van Gogh describe painting in the letter?","החדר שלי","חומת העיר","גן החיות","בית הכנסת"],
+[192,"reading.street.1","Reading • אומנות רחוב","Which art form is discussed in the street-art passage?","גרפיטי","קליגרפיה בלבד","ציור על פנים בלבד","ציור בספרים בלבד"],
+[194,"past.1","Past tense • תקופת המעברות","Complete the source exercise: המעברות _____ מחנות אוהלים לעולים שהגיעו לישראל.","היו","היה","תהיה","יהיו"],
+[194,"past.2","Past tense • תקופת המעברות","Complete the source exercise: מספר העולים שהגיע אז לארץ _____ יותר מ־900,000 איש.","היה","היו","יהיה","יהיו"],
+[198,"verb.hitpael.1","Verb matching • התפעל","Match להתרגל to the printed context: _____ לשפה, למזג האוויר, לתרבות ולמנהגים בארץ חדשה.","להתרגל","להתפלל","להצטלם","להתווכח"],
+[198,"verb.hitpael.2","Verb matching • התפעל","Match להתפלל to the printed context: _____ בכנסייה העתיקה.","להתפלל","להתחפש","להצטלם","להתקדם"],
+[200,"reading.shared.1","Reading • שיתוף","What does the shared-space activity discuss?","ערבים ויהודים","יהודים וצוענים","רק ציירים","רק ילדים"],
+[204,"reading.klimt.1","Reading • גוסטב קלימט","Who painted 'האישה בזהב' according to the passage?","גוסטב קלימט","וינסנט ואן גוך","אניסה אשקר","דוד ראובן"],
+[204,"reading.klimt.2","Reading • גוסטב קלימט","Who was depicted in the painting described in the passage?","אדלה בלוך־באואר","הילדים בבית הספר","מנהל גן החיות","פאוזי אבו גוש"],
+[206,"preposition.el.1","Preposition • אל","Choose the printed form: אבא _____ בערב, ואביא _____ פרחים ושוקולד.","אליכם; לכם","אליך; לך","אליי; לי","אליהם; להם"],
+[210,"reading.pompeii.1","Reading • פומפיי","What buried the city of Pompeii, according to the reading?","אפר געשי","חול מדברי","שלג","מי ים"],
+[210,"reading.comics.1","Reading • ספרות קומיקס","What does the comics passage say is a feature of comics?","ציורים ומעט מילים","רק מילים בלי ציורים","רק פיסול","רק מוזיקה"]
+]};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+})();
