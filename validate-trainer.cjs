@@ -11,7 +11,7 @@ const context={window:{},document:{getElementById:()=>null}};vm.createContext(co
 for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
 const reviewQueue=context.window.HEBREW_CONTEXT_REVIEW_QUEUE;
-assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length>=148);
+assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===137);
 assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,46);
 let count=0;
 for(const [level,bank] of Object.entries(banks)){

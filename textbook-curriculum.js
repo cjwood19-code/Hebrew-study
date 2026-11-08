@@ -56,7 +56,7 @@ function renderSession(){
 function sourceLabel(q){
  const ch=selected();
  const lesson=(ch.book==="ulpan"||ch.book==="ulpan4"?"lesson ":ch.book==="lilmod"?"unit ":"chapter ")+ch.unit;
- return names[ch.book]+" • "+lesson+(q.sourcePage?" • PDF page "+q.sourcePage:"")+(q.sourceExercise?" • "+q.sourceExercise:"");
+ return names[ch.book]+" • "+lesson+(q.sourcePage?" • PDF page "+q.sourcePage:"")+(q.sourceExercise?" • "+q.sourceExercise:q.practiceOrigin?" • "+q.practiceOrigin:"");
 }
 function renderMenu(){
  renderProgress();
@@ -67,7 +67,7 @@ function renderMenu(){
  $("chapterBest").textContent=state.best[ch.level]===undefined?"Not attempted":state.best[ch.level]+"% best";
  const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];
  const available=ch.ready&&(ch.level===1||(Array.isArray(bank)&&bank.length>0));
- $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice is ready.":"Source-matched vocabulary, grammar and comprehension: "+bank.length+" questions plus 3 Hebrew-to-English interpretation checks. At least 2 of 3 interpretation answers and 85% overall are required to pass. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
+ $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice is ready.":"Lesson-matched practice: "+bank.length+" questions plus 3 Hebrew-to-English interpretation checks. Passage-based comprehension belongs in Reading Practice. At least 2 of 3 interpretation answers and 85% overall are required to pass. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
  $("chapterStart").disabled=!available;
  $("chapterStart").textContent=available?"Practice this chapter":"Chapter content not mapped yet";
  $("chapterIndex").textContent="Chapter "+ch.level+" of "+chapters.length+" • "+(available?"ready":"awaiting exercise mapping");

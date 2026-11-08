@@ -28,7 +28,11 @@ not as verbatim textbook exercises.
 
 Reading Practice includes the original *אולפן עברית* lesson 10 passage about
 Nahalal (PDF page 105), its six printed comprehension questions with adapted
-answer choices, and the original Anat fill-in passage (PDF page 106). A
+answer choices, and the original Anat fill-in passage (PDF page 106). The
+original *ללמוד עברית ברמה ב׳* readings in units 1–2 (PDF pages 11 and 24)
+now accompany their printed exercise structures and labeled supplemental
+comprehension questions. Earlier note-only readings remain outside this
+chapter-mapped Reading Practice. A
 context guard removes reading-recall questions from chapter tests when their
 Hebrew passage is not displayed in the question. These questions are queued
 for source-backed Reading Practice rather than presented as context-free trivia.
@@ -37,7 +41,7 @@ excerpt from *עברית בשניים* chapter 10 (PDF page 275) is also availab
 Reading Practice. Existing separate practice and saved progress remain intact.
 
 The chapter counts below describe the source-bank entries written during each
-build. The context guard currently holds 148 entries until their passages are
+build. The context guard currently holds 137 entries until their passages are
 available in Reading Practice; those entries are not active quiz questions.
 
 All 46 indexed textbook chapters are available. Chapters 24–25 add

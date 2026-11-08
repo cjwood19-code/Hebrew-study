@@ -801,7 +801,35 @@ $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=funct
 
 
 const readingPassages=[
-  ...(D.readingPassages||[]),
+  {
+    id:"lilmod-1-slowly-surely",title:"לאט אבל בטוח",
+    source:"ללמוד עברית ברמה ב׳ • unit 1 • PDF page 11 (printed page 7) • original reading; printed completion exercise adapted to answer choices; additional comprehension marked supplemental",
+    he:"סטודנט לרפואה לא למד במשך כל השנה. בסוף השנה, כאשר התקרבו המבחנים, נבהל הסטודנט הצעיר, כי פחד להיכשל.\nהוא פנה אל הפרופסור שלו ושאל: \"אדוני הפרופסור, האם מספיק ללמוד במשך חודש אחד כדי להצליח במבחנים?\"\nענה הפרופסור הזקן: \"אתה רוצה להיות רופא. הרבה פעמים מגיעים למרפאה אנשים שמנים מאוד. אתה יכול לתת להם דיאטה ארוכה וקלה או להציע להם לצום כמה ימים כדי לרזות. מה אתה בוחר להציע להם?\"",
+    en:"A medical student did not study all year. Near the exams he feared failing and asked his professor whether one month of study was enough. The professor answered with a comparison: would a doctor offer a long, easy diet or a few days of fasting?",
+    vocab:[["רפואה","medicine"],["בחינות","exams"],["להיכשל","to fail"],["לצום","to fast"]],
+    questions:[
+      {q:"בסיפור מדברים על סטודנט ל______.",a:"רפואה",opts:["רפואה","היסטוריה","אומנות","מוזיקה"],kind:"Printed completion · answer choices adapted",explanation:"הפתיחה אומרת: סטודנט לרפואה."},
+      {q:"הסטודנט לא למד ______ כל השנה.",a:"במשך",opts:["במשך","אחרי","לפני","בלי"],kind:"Printed completion · answer choices adapted",explanation:"המשפט הראשון אומר: לא למד במשך כל השנה."},
+      {q:"הוא שאל את ה______ שלו.",a:"פרופסור",opts:["פרופסור","נהג","מוכר","חבר"],kind:"Printed completion · answer choices adapted",explanation:"בקטע כתוב שהוא פנה אל הפרופסור שלו ושאל."},
+      {q:"כדי ______ במבחנים.",a:"להצליח",opts:["להצליח","לנסוע","לשחות","לבשל"],kind:"Printed completion · answer choices adapted",explanation:"השאלה של הסטודנט מסתיימת במילים כדי להצליח במבחנים."},
+      {q:"מתי נבהל הסטודנט?",a:"כאשר התקרבו המבחנים",opts:["כאשר התקרבו המבחנים","בתחילת השנה","בחופשה","אחרי שסיים ללמוד"],kind:"Supplemental comprehension",explanation:"המשפט הראשון קושר את הפחד להתקרבות המבחנים."},
+      {q:"מה הציע הפרופסור כאפשרויות לאנשים שרוצים לרזות?",a:"דיאטה ארוכה וקלה או צום של כמה ימים",opts:["דיאטה ארוכה וקלה או צום של כמה ימים","לימוד במשך חודש","נסיעה לירושלים","שינה במשך כל היום"],kind:"Supplemental comprehension",explanation:"הפרופסור משווה דיאטה ארוכה וקלה לצום של כמה ימים."}
+    ]
+  },
+  {
+    id:"lilmod-2-many-stones",title:"כל כך הרבה אבנים",
+    source:"ללמוד עברית ברמה ב׳ • unit 2 • PDF page 24 (printed page 20) • original reading and printed comprehension/completion prompts; answer choices adapted; additional comprehension marked supplemental",
+    he:"תייר אחד ביקר בירושלים. האיש טייל ברחובות, וראה שבנו את הבתים ואת הגדרות מאבן.\nהוא התקרב אל החומה של העיר העתיקה, וראה שגם היא מאבן. האיש המשיך לטייל, ויצא אל ההרים מחוץ לעיר. הוא הסתכל מסביב ובכל מקום ראה אבנים: אבנים על ההרים ואבנים בדרכים. האיש התפלא מדוע יש כל כך הרבה אבנים בירושלים.\nכאשר חזר אל העיר, פנה התייר אל זקן אחד ושאל אותו: \"אולי אתה יכול להסביר לי מדוע יש כל כך הרבה אבנים בירושלים?\"\nענה לו הזקן: \"בכל הדורות באו יהודים לירושלים כדי להתפלל ולבכות ליד הכותל המערבי. עם כל דמעה הרגישו שירדה להם אבן מהלב ... וכך יש בירושלים הרבה אבנים.\"",
+    en:"A tourist in Jerusalem saw stone houses, fences, the Old City wall, hills, and roads. He asked an elder why there were so many stones. The elder answered with an image of generations praying at the Western Wall and feeling a stone lifted from the heart with each tear.",
+    vocab:[["חומה","wall"],["אבן","stone"],["דמעה","tear"],["ירדה אבן מהלב","felt relief"]],
+    questions:[
+      {q:"בירושלים יש הרבה אבנים. איפה?",a:"בבתים, בגדרות, בחומה, על ההרים ובדרכים",opts:["בבתים, בגדרות, בחומה, על ההרים ובדרכים","רק בבתים","רק ליד הנהר","רק במרפאה"],kind:"Printed comprehension · answer choices adapted",explanation:"הקטע מונה בתים, גדרות, חומה, הרים ודרכים."},
+      {q:"למה פנה התייר אל הזקן?",a:"כדי לשאול מדוע יש כל כך הרבה אבנים בירושלים",opts:["כדי לשאול מדוע יש כל כך הרבה אבנים בירושלים","כדי לקנות בית","כדי ללמוד רפואה","כדי להזמין נסיעה"],kind:"Printed comprehension · answer choices adapted",explanation:"התייר התפלא על האבנים ופנה אל הזקן בשאלה הזאת."},
+      {q:"הזקן הסביר לתייר ש______.",a:"בכל הדורות באו יהודים לירושלים להתפלל ולבכות",opts:["בכל הדורות באו יהודים לירושלים להתפלל ולבכות","אין אבנים בעיר העתיקה","התייר בנה את החומה","האבנים הגיעו מן הים"],kind:"Printed completion · answer choices adapted",explanation:"הזקן מספר על יהודים שבאו לירושלים במשך הדורות."},
+      {q:"איפה התפללו היהודים לפי דברי הזקן?",a:"ליד הכותל המערבי",opts:["ליד הכותל המערבי","בתחנת הרכבת","במרפאה","על החוף"],kind:"Supplemental comprehension",explanation:"הזקן אומר: להתפלל ולבכות ליד הכותל המערבי."},
+      {q:"מה הרגישו עם כל דמעה?",a:"שירדה להם אבן מהלב",opts:["שירדה להם אבן מהלב","שהם בנו עוד בית","שהחומה נפלה","שהדרך נסגרה"],kind:"Supplemental comprehension",explanation:"המשפט האחרון של הזקן משתמש בביטוי ירדה להם אבן מהלב."}
+    ]
+  },
   {
     id:"ulpan-10-nahalal",title:"מושב נהלל",
     source:"אולפן עברית • First Part, lesson 10 • PDF page 105 (printed page 117) • original passage and questions; answer choices adapted",
@@ -840,52 +868,20 @@ const readingPassages=[
       {q:"אני לא צריכה ________ מוקדם,",a:"לקום",opts:["לקום","לקרוא","לשמוע","לטייל"],explanation:"בשבת ענת לא צריכה לקום מוקדם, בניגוד לימי העבודה."}
     ]
   },
-  {
-    id:"secret-investigation",title:"המחקר הסודי",source:"Uploaded intermediate Hebrew notes • p. 149",
-    he:'בעיתון "מעריב" התפרסם סיפור על מחקר סודי שנעשה בצה"ל. ראש הממשלה כעס מאוד, וביקש מהמשטרה לחקור מי גילה את הסוד. חוקרי המשטרה הזמינו לחקירה את העיתונאי, שפרסם את הסיפור. הם חקרו אותו הרבה זמן, אך הוא לא גילה להם דבר. החקירה נמשכה כשבועיים, אבל חוקרי המשטרה לא הצליחו לגלות איך הגיעו לעיתון הידיעות על המחקר הסודי הזה.',
-    en:'A story was published in the newspaper Maariv about secret research conducted in the IDF. The prime minister was very angry and asked the police to investigate who revealed the secret. Police investigators summoned the journalist who published the story for questioning. They questioned him for a long time, but he did not reveal anything to them. The investigation lasted about two weeks, but the police investigators did not succeed in discovering how the information about the secret research reached the newspaper.',
-    vocab:[["מחקר סודי","secret research"],["לחקור","to investigate"],["עיתונאי","journalist"],["חקירה","investigation"],["ידיעות","information / news"]],
-    questions:[
-      {q:'איפה התפרסם הסיפור?',a:'בעיתון "מעריב"',opts:['בעיתון "מעריב"','בטלוויזיה','באוניברסיטה','במשטרה']},
-      {q:'מי ביקש מהמשטרה לחקור?',a:'ראש הממשלה',opts:['ראש הממשלה','העיתונאי','החייל','הפרופסור']},
-      {q:'את מי הזמינו החוקרים לחקירה?',a:'את העיתונאי',opts:['את העיתונאי','את ראש הממשלה','את הקורא','את הרופא']},
-      {q:'כמה זמן נמשכה החקירה?',a:'כשבועיים',opts:['כשבועיים','יום אחד','שנה','שעתיים']}
-    ]
-  },
-  {
-    id:"lonely-tourist",title:"התייר הבודד",source:"Uploaded intermediate Hebrew notes • p. 170 material",
-    he:'התייר הבודד נסע לאי שאין בו אנשים, בגלל שהוא רצה לראות אם הוא יכול להסתדר ללא עזרה. אריות וזאבים התקרבו אל האוהל של התייר בגלל ריחות הבישול. התייר פחד מאוד. בגלל זה הוא ביקש עזרה מאנשי החברה.',
-    en:'The lone tourist traveled to an island where there were no people because he wanted to see whether he could manage without help. Lions and wolves approached the tourist’s tent because of the smells of cooking. The tourist became very afraid. Because of this, he asked the company staff for help.',
-    vocab:[["תייר בודד","lone tourist"],["אי","island"],["להסתדר","to manage / get by"],["אוהל","tent"],["ריחות הבישול","smells of cooking"]],
-    questions:[
-      {q:'למה נסע התייר לאי?',a:'כדי לראות אם הוא יכול להסתדר ללא עזרה',opts:['כדי לראות אם הוא יכול להסתדר ללא עזרה','כדי לעבוד במשרד','כדי לבקר משפחה','כדי ללמוד באוניברסיטה']},
-      {q:'מה התקרב אל האוהל?',a:'אריות וזאבים',opts:['אריות וזאבים','תיירים','חקלאים','ילדים']},
-      {q:'למה התקרבו החיות?',a:'בגלל ריחות הבישול',opts:['בגלל ריחות הבישול','בגלל הגשם','בגלל המכונית','בגלל הספרים']},
-      {q:'מה עשה התייר כשהוא פחד?',a:'ביקש עזרה מאנשי החברה',opts:['ביקש עזרה מאנשי החברה','חזר לישון','קרא ספר','נסע לחיפה']}
-    ]
-  },
-  {
-    id:"family-meal",title:"הארוחה המשפחתית",source:"Uploaded intermediate Hebrew notes • p. 155",
-    he:'רבקה אשתו של יוסף, הזמינה את כל משפחתם לארוחה. דודתו של יוסף הגיעה מחיפה עם בעלה ועם בתם. מתל אביב הגיעה דודתה של רבקה, עם בנה ועם חברתו. כולם הביאו ליוסף מתנות יפות, אבל מתנתה של דודתו מחיפה הייתה היפה ביותר. לפני הארוחה לבש יוסף את חולצתו הלבנה, ורבקה אשתו לבשה את שמלתה החדשה. בזמן הארוחה סיפרו הדודים מחיפה על עבודתם בחנות, והדודים מתל אביב סיפרו על נסיעתם לחו"ל. כולם נהנו מאוד, וחזרו לביתם מאוחר בערב.',
-    en:'Rebecca, Joseph’s wife, invited their whole family for a meal. Joseph’s aunt arrived from Haifa with her husband and their daughter. Rebecca’s aunt arrived from Tel Aviv with her son and his girlfriend. Everyone brought Joseph beautiful gifts, but the gift from his aunt from Haifa was the most beautiful. Before the meal Joseph put on his white shirt, and Rebecca put on her new dress. During the meal, the relatives from Haifa talked about their work in the store, and the relatives from Tel Aviv talked about their trip abroad. Everyone enjoyed themselves very much and returned home late in the evening.',
-    vocab:[["הזמינה","invited"],["דודתו","his aunt"],["מתנות","gifts"],["בזמן הארוחה","during the meal"],["לחו״ל","abroad"]],
-    questions:[
-      {q:'מי הזמינה את המשפחה לארוחה?',a:'רבקה',opts:['רבקה','יוסף','דודתו של יוסף','בנה של רבקה']},
-      {q:'מאיפה הגיעה דודתו של יוסף?',a:'מחיפה',opts:['מחיפה','מתל אביב','מירושלים','מבאר שבע']},
-      {q:'מה לבש יוסף לפני הארוחה?',a:'את חולצתו הלבנה',opts:['את חולצתו הלבנה','את שמלתה החדשה','מעיל שחור','בגדי עבודה']},
-      {q:'מתי חזרו כולם לביתם?',a:'מאוחר בערב',opts:['מאוחר בערב','בבוקר','לפני הארוחה','בצהריים']}
-    ]
-  }
+
 ];
 let readingSession=null;
+let readingAdvanceTimer=null;
+function cancelReadingAdvance(){if(readingAdvanceTimer!==null){clearTimeout(readingAdvanceTimer);readingAdvanceTimer=null}}
 function renderReadingLibrary(){
   if(!$("readingStoryButtons"))return;
   let box=$("readingStoryButtons");box.innerHTML="";
   readingPassages.slice().sort(function(a,b){const fromBook=p=>/^(אולפן עברית|ללמוד עברית|עברית בשניים)/.test(p.source||"");return Number(fromBook(b))-Number(fromBook(a))}).forEach(function(p){let b=document.createElement("button");b.className="secondary";b.textContent=p.title;b.onclick=function(){openReadingPassage(p.id)};box.appendChild(b)})
 }
 function openReadingPassage(id){
+  cancelReadingAdvance();
   let p=readingPassages.find(function(x){return x.id===id});if(!p)return;
-  readingSession={passage:p,index:0,correct:0,answered:0};
+  readingSession={passage:p,index:0,correct:0,answered:0,chosen:false};
   $("readingSetup").classList.add("hidden");$("readingPanel").classList.remove("hidden");$("readingResult").classList.add("hidden");
   $("readingTitle").textContent=p.title;$("readingSource").textContent=p.source;$("readingPassage").textContent=p.he;
   $("readingTranslation").textContent=p.en;$("readingTranslation").classList.add("hidden");$("toggleReadingTranslationBtn").textContent="Show English translation";
@@ -893,31 +889,35 @@ function openReadingPassage(id){
   nextReadingQuestion();window.scrollTo({top:$("readingLibraryCard").offsetTop-10,behavior:"smooth"})
 }
 function nextReadingQuestion(){
+  cancelReadingAdvance();
   if(!readingSession)return;
   if(readingSession.index>=readingSession.passage.questions.length){finishReadingPassage();return}
+  readingSession.chosen=false;
   let q=readingSession.passage.questions[readingSession.index];
-  $("readingQuestionProgress").textContent="Question "+(readingSession.index+1)+" of "+readingSession.passage.questions.length;
+  $("readingQuestionProgress").textContent=(q.kind?q.kind+" • ":"")+"Question "+(readingSession.index+1)+" of "+readingSession.passage.questions.length;
   $("readingQuestion").textContent=q.q;$("readingQuestionFeedback").classList.add("hidden");$("nextReadingQuestionBtn").classList.add("hidden");
   let a=$("readingChoices");a.innerHTML="";
   shuffle(q.opts).forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerReadingQuestion(b,opt)};a.appendChild(b)})
 }
 function answerReadingQuestion(btn,opt){
-  if(!readingSession||!$("nextReadingQuestionBtn").classList.contains("hidden"))return;
+  if(!readingSession||readingSession.chosen)return;
+  readingSession.chosen=true;
   let q=readingSession.passage.questions[readingSession.index],ok=norm(opt)===norm(q.a);
   readingSession.answered++;if(ok)readingSession.correct++;
   Array.from($("readingChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(q.a))b.classList.add("correct")});
   if(!ok)btn.classList.add("wrong");
   let f=$("readingQuestionFeedback");f.textContent=ok?"Correct.":"Correct answer: "+q.a+". "+(q.explanation||"Read the passage above again for the answer.");f.className="feedback "+(ok?"good":"bad");
-  $("nextReadingQuestionBtn").classList.remove("hidden")
+  if(ok)readingAdvanceTimer=setTimeout(function(){readingAdvanceTimer=null;advanceReadingQuestion()},650);
+  else $("nextReadingQuestionBtn").classList.remove("hidden")
 }
-function advanceReadingQuestion(){if(!readingSession)return;readingSession.index++;nextReadingQuestion()}
+function advanceReadingQuestion(){cancelReadingAdvance();if(!readingSession||!readingSession.chosen)return;readingSession.index++;nextReadingQuestion()}
 function finishReadingPassage(){
   let s=readingSession,pct=s.answered?Math.round(s.correct/s.answered*100):0;
   state.readingHistory.push({date:new Date().toISOString(),id:s.passage.id,correct:s.correct,total:s.answered,score:pct});save();
   $("readingChoices").innerHTML="";$("readingQuestion").textContent="Reading complete";$("readingQuestionProgress").textContent="";
   $("nextReadingQuestionBtn").classList.add("hidden");let f=$("readingQuestionFeedback");f.textContent=s.correct+" / "+s.answered+" correct ("+pct+"%).";f.className="feedback good"
 }
-function closeReadingPassage(){readingSession=null;$("readingPanel").classList.add("hidden");$("readingSetup").classList.remove("hidden");$("readingResult").classList.add("hidden")}
+function closeReadingPassage(){cancelReadingAdvance();readingSession=null;$("readingPanel").classList.add("hidden");$("readingSetup").classList.remove("hidden");$("readingResult").classList.add("hidden")}
 function toggleReadingTranslation(){
   let t=$("readingTranslation"),show=t.classList.contains("hidden");t.classList.toggle("hidden",!show);$("toggleReadingTranslationBtn").textContent=show?"Hide English translation":"Show English translation"
 }

@@ -6,18 +6,23 @@ assert.ok(from>=0&&to>from);
 const elements=new Map();
 function el(){
   const classes=new Set();
-  return {textContent:'',innerHTML:'',children:[],offsetTop:0,onclick:null,
+  const e={textContent:'',children:[],offsetTop:0,onclick:null,
     classList:{add:x=>classes.add(x),remove:x=>classes.delete(x),contains:x=>classes.has(x),toggle:(x,force)=>{if(force===undefined?classes.has(x):!force)classes.delete(x);else classes.add(x)}},
     appendChild(child){this.children.push(child)},focus(){}};
+  Object.defineProperty(e,'innerHTML',{get(){return ''},set(v){if(v==='')this.children=[]}});
+  return e;
 }
 function get(id){if(!elements.has(id))elements.set(id,el());return elements.get(id)}
-const state={readingHistory:[]},context={state,save(){},norm:s=>s.trim(),shuffle:a=>a,window:{scrollTo(){}},document:{createElement:el}};
+const timers=new Map();let timerId=0;
+const state={readingHistory:[]},context={state,save(){},norm:s=>s.trim(),shuffle:a=>a,window:{scrollTo(){}},document:{createElement:el},setTimeout(fn){timers.set(++timerId,fn);return timerId},clearTimeout(id){timers.delete(id)}};
 context.$=get;vm.createContext(context);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{filename:'data.js'});
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,7);
+assert.equal(buttons.length,5);
+assert.ok(buttons.some(b=>b.textContent==='לאט אבל בטוח'));
+assert.ok(buttons.some(b=>b.textContent==='כל כך הרבה אבנים'));
 const button=buttons.find(b=>b.textContent==='שפת תקשורת');assert.ok(button);button.onclick();
 assert.match(get('readingSource').textContent,/PDF page 275/);
 assert.match(get('readingPassage').textContent,/האספרנטו לא הצליחה/);
@@ -27,9 +32,10 @@ assert.match(get('readingQuestionFeedback').textContent,/Correct answer: לא/);
 assert.equal(get('readingQuestionProgress').textContent,'Question 1 of 2');
 get('nextReadingQuestionBtn').onclick();
 assert.equal(get('readingQuestionProgress').textContent,'Question 2 of 2');
-choices=get('readingChoices').children.slice(4);const correct=choices.find(b=>b.textContent==='אנגלית');assert.ok(correct);correct.onclick();
-get('nextReadingQuestionBtn').onclick();
+choices=get('readingChoices').children;const correct=choices.find(b=>b.textContent==='אנגלית');assert.ok(correct);correct.onclick();correct.onclick();
+assert.equal(timers.size,1);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),true);
+const [id,callback]=timers.entries().next().value;timers.delete(id);callback();
 assert.equal(state.readingHistory.length,1);
 assert.equal(state.readingHistory[0].id,'shnayim-10-communication-language');
 assert.equal(state.readingHistory[0].correct,1);assert.equal(state.readingHistory[0].total,2);
-console.log('PASS: Reading Practice source passage, Hebrew comprehension, wrong correction and Next, completed result.');
+console.log('PASS: Reading Practice source passage, wrong correction and Next, correct auto-advance, double-tap guard, saved result.');
