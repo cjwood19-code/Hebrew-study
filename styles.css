@@ -67,5 +67,10 @@ h2{font-size:17px;margin:0 0 8px}.levels{padding-left:22px;line-height:1.7;margi
 .flashcardControls select{font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;width:100%;background:#fff;color:var(--ink)}
 .vocabularyFlashcard{padding:28px 18px;text-align:center;border:1px solid var(--line);border-radius:16px;background:#f7fafb;min-height:150px;display:flex;flex-direction:column;justify-content:center;gap:18px;overflow-wrap:anywhere}
 .flashcardAnswer{font-size:1.5rem;line-height:1.6;border-top:1px solid var(--line);padding-top:18px}
+.flashcardExample{border-top:1px solid var(--line);padding-top:16px;text-align:start}
+.flashcardExample p{margin:8px 0;line-height:1.6}
+#flashcardExampleHe{font-size:1.25rem}
+#flashcardExampleEn{color:#425466}
 #generalFlashcardsCard button{min-height:44px}
 #generalFlashcardsCard button:focus-visible,#generalFlashcardsCard select:focus-visible{outline:3px solid #347ca5;outline-offset:3px}
+

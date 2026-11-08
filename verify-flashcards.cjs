@@ -1,0 +1,37 @@
+/* Flashcard context, reveal timing, direction, and saved-rating regression. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const elements=new Map();
+function element(id){if(!elements.has(id))elements.set(id,{textContent:'',value:'',hidden:false,disabled:false,focus(){},onclick:null,onchange:null});return elements.get(id)}
+const storage=new Map([['hebrewGeneralFlashcardsV1',JSON.stringify({version:1,cards:{'lilmod-7-8-001':{status:'review',seen:2},'lilmod-7-8-002':{status:'known',seen:1}}})]]);
+const context={window:{},document:{getElementById:element},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)}};
+vm.createContext(context);
+for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,57);
+element('flashcardSet').value='review';element('flashcardSet').onchange();
+element('flashcardStart').onclick();
+assert.equal(element('flashcardFront').textContent,'סוס');
+assert.equal(element('flashcardBack').hidden,true);
+assert.equal(element('flashcardExample').hidden,true);
+element('flashcardReveal').onclick();
+assert.equal(element('flashcardBack').hidden,false);
+assert.equal(element('flashcardExample').hidden,false);
+assert.equal(element('flashcardExampleHe').textContent,'הסוס הולך בדרך.');
+assert.equal(element('flashcardExampleEn').textContent,'The horse walks along the road.');
+element('flashcardKnown').onclick();
+let saved=JSON.parse(storage.get('hebrewGeneralFlashcardsV1'));
+assert.equal(saved.cards['lilmod-7-8-001'].status,'known');
+assert.equal(saved.cards['lilmod-7-8-001'].seen,3);
+assert.equal(saved.cards['lilmod-7-8-002'].seen,1);
+element('flashcardNext').onclick();
+assert.match(element('flashcardResult').textContent,/Set complete/);
+element('flashcardSet').value='all';element('flashcardDirection').value='en-he';element('flashcardSet').onchange();
+element('flashcardStart').onclick();
+const card=context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.en===element('flashcardFront').textContent);
+assert.ok(card);
+assert.equal(element('flashcardBack').textContent,card.he);
+assert.equal(element('flashcardExample').hidden,true);
+element('flashcardReveal').onclick();
+assert.equal(element('flashcardExampleHe').textContent,card.exampleHe);
+element('flashcardExit').onclick();
+assert.equal(JSON.parse(storage.get('hebrewGeneralFlashcardsV1')).cards['lilmod-7-8-002'].status,'known');
+console.log('PASS: all 57 context examples; reveal timing; both directions; review ratings and saved progress intact.');

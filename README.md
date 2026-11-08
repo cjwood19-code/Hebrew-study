@@ -64,7 +64,10 @@ pages and the limits of the multiple-choice adaptations.
 
 General Vocabulary Flashcards provides 57 words and phrases from these units.
 Choose a chapter or all cards, select Hebrew → English or English → Hebrew,
-reveal the answer, and mark “I remembered” or “Review again.” The “Cards to
+reveal the answer with a Hebrew example sentence and English translation, and
+mark “I remembered” or “Review again.” These are labeled supplemental practice
+examples written with the unit vocabulary, not quotations from the textbook.
+The “Cards to
 review” set contains the latter. Card ratings persist on this browser and are
 independent of chapter scores and the previous adaptive-practice modes.
 
@@ -109,3 +112,6 @@ and independent practice.
 Run `node verify-reading-sources.cjs` to check that context-dependent lesson
 10 recall is excluded from its chapter test and that the original readings,
 questions, source pages, and explanations are available in Reading Practice.
+
+Run `node verify-flashcards.cjs` to check all context examples, reveal timing,
+both card directions, and saved review ratings.

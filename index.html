@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#243447">
 <title>Hebrew Adaptive Trainer</title>
-<link rel="stylesheet" href="styles.css?v=20261030-flashcards">
+<link rel="stylesheet" href="styles.css?v=20261108-context">
 </head>
 <body>
 <header>
@@ -116,6 +116,11 @@
       <div class="vocabularyFlashcard">
         <div id="flashcardFront" class="prompt"></div>
         <div id="flashcardBack" class="flashcardAnswer" aria-live="polite" hidden></div>
+        <div id="flashcardExample" class="flashcardExample" hidden>
+          <span class="category">Example in context · Supplemental practice</span>
+          <p id="flashcardExampleHe" lang="he" dir="rtl"></p>
+          <p id="flashcardExampleEn" lang="en" dir="ltr"></p>
+        </div>
       </div>
       <p id="flashcardSource" class="compact" dir="auto"></p>
       <button id="flashcardReveal" type="button" class="primary">Show answer</button>
@@ -306,7 +311,8 @@ window.addEventListener("load",function(){
 <script src="textbook-interpretation-46.js?v=20261107-shnayim-10"></script>
 <script src="textbook-curriculum.js?v=20261108-mastery"></script>
 <script src="general-vocabulary-cards.js?v=20261030"></script>
-<script src="general-flashcards.js?v=20261030"></script>
+<script src="general-flashcard-examples.js?v=20261108-context"></script>
+<script src="general-flashcards.js?v=20261108-context"></script>
 </body>
 </html>
 

@@ -36,6 +36,9 @@ function show(){
   $("flashcardBack").textContent=reverse?c.he:c.en;
   $("flashcardBack").dir=reverse?"rtl":"ltr";
   $("flashcardBack").hidden=true;
+  $("flashcardExampleHe").textContent=c.exampleHe;
+  $("flashcardExampleEn").textContent=c.exampleEn;
+  $("flashcardExample").hidden=true;
   $("flashcardSource").textContent=c.book+" · Chapter "+c.chapter+" · PDF page "+c.sourcePage;
   $("flashcardReveal").hidden=false;
   $("flashcardRating").hidden=true;
@@ -73,7 +76,7 @@ $("flashcardStart").onclick=begin;
 $("flashcardSet").onchange=summary;
 $("flashcardReveal").onclick=()=>{
   if(!deck.length||revealed)return;
-  revealed=true;$("flashcardBack").hidden=false;$("flashcardReveal").hidden=true;
+  revealed=true;$("flashcardBack").hidden=false;$("flashcardExample").hidden=false;$("flashcardReveal").hidden=true;
   $("flashcardRating").hidden=false;$("flashcardReview").focus();
 };
 $("flashcardKnown").onclick=()=>grade("known");
@@ -86,3 +89,4 @@ $("flashcardNext").onclick=()=>{
 $("flashcardExit").onclick=()=>end(false);
 summary();
 })();
+

@@ -34,6 +34,7 @@ jobs:
           node verify-chapters-44-45.cjs
           node verify-chapter-46.cjs
           node verify-reading-sources.cjs
+          node verify-flashcards.cjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
