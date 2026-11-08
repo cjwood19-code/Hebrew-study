@@ -330,7 +330,7 @@ const additions={
     {
       "category": "Transport vocabulary",
       "sourcePage": 96,
-      "prompt": "Which vehicle is described as having two wheels and being ridden by children?",
+      "prompt": "יש להם שני גלגלים, והילדים אוהבים לרכב עליהם. איזו מילה מתאימה?",
       "answer": "אופניים",
       "options": [
         "אופניים",
@@ -342,13 +342,13 @@ const additions={
     {
       "category": "Transport vocabulary",
       "sourcePage": 96,
-      "prompt": "What does מסוק mean?",
-      "answer": "helicopter",
+      "prompt": "טסים בו. איזו מילה מתאימה?",
+      "answer": "מטוס",
       "options": [
-        "helicopter",
-        "bicycle",
-        "boat",
-        "carriage"
+        "מטוס",
+        "אופניים",
+        "אונייה",
+        "רכבת"
       ]
     },
     {
@@ -802,3 +802,4 @@ const additions={
 const banks=window.HEBREW_TEXTBOOK_QUESTION_BANKS||(window.HEBREW_TEXTBOOK_QUESTION_BANKS={});
 for(const [level,items] of Object.entries(additions)) banks[level]=items;
 })();
+

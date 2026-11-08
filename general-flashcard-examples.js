@@ -30,7 +30,6 @@ const rows=[
  ["מוזאון","ביקרנו במוזאון בירושלים.","We visited a museum in Jerusalem."],
  ["כמובן","כמובן, אני יכול לעזור.","Of course, I can help."],
  ["אופניים","הילד נוסע באופניים.","The boy rides a bicycle."],
- ["מסוק","המסוק טס מעל העיר.","The helicopter flies over the city."],
  ["אונייה","האונייה נוסעת בים.","The ship travels at sea."],
  ["גשר","הגשר נמצא מעל הנהר.","The bridge is over the river."],
  ["נהר","הנהר עובר ליד העיר.","The river passes near the city."],

@@ -11,6 +11,12 @@ A Safari-friendly Hebrew vocabulary study app designed for iPad and Apple Pencil
 
 ## Textbook chapters and vocabulary cards
 
+The [curriculum reconciliation audit](curriculum-reconciliation-audit.md) lists
+the active chapter questions, interpretation checks, Reading Practice items,
+held passage-dependent questions, and flashcards for every chapter. Run
+`node audit-curriculum.cjs` to regenerate it. The audit distinguishes page
+metadata from line-by-line verification against the scanned source.
+
 The textbook track keeps its established 46-chapter order: 10 lessons from
 *אולפן עברית* First Part, 7 from its Fourth Part, 19 from *ללמוד עברית ברמה ב׳*,
 and 10 from *עברית בשניים לרמה ב׳*. Chapter numbering and saved progress are

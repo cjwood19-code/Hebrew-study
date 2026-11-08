@@ -225,14 +225,6 @@ window.HEBREW_GENERAL_FLASHCARDS = [
     "book": "ללמוד עברית ברמה ב׳"
   },
   {
-    "id": "lilmod-7-8-029",
-    "he": "מסוק",
-    "en": "helicopter",
-    "chapter": 24,
-    "sourcePage": 96,
-    "book": "ללמוד עברית ברמה ב׳"
-  },
-  {
     "id": "lilmod-7-8-030",
     "he": "אונייה",
     "en": "ship",
@@ -457,3 +449,4 @@ window.HEBREW_GENERAL_FLASHCARDS = [
     "book": "ללמוד עברית ברמה ב׳"
   }
 ];
+
