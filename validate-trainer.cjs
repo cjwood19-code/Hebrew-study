@@ -10,6 +10,8 @@ for(const f of scripts)assert.ok(fs.existsSync(path.join(root,f)),'Missing scrip
 const context={window:{},document:{getElementById:()=>null}};vm.createContext(context);
 for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
+const reviewQueue=context.window.HEBREW_CONTEXT_REVIEW_QUEUE;
+assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length>=148);
 assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,46);
 let count=0;
 for(const [level,bank] of Object.entries(banks)){
@@ -24,6 +26,7 @@ for(const [level,bank] of Object.entries(banks)){
     assert.ok(q.options.includes(q.answer),label+' / missing answer');
     assert.ok(Number.isInteger(q.sourcePage)&&q.sourcePage>=chapter.firstPage&&q.sourcePage<=chapter.lastPage,label+' / source page');
     assert.ok(!prompts.has(q.prompt),label+' / duplicate prompt');prompts.add(q.prompt);count++;
+    assert.ok(/[\u0590-\u05FF]/.test(q.prompt)||!(/reading|dialogue|story|history|geography/i.test(q.category)||/\b(reading|passage|story|dialogue|article|advertisement|map)\b|according to|source asks|source's|visit rules/i.test(q.prompt)),label+' / source context missing');
   }
 }
 for(const ch of chapters)if(ch.ready&&ch.level>1)assert.ok(banks[ch.level]?.length);
@@ -40,7 +43,7 @@ for(const level of [26,27]){
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [28,29]){
-  assert.equal(banks[level].length,level===28?41:47);
+  assert.equal(banks[level].length,level===28?38:47);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].filter(q=>q.category.startsWith('Reading')).every(q=>q.prompt.startsWith('Read')||q.category.startsWith('Reading completion')||q.category.startsWith('Reading choice')));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
@@ -64,35 +67,35 @@ assert.equal(chapters[32].lastPage,196);
 assert.equal(chapters[33].firstPage,197);assert.equal(chapters[33].lastPage,205);
 assert.equal(chapters[34].firstPage,206);assert.equal(chapters[34].lastPage,213);
 for(const level of [36,37]){
-  assert.equal(banks[level].length,level===36?25:42);
+  assert.equal(banks[level].length,level===36?23:38);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [38,39]){
-  assert.equal(banks[level].length,level===38?27:30);
+  assert.equal(banks[level].length,level===38?22:18);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [40,41]){
-  assert.equal(banks[level].length,level===40?27:32);
+  assert.equal(banks[level].length,level===40?14:13);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [42,43]){
-  assert.equal(banks[level].length,level===42?24:25);
+  assert.equal(banks[level].length,level===42?15:12);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 assert.equal(chapters[41].firstPage,152);assert.equal(chapters[41].lastPage,180);
 assert.equal(chapters[42].firstPage,181);assert.equal(chapters[42].lastPage,211);
 for(const level of [44,45]){
-  assert.equal(banks[level].length,level===44?32:35);
+  assert.equal(banks[level].length,level===44?13:17);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 assert.equal(chapters[43].firstPage,212);assert.equal(chapters[43].lastPage,239);
 assert.equal(chapters[44].firstPage,240);assert.equal(chapters[44].lastPage,274);
-assert.equal(banks[46].length,45);
+assert.equal(banks[46].length,25);
 assert.ok(banks[46].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
 assert.ok(banks[46].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 assert.equal(chapters[45].firstPage,275);assert.equal(chapters[45].lastPage,308);
@@ -114,5 +117,5 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
 }
 assert.equal(cards.length,57);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);}
-console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,bankQuestions:count,newQuestions:800,flashcards:cards.length}));
+console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));
 

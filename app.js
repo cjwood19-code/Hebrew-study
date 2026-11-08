@@ -43,6 +43,12 @@ function pronunciationTextForQuestion(q,revealAnswer){
   let correct=String(q.correct||"").split("||")[0];
   return HEBREW_TEXT_RE.test(correct)?correct:null
 }
+function practiceSource(q){
+  if(q.bookSource)return q.bookSource;
+  if(q.item&&q.item.source)return q.item.source.document+(q.item.source.pdfPage?" • PDF page "+q.item.source.pdfPage:"");
+  if(q.sentenceObj&&q.sentenceObj.generated)return "Supplemental sentence practice";
+  return null
+}
 function updatePronunciationButton(text){
   let b=$("pronounceBtn");if(!b)return;
   let usable=(text||"").trim();
@@ -501,7 +507,7 @@ function renderReview(){
 function hideAll(){if("speechSynthesis" in window)window.speechSynthesis.cancel();["choiceArea","typedArea","tilesArea","handArea","selfGrade","feedback","nextBtn"].forEach(function(id){$(id).classList.add("hidden")});$("choiceArea").innerHTML="";$("answerInput").value="";$("answerLine").innerHTML="";$("wordTiles").innerHTML="";tileAnswer=[];locked=false;clearPad()}
 let adaptiveAdvanceTimer=null;
 function cancelAdaptiveAdvance(){if(adaptiveAdvanceTimer!==null){clearTimeout(adaptiveAdvanceTimer);adaptiveAdvanceTimer=null}}
-function nextQuestion(){cancelAdaptiveAdvance();if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=upgradeTwoPartQuestion(makeUniqueQuestion());if(!current){finishSession();return}$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";updatePronunciationButton(pronunciationTextForQuestion(current,false));$("category").textContent=current.cat||(current.item?current.item.cat:"Sentence");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(current.type==="grammar2"){renderGrammarSentencePart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC","bookMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":current.type==="bookMC"?(current.translation?"Part 1 of 2: Complete the Hebrew exercise.":"Complete the exercise from your course material."):"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"||current.type==="bookTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="bookTyped"?"Complete the exercise from your course material in Hebrew.":current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"||current.type==="bookTiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent=current.type==="bookTiles"?"Part 1"+(current.translation?" of 2":"")+": Tap words to build the Hebrew answer. Extra words may be included.":current.translation?"Part 1 of 2: Build the Hebrew sentence.":"Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
+function nextQuestion(){cancelAdaptiveAdvance();if(!state.session||state.session.answered>=sessionLength()){finishSession();return}hideAll();current=upgradeTwoPartQuestion(makeUniqueQuestion());if(!current){finishSession();return}$("prompt").textContent=current.prompt;$("prompt").dir=/[\u0590-\u05FF]/.test(current.prompt)?"rtl":"ltr";updatePronunciationButton(pronunciationTextForQuestion(current,false));$("category").textContent=(current.cat||(current.item?current.item.cat:"Sentence"))+(practiceSource(current)?" • "+practiceSource(current):" • Supplemental practice");if(current.type==="sentence2"){renderSentenceWordPart()}else if(current.type==="connector2"){renderConnectorPart()}else if(current.type==="grammar2"){renderGrammarSentencePart()}else if(["mc","reading","match","connector","grammar","verbMC","verbDefMC","bookMC"].includes(current.type)){let a=$("choiceArea");a.classList.remove("hidden");current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir=/[\u0590-\u05FF]/.test(opt)?"rtl":"ltr";b.onclick=function(){answerMC(b,opt)};a.appendChild(b)});$("instruction").textContent=current.type==="reading"?"Read the Hebrew sentence and choose the meaning.":current.type==="match"?"Choose the matching Hebrew word or opposite.":current.type==="connector"?"Choose the connector that completes the Hebrew sentence.":current.type==="grammar"?"Choose the grammatically correct Hebrew form.":current.type==="verbMC"?"Choose the correct Hebrew verb form.":current.type==="verbDefMC"?"Identify the verb meaning quickly.":current.type==="bookMC"?(current.translation?"Part 1 of 2: Complete the Hebrew exercise.":"Complete the exercise from your course material."):"Tap the best answer."}else if(current.type==="typedEn"||current.type==="typedHe"||current.type==="verbTyped"||current.type==="bookTyped"){$("typedArea").classList.remove("hidden");$("answerInput").dir=current.type==="typedEn"?"ltr":"rtl";$("answerInput").placeholder=current.type==="typedEn"?"Type English meaning":"הקלד/י בעברית";$("instruction").textContent=current.type==="bookTyped"?"Complete the exercise from your course material in Hebrew.":current.type==="verbTyped"?"Type the correct Hebrew verb form.":current.type==="typedHe"?"Recall the Hebrew word.":"Give the English meaning."}else if(current.type==="tiles"||current.type==="bookTiles"){$("tilesArea").classList.remove("hidden");$("instruction").textContent=current.type==="bookTiles"?"Part 1"+(current.translation?" of 2":"")+": Tap words to build the Hebrew answer. Extra words may be included.":current.translation?"Part 1 of 2: Build the Hebrew sentence.":"Tap the Hebrew words in the correct order.";current.words.forEach(addTile)}else{$("handArea").classList.remove("hidden");$("instruction").textContent="Write the Hebrew answer with Apple Pencil, then reveal and self-grade.";sizeCanvas()}}
 function renderGrammarSentencePart(){
   let a=$("choiceArea");a.innerHTML="";a.classList.remove("hidden");$("instruction").textContent="Part 1 of 2: Complete the Hebrew sentence.";
   current.options.forEach(function(opt){let b=document.createElement("button");b.className="choice";b.textContent=opt;b.dir="rtl";b.onclick=function(){answerGrammarSentencePart(b,opt)};a.appendChild(b)})
@@ -629,7 +635,7 @@ function englishMeaningFor(value,q){
 function answerWithEnglish(value,q){
   let en=englishMeaningFor(value,q);return en?value+" — "+en:value
 }
-function showFeedback(ok,msg){let f=$("feedback");f.textContent=msg;f.className="feedback "+(ok?"good":"bad")}
+function showFeedback(ok,msg){let f=$("feedback");f.textContent=msg+(!ok&&current&&practiceSource(current)?" Source: "+practiceSource(current)+".":"");f.className="feedback "+(ok?"good":"bad")}
 function record(ok){
   if(locked)return;locked=true;let isTest=state.session&&state.session.isTest,sourceLevel=questionLevel(current);
   state.session.answered++;if(ok)state.session.correct++;
@@ -797,6 +803,44 @@ $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=funct
 const readingPassages=[
   ...(D.readingPassages||[]),
   {
+    id:"ulpan-10-nahalal",title:"מושב נהלל",
+    source:"אולפן עברית • First Part, lesson 10 • PDF page 105 (printed page 117) • original passage and questions; answer choices adapted",
+    he:"מושב נהלל, מושב העובדים הראשון בישראל, נוסד ב-1921.\nהשם \"נהלל\" נמצא בתנ״ך (יהושע יט, טו; כא, לה)\nהמושב נמצא בצפון עמק יזרעאל.\nבמושב חיים כ-730 אנשים.\nבמושב יש בית כנסת, בתי ספר, גני ילדים, ספרייה, מרפאה, דואר, מינימרקט וברכת שחייה.\nרוב האנשים שחיים במושב עובדים בחקלאות.\nבמושב יש:\nשדות ועצים, פרות לחלב, עופות לבשר ולביצים ועוד.\nבמרכז המושב יש מסעדה גדולה ויפה.\nהאנשים שמטיילים בצפון הארץ יכולים להיכנס למסעדה, לאכול אוכל מצוין ולראות את הנוף היפה של עמק יזרעאל.",
+    en:"Nahalal, the first workers' moshav in Israel, was founded in 1921. Its name appears in the Bible. It is in the north of the Jezreel Valley, with about 730 residents. The moshav has community services, and most residents work in agriculture. There is a large restaurant in its center where visitors can eat and see the valley.",
+    vocab:[["מושב","moshav / cooperative village"],["נוסד","was founded"],["חקלאות","agriculture"],["עמק יזרעאל","Jezreel Valley"]],
+    questions:[
+      {q:"מתי נוסד המושב?",a:"ב-1921",opts:["ב-1921","ב-1948","ב-1905","ב-1967"],explanation:"בשורה הראשונה כתוב: נוסד ב-1921."},
+      {q:"איפה נמצא המושב?",a:"בצפון עמק יזרעאל",opts:["בצפון עמק יזרעאל","בדרום הארץ","בירושלים","ליד אילת"],explanation:"הקטע אומר שהמושב נמצא בצפון עמק יזרעאל."},
+      {q:"איפה נמצא השם ״נהלל״?",a:"בתנ״ך",opts:["בתנ״ך","בעיתון","במילון","במפה בלבד"],explanation:"השם ״נהלל״ נמצא בתנ״ך, לפי המשפט השני."},
+      {q:"כמה אנשים חיים במושב?",a:"כ-730 אנשים",opts:["כ-730 אנשים","כ-73 אנשים","כ-7,300 אנשים","כ-30 אנשים"],explanation:"בקטע כתוב: במושב חיים כ-730 אנשים."},
+      {q:"איפה עובדים רוב האנשים שחיים במושב?",a:"בחקלאות",opts:["בחקלאות","בבית חולים","בשדה התעופה","בבנק"],explanation:"הקטע אומר שרוב האנשים שחיים במושב עובדים בחקלאות."},
+      {q:"מה יכולים לעשות אנשים שמטיילים בצפון?",a:"להיכנס למסעדה ולאכול",opts:["להיכנס למסעדה ולאכול","לנסוע ברכבת","ללמוד באוניברסיטה","ללכת לקולנוע"],explanation:"בסוף הקטע נאמר שמטיילים יכולים להיכנס למסעדה, לאכול ולראות את הנוף."}
+    ]
+  },
+  {
+    id:"shnayim-10-communication-language",title:"שפת תקשורת",
+    source:"עברית בשניים לרמה ב׳ • chapter 10, שפה • PDF page 275 • textbook excerpt; comprehension choices adapted for practice",
+    he:"האספרנטו לא הצליחה להיות השפה של כל העולם. היא היום שפתם של שני מיליון איש בערך. היום האנגלית היא שפת התקשורת בין עמים רבים.",
+    en:"Esperanto did not succeed in becoming the language of the whole world. Today it is the language of approximately two million people. Today English is the language of communication among many peoples.",
+    vocab:[["שפת תקשורת","language of communication"],["עמים","peoples"],["בערך","approximately"]],
+    questions:[
+      {q:"האם האספרנטו הצליחה להיות השפה של כל העולם?",a:"לא",opts:["לא","כן","רק באירופה","רק בישראל"],explanation:"הקטע אומר: האספרנטו לא הצליחה להיות השפה של כל העולם."},
+      {q:"מהי היום שפת התקשורת בין עמים רבים?",a:"אנגלית",opts:["אנגלית","אספרנטו","עברית","לטינית"],explanation:"המשפט האחרון בקטע מציין שהאנגלית היא שפת התקשורת בין עמים רבים."}
+    ]
+  },
+  {
+    id:"ulpan-10-anat-completion",title:"היא רוצה להיות מורה...",
+    source:"אולפן עברית • First Part, lesson 10 • PDF page 106 (printed page 118) • original fill-in passage; answer choices adapted",
+    he:"ענת גרה במושב נהלל, שנמצא בצפון עמק יזרעאל.\nענת בת 22.\nכל בוקר היא קמה מוקדם ועוזרת להורים שלה בעבודה.\nהיא עוזרת להורים שלה בעבודה בשדה.\nאחרי הצהריים היא נוסעת ________ במכללה (קולג').\nענת רוצה ________ מורה, לכן היא לומדת חינוך.\nענת אומרת: \"אני מחכה לשבת. בשבת אני מרגישה נפלא.\nבשבת אני יכולה ________.\nאני לא צריכה ________ מוקדם,\nאני לא צריכה ________ להורים שלי בעבודה,\nואני לא צריכה ________ בשדה.\nאני יכולה ________ ספר טוב. אני יכולה ________ מוזיקה.\nבקיץ אני יכולה ________ בברכת השחייה.\nבחורף, בימים יפים של שמש, אני יכולה ________ בשדות עם מיכאל.\nבשבת אני יכולה ________ מה שאני רוצה!\"",
+    en:"Anat lives in Nahalal, is 22, and helps her parents in the fields. In the afternoon she goes to study at college because she wants to be a teacher. She looks forward to Shabbat and describes what she can do then. Complete the original Hebrew blanks using the source vocabulary.",
+    vocab:[["ללמוד","to study"],["להיות","to be"],["לקום","to get up"],["לקרוא","to read"]],
+    questions:[
+      {q:"אחרי הצהריים היא נוסעת ________ במכללה (קולג').",a:"ללמוד",opts:["ללמוד","לשחות","לעבוד","לנוח"],explanation:"היא נוסעת למכללה כדי ללמוד; לכן שם הפועל הוא ללמוד."},
+      {q:"ענת רוצה ________ מורה, לכן היא לומדת חינוך.",a:"להיות",opts:["להיות","לקרוא","לשמוע","לשחות"],explanation:"היא לומדת חינוך מפני שהיא רוצה להיות מורה."},
+      {q:"אני לא צריכה ________ מוקדם,",a:"לקום",opts:["לקום","לקרוא","לשמוע","לטייל"],explanation:"בשבת ענת לא צריכה לקום מוקדם, בניגוד לימי העבודה."}
+    ]
+  },
+  {
     id:"secret-investigation",title:"המחקר הסודי",source:"Uploaded intermediate Hebrew notes • p. 149",
     he:'בעיתון "מעריב" התפרסם סיפור על מחקר סודי שנעשה בצה"ל. ראש הממשלה כעס מאוד, וביקש מהמשטרה לחקור מי גילה את הסוד. חוקרי המשטרה הזמינו לחקירה את העיתונאי, שפרסם את הסיפור. הם חקרו אותו הרבה זמן, אך הוא לא גילה להם דבר. החקירה נמשכה כשבועיים, אבל חוקרי המשטרה לא הצליחו לגלות איך הגיעו לעיתון הידיעות על המחקר הסודי הזה.',
     en:'A story was published in the newspaper Maariv about secret research conducted in the IDF. The prime minister was very angry and asked the police to investigate who revealed the secret. Police investigators summoned the journalist who published the story for questioning. They questioned him for a long time, but he did not reveal anything to them. The investigation lasted about two weeks, but the police investigators did not succeed in discovering how the information about the secret research reached the newspaper.',
@@ -837,7 +881,7 @@ let readingSession=null;
 function renderReadingLibrary(){
   if(!$("readingStoryButtons"))return;
   let box=$("readingStoryButtons");box.innerHTML="";
-  readingPassages.forEach(function(p){let b=document.createElement("button");b.className="secondary";b.textContent=p.title;b.onclick=function(){openReadingPassage(p.id)};box.appendChild(b)})
+  readingPassages.slice().sort(function(a,b){const fromBook=p=>/^(אולפן עברית|ללמוד עברית|עברית בשניים)/.test(p.source||"");return Number(fromBook(b))-Number(fromBook(a))}).forEach(function(p){let b=document.createElement("button");b.className="secondary";b.textContent=p.title;b.onclick=function(){openReadingPassage(p.id)};box.appendChild(b)})
 }
 function openReadingPassage(id){
   let p=readingPassages.find(function(x){return x.id===id});if(!p)return;
@@ -863,7 +907,7 @@ function answerReadingQuestion(btn,opt){
   readingSession.answered++;if(ok)readingSession.correct++;
   Array.from($("readingChoices").children).forEach(function(b){b.disabled=true;if(norm(b.textContent)===norm(q.a))b.classList.add("correct")});
   if(!ok)btn.classList.add("wrong");
-  let f=$("readingQuestionFeedback");f.textContent=ok?"Correct.":"Correct answer: "+q.a;f.className="feedback "+(ok?"good":"bad");
+  let f=$("readingQuestionFeedback");f.textContent=ok?"Correct.":"Correct answer: "+q.a+". "+(q.explanation||"Read the passage above again for the answer.");f.className="feedback "+(ok?"good":"bad");
   $("nextReadingQuestionBtn").classList.remove("hidden")
 }
 function advanceReadingQuestion(){if(!readingSession)return;readingSession.index++;nextReadingQuestion()}

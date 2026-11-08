@@ -11,6 +11,29 @@ A Safari-friendly Hebrew vocabulary study app designed for iPad and Apple Pencil
 
 ## Textbook chapters and vocabulary cards
 
+The textbook track keeps its established 46-chapter order: 10 lessons from
+*אולפן עברית* First Part, 7 from its Fourth Part, 19 from *ללמוד עברית ברמה ב׳*,
+and 10 from *עברית בשניים לרמה ב׳*. Chapter numbering and saved progress are
+preserved. The chapter result now records cumulative mastery by vocabulary,
+verbs, grammar, reading, sentence construction, and Hebrew interpretation.
+Every chapter question displays its textbook, lesson or unit, and PDF page
+when known. Adapted multiple-choice questions are identified as practice,
+not as verbatim textbook exercises.
+
+Reading Practice includes the original *אולפן עברית* lesson 10 passage about
+Nahalal (PDF page 105), its six printed comprehension questions with adapted
+answer choices, and the original Anat fill-in passage (PDF page 106). A
+context guard removes reading-recall questions from chapter tests when their
+Hebrew passage is not displayed in the question. These questions are queued
+for source-backed Reading Practice rather than presented as context-free trivia.
+A short verified
+excerpt from *עברית בשניים* chapter 10 (PDF page 275) is also available in
+Reading Practice. Existing separate practice and saved progress remain intact.
+
+The chapter counts below describe the source-bank entries written during each
+build. The context guard currently holds 148 entries until their passages are
+available in Reading Practice; those entries are not active quiz questions.
+
 All 46 indexed textbook chapters are available. Chapters 24–25 add
 66 source-based questions from ללמוד עברית ברמה ב׳ units 7–8.
 Chapters 26–27 add 151 source-based questions from units 9–10, plus six
@@ -82,3 +105,7 @@ Run `node verify-chapters-44-45.cjs` to check chapters 44–45 and the same prog
 Run `node verify-chapter-46.cjs` to check the final chapter, the interpretation
 gate, automatic advance, wrong-answer correction and Next, saved progress,
 and independent practice.
+
+Run `node verify-reading-sources.cjs` to check that context-dependent lesson
+10 recall is excluded from its chapter test and that the original readings,
+questions, source pages, and explanations are available in Reading Practice.

@@ -32,6 +32,8 @@ const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/
 for(const script of scripts.filter(s=>s.startsWith('textbook-')))vm.runInContext(fs.readFileSync(path.join(__dirname,script),'utf8'),context,{filename:script});
 function tick(){const pending=[...timers.values()];timers.clear();pending.forEach(fn=>fn())}
 function saved(){return JSON.parse(storage.get('hebrewTextbookProgressV1'))}
+function bankCount(level){return context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[level].length}
+function total(level){return bankCount(level)+3}
 function begin(level){get('chapterSelect').value=String(level);get('chapterSelect').onchange();assert.equal(get('chapterStart').disabled,false);get('chapterStart').click()}
 function answer(wrong=false){
  const level=+get('chapterSelect').value;
@@ -41,14 +43,14 @@ function answer(wrong=false){
  button.click();button.click();return get('chapterScore').textContent;
 }
 assert.equal(get('textbookCurrent').textContent,'44 / 46');
-begin(44);assert.equal(get('chapterQuestion').textContent,'Question 1 of 35');
+begin(44);assert.equal(get('chapterQuestion').textContent,'Question 1 of '+total(44));
 answer();tick();assert.match(get('chapterQuestion').textContent,/^Question 2 /);
-for(let i=1;i<35;i++){answer();tick()}
+for(let i=1;i<total(44);i++){answer();tick()}
 assert.equal(saved().level,45);assert.equal(saved().best[44],100);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);
 assert.equal(get('chapterSelect').value,'45');
-begin(45);assert.equal(get('chapterQuestion').textContent,'Question 1 of 38');
-for(let i=0;i<35;i++){answer();tick()}
+begin(45);assert.equal(get('chapterQuestion').textContent,'Question 1 of '+total(45));
+for(let i=0;i<bankCount(45);i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -58,7 +60,7 @@ for(let i=0;i<3;i++){
 }
 assert.equal(saved().level,45);assert.equal(saved().history.at(-1).passed,false);
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(45);for(let i=0;i<38;i++){answer();tick()}
+begin(45);for(let i=0;i<total(45);i++){answer();tick()}
 assert.equal(saved().level,46);assert.equal(saved().best[45],100);
 assert.equal(get('chapterSelect').value,'46');assert.equal(get('chapterStart').disabled,false);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
@@ -71,6 +73,6 @@ begin(44);answer();get('chapterRestart').click();tick();
 assert.equal(get('chapterScore').textContent,'0 / 0');
 storage.set('hebrewTextbookProgressV1',JSON.stringify({level:44,best:{},history:[]}));
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
-begin(44);for(let i=0;i<35;i++){const wrong=i===32;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
+begin(44);for(let i=0;i<total(44);i++){const wrong=i===bankCount(44);answer(wrong);if(wrong)get('chapterNext').click();else tick()}
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
 console.log('PASS: 44 → 45 → available 46; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');

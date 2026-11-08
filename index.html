@@ -87,7 +87,7 @@
   </section>
 
   <section id="readingLibraryCard" class="card">
-    <div class="sectionTitle"><div><h2>Reading &amp; Interpretation</h2><p class="compact">Read passages drawn from your uploaded Hebrew study materials, use the vocabulary support, and answer comprehension questions in Hebrew.</p></div><span class="badge">Reading</span></div>
+    <div class="sectionTitle"><div><h2>Reading Practice &amp; Interpretation</h2><p class="compact">Read source-labeled textbook passages and exercises, use the vocabulary support, and answer comprehension and completion questions in Hebrew. Adapted answer choices are identified.</p></div><span class="badge">Reading</span></div>
     <div id="readingSetup"><div id="readingStoryButtons" class="buttonRow sprintSetup"></div></div>
     <div id="readingPanel" class="hidden">
       <h3 id="readingTitle"></h3><p id="readingSource" class="compact"></p><div id="readingPassage" class="readingPassage" dir="rtl"></div><div id="readingVocab" class="reviewList"></div><button id="toggleReadingTranslationBtn" class="secondary wide">Show English translation</button><div id="readingTranslation" class="readingTranslation hidden" dir="ltr"></div><div id="readingQuestionProgress" class="category"></div><div id="readingQuestion" class="prompt readingQuestion" dir="rtl"></div><div id="readingChoices" class="choices"></div><div id="readingQuestionFeedback" class="feedback hidden"></div><button id="nextReadingQuestionBtn" class="primary wide hidden">Next question</button><button id="closeReadingBtn" class="secondary wide">Back to reading library</button>
@@ -263,7 +263,7 @@ window.addEventListener("load",function(){
 <script src="book-exercises.js?v=20261011-comprehension"></script>
 <script src="vocab-safety.js?v=20261011-comprehension"></script>
 <script src="opening-vocab.js?v=20261015-word-recognition"></script>
-<script src="app.js?v=20261031-auto-correct"></script>
+<script src="app.js?v=20261108-textbook-reading"></script>
 <script src="verb-match.js?v=20261016-no-rewind"></script>
 <script src="verb-patterns.js?v=20261011-tense-patterns"></script>
 <script src="word-recognition.js?v=20261015-infinitive-patterns"></script>
@@ -272,7 +272,7 @@ window.addEventListener("load",function(){
 <script src="textbook-question-banks-6.js?v=20261021-progress-restored"></script>
 <script src="textbook-question-banks-7.js?v=20261027-context-fix"></script>
 <script src="textbook-question-banks-8-9.js?v=20261021-progress-restored"></script>
-<script src="textbook-question-banks-10.js?v=20261021-progress-restored"></script>
+<script src="textbook-question-banks-10.js?v=20261108-context"></script>
 <script src="textbook-question-banks-11.js?v=20261030-options-repair"></script>
 <script src="textbook-question-banks-12-13.js?v=20261021-progress-restored"></script>
 <script src="textbook-question-banks-14-15.js?v=20261021-progress-restored"></script>
@@ -292,6 +292,7 @@ window.addEventListener("load",function(){
 <script src="textbook-question-banks-42-43.js?v=20261107-shnayim-6-7"></script>
 <script src="textbook-question-banks-44-45.js?v=20261107-shnayim-8-9"></script>
 <script src="textbook-question-banks-46.js?v=20261107-shnayim-10"></script>
+<script src="textbook-context-guard.js?v=20261108-source-context"></script>
 <script src="textbook-interpretation-checkpoints.js?v=20261105-26-27"></script>
 <script src="textbook-interpretation-28-29.js?v=20261105-lilmod-11-12"></script>
 <script src="textbook-interpretation-30-31.js?v=20261105-lilmod-13-14"></script>
@@ -303,7 +304,7 @@ window.addEventListener("load",function(){
 <script src="textbook-interpretation-42-43.js?v=20261107-shnayim-6-7"></script>
 <script src="textbook-interpretation-44-45.js?v=20261107-shnayim-8-9"></script>
 <script src="textbook-interpretation-46.js?v=20261107-shnayim-10"></script>
-<script src="textbook-curriculum.js?v=20261107-46"></script>
+<script src="textbook-curriculum.js?v=20261108-mastery"></script>
 <script src="general-vocabulary-cards.js?v=20261030"></script>
 <script src="general-flashcards.js?v=20261030"></script>
 </body>
