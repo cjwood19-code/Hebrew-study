@@ -26,14 +26,26 @@ Every chapter question displays its textbook, lesson or unit, and PDF page
 when known. Adapted multiple-choice questions are identified as practice,
 not as verbatim textbook exercises.
 
+The later note calling this a 39-chapter curriculum differs from the live
+46-chapter sequence by the seven Fourth Part lessons. The app retains stable
+chapter IDs and saved progress while that difference is reconciled. "Indexed
+ready" describes access to a chapter; it does not mean every question has
+been compared with its scanned textbook page.
+
 Reading Practice includes the original *אולפן עברית* lesson 10 passage about
 Nahalal (PDF page 105), its six printed comprehension questions with adapted
 answer choices, and the original Anat fill-in passage (PDF page 106). The
 original *ללמוד עברית ברמה ב׳* readings in units 1–4 (PDF pages 11, 24,
 35–36, and 48–49) now accompany their printed exercise structures and labeled
 supplemental comprehension questions. Earlier note-only readings remain outside this
-chapter-mapped Reading Practice. A
-context guard removes reading-recall questions from chapter tests when their
+chapter-mapped Reading Practice.
+
+Units 5–6 add original reading excerpts from PDF pages 61 and 73. The unit 5
+activity adapts two printed comprehension prompts from PDF page 62; the other
+reading checks are labeled supplemental. The unit 6 story distinguishes the
+Italian barber from the English writer, correcting an earlier unsupported
+question. See [units 5–6 audit](source-audit-22-23.md). The context guard
+removes reading-recall questions from chapter tests when their
 Hebrew passage is not displayed in the question. These questions are queued
 for source-backed Reading Practice rather than presented as context-free trivia.
 A short verified
