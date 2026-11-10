@@ -44,12 +44,12 @@ assert.equal(get('textbookCurrent').textContent,'26 / 46');
 begin(26);assert.equal(answer(),'1 / 1');
 assert.equal(get('chapterNext').classList.contains('hidden'),true);tick();
 assert.match(get('chapterQuestion').textContent,/^Question 2 /);
-for(let i=1;i<68;i++){answer();tick()}
+for(let i=1;i<55;i++){answer();tick()}
 assert.equal(saved().level,27);assert.equal(saved().best[26],100);assert.equal(saved().best[25],92);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);assert.equal(saved().history.at(-1).passed,true);
 assert.equal(get('chapterSelect').value,'27');
 begin(27);
-for(let i=0;i<86;i++){answer();tick()}
+for(let i=0;i<71;i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -60,7 +60,7 @@ for(let i=0;i<3;i++){
 assert.equal(saved().level,27);assert.equal(saved().history.at(-1).passed,false);
 assert.ok(saved().best[27]>=85);assert.equal(get('textbookPassed').textContent,'2 / 46');
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(27);for(let i=0;i<89;i++){answer();tick()}
+begin(27);for(let i=0;i<74;i++){answer();tick()}
 assert.equal(saved().level,28);assert.equal(saved().best[27],100);
 assert.equal(get('chapterSelect').value,'28');assert.equal(get('chapterStart').disabled,false);
 assert.equal(get('textbookPassed').textContent,'3 / 46');
@@ -77,8 +77,8 @@ assert.equal(get('chapterScore').textContent,'0 / 0');assert.match(get('chapterQ
 storage.set('hebrewTextbookProgressV1',JSON.stringify({level:26,best:{},history:[]}));
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
 begin(26);
-for(let i=0;i<68;i++){
- const wrong=i===65;answer(wrong);if(wrong)get('chapterNext').click();else tick();
+for(let i=0;i<55;i++){
+ const wrong=i===52;answer(wrong);if(wrong)get('chapterNext').click();else tick();
 }
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
 // Original alphabet mode still starts and records a single tap.

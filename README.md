@@ -61,8 +61,10 @@ available in Reading Practice; those entries are not active quiz questions.
 All 46 indexed textbook chapters are available. Chapters 24–25 now have
 57 contextual grammar/vocabulary questions and ten questions beside the original
 Hebrew readings from ללמוד עברית ברמה ב׳ units 7–8.
-Chapters 26–27 add 151 source-based questions from units 9–10, plus six
-Hebrew interpretation checks. See [units 9–10 coverage](source-audit-26-27.md).
+Chapters 26–27 retain 123 grammar and vocabulary questions from units 9–10,
+plus six Hebrew interpretation checks. Twenty-eight reading and fill-in questions
+now appear beside the Hebrew source excerpts in Reading Practice. The unit 10 story is
+identified as a legend. See [units 9–10 coverage](source-audit-26-27.md).
 Chapters 28–29 add 88 source-based questions from units 11–12, plus six
 interpretation checks. See [units 11–12 coverage](source-audit-28-29.md).
 Chapters 30–31 add 85 source-based questions from units 13–14, plus six

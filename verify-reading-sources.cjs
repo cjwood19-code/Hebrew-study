@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,11);
+assert.equal(passages.length,13);
 for(const [id,page,count] of [['lilmod-1-slowly-surely',11,6],['lilmod-2-many-stones',24,5],['lilmod-3-anywhere',35,5],['lilmod-4-credulous',48,6]]){
  const p=passages.find(x=>x.id===id);assert.ok(p);
  assert.match(p.source,new RegExp('PDF pages? '+page));assert.equal(p.questions.length,count);
@@ -24,7 +24,8 @@ for(const [level,id,page] of [[18,'lilmod-1-slowly-surely',11],[19,'lilmod-2-man
  const p=passages.find(x=>x.id===id);
  for(const q of interpretations.window.HEBREW_CHAPTER_INTERPRETATION[level]){
   assert.equal(q.sourcePage,page);
-  assert.ok(p.he.includes(q.prompt.split('\n')[1]),`Interpretation not in chapter ${level} reading`);
+  const normalized=s=>s.replace(/[.,:!?״]/g,'').replace(/\s+/g,' ').trim();
+  assert.ok(normalized(p.he).includes(normalized(q.prompt.split('\n')[1])),`Interpretation not in chapter ${level} reading`);
  }
 }
 for(const [level,id,page,count] of [[22,'lilmod-5-mothers-medicine',61,6],[23,'lilmod-6-sherlock-holmes',73,5]]){
@@ -43,6 +44,16 @@ for(const [level,id,page,count] of [[24,'lilmod-7-transport',86,5],[25,'lilmod-8
  for(const q of interpretations.window.HEBREW_CHAPTER_INTERPRETATION[level]){
   assert.equal(q.sourcePage,page);
   assert.ok(p.he.includes(q.prompt.split('\n')[1]),`Interpretation not in chapter ${level} reading`);
+ }
+}
+for(const [level,id,page,count] of [[26,'lilmod-9-school-on-wheels',109,13],[27,'lilmod-10-western-wall-legend',119,15]]){
+ const p=passages.find(x=>x.id===id);assert.ok(p);
+ assert.match(p.source,new RegExp('PDF page '+page));assert.equal(p.questions.length,count);
+ assert.ok(p.he.length>500&&p.questions.every(q=>q.kind&&q.explanation&&/[\u0590-\u05FF]/.test(q.q)));
+ for(const q of interpretations.window.HEBREW_CHAPTER_INTERPRETATION[level]){
+  assert.equal(q.sourcePage,page);
+  const normalized=s=>s.replace(/[.,:!?״]/g,'').replace(/\s+/g,' ').trim();
+  assert.ok(normalized(p.he).includes(normalized(q.prompt.split('\n')[1])),`Interpretation not in chapter ${level} reading`);
  }
 }
 assert.ok(!passages.some(p=>/Uploaded intermediate Hebrew notes|Intermediate 2 PDF/.test(p.source)));
@@ -67,4 +78,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–25, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–27, and 46; original Hebrew reading context; source labels and corrections present.');

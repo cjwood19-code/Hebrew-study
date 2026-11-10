@@ -1971,5 +1971,22 @@ const additions={
     }
   ]
 };
+// Full reading questions are shown beside their source excerpts in Reading Practice.
+function lessonExplanation(q){
+ const answer=q.answer,category=q.category;
+ if(category.includes('plural and definite')||category.includes('plural sentences')||category.includes('definite construct')||category.includes('plural construct'))return `The unit's construct and agreement exercise gives ${answer}. In a construct phrase, definiteness is carried by the second noun; adjectives and plural forms must agree with the nouns they describe.`;
+ if(category.includes('future hitpael'))return `The unit's Hitpael future exercise changes the verb to ${answer}. The future prefix and ending follow the subject while the Hitpael pattern is retained.`;
+ if(category.includes('future review'))return `The review exercise changes the verb to future time: ${answer}. Match the future form to the subject and keep the rest of the source sentence in context.`;
+ if(category.includes('ability'))return `The unit's יכול exercise uses ${answer}. The form of יכול changes with the subject and tense; the following action remains an infinitive.`;
+ if(category.includes('time expressions'))return `The lesson's time-connector exercise gives ${answer}. Use a time phrase before a noun or a connector such as ש before a full clause, as the source exercise requires.`;
+ if(category.includes('infinitive and action noun')||category.includes('action nouns'))return `The lesson distinguishes an infinitive from its action noun. Here the sentence calls for ${answer}; the surrounding verb or article determines which form fits.`;
+ if(category.includes('obligation'))return `The page's חייב / מוכרח situation takes an infinitive action. ${answer} completes this model response to the stated situation.`;
+ if(category.includes('prepositions'))return `The preposition exercise gives ${answer}. Use את before a definite direct object and the matching preposition or object suffix for the verb in this sentence.`;
+ return `In the cited lesson exercise, the sentence is completed with ${answer}. Read the surrounding Hebrew sentence to identify the required word and form.`;
+}
+for(const level of ['26','27']){
+ additions[level]=additions[level].filter(q=>!q.category.startsWith('Reading •')&&!(level==='26'&&q.sourcePage===118&&['ה.1','ה.2','ה.4','ה.5','ה.6','ה.7'].includes(q.sourceExercise))&&!(level==='27'&&q.sourcePage===127&&q.sourceExercise.startsWith('ד1.')));
+ additions[level].forEach(q=>{q.explanation=lessonExplanation(q);q.practiceOrigin='Textbook exercise adapted to multiple choice'});
+}
 window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},additions);
 })();
