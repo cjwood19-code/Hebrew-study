@@ -20,13 +20,15 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,9);
+assert.equal(buttons.length,11);
 assert.ok(buttons.some(b=>b.textContent==='לאט אבל בטוח'));
 assert.ok(buttons.some(b=>b.textContent==='כל כך הרבה אבנים'));
 assert.ok(buttons.some(b=>b.textContent==='בכל מקום אפשר ללמוד עברית'));
 assert.ok(buttons.some(b=>b.textContent==='פתי מאמין לכל דבר'));
 assert.ok(buttons.some(b=>b.textContent==='התרופה הטובה של אמא'));
 assert.ok(buttons.some(b=>b.textContent==='שרלוק הולמס'));
+assert.ok(buttons.some(b=>b.textContent==='סוס וחמור - כלי תחבורה'));
+assert.ok(buttons.some(b=>b.textContent==='השודדת הבלונדינית'));
 const button=buttons.find(b=>b.textContent==='שפת תקשורת');assert.ok(button);button.onclick();
 assert.match(get('readingSource').textContent,/PDF page 275/);
 assert.match(get('readingPassage').textContent,/האספרנטו לא הצליחה/);

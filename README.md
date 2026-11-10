@@ -48,6 +48,8 @@ question. See [units 5–6 audit](source-audit-22-23.md). The context guard
 removes reading-recall questions from chapter tests when their
 Hebrew passage is not displayed in the question. These questions are queued
 for source-backed Reading Practice rather than presented as context-free trivia.
+Units 7–8 add source readings and adapted printed comprehension questions from
+PDF pages 86 and 99–100; see [units 7–8 audit](source-audit-24-25.md).
 A short verified
 excerpt from *עברית בשניים* chapter 10 (PDF page 275) is also available in
 Reading Practice. Existing separate practice and saved progress remain intact.
@@ -56,8 +58,9 @@ The chapter counts below describe the source-bank entries written during each
 build. The context guard currently holds 137 entries until their passages are
 available in Reading Practice; those entries are not active quiz questions.
 
-All 46 indexed textbook chapters are available. Chapters 24–25 add
-66 source-based questions from ללמוד עברית ברמה ב׳ units 7–8.
+All 46 indexed textbook chapters are available. Chapters 24–25 now have
+57 contextual grammar/vocabulary questions and ten questions beside the original
+Hebrew readings from ללמוד עברית ברמה ב׳ units 7–8.
 Chapters 26–27 add 151 source-based questions from units 9–10, plus six
 Hebrew interpretation checks. See [units 9–10 coverage](source-audit-26-27.md).
 Chapters 28–29 add 88 source-based questions from units 11–12, plus six

@@ -32,10 +32,9 @@ for(const [level,bank] of Object.entries(banks)){
 for(const ch of chapters)if(ch.ready&&ch.level>1)assert.ok(banks[ch.level]?.length);
 for(const level of [20,21]){assert.equal(banks[level].length,17);assert.ok(banks[level].every(q=>q.category!=='Reading with context'&&q.explanation&&q.practiceOrigin));}
 for(const level of [24,25]){
-  assert.equal(banks[level].length,33);
+  assert.equal(banks[level].length,level===24?29:28);
   if(level===24){assert.ok(banks[level].some(q=>q.sourcePage===96&&q.prompt.startsWith('טסים בו')&&q.answer==='מטוס'));assert.ok(!banks[level].some(q=>q.sourcePage===96&&/מסוק/.test(q.prompt)));}
-  assert.ok(banks[level].some(q=>q.category.startsWith('Reading')));
-  assert.ok(banks[level].filter(q=>q.category.startsWith('Reading')).every(q=>q.prompt.startsWith('Read: ')));
+  assert.ok(banks[level].every(q=>!q.category.startsWith('Reading')&&q.explanation&&q.practiceOrigin==='Supplemental lesson practice'));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage),'New bank source ordering');
 }
 for(const level of [26,27]){
