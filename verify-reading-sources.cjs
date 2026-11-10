@@ -12,15 +12,15 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,5);
-for(const [id,page,count] of [['lilmod-1-slowly-surely',11,6],['lilmod-2-many-stones',24,5]]){
+assert.equal(passages.length,7);
+for(const [id,page,count] of [['lilmod-1-slowly-surely',11,6],['lilmod-2-many-stones',24,5],['lilmod-3-anywhere',35,5],['lilmod-4-credulous',48,6]]){
  const p=passages.find(x=>x.id===id);assert.ok(p);
- assert.match(p.source,new RegExp('PDF page '+page));assert.equal(p.questions.length,count);
+ assert.match(p.source,new RegExp('PDF pages? '+page));assert.equal(p.questions.length,count);
  assert.ok(p.questions.every(q=>q.kind&&q.explanation&&/[\u0590-\u05FF]/.test(q.q)));
 }
 const interpretations={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-checkpoints.js'),'utf8'),interpretations);
-for(const [level,id,page] of [[18,'lilmod-1-slowly-surely',11],[19,'lilmod-2-many-stones',24]]){
+for(const [level,id,page] of [[18,'lilmod-1-slowly-surely',11],[19,'lilmod-2-many-stones',24],[20,'lilmod-3-anywhere',35],[21,'lilmod-4-credulous',48]]){
  const p=passages.find(x=>x.id===id);
  for(const q of interpretations.window.HEBREW_CHAPTER_INTERPRETATION[level]){
   assert.equal(q.sourcePage,page);
@@ -49,4 +49,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18, 19, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–21, and 46; original Hebrew reading context; source labels and corrections present.');

@@ -29,9 +29,9 @@ not as verbatim textbook exercises.
 Reading Practice includes the original *אולפן עברית* lesson 10 passage about
 Nahalal (PDF page 105), its six printed comprehension questions with adapted
 answer choices, and the original Anat fill-in passage (PDF page 106). The
-original *ללמוד עברית ברמה ב׳* readings in units 1–2 (PDF pages 11 and 24)
-now accompany their printed exercise structures and labeled supplemental
-comprehension questions. Earlier note-only readings remain outside this
+original *ללמוד עברית ברמה ב׳* readings in units 1–4 (PDF pages 11, 24,
+35–36, and 48–49) now accompany their printed exercise structures and labeled
+supplemental comprehension questions. Earlier note-only readings remain outside this
 chapter-mapped Reading Practice. A
 context guard removes reading-recall questions from chapter tests when their
 Hebrew passage is not displayed in the question. These questions are queued

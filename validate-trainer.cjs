@@ -30,6 +30,7 @@ for(const [level,bank] of Object.entries(banks)){
   }
 }
 for(const ch of chapters)if(ch.ready&&ch.level>1)assert.ok(banks[ch.level]?.length);
+for(const level of [20,21]){assert.equal(banks[level].length,17);assert.ok(banks[level].every(q=>q.category!=='Reading with context'&&q.explanation&&q.practiceOrigin));}
 for(const level of [24,25]){
   assert.equal(banks[level].length,33);
   if(level===24){assert.ok(banks[level].some(q=>q.sourcePage===96&&q.prompt.startsWith('טסים בו')&&q.answer==='מטוס'));assert.ok(!banks[level].some(q=>q.sourcePage===96&&/מסוק/.test(q.prompt)));}
