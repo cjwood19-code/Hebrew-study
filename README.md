@@ -65,8 +65,9 @@ Chapters 26–27 retain 123 grammar and vocabulary questions from units 9–10,
 plus six Hebrew interpretation checks. Twenty-eight reading and fill-in questions
 now appear beside the Hebrew source excerpts in Reading Practice. The unit 10 story is
 identified as a legend. See [units 9–10 coverage](source-audit-26-27.md).
-Chapters 28–29 add 88 source-based questions from units 11–12, plus six
-interpretation checks. See [units 11–12 coverage](source-audit-28-29.md).
+Chapters 28–29 retain 60 grammar questions from units 11–12, plus six
+interpretation checks. Four source-backed Reading Practice activities contain
+25 contextual questions. See [units 11–12 coverage](source-audit-28-29.md).
 Chapters 30–31 add 85 source-based questions from units 13–14, plus six
 interpretation checks. See [units 13–14 coverage](source-audit-30-31.md).
 Chapters 32–33 add 68 source-based questions from units 15–16, plus six

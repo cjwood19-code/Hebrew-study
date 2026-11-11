@@ -7,8 +7,12 @@ not included in this public repository.
 
 | Chapter | Unit | PDF pages | Bank questions | Interpretation checks |
 |---|---|---:|---:|---:|
-| 28 | 11: טיול מסוכן | 132–142 | 41 | 3 |
-| 29 | 12: הצבעים | 143–154 | 47 | 3 |
+| 28 | 11: טיול מסוכן | 132–142 | 27 | 3 |
+| 29 | 12: הצבעים | 143–154 | 33 | 3 |
+
+The 60 surviving grammar questions have source-exercise labels and lesson-based correction text. Four Reading Practice activities show original Hebrew excerpts beside 25 questions: 10 for טיול מסוכן, two for עשיר ומאושר, 10 for הצבעים, and three for the locker-room article. Printed comprehension and completion structures are identified; answer choices are adapted. The six chapter interpretations remain in the scored tests and use source Hebrew.
+
+Scan corrections in this review: the island company provides **neither a house nor food** (PDF 132, 140); the traveler must obtain both. The possessive prompts on PDF 134 were reconstructed to keep both source blanks and their owners. Two lines from עשיר ומאושר on PDF 142 had been misquoted. The PDF 153 article says black **frightens** the visiting players, brown makes them nervous, and white makes them feel lonely. Earlier bank claims that black calms players or red energizes them were unsupported and removed. The unit 11 passage's יחשוב was also corrected from the typo ישוב.
 
 Questions follow PDF page order. Each stores `sourcePage` and `sourceExercise`.
 English directions, closed answer choices, model completions and the six
@@ -46,5 +50,6 @@ and 85% overall. Correct choices advance after 650 ms. Wrong choices reveal
 the correction and wait for Next. The previous adaptive practice and local
 progress keys are unchanged.
 
-Validation: `node validate-trainer.cjs`, `node verify-chapters-26-27.cjs`,
-and `node verify-chapters-28-29.cjs`.
+Validation: `node validate-trainer.cjs`, `node verify-reading-sources.cjs`, `node verify-reading-progression.cjs`, `node verify-chapters-28-29.cjs`, and `node verify-flashcards.cjs`.
+
+The app's 46 indexed chapters comprise 10 *אולפן עברית* First Part lessons, seven Fourth Part lessons, 19 *ללמוד* units, and ten *עברית בשניים* chapters. The later 39-chapter note appears to omit the seven Fourth Part lessons, but this is not confirmed. Indexed access is not proof that all chapters are source-verified; saved IDs and independent practice remain intact.

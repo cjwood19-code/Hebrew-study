@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,13);
+assert.equal(buttons.length,17);
 assert.ok(buttons.some(b=>b.textContent==='לאט אבל בטוח'));
 assert.ok(buttons.some(b=>b.textContent==='כל כך הרבה אבנים'));
 assert.ok(buttons.some(b=>b.textContent==='בכל מקום אפשר ללמוד עברית'));
@@ -31,6 +31,10 @@ assert.ok(buttons.some(b=>b.textContent==='סוס וחמור - כלי תחבור
 assert.ok(buttons.some(b=>b.textContent==='השודדת הבלונדינית'));
 assert.ok(buttons.some(b=>b.textContent==='בית ספר על גלגלים'));
 assert.ok(buttons.some(b=>b.textContent==='כך נתגלה הכותל המערבי — אגדה'));
+assert.ok(buttons.some(b=>b.textContent==='טיול מסוכן'));
+assert.ok(buttons.some(b=>b.textContent==='עשיר ומאושר'));
+assert.ok(buttons.some(b=>b.textContent==='הצבעים'));
+assert.ok(buttons.some(b=>b.textContent==='צבע הקירות של חדר ההלבשה'));
 const button=buttons.find(b=>b.textContent==='שפת תקשורת');assert.ok(button);button.onclick();
 assert.match(get('readingSource').textContent,/PDF page 275/);
 assert.match(get('readingPassage').textContent,/האספרנטו לא הצליחה/);

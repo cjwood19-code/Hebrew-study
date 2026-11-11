@@ -13,11 +13,11 @@ const rows={
 [132,"reading.7","Reading • טיול מסוכן","Read: רק אם התייר ישוב שהחיים שלו בסכנה, הוא יכול לבקש מאנשי החברה שיעזרו לו. When may the tourist request help?","אם הוא חושב שחייו בסכנה","בכל ארוחת בוקר","לפני שהוא נוסע","כשהוא רוצה לקנות מתנה"],
 [133,"reading.8","Reading • טיול מסוכן","Read: כך מספר האנשים שהחברה יכולה לשלוח במשך עשר השנים הבאות יגדל. What will increase?","מספר האנשים שהחברה יכולה לשלוח","מספר בתי הספר בעיר","מחיר המזון באי","מספר אנשי השבט"],
 [134,"possessive.1","Possessive suffix • שמות עצם בנטייה","נסעו לטייל בגליל, והשאירו אצלי את _____. (הכלב שלהם)","כלבם","כלבי","כלבה","כלבנו"],
-[134,"possessive.2","Possessive suffix • שמות עצם בנטייה","מכר לנו את _____ לפני שבוע, ועד היום לא בא לקבל את הכסף. (המכונית שלה)","מכוניתה","מכוניתו","מכוניתנו","מכוניתכם"],
-[134,"possessive.3","Possessive suffix • שמות עצם בנטייה","לחברה שלי יש בעיה. נסע לחו״ל בענייני עבודה, ו_____ הקטנה מתגעגעת אליו מאוד. (הבעל שלה)","בעלה","בעלו","בעלי","בעלם"],
+[134,"possessive.2","Possessive suffix • שמות עצם בנטייה","_____ מכר לנו את _____ כבר לפני שבוע. (בן הדוד שלך; המכונית שלו)","בן דודך; מכוניתו","בן דודו; מכוניתה","בן דודי; מכוניתנו","בן דודנו; מכוניתך"],
+[134,"possessive.3","Possessive suffix • שמות עצם בנטייה","לחברה שלי יש בעיה: _____ נסע לחו״ל בענייני עבודה, ו_____ הקטנה מתגעגעת אליו מאוד. (הבעל שלה; הבת שלה)","בעלה; בתה","בעלו; בתו","בעלי; בתי","בעלם; בתם"],
 [134,"possessive.4","Possessive suffix • שמות עצם בנטייה","'שם _____ אל מול גולן' — complete the possessive noun. (הבית שלי)","ביתי","ביתו","ביתנו","ביתם"],
 [135,"possessive.story.1","Possessive story • תאונת דרכים","ביום ראשון החליטו ערן ואלון לנסוע לכפר כדי לבקר את _____. (הדוד שלהם)","דודם","דודו","דודי","דודך"],
-[135,"possessive.story.2","Possessive story • תאונת דרכים","שני יחד עם _____ רצו לבלות ב_____. (הסב שלהם; הכפר שלו)","סבם; כפרו","סבו; כפרם","סבי; כפרנו","סבך; כפרך"],
+[135,"possessive.story.2","Possessive story • תאונת דרכים","הם רצו לבלות ב_____ של הדוד במשך שבוע. (הכפר שלו)","כפרו","כפרם","כפרי","כפרך"],
 [135,"possessive.story.3","Possessive story • תאונת דרכים","ליד חיפה קרתה להם תאונת דרכים, והם נפצעו. _____ של ערן נשברה. (הרגל שלו)","רגלו","רגלה","רגלם","רגלי"],
 [135,"possessive.story.4","Possessive story • תאונת דרכים","ושבר _____ של אלון. (האף שלו)","אפו","אפה","אפם","אפי"],
 [136,"future.1","Future tense • לכתוב","התייר חוזר מביקור בגינאה החדשה. Complete in future: התייר _____ מביקור בגינאה החדשה.","יחזור","תחזור","נחזור","אחזור"],
@@ -95,6 +95,22 @@ const rows={
 [154,"relative.3","Relative clauses • מילות יחס","בארץ יש הרבה תאונות דרכים. המשטרה מנסה למנוע _____.","אותן","אותו","אותה","אותם"],
 [154,"relative.4","Relative clauses • מילות יחס","בגינה שלך יש הרבה עכברים. אתה צריך לקחת רעל ולפזר _____ בגינה.","אותו","אותה","אותם","אותן"]
 ]};
-const categories=Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))]));
+const categories=Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]})).filter(q=>!q.category.startsWith('Reading'))]));
+function lessonExplanation(q){
+ const a=q.answer,c=q.category;
+ if(c.startsWith('Possessive'))return `The possessive suffix agrees with the owner named in the printed exercise. In this sentence the required form is ${a}.`;
+ if(c.startsWith('Future'))return `The printed transformation changes the verb to future time while keeping the same subject. The resulting form is ${a}.`;
+ if(c.startsWith('Action noun'))return `The sentence needs the action noun or verb form shown by its surrounding words: ${a}.`;
+ if(c.startsWith('Conditional'))return `The אם clause sets a condition; the result must follow that condition and the lesson story. Here it is ${a}.`;
+ if(c.startsWith('Negation'))return `The אין form negates the present-tense predicate and agrees with its subject. The complete sentence is ${a}.`;
+ if(c.startsWith('Verb pair'))return `The source exercise changes the person or number of the verbs to match the new subject: ${a}.`;
+ if(c.startsWith('Purpose'))return `כדי ש introduces a clause with a subject and finite verb. The transformation is ${a}.`;
+ if(c.startsWith('Particles'))return `The position of גם or רק changes the focus of the sentence. The requested focus gives ${a}.`;
+ if(c.startsWith('Reflexive'))return `The reflexive form agrees with the person and number in the Hebrew sentence: ${a}.`;
+ if(c.startsWith('Contrast'))return `The lesson distinguishes ability (יכול) from necessity (צריך). Here the fitting answer is ${a}.`;
+ if(c.startsWith('Root completion'))return `The ח־ק־ר root changes form according to whether the sentence requires a noun or verb: ${a}.`;
+ return `The cited lesson exercise requires ${a} in this sentence. Check the verb and its object or preposition in the printed example.`;
+}
+for(const level of ['28','29'])categories[level].forEach(q=>{q.explanation=lessonExplanation(q);q.practiceOrigin='Textbook exercise adapted to multiple choice'});
 window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},categories);
 })();
