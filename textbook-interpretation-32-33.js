@@ -9,7 +9,7 @@ Object.assign(window.HEBREW_CHAPTER_INTERPRETATION||{}, {
   ],
   33:[
     make(187,"הקופאי לא נהרג, הוא רק נפצע.","The cashier was not killed; he was only injured.","The cashier was killed, not injured.","The robber was not killed; he was only injured.","The cashier was neither killed nor injured."),
-    make(187,"אבל ג׳ק לא רצה לדרוס את הברווזים הקטנים ועצר.","But Jack did not want to run over the little ducklings, so he stopped.","Jack wanted to run over the little ducklings and stopped.","Jack stopped because he wanted to catch the ducks.","Jack did not see the ducklings and kept driving."),
+    make(187,"אך ג׳ק לא רצה לדרוס את הברווזונים הקטנים ועצר.","But Jack did not want to run over the little ducklings, so he stopped.","Jack wanted to run over the little ducklings and stopped.","Jack stopped because he wanted to catch the ducks.","Jack did not see the ducklings and kept driving."),
     make(187,"השופט פסק להם עשר שנות מאסר.","The judge sentenced them to ten years in prison.","The judge sentenced them to two years in prison.","The judge released them from prison.","The police sentenced the judge to ten years.")
   ]
 });

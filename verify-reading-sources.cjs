@@ -12,7 +12,25 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,21);
+assert.equal(passages.length,27);
+for(const [id,page,count] of [['lilmod-15-real-story',179,10],['lilmod-15-cake',180,1],['lilmod-16-ducklings',187,11],['lilmod-16-nurit',191,4],['lilmod-16-police-order',193,3],['lilmod-16-caption',194,3]]){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`PDF page(?:s)? ${page}`));
+ assert.equal(p.questions.length,count);
+ assert.ok(p.he.length>80&&p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));
+}
+assert.ok(!passages.find(p=>p.id==='lilmod-16-police-order').he.includes('גנב כסף מן המשרד'));
+assert.ok(passages.find(p=>p.id==='lilmod-16-ducklings').he.includes('שבעה ברווזונים'));
+const checks={32:'lilmod-15-real-story',33:'lilmod-16-ducklings'};
+const checkpoints={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
+for(const file of ['textbook-interpretation-32-33.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),checkpoints);
+for(const [level,id] of Object.entries(checks)){
+ const passage=passages.find(p=>p.id===id);
+ for(const question of checkpoints.window.HEBREW_CHAPTER_INTERPRETATION[level]){
+  const phrase=question.prompt.split('\n')[1].replace(/[.,]/g,'');
+  assert.ok(passage.he.replace(/[.,]/g,'').includes(phrase),`chapter ${level} interpretation missing from reading`);
+ }
+}
 for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,10],['lilmod-14-rabbit',14,166,1],['lilmod-14-kruger',14,177,1]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));

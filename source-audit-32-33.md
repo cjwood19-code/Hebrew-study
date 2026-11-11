@@ -1,47 +1,27 @@
-# Chapters 32–33: units 15–16
+# Chapters 32–33: textbook audit and rebuild (2026-11-11)
 
-Source: the user-supplied 228-page `ללמוד עברית ברמה ב'(2).pdf`. PDF pages
-178–195 were rendered, rotated 180 degrees, and visually read. The scan
-places Unit 14's final exercise on PDF page 178. Unit 15 starts on 179 and
-continues through 186; Unit 16 starts on 187. The curriculum index was
-corrected accordingly. The scanned PDF is not in the public repository.
+Source: user-supplied `ללמוד עברית ברמה ב'(2).pdf`, PDF pages 179–196. Page 178 still belongs to unit 14. Unit 15 starts on page 179 and unit 16 on page 187. The scans are not part of the public repository. Original Hebrew excerpts in Reading Practice use `[...]` where material was omitted; English summaries, four-choice answers, and supplemental questions are adaptations.
 
-| Chapter | Unit | PDF pages | Bank questions | Interpretation checks |
-|---|---|---:|---:|---:|
-| 32 | 15: סיפור מהמציאות | 179–186 | 30 | 3 |
-| 33 | 16: השודדים והברווזים הקטנים | 187–195 | 38 | 3 |
+| App chapter | Textbook unit | PDF pages | Active Chapter Test exercises | Hebrew interpretation | Reading Practice |
+|---|---|---:|---:|---:|---:|
+| 32 | 15, סיפור מהמציאות | 179–186 | 19 | 3 | 2 activities, 11 questions |
+| 33 | 16, השודדים והברווזים הקטנים | 187–196 | 17 | 3 | 4 activities, 21 questions |
 
-Questions follow PDF page order and include `sourcePage` and
-`sourceExercise`. Hebrew passages, source sentences, vocabulary, and
-exercise families were read from the scans. English directions, distractors,
-and model completions adapt open exercises for automatic scoring.
+## Corrections and placement
 
-| PDF pages | Printed pages | Represented material |
-|---|---|---|
-| 179–180 | 175–176 | `סיפור מהמציאות` reading and comprehension |
-| 181 | 177 | `הכל נשאר במשפחה` possessive family exercise |
-| 182 | 178 | Selected past/future verb-table transformations |
-| 183 | 179 | Concession with `אף על פי ש` |
-| 184 | 180 | Story-ordering exercise |
-| 185 | 181 | Selected expressions in context |
-| 186 | 182 | Preposition and object-pronoun choices |
-| 187 | 183 | `השודדים והברווזים הקטנים` reading and comprehension |
-| 188 | 184 | `השוד הגדול` event-ordering exercise |
-| 189 | 185 | Possessive nouns with chosen agreeing adjectives |
-| 190–191 | 186–187 | Selected passive future forms, past narrative and infinitives |
-| 193 | 189 | Police story in chronological order |
-| 194–195 | 190–191 | Signs on cars and selected caption comprehension |
+- Unit 15's family story, comprehension, and story sequence now appear with the passage in Reading Practice. The matchmaker's cake dialogue is a separate short activity. The prior bank mislabeled three questions about the family story as the printed ordering exercise on page 184; that page contains a different matchmaker story. Those questions are now marked supplemental and tied to page 179.
+- Unit 16's robbery, ducklings, and printed event-ordering material appear together. The Nurit break-in narrative, police sentence-ordering exercise, and photo-caption fill-in are separate activities with their Hebrew source context visible.
+- Removed the unsupported claim that the young man stole money from an office in the police ordering question. Corrected the interpretation sentence to the scan's `אך ג׳ק לא רצה לדרוס את הברווזונים הקטנים ועצר`. Corrected a unit 15 expression question that duplicated the five-year phrase and changed three infinitive prompts to name the source verbs in Hebrew.
+- Each remaining active bank item has a source page, exercise identifier, four answer choices, a practice-origin label, and an explanation tied to its grammar or vocabulary task. Source-dependent reading questions are absent from Chapter Test. The six Hebrew interpretation checks remain in the chapter tests.
 
-The story-writing, picture interpretation, full verb table, and unselected
-exercise items remain outside automatic grading. Where an original task
-accepts many answers, the bank supplies one model answer and alternatives.
-This is selective coverage, not a claim that every exercise has been copied.
+## Curriculum and verification limits
 
-Both chapter tests require at least two of three Hebrew-to-English
-interpretations and 85% overall. Correct choices advance after 650 ms;
-incorrect choices reveal the answer and wait for Next. Existing saved
-progress and independent practice are retained.
+The 46-chapter app index is 10 First Part אולפן עברית lessons, 7 Fourth Part lessons, 19 ללמוד עברית ברמה ב׳ units, and 10 עברית בשניים לרמה ב׳ chapters. The later 39-chapter note differs by seven but does not specify which lessons to omit. The existing 46 IDs and saved progress remain unchanged pending reconciliation.
 
-Validation: `node validate-trainer.cjs` and the deterministic progression
-checks in `verify-chapters-26-27.cjs`, `verify-chapters-28-29.cjs`,
-`verify-chapters-30-31.cjs`, and `verify-chapters-32-33.cjs`.
+The 36 active non-reading bank items in chapters 32–33 were checked for lesson page range, exercise ID, Hebrew prompt, answer choices, and explanation. The scan review found and corrected the specific content issues above. This is not a claim that every adapted distractor and every other question in the app has passed a full source audit. Independent practice remains a separate pool awaiting question-level reconciliation; do not count either chapter as fully source-verified yet.
+
+The app has 46/46 indexed chapters with loaded banks. That is an availability count, not a source-verification count. The wider audit still lists 134 held context-dependent items, 449 active items without an exercise label, and 48 interpretation items without a page reference in other chapters.
+
+## Validation
+
+`node --check app.js`, `node --check textbook-question-banks-32-33.js`, `node --check textbook-interpretation-32-33.js`, `node verify-chapters-32-33.cjs`, `node verify-reading-sources.cjs`, `node verify-reading-progression.cjs`, `node verify-flashcards.cjs`, `node validate-trainer.cjs`, `node audit-curriculum.cjs`.

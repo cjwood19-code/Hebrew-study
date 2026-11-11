@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,21);
+assert.equal(buttons.length,27);
 assert.ok(buttons.some(b=>b.textContent==='לאט אבל בטוח'));
 assert.ok(buttons.some(b=>b.textContent==='כל כך הרבה אבנים'));
 assert.ok(buttons.some(b=>b.textContent==='בכל מקום אפשר ללמוד עברית'));
