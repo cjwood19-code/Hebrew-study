@@ -828,7 +828,11 @@ const readingPassages=[
       {q:"למי אמר האריה לחלק תחילה את השלל?",a:"לזאב",opts:["לזאב","לשועל","לצבי","לחזיר"],kind:"Supplemental comprehension",explanation:"פנה האריה אל הזאב ואמר: חלק את השלל בינינו."},
       {q:"למה תקף האריה את הזאב?",a:"החלוקה של הזאב הכעיסה אותו",opts:["החלוקה של הזאב הכעיסה אותו","השועל לקח את הצבי","הזאב לא צד דבר","החזיר ברח"],kind:"Supplemental comprehension",explanation:"אחרי ששמע את הצעת החלוקה של הזאב, האריה רתח מכעס."},
       {q:"מי שם את החזיר לרגלי האריה?",a:"השועל",opts:["השועל","הזאב","הצבי","השפן"],kind:"Supplemental comprehension",explanation:"הקטע אומר שהשועל לקח את החזיר ושם אותו לרגלי האריה."},
-      {q:"ממי למד השועל לחלק את השלל?",a:"ממה שקרה לזאב",opts:["ממה שקרה לזאב","מספר בבית ספר","מעצת הצבי","מן השפן"],kind:"Supplemental comprehension",explanation:"תשובתו היא שלמד מרגליו ומאוזניו של הזאב הפצוע."}
+      {q:"ממי למד השועל לחלק את השלל?",a:"ממה שקרה לזאב",opts:["ממה שקרה לזאב","מספר בבית ספר","מעצת הצבי","מן השפן"],kind:"Supplemental comprehension",explanation:"תשובתו היא שלמד מרגליו ומאוזניו של הזאב הפצוע."},
+      {q:"האריה פנה אל הזאב, מפני ש_____.",a:"רצה שיחלק את השלל",opts:["רצה שיחלק את השלל","הזאב ברח מן היער","השועל אכל את הצבי","הצבי ביקש ממנו"],kind:"Supplemental reason practice · adapted from unit 14",explanation:"האריה אמר לזאב לחלק את השלל ביניהם."},
+      {q:"מכיוון ש_____, הזאב נתן לאריה את הצבי.",a:"האריה ביקש ממנו לחלק את השלל",opts:["האריה ביקש ממנו לחלק את השלל","השועל נתן לו כסף","הצבי היה חברו","הזאב לא ידע לצוד"],kind:"Supplemental reason practice · adapted from unit 14",explanation:"הזאב מחלק את הציד אחרי שהאריה מבקש ממנו."},
+      {q:"האריה רתח מכעס, כי _____.",a:"לא אהב את החלוקה של הזאב",opts:["לא אהב את החלוקה של הזאב","השועל לא חזר","הם לא מצאו מזון","הצבי ברח מן היער"],kind:"Supplemental reason practice · adapted from unit 14",explanation:"מיד אחרי תשובת הזאב על חלוקת הציד, האריה רתח מכעס."},
+      {q:"משום ש_____, השועל למד מן הטעות של הזאב.",a:"ראה מה קרה לזאב",opts:["ראה מה קרה לזאב","לא ראה את הזאב","קרא את הספר","נסע לעיר"],kind:"Supplemental reason practice · adapted from unit 14",explanation:"השועל אומר שלמד מרגליו ומאוזניו של הזאב הפצוע."}
     ]
   },
   {
@@ -838,6 +842,14 @@ const readingPassages=[
     en:"A teacher and student see a fox chasing a rabbit. The teacher predicts the rabbit will escape; the student thinks the fox is faster.",
     vocab:[["ארנבת","rabbit"],["לחמוק","to escape"]],
     questions:[{q:"ממי תצליח הארנבת לחמוק, לפי המורה?",a:"מן השועל",opts:["מן השועל","מן הזאב","מן האריה","מן הצבי"],kind:"Supplemental comprehension",explanation:"המורה אומר שהארנבת תצליח לחמוק מן השועל."}]
+  },
+  {
+    id:"lilmod-14-kruger",title:"הפילים בפארק קרוגר — השלמה",
+    source:"ללמוד עברית ברמה ב׳ • unit 14 • PDF page 177 (printed page 173) • selected original fill-in passage; answer choices adapted",
+    he:"בדרום אפריקה יש פארק לאומי גדול על שם קרוגר. זהו אחד הפארקים המפורסמים בדרום אפריקה. שטחו עצום.\n[...]\nבין החיות נמצאים _____ פילים רבים. בדרך כלל מתנהגים הפילים בסדר, ו_____ פוגעים בתיירים שבאו לבקר בפארק.",
+    en:"A national park in South Africa is named for Kruger. Complete the source sentence about elephants among the animals in the park.",
+    vocab:[["פארק לאומי","national park"],["פילים","elephants"]],
+    questions:[{q:"בין החיות נמצאים _____ פילים רבים.",a:"גם",opts:["גם","רק","אין","את"],kind:"Printed fill-in · answer choices adapted",explanation:"גם מוסיף את הפילים לשאר החיות המתוארות בקטע."}]
   },
   {
     id:"lilmod-1-slowly-surely",title:"לאט אבל בטוח",

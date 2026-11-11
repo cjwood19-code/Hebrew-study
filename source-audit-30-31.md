@@ -5,13 +5,13 @@ Source: user-supplied `ללמוד עברית ברמה ב'(2).pdf`, PDF pages 155
 | Chapter | Textbook unit | PDF range | Active Chapter Test exercises | Interpretation checks | Reading Practice |
 |---|---|---:|---:|---:|---:|
 | 30 | 13: אישה משוחררת | 155–164 | 35 | 3 | 1 passage, 6 questions |
-| 31 | 14: חלוקת השלל | 165–178 | 36 | 3 | 2 passages, 7 questions |
+| 31 | 14: חלוקת השלל | 165–178 | 32 | 3 | 3 passages, 12 questions |
 
 The indexed textbook runs from 46 app chapters: 10 from אולפן עברית First Part, 7 from אולפן עברית Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The user's later 39-chapter note differs by seven. It does not identify seven chapters to omit, so the stable 46-chapter index and saved progress remain intact. Curriculum reconciliation is unresolved.
 
 ## Corrections
 
-- Moved all seven unit 13–14 reading questions out of Chapter Test into Reading Practice alongside source excerpts; added a source paragraph from the unit 14 rabbit passage and a related question. The short Kruger Park fill-in from PDF page 177 also remains a source exercise that needs its passage presented; it was removed from the context-free test for this run and is not counted as completed reading practice.
+- Moved all seven unit 13–14 reading questions out of Chapter Test into Reading Practice alongside source excerpts. Moved four story-based reason questions beside the unit 14 passage and the Kruger Park fill-in beside its source paragraph. The rabbit excerpt and question remain as a separate unit 14 reading activity.
 - Corrected the unit 13 opening: the wife addresses her husband as **אתה יוצא**, not **הוא יוצא**. Removed a salary claim absent from the passage.
 - Corrected the unit 13 interpretation to **היום לא עשיתי את זה** and the unit 14 interpretation to **אני והזאב נסתפק בשפן**, both checked against PDF pages 156 and 165.
 - Added lesson-linked explanations, source page, exercise identifier, and practice origin to each remaining Chapter Test question. Changed five English-only vocabulary prompts to ask in Hebrew while retaining the textbook exercise targets.
@@ -19,7 +19,7 @@ The indexed textbook runs from 46 app chapters: 10 from אולפן עברית Fi
 
 ## Audit limits
 
-The active 71 non-reading questions in these two chapters have valid unit page ranges, exercise IDs, Hebrew prompts, four answer choices, and explanations. This structural pass does **not** prove that every adapted distractor, answer, or sentence is an exact textbook transcription. The room-picture word practice is a word-list adaptation because the image is not displayed. Some unit 14 story-based reason prompts in Chapter Test depend on the Reading Practice passage being read first; the current app does not enforce that prerequisite. The original park cloze from PDF page 177 needs a displayed passage before it can be restored. These points keep chapters 30–31 from being called fully source-verified.
+The active 67 non-reading questions in these two chapters have valid unit page ranges, exercise IDs, Hebrew prompts, four answer choices, and explanations. This structural pass does **not** prove that every adapted distractor, answer, or sentence is an exact textbook transcription. The room-picture word practice is a word-list adaptation because the image is not displayed. The unit 14 reason and park cloze items now have visible reading context. Exact source verification of every remaining adapted choice and sentence is still pending, so chapters 30–31 are not called fully source-verified.
 
 The app still has 46/46 indexed chapters with loaded banks, but this is a readiness count, not a source-verification count. The repository audit reports 134 held context-dependent bank questions and 449 active bank questions without an exercise label elsewhere in the curriculum. No global source-verified count has been established.
 

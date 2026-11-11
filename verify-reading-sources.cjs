@@ -12,8 +12,8 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,20);
-for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,6],['lilmod-14-rabbit',14,166,1]]){
+assert.equal(passages.length,21);
+for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,10],['lilmod-14-rabbit',14,166,1],['lilmod-14-kruger',14,177,1]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
  assert.equal(p.questions.length,count);
