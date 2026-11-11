@@ -51,8 +51,11 @@ for(const level of [28,29]){
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [30,31]){
-  assert.equal(banks[level].length,level===30?41:44);
+  assert.equal(banks[level].length,level===30?35:36);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
+  assert.ok(banks[level].every(q=>q.sourcePage>=(level===30?157:167)&&q.sourcePage<=(level===30?164:176)));
+  assert.ok(banks[level].every(q=>q.explanation&&q.practiceOrigin&&q.options.length===4&&q.options.includes(q.answer)));
+  assert.ok(banks[level].every(q=>/[\u0590-\u05ff]/.test(q.prompt)&&!q.category.startsWith('Reading')));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [32,33]){

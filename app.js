@@ -802,6 +802,44 @@ $("sprint2Btn").onclick=function(){startSprint(2)};$("sprint3Btn").onclick=funct
 
 const readingPassages=[
   {
+    id:"lilmod-13-free-woman",title:"אישה משוחררת",
+    source:"ללמוד עברית ברמה ב׳ • unit 13 • PDF pages 155–156 (printed pages 151–152) • selected original reading excerpts; comprehension adapted to choices",
+    he:"אמרתי לבעלי: ראה אילו חיים יש לך, ואילו חיים יש לי. אתה יוצא כל בוקר מהבית, עוסק בעבודה מעניינת, פוגש אנשים, מקבל כוס קפה ממזכירתך, משוחח, חוזר הביתה אחר הצהריים ובא לבית נקי ומסודר, מקבל ארוחה חמה וטעימה, קורא עיתון, מספר לאשתך מה עשית כל היום, רואה בטלוויזיה חדשות וגם סרטים, והולך לישון.\nואני - רק עקרת בית. אני קמה בבוקר, מכינה לך קפה, מכינה לילדים ארוחת בוקר וכריכים לגן ולבית הספר, מסדרת את הבית, מכבסת, מנקה, מבשלת, מגהצת, סוחבת סלי ירקות ופירות מהשוק, מתקנת גרביים, מגישה ארוחות, שוטפת כלים.\n[...]\nבעלי הסכים איתי, והחלטנו שגם אני אצא כל יום מן הבית, ואעסוק גם אני בעבודה מעניינת.\n[...]\nאני חוזרת הביתה בשעה 2.00.\n[...]\nהוא נכנס הביתה וראה שהטלוויזיה פתוחה, הרדיו מנגן, המנורה דולקת על הרצפה.\n[...]\n״אז זהו״, ענתה האישה. היום לא עשיתי את זה...",
+    en:"A wife contrasts her husband's working day with her repeated housework. They agree she will take a job, but she still does the household work afterward. One day her husband returns to a disorderly home; she explains that this is what she did not do that day.",
+    vocab:[["עקרת בית","homemaker"],["משוחררת","liberated"],["מכבסת","does laundry"],["מסדרת","tidies"]],
+    questions:[
+      {q:"מי יוצא כל בוקר מהבית ועוסק בעבודה מעניינת בתחילת הסיפור?",a:"הבעל",opts:["הבעל","האישה","הילדים","הדודה"],kind:"Supplemental comprehension · PDF 155",explanation:"האישה פונה לבעלה בלשון אתה ומתארת את יום העבודה שלו."},
+      {q:"מה עושה האישה בבית בתחילת הסיפור?",a:"מכינה אוכל, מסדרת, מכבסת ומנקה",opts:["מכינה אוכל, מסדרת, מכבסת ומנקה","עובדת רק במשרד","נוסעת כל יום","ישנה כל הבוקר"],kind:"Printed comparison · adapted to choices",explanation:"הרשימה בקטע מתארת הכנת אוכל, סידור הבית, כביסה וניקיון."},
+      {q:"מה החליטו האישה ובעלה?",a:"שגם היא תצא לעבוד מחוץ לבית",opts:["שגם היא תצא לעבוד מחוץ לבית","שהבעל יפסיק לעבוד","שהילדים יעבדו","שיעזבו את העיר"],kind:"Supplemental comprehension",explanation:"היא אומרת: החלטנו שגם אני אצא כל יום מן הבית ואעסוק בעבודה מעניינת."},
+      {q:"באיזו שעה חוזרת האישה הביתה?",a:"בשעה 2.00",opts:["בשעה 2.00","בשעה 8.00","בשעה 5.00","בחצות"],kind:"Supplemental comprehension",explanation:"בקטע נאמר: אני חוזרת הביתה בשעה 2.00."},
+      {q:"מה ראה הבעל כשחזר לבית באותו יום?",a:"הבית היה מבולגן ורועש",opts:["הבית היה מבולגן ורועש","הבית היה מסודר ושקט","הילדים ישנו","הדלת הייתה סגורה"],kind:"Supplemental comprehension · PDF 156",explanation:"בקטע ההמשך הטלוויזיה פתוחה, הרדיו מנגן והחפצים מפוזרים."},
+      {q:"למה התכוונה האישה כשאמרה שלא עשתה את זה היום?",a:"לעבודות הבית שהיא עושה בדרך כלל",opts:["לעבודות הבית שהיא עושה בדרך כלל","ליום העבודה במשרד","לארוחת הבוקר של בעלה","לנסיעה לעיר"],kind:"Supplemental comprehension · PDF 156",explanation:"הבלגן מגלה לבעל כמה עבודות בית היא עושה בדרך כלל."}
+    ]
+  },
+  {
+    id:"lilmod-14-spoils",title:"חלוקת השלל",
+    source:"ללמוד עברית ברמה ב׳ • unit 14 • PDF page 165 (printed page 161) • selected original reading; comprehension adapted to choices",
+    he:"אריה, זאב ושועל יצאו יחד לצוד ציד. אחרי מסע ארוך הצליחו לצוד צבי, חזיר ושפן.\nפנה האריה אל הזאב ואמר: ״עכשיו, חלק את השלל בינינו!״\nאמר הזאב: ״אתה, מלך החיות, תיקח את הצבי, אני אקבל את החזיר, והשועל יסתפק בשפן.״\nשמע האריה את דברי הזאב - ורתח מכעס. הוא זינק על הזאב, שבר את רגליו, תלש את אוזניו, וכמעט הרג אותו.\n[...]\nלקח השועל את הצבי, שם אותו לרגלי האריה, ואמר: ״הנה ארוחת הבוקר שלך, מלך החיות.״ לקח את החזיר, שם גם אותו לרגלי האריה ואמר: ״זו ארוחת הצהריים שלך. אני והזאב נסתפק בשפן.״\n[...]\nהסתכל השועל לעבר הזאב הפצוע ואמר: ״מלכי, למדתי זאת מרגליו ומאוזניו של הזאב.״",
+    en:"A lion, wolf, and fox hunt together. The lion asks the wolf to divide their catch, then angrily attacks him. The fox sees the consequence and gives most of the catch to the lion.",
+    vocab:[["שלל","spoils"],["להסתפק","to be content with"],["רתח מכעס","seethed with anger"],["לזנק","to leap"]],
+    questions:[
+      {q:"אילו חיות יצאו יחד לצוד?",a:"אריה, זאב ושועל",opts:["אריה, זאב ושועל","אריה, שור וסוס","זאב, צבי ושור","שועל, סוס וחמור"],kind:"Supplemental comprehension",explanation:"משפט הפתיחה מונה אריה, זאב ושועל."},
+      {q:"מה הצליחו החיות לצוד?",a:"צבי, חזיר ושפן",opts:["צבי, חזיר ושפן","דגים וציפורים","כבשים ועזים","אריה וזאב"],kind:"Supplemental comprehension",explanation:"המשפט הראשון מונה צבי, חזיר ושפן."},
+      {q:"למי אמר האריה לחלק תחילה את השלל?",a:"לזאב",opts:["לזאב","לשועל","לצבי","לחזיר"],kind:"Supplemental comprehension",explanation:"פנה האריה אל הזאב ואמר: חלק את השלל בינינו."},
+      {q:"למה תקף האריה את הזאב?",a:"החלוקה של הזאב הכעיסה אותו",opts:["החלוקה של הזאב הכעיסה אותו","השועל לקח את הצבי","הזאב לא צד דבר","החזיר ברח"],kind:"Supplemental comprehension",explanation:"אחרי ששמע את הצעת החלוקה של הזאב, האריה רתח מכעס."},
+      {q:"מי שם את החזיר לרגלי האריה?",a:"השועל",opts:["השועל","הזאב","הצבי","השפן"],kind:"Supplemental comprehension",explanation:"הקטע אומר שהשועל לקח את החזיר ושם אותו לרגלי האריה."},
+      {q:"ממי למד השועל לחלק את השלל?",a:"ממה שקרה לזאב",opts:["ממה שקרה לזאב","מספר בבית ספר","מעצת הצבי","מן השפן"],kind:"Supplemental comprehension",explanation:"תשובתו היא שלמד מרגליו ומאוזניו של הזאב הפצוע."}
+    ]
+  },
+  {
+    id:"lilmod-14-rabbit",title:"השועל והארנבת — קטע המשך",
+    source:"ללמוד עברית ברמה ב׳ • unit 14 • PDF page 166 (printed page 162) • original short passage; supplemental comprehension",
+    he:"כפי שמדגים סיפור זן: מורה זן צעד בדרך עם אחד מתלמידיו. לפתע ראו שועל רודף אחרי ארנבת.\n״על פי אגדה עתיקה, הארנבת תצליח לחמוק מן השועל,״ אמר המורה.\n״אני חושב כך,״ השיב התלמיד, ״השועל מהיר יותר.״",
+    en:"A teacher and student see a fox chasing a rabbit. The teacher predicts the rabbit will escape; the student thinks the fox is faster.",
+    vocab:[["ארנבת","rabbit"],["לחמוק","to escape"]],
+    questions:[{q:"ממי תצליח הארנבת לחמוק, לפי המורה?",a:"מן השועל",opts:["מן השועל","מן הזאב","מן האריה","מן הצבי"],kind:"Supplemental comprehension",explanation:"המורה אומר שהארנבת תצליח לחמוק מן השועל."}]
+  },
+  {
     id:"lilmod-1-slowly-surely",title:"לאט אבל בטוח",
     source:"ללמוד עברית ברמה ב׳ • unit 1 • PDF page 11 (printed page 7) • original reading; printed completion exercise adapted to answer choices; additional comprehension marked supplemental",
     he:"סטודנט לרפואה לא למד במשך כל השנה. בסוף השנה, כאשר התקרבו המבחנים, נבהל הסטודנט הצעיר, כי פחד להיכשל.\nהוא פנה אל הפרופסור שלו ושאל: \"אדוני הפרופסור, האם מספיק ללמוד במשך חודש אחד כדי להצליח במבחנים?\"\nענה הפרופסור הזקן: \"אתה רוצה להיות רופא. הרבה פעמים מגיעים למרפאה אנשים שמנים מאוד. אתה יכול לתת להם דיאטה ארוכה וקלה או להציע להם לצום כמה ימים כדי לרזות. מה אתה בוחר להציע להם?\"",

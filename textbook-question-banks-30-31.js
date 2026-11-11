@@ -3,12 +3,6 @@
 (function(){"use strict";
 const rows={
 30:[
-[155,"reading.1","Reading • אישה משוחררת","Read: הוא יוצא כל בוקר מהבית, עוסק בעבודה מעניינת, פוגש אנשים, מקבל סוף חודש משכורת. Who is she describing?","הבעל","האישה","הילדים","הדודה"],
-[155,"reading.2","Reading • אישה משוחררת","Read: היא נשארת בבית כל היום, ועושה כל יום מה שעשתה כל יום. What is the wife's complaint?","עבודת הבית חוזרת על עצמה","הבעל עובד בבית","אין לה ילדים","היא נוסעת כל יום"],
-[155,"reading.3","Reading • אישה משוחררת","Read: בעלי הסכים איתי. החליטו שגם אני אצא כל יום מן הבית. What change did they agree on?","גם האישה תעבוד מחוץ לבית","הבעל יפסיק לעבוד","הילדים יעבדו","הם יעזבו את העיר"],
-[155,"reading.4","Reading • אישה משוחררת","Read: אני חוזרת הביתה בשעה 2.00. When does she return?","בשעה שתיים","בשעה שמונה","בשעה חמש","בחצות"],
-[156,"reading.5","Reading • אישה משוחררת","Read: הוא נכנס הביתה וראה שהטלוויזיה פתוחה, הרדיו מנגן, המנורה דולקת על הרצפה. What does the husband find?","בית מבולגן ורועש","בית מסודר ושקט","ילדים ישנים","דלת סגורה"],
-[156,"reading.6","Reading • אישה משוחררת","Read: 'זה', ענתה האישה, 'זה מה שלא עשיתי היום'. What did she mean?","אלה עבודות הבית שהיא עושה בדרך כלל","היא כבר סיימה הכול","הילדים עשו את העבודה","היא לא עבדה מחוץ לבית"],
 [157,"possessive.1","Possessive suffix • נקבה","מה _____ על המצב במדינה? (הדעה שלך, masculine)","דעתך","דעתו","דעתי","דעתנו"],
 [157,"possessive.2","Possessive suffix • נקבה","הבנתי מה הייתה _____ של יעקב, כאשר ירד למצרים. (המטרה שלו)","מטרתו","מטרתה","מטרתי","מטרתם"],
 [157,"possessive.3","Possessive suffix • נקבה","הבוקר פרסמו בעיתון את _____ של ראש הממשלה. (ההחלטה שלו)","החלטתו","החלטתה","החלטתם","החלטתי"],
@@ -37,22 +31,15 @@ const rows={
 [162,"reported.2","Reported request • ש + future","אהרן הציע ש_____. (הם, לבוא)","יבואו","באו","באים","לבוא"],
 [162,"reported.3","Reported request • ש + future","אתם תבקשו מהמורה ש_____. (היא, לעזור)","תעזור","עזרה","עוזרת","לעזור"],
 [162,"reported.4","Reported request • ש + future","הבעל הציע לאשתו ש_____. (היא, לצאת)","תצא","יצאה","יוצאת","לצאת"],
-[163,"room.words.1","Room vocabulary • picture exercise","Which word from the room-picture word list means rug?","שטיח","תנור","מנורה","וילון"],
-[163,"room.words.2","Room vocabulary • picture exercise","Which word from the room-picture word list means lamp?","מנורה","ספה","קיר","תריס"],
-[163,"room.words.3","Room vocabulary • picture exercise","Which word from the room-picture word list means sofa?","ספה","מיטה","חלון","שולחן"],
+[163,"room.words.1","Room vocabulary • picture exercise","איזו מילה מציינת כיסוי לרצפה בחדר? (rug)","שטיח","תנור","מנורה","וילון"],
+[163,"room.words.2","Room vocabulary • picture exercise","איזו מילה מציינת גוף תאורה בחדר? (lamp)","מנורה","ספה","קיר","תריס"],
+[163,"room.words.3","Room vocabulary • picture exercise","איזו מילה מציינת רהיט ישיבה בסלון? (sofa)","ספה","מיטה","חלון","שולחן"],
 [164,"verb.choice.1","Verb choice • שיעור חוזר","כל בוקר אמא _____ את הבית. (מכבסת / מסדרת / מכינה)","מסדרת","מכבסת","מכינה","שוטפת"],
 [164,"verb.choice.2","Verb choice • שיעור חוזר","אנחנו לא _____ את הכלים אחרי ארוחת הערב. (רוחצת / ניקית / שוטפת)","שוטפים","רוחצת","ניקית","שוטפת"],
 [164,"verb.choice.3","Verb choice • שיעור חוזר","משה אוהב מאוד _____ את הילדים. (לרחוץ / לשטוף / לכבס)","לרחוץ","לשטוף","לכבס","לסדר"],
 [164,"verb.choice.4","Verb choice • שיעור חוזר","אני _____ את הבגדים, ובעלי _____ את הרצפה. (שוטף / מכבס / רוחץ)","מכבסת; שוטף","מכבס; שוטפת","רוחץ; מכבסת","שוטפת; מכבס"]
 ],
 31:[
-[165,"reading.1","Reading • חלוקת השלל","Read: אריה, זאב ושועל יצאו יחד לצוד ציד. What three animals hunted together?","אריה, זאב ושועל","אריה, שור וסוס","זאב, צבי ושור","שועל, סוס וחמור"],
-[165,"reading.2","Reading • חלוקת השלל","Read: אחרי מסע ארוך הצליחו לצוד צבי, חזיר ושפן. What did they catch?","צבי, חזיר ושפן","אריה, זאב ושועל","דגים וציפורים","כבשים ועזים"],
-[165,"reading.3","Reading • חלוקת השלל","Read: 'עכשיו,' אמר האריה, 'חלק את השלל בינינו.' To whom did the lion give the first command?","לזאב","לשועל","לצבי","לחזיר"],
-[165,"reading.4","Reading • חלוקת השלל","Read: האריה שמע את דברי הזאב — ורוחו כעס. הוא זינק על הזאב, שבר את רגליו. Why did the lion attack the wolf?","החלוקה השווה הכעיסה אותו","השועל לקח את הצבי","הזאב לא צד דבר","החזיר ברח"],
-[165,"reading.5","Reading • חלוקת השלל","Read: 'הנה ארוחת הבוקר שלך, מלך החיות. קח את החזיר.' Who offered the boar to the lion?","השועל","הזאב","הצבי","השפן"],
-[165,"reading.6","Reading • חלוקת השלל","Read: 'ממי למדת לחלק שלל?' 'מלכי, למדתי זאת מרגליו ומאוזניו של הזאב.' What taught the fox?","מה שקרה לזאב","ספר בבית ספר","עצה מן הצבי","רצון השפן"],
-[166,"reading.note.1","Reading • סיפור המשך","Read: 'על פי אגדה עתיקה, הארנבת הצליחה לחמוק מן השועל.' What did the rabbit escape?","מן השועל","מן הזאב","מן האריה","מן הצבי"],
 [167,"possessive.pl.1","Plural possessive • רבים","אבא כעס על רותי וצעק: לא סידרת שום דבר! _____ זרוקים בכל החדר. (הבגדים שלך, feminine)","בגדייך","בגדיו","בגדיה","בגדיי"],
 [167,"possessive.pl.2","Plural possessive • רבים","_____ נשארו על השטיח. (הספרים שלך, feminine)","ספרייך","ספריו","ספריה","ספריי"],
 [167,"possessive.pl.3","Plural possessive • רבים","רותי, סידרי את _____ שלך. (הנעליים שלך, feminine)","נעלייך","נעליו","נעליה","נעליי"],
@@ -87,9 +74,16 @@ const rows={
 [176,"vocabulary.3","Vocabulary choice • original exercise","אין לי הרבה כסף, לכן המשפחה שלי _____ במועט. (להסתפק / מסתפקת / מסתפקים)","מסתפקת","להסתפק","מסתפקים","הסתפק"],
 [176,"vocabulary.4","Vocabulary choice • original exercise","מהי המילה הקרובה ביותר ל־'לרתוח' בהקשר של כעס?","לכעוס מאוד","לשבת","לחלק","לספור"],
 [176,"vocabulary.5","Vocabulary choice • original exercise","מהי המילה הקרובה ביותר ל־'לזנק'?","לקפוץ","לנוח","לסדר","לספר"],
-[176,"classification.1","Verb meaning • exercise 2","Which verb can mean 'to distribute' and also 'to divide'?","לחלק","לרתוח","ללבוש","לספור"],
-[176,"classification.2","Verb meaning • exercise 2","Which verb describes taking hold of someone or something?","לתפוס","ללבוש","לספור","להצליח"],
-[177,"cloze.3","Story cloze • park passage","בין החיות נמצאים _____ פילים רבים. (also)","גם","רק","אין","את"]
+[176,"classification.1","Verb meaning • exercise 2","איזה פועל פירושו גם to distribute וגם to divide?","לחלק","לרתוח","ללבוש","לספור"],
+[176,"classification.2","Verb meaning • exercise 2","איזה פועל פירושו to take hold of someone or something?","לתפוס","ללבוש","לספור","להצליח"],
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const lessonExplanation=(category,prompt,answer)=>{
+  if(category.startsWith('Possessive')||category.startsWith('Plural possessive'))return `בתרגיל הכינוי שבסוגריים קובע למי שייך שם העצם. הצורה המתאימה במשפט היא ${answer}.`;
+  if(category.startsWith('Future')||category.includes('future')||category.includes('past'))return `יש להתאים את הפועל לזמן ולנושא שמופיעים במשפט. כאן הצורה הנכונה היא ${answer}.`;
+  if(category.startsWith('Reason')||category.startsWith('בגלל'))return `הקשר במשפט קובע אם נדרש צירוף שם או פסוקית סיבה/ויתור. בהקשר הזה מתאים ${answer}.`;
+  if(category.startsWith('Action noun'))return `כאן דרוש שם עצם של פעולה, ולא שם הפועל. הצורה המתאימה היא ${answer}.`;
+  if(category.startsWith('Reported'))return `אחרי ש של בקשה או הצעה משתמשים כאן בפועל בעתיד המתאים לנושא: ${answer}.`;
+  return `המשפט ותרגיל אוצר המילים ביחידה מצביעים על ${answer}. בדקו את ההקשר העברי ואת צורת המילה.`;
+};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],explanation:lessonExplanation(category,prompt,answer),practiceOrigin:'Textbook exercise adapted to choices'}))])));
 })();

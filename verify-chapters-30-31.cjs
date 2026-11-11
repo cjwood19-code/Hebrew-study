@@ -41,14 +41,14 @@ function answer(wrong=false){
  button.click();button.click();return get('chapterScore').textContent;
 }
 assert.equal(get('textbookCurrent').textContent,'30 / 46');
-begin(30);assert.equal(get('chapterQuestion').textContent,'Question 1 of 44');
+begin(30);assert.equal(get('chapterQuestion').textContent,'Question 1 of 38');
 answer();tick();assert.match(get('chapterQuestion').textContent,/^Question 2 /);
-for(let i=1;i<44;i++){answer();tick()}
+for(let i=1;i<38;i++){answer();tick()}
 assert.equal(saved().level,31);assert.equal(saved().best[30],100);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);
 assert.equal(get('chapterSelect').value,'31');
-begin(31);assert.equal(get('chapterQuestion').textContent,'Question 1 of 47');
-for(let i=0;i<44;i++){answer();tick()}
+begin(31);assert.equal(get('chapterQuestion').textContent,'Question 1 of 39');
+for(let i=0;i<36;i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -58,7 +58,7 @@ for(let i=0;i<3;i++){
 }
 assert.equal(saved().level,31);assert.equal(saved().history.at(-1).passed,false);
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(31);for(let i=0;i<47;i++){answer();tick()}
+begin(31);for(let i=0;i<39;i++){answer();tick()}
 assert.equal(saved().level,32);assert.equal(saved().best[31],100);
 assert.equal(get('chapterSelect').value,'32');assert.equal(get('chapterStart').disabled,false);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
@@ -71,6 +71,6 @@ begin(30);answer();get('chapterRestart').click();tick();
 assert.equal(get('chapterScore').textContent,'0 / 0');
 storage.set('hebrewTextbookProgressV1',JSON.stringify({level:30,best:{},history:[]}));
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
-begin(30);for(let i=0;i<44;i++){const wrong=i===41;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
+begin(30);for(let i=0;i<38;i++){const wrong=i===35;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
 console.log('PASS: 30 → 31 → ready 32; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');

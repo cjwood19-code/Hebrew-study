@@ -12,7 +12,16 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,17);
+assert.equal(passages.length,20);
+for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,6],['lilmod-14-rabbit',14,166,1]]){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
+ assert.equal(p.questions.length,count);
+ assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));
+}
+assert.ok(passages.find(p=>p.id==='lilmod-13-free-woman').he.includes('אתה יוצא כל בוקר מהבית'));
+assert.ok(!passages.find(p=>p.id==='lilmod-13-free-woman').he.includes('הוא יוצא כל בוקר מהבית'));
+assert.ok(passages.find(p=>p.id==='lilmod-14-spoils').he.includes('אני והזאב נסתפק בשפן'));
 for(const [id,page,count] of [['lilmod-1-slowly-surely',11,6],['lilmod-2-many-stones',24,5],['lilmod-3-anywhere',35,5],['lilmod-4-credulous',48,6]]){
  const p=passages.find(x=>x.id===id);assert.ok(p);
  assert.match(p.source,new RegExp('PDF pages? '+page));assert.equal(p.questions.length,count);
