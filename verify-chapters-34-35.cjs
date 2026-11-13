@@ -1,4 +1,4 @@
-/* Deterministic chapter interaction tests. Run: node verify-chapters-26-27.cjs.
+/* Deterministic chapter interaction tests. Run: node verify-chapters-34-35.cjs.
    Loads the production chapter scripts with a minimal DOM and controlled timers. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 class Classes{
@@ -41,14 +41,14 @@ function answer(wrong=false){
  button.click();button.click();return get('chapterScore').textContent;
 }
 assert.equal(get('textbookCurrent').textContent,'34 / 46');
-begin(34);assert.equal(get('chapterQuestion').textContent,'Question 1 of 35');
+begin(34);assert.equal(get('chapterQuestion').textContent,'Question 1 of 20');
 answer();tick();assert.match(get('chapterQuestion').textContent,/^Question 2 /);
-for(let i=1;i<35;i++){answer();tick()}
+for(let i=1;i<20;i++){answer();tick()}
 assert.equal(saved().level,35);assert.equal(saved().best[34],100);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);
 assert.equal(get('chapterSelect').value,'35');
-begin(35);assert.equal(get('chapterQuestion').textContent,'Question 1 of 35');
-for(let i=0;i<32;i++){answer();tick()}
+begin(35);assert.equal(get('chapterQuestion').textContent,'Question 1 of 17');
+for(let i=0;i<14;i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -58,7 +58,7 @@ for(let i=0;i<3;i++){
 }
 assert.equal(saved().level,35);assert.equal(saved().history.at(-1).passed,false);
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(35);for(let i=0;i<35;i++){answer();tick()}
+begin(35);for(let i=0;i<17;i++){answer();tick()}
 assert.equal(saved().level,36);assert.equal(saved().best[35],100);
 assert.equal(get('chapterSelect').value,'36');assert.equal(get('chapterStart').disabled,false);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
@@ -71,6 +71,6 @@ begin(34);answer();get('chapterRestart').click();tick();
 assert.equal(get('chapterScore').textContent,'0 / 0');
 storage.set('hebrewTextbookProgressV1',JSON.stringify({level:34,best:{},history:[]}));
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
-begin(34);for(let i=0;i<35;i++){const wrong=i===32;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
+begin(34);for(let i=0;i<20;i++){const wrong=i===17;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
 console.log('PASS: 34 → 35 → available 36; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');

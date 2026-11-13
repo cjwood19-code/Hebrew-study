@@ -1,74 +1,52 @@
-/* Units 17–18 of the user's scanned ללמוד עברית ברמה ב׳, PDF pages 197–213.
-   Closed choices adapt the printed reading, writing, verb, and word exercises. */
+/* Units 17–18 of the scanned ללמוד עברית ברמה ב׳, PDF pages 197–213.
+   Passage-dependent exercises are shown with source Hebrew in Reading Practice. */
 (function(){"use strict";
 const rows={
 34:[
-[197,"reading.1","Reading • העבודה והבטלה","Read: חכם גדול היה ביוון העתיקה ושמו סולון. Who was Solon?","חכם ביוון העתיקה","מלך אנגליה","רופא בקנדה","שודד בחנות"],
-[197,"reading.2","Reading • העבודה והבטלה","Read: הוא היה עובר ממקום למקום, ונותן עצות לכל דורש. What did he offer?","עצות לכל דורש","עבודה לכל האזרחים","כסף לכל המלכים","אוכל לכל הילדים"],
-[197,"reading.3","Reading • העבודה והבטלה","Read: התרגז המלך על עצתך. How did the king react to the advice?","התרגז","שמח","נרדם","צחק"],
-[197,"reading.4","Reading • העבודה והבטלה","Read: מה הוא יאכל, ולא יהיו עוד עניים ורעבים בעולם? What did the young man hope to eliminate?","עוני ורעב","בתי ספר","מכוניות","חגים"],
-[197,"reading.5","Reading • העבודה והבטלה","Read: כי רק אחרי עבודה קשה יודע האדם ליהנות מהמנוחה. When does a person appreciate rest, according to Solon?","אחרי עבודה קשה","לפני העבודה","כשהוא ישן כל היום","אחרי ארוחה גדולה"],
-[197,"reading.6","Reading • העבודה והבטלה","Read: אז האנשים יהיו שבעים ויחיו חיי בטלה, אך הם לא יהיו מאושרים. Would a life of idleness make them happy?","לא","כן, תמיד","רק המלך יהיה שמח","הטקסט אינו אומר"],
-[198,"questions.1","Reading questions • שאלות","מה הציע הצעיר למלך? Choose the idea in the story.","לתת לכל אישה ואיש לחם בלי עבודה","לסגור את הארמון","לנסוע לארץ אחרת","לעבוד בשדה המלך"],
-[198,"questions.2","Reading questions • שאלות","מה ביקש הצעיר מהמלך?","לתת לו את בתו לאישה","לתת לו סוס","למנות אותו לשופט","לבנות לו בית"],
-[198,"questions.3","Reading questions • שאלות","מה היה הסוד של הצעיר?","אפשר להוציא לחם מן הארץ בלי עמל","כל בני האדם כבר עשירים","המלך יודע לאפות","אין צורך במים"],
 [199,"noun.1","Nouns • שם עצם","לברך — _____. Choose the noun requested in the printed exercise.","ברכה","עבודה","מנוחה","דאגה"],
 [199,"noun.2","Nouns • שם עצם","לעבוד — _____. Choose the noun requested in the printed exercise.","עבודה","ברכה","מנוחה","עצה"],
-[199,"noun.3","Nouns • שם עצם","לשמוח — _____. Choose the noun requested in the printed exercise.","שמחה","דאגה","שבוע","ברכה"],
 [199,"noun.4","Nouns • שם עצם","לחסל — _____. Choose the noun requested in the printed exercise.","חיסול","עבודה","עצה","התחלה"],
 [200,"infinitive.1","Verb forms • שם הפועל","בוקר טוב כיפה אדומה. סבתא חולה מאוד. _____ מהר. (לקום)","קומי","קום","קמים","קמת"],
 [200,"infinitive.2","Verb forms • שם הפועל","סל, _____ בו אוכל ויין לסבתא. (לשים)","שימי","שים","שמו","שמים"],
 [200,"infinitive.3","Verb forms • שם הפועל","כיפה אדומה, _____ בדרך. (להיזהר)","היזהרי","היזהר","נזהר","הזהירו"],
 [200,"infinitive.4","Verb forms • שם הפועל","כיפה אדומה, _____ את החלונות. (לפתוח)","פתחי","פתח","פותחת","תפתחו"],
 [200,"infinitive.5","Verb forms • שם הפועל","כיפה אדומה, _____ את הדלת. (לסגור)","סגרי","סגור","סוגרת","סגרו"],
-[201,"picture.1","Picture writing • פעלים","The printed picture exercise asks what the lazy man says; choose a suitable imperative from its verb list for 'get up'.","קום","ללכת","יושב","קם"],
 [202,"habitual.1","Habitual action • היה + בינוני","כל שבוע _____ עם יוסי לטייל בכפר. (ללכת)","הייתי הולך","הלכתי","אלך","הולך"],
 [202,"habitual.2","Habitual action • היה + בינוני","משם _____ אל המספרה. (להמשיך)","היינו ממשיכים","נמשיך","המשכנו","ממשיכים"],
 [202,"habitual.3","Habitual action • היה + בינוני","את הטיול _____ תמיד בבית של יוסי. (לגמור)","היינו גומרים","נגמור","גמרנו","גומרים"],
-[203,"opinion.1","Opinion writing • אזור מילים","בני עמו של קרזוס שמעו על העצה שנתן סולון למלך. What does the printed task ask the learner to write?","מה אמרו האנשים ומה ענה המלך","מתי התינוק נולד","כמה גבוה ההר","איפה חיה הלווייתן"],
 [203,"opposite.1","Opposites • כתבו את ההפך","עושר — _____. Choose the opposite in the printed exercise.","עוני","עבודה","עצה","עונה"],
 [203,"opposite.2","Opposites • כתבו את ההפך","שבע — _____. Choose the opposite.","רעב","שבוע","שביתה","שובע"],
 [203,"opposite.3","Opposites • כתבו את ההפך","קללה — _____. Choose the opposite.","ברכה","עבודה","עוני","דאגה"],
 [204,"choice.1","Word choice • בחרו במילה הנכונה","קרזוס אמר לסולון, שהוא שמע על _____ הרבה. (החכמה / חכמתו / חכמה)","חכמתו","החכמה","חכמה","חכמים"],
 [204,"choice.2","Word choice • בחרו במילה הנכונה","סולון חי ביוון _____. (העתק / עתיקה / העתיקה)","העתיקה","העתק","עתיקה","עתקים"],
 [204,"choice.3","Word choice • בחרו במילה הנכונה","הצעיר ביקש מהמלך את בתו _____. (יפה / היפה / יופיה)","היפה","יפה","יופיה","יפי"],
-[205,"cloze.1","Story cloze • מילות יחס","שמעתי _____ החכמים היושבים בכיכר הכפר. Choose the preposition in the printed story.","על","אל","את","מן"],
-[205,"cloze.2","Story cloze • מילות יחס","ראש הממשלה קרא לכל השרים ואמר _____. Choose the missing word.","להם","אותם","עליהם","מהם"],
-[205,"cloze.3","Story cloze • מילות יחס","אחד השרים אמר: אנחנו יכולים לתת _____ לחם, אבל זה לא יפסיק _____ ההתקהלויות.","להם; את","אותם; על","מהם; אל","להן; של"]
 ],
 35:[
-[206,"reading.1","Reading • התינוק הגדול ביותר בעולם","Read: הלווייתן הוא בעל החיים הגדול ביותר בעולם. What is the largest animal?","הלווייתן","הפיל","הדג הקטן","האדם"],
-[206,"reading.2","Reading • התינוק הגדול ביותר בעולם","Read: הוא שייך למשפחת היונקים, וגם האדם שייך למשפחה זו. Which group includes both whales and humans?","יונקים","ציפורים","צמחים","דגים"],
-[206,"reading.3","Reading • התינוק הגדול ביותר בעולם","Read: הלווייתן הוא יצור ימי. Where does it live?","בים","במדבר","ביער","במערה"],
-[206,"reading.4","Reading • התינוק הגדול ביותר בעולם","Read: מערכת הנשימה של הלווייתן שונה מזו של הדגים. How does its breathing system compare with fish?","היא שונה","היא זהה","אין לו מערכת נשימה","הדגים יונקים"],
-[206,"reading.5","Reading • התינוק הגדול ביותר בעולם","Read: כדי לנשום הוא חייב לעלות על פני המים כל 20 דקות בערך. Why does it surface?","כדי לנשום","כדי לישון","כדי לאכול דגים","כדי ללדת"],
-[206,"reading.6","Reading • התינוק הגדול ביותר בעולם","Read: הלווייתן התינוק יונק ממש כמו חיות היבשה. How does the calf feed?","יונק","אוכל אבנים","צד עופות","שותה מי ים"],
-[206,"reading.7","Reading • התינוק הגדול ביותר בעולם","Read: הלווייתן הענק אוכל צמחים קטנים (פלנקטון) שצפים במים. What does the adult whale eat?","פלנקטון","אנשים","ציפורים","אבנים"],
-[206,"reading.8","Reading • התינוק הגדול ביותר בעולם","Read: הוא אינו יכול לבלוע בן אדם. Can the whale swallow a person according to the text?","לא","כן","רק תינוק","רק דייג"],
-[207,"questions.1","Reading questions • שאלות","במה דומה הלווייתן לאדם?","שניהם יונקים","שניהם דגים","שניהם גרים ביבשה","שניהם אוכלים בני אדם"],
-[207,"questions.2","Reading questions • שאלות","במה שונה הלווייתן מהדגים?","מערכת הנשימה שלו שונה","אין לו גוף","הוא קטן יותר מכל דג","הוא אינו חי במים"],
-[207,"numbers.1","Numbers in text • מספרים","למה מתייחסים המספרים? 20","דקות בין העליות לנשימה","שנות החיים","גיל התינוק","מספר הלווייתנים"],
-[207,"numbers.3","Numbers in text • מספרים","למה מתייחסים המספרים? 1/2","מאורך גופו של התינוק לעומת אמו","ממשך החיים","מכמות הפלנקטון","מגובה המים"],
 [208,"comparison.1","Comparison • שמות עצם","הלווייתן הוא התינוק הארוך ביותר בעולם. _____ גופו מגיע לכמה מטרים.","אורך","גובה","עומק","רוחב"],
-[208,"comparison.2","Comparison • שמות עצם","האוקיינוס השקט הוא האוקיינוס העמוק ביותר בעולם. _____ המים לכמה ק״מ.","עומק","גובה","אורך","רוחב"],
+[208,"comparison.2","Comparison • שמות עצם","האוקיינוס השקט הוא האוקיינוס העמוק ביותר בעולם. במספר מקומות מגיע _____ המים לכמה ק״מ.","עומק","גובה","אורך","רוחב"],
 [208,"measurement.1","Measurement • מידות","כדי למצוא את הנפח של עצם, צריך להכפיל: _____ × _____ × _____.","אורך × רוחב × גובה","גובה × גיל × זמן","רוחב × משקל × גיל","עומק × זמן × מהירות"],
 [209,"notice.1","Notice • בינוני פעול","המסעדה _____ כל יום מ־11.00 עד 23.00. (לפתוח)","פתוחה","פותחת","נפתחת","פתחה"],
 [209,"notice.2","Notice • בינוני פעול","הכלים אינם _____. (לשטוף)","שטופים","שוטפים","שטפו","ישטפו"],
-[209,"notice.3","Notice • דיבור פעיל","המלצרים אינם _____ עד להודעה חדשה. (לסגור)","סגורים","סוגרים","סגרו","יסגרו"],
-[210,"comparison.1","Comparison • דומה ל / שונה מ","הלווייתן _____ דגים, כי הוא חי במים כמוהם, אבל הוא אינו דג.","דומה ל","שונה מ","שווה את","יותר מ"],
-[210,"comparison.2","Comparison • דומה ל / שונה מ","מערכת הנשימה שלו _____ הדגים במערכת הנשימה שלו.","שונה מזו של","דומה לכל","גדולה בתוך","שווה כמו"],
-[210,"comparison.3","Comparison • דומה ל / שונה מ","דני אוהב לטייל בעולם. אתה _____ _____. אתה אוהב להישאר בבית.","שונה ממנו","דומה לו","גדול ממנו","אוכל כמוהו"],
+[210,"comparison.1","Comparison • דומה ל / שונה מ","הלווייתן _____, כי הוא חי במים כמוהם, אבל הוא אינו דג.","דומה לדגים","שונה מדגים","שווה דגים","גדול מדגים"],
+[210,"comparison.2","Comparison • דומה ל / שונה מ","מערכת הנשימה של הלווייתן _____ הדגים.","שונה מזו של","דומה לכל","גדולה בתוך","שווה כמו"],
+[210,"comparison.3","Comparison • דומה ל / שונה מ","דני אוהב לטייל בעולם. אתה _____. אתה אוהב להישאר בבית.","שונה ממנו","דומה לו","גדול ממנו","אוכל כמוהו"],
 [211,"kaf.1","Comparison • כ","הלווייתן הקטן שוקל כחצי טון. What does כ mean here?","approximately","because","toward","without"],
 [211,"kaf.2","Comparison • כ","תקופת ההיריון אצל הלווייתן נמשכת כשנה. What does כ mean here?","about","like","when","from"],
 [211,"kaf.3","Comparison • כ","מערכת הנשימה של הלווייתן היא כשל האדם. What does כ mean here?","like that of","approximately","before","instead of"],
-[212,"rescue.1","Reading • מבצע להצלת הלווייתנים","Read: במלכודת קרח ליד חופי אלסקה שבארה״ב. Where were the whales trapped?","ליד חופי אלסקה","בנהר בישראל","במדבר","ליד לונדון"],
-[212,"rescue.2","Reading • מבצע להצלת הלווייתנים","Read: בעזרת תושבים אסקימוסים מהאזור, החלו במבצע להצלת חיי הלווייתנים. Who helped the volunteers?","תושבים אסקימוסים","רופאים מאנגליה","שוטרים מיוון","דייגים מקנדה"],
-[212,"rescue.3","Reading • מבצע להצלת הלווייתנים","Read: המבצע עלה מיליון דולר. What did the rescue cost?","מיליון דולר","עשרה שקלים","חצי טון","עשרים דולר"],
-[213,"opposite.1","Opposites • מצאו בטקסט","Choose the opposite of למטה found in the reading.","למעלה","קדימה","קטן","מעט"],
-[213,"opposite.2","Opposites • מצאו בטקסט","Choose the opposite of באיטיות found in the reading.","במהירות","למטה","בשקט","ברחוק"],
-[213,"choice.1","Word choice • המילה הנכונה","ה_____ של הלווייתן נמשך כשנה. (תינוק / היריון / משקל)","היריון","תינוק","משקל","אורך"],
-[213,"choice.2","Word choice • המילה הנכונה","האם התינוק, התינוקת _____. (אוכל / יונק / שותה) מאמו.","יונק","אוכל","שותה","עף"],
-[213,"choice.3","Word choice • המילה הנכונה","מערכת הנשימה שלו שונה מזו של הדגים. Which printed answer has the same meaning?","מערכת הנשימה שלו אינה כמו זו של הדגים","מערכת הנשימה שלו היא כמו זו של הדגים","הוא אינו נושם","הדגים אינם חיים במים"]
+[212,"choice.1","Word choice • המילה הנכונה","ה_____ של הלווייתן נמשך כשנה. (תינוק / היריון / משקל)","היריון","תינוק","משקל","אורך"],
+[212,"choice.2","Word choice • המילה הנכונה","האם מניקה את התינוק, והתינוק _____ מאמו.","יונק","אוכל","שותה","עף"],
+[212,"choice.3","Word choice • המילה הנכונה","מערכת הנשימה שלו שונה מזו של הדגים. Which answer has the same meaning?","מערכת הנשימה שלו אינה כמו זו של הדגים","מערכת הנשימה שלו היא כמו זו של הדגים","הוא אינו נושם","הדגים אינם חיים במים"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const explanations={
+  noun:"The unit 17 noun exercise changes a verb into its related noun.",
+  infinitive:"The Red Riding Hood exercise addresses כיפה אדומה directly, so use the feminine singular imperative.",
+  habitual:"The unit 17 exercise uses היה plus a present participle for a repeated past action.",
+  opposite:"The unit 17 opposite exercise asks for the contrasting word.",
+  choice:"Choose the word that fits the Hebrew sentence and the unit's word exercise.",
+  comparison:"The unit 18 exercise compares likeness or difference; keep the Hebrew preposition with the comparison.",
+  measurement:"The measurement exercise gives volume as length times width times height.",
+  notice:"The restaurant notice distinguishes a resulting state from an active action.",
+  kaf:"In the unit 18 כ exercise, its meaning depends on the phrase: approximation or likeness."
+};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],practiceOrigin:"Supplemental lesson practice · adapted choices",explanation:explanations[sourceExercise.split('.')[0]]||"The answer follows the Hebrew sentence and the cited unit exercise."}))])));
 })();

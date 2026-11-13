@@ -12,7 +12,25 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,27);
+assert.equal(passages.length,31);
+for(const [id,unit,page,count] of [['lilmod-17-solon',17,197,8],['lilmod-17-prepositions',17,205,3],['lilmod-18-whale',18,206,14],['lilmod-18-rescue',18,212,3]]){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
+ assert.equal(p.questions.length,count);
+ assert.ok(p.he.length>300&&p.questions.every(q=>q.kind&&q.explanation&&/[\u0590-\u05FF]/.test(q.q)&&q.opts.includes(q.a)));
+}
+assert.match(passages.find(p=>p.id==='lilmod-17-prepositions').he,/שמעתי _____ החכמים/);
+assert.match(passages.find(p=>p.id==='lilmod-18-rescue').he,/השלימו את המילים החסרות/);
+assert.ok(!passages.find(p=>p.id==='lilmod-17-solon').he.includes('התרגז המלך על עצתך'));
+const newBank={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-34-35.js'),'utf8'),newBank);
+for(const [level,expected] of [[34,17],[35,14]]){
+ const questions=newBank.window.HEBREW_TEXTBOOK_QUESTION_BANKS[level];assert.equal(questions.length,expected);
+ assert.ok(questions.every(q=>q.sourcePage>=({34:197,35:206})[level]&&q.sourcePage<=({34:205,35:213})[level]&&q.sourceExercise&&q.explanation&&q.practiceOrigin));
+ assert.ok(questions.every(q=>!/^(reading|questions|cloze|rescue|numbers|opposite)\./.test(q.sourceExercise)||level===34&&q.sourceExercise.startsWith('opposite.')));
+}
+assert.ok(!newBank.window.HEBREW_TEXTBOOK_QUESTION_BANKS[34].some(q=>q.sourceExercise==='noun.3'));
+assert.ok(!newBank.window.HEBREW_TEXTBOOK_QUESTION_BANKS[35].some(q=>q.sourceExercise==='notice.3'));
 for(const [id,page,count] of [['lilmod-15-real-story',179,10],['lilmod-15-cake',180,1],['lilmod-16-ducklings',187,11],['lilmod-16-nurit',191,4],['lilmod-16-police-order',193,3],['lilmod-16-caption',194,3]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`PDF page(?:s)? ${page}`));
@@ -122,4 +140,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–35, and 46; original Hebrew reading context; source labels and corrections present.');
