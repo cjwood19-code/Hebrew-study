@@ -69,6 +69,7 @@ for(const level of [32,33]){
 for(const level of [34,35]){
   assert.equal(banks[level].length,level===34?17:14);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
+  assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[level].length===3&&context.window.HEBREW_CHAPTER_INTERPRETATION[level].every(q=>q.explanation&&q.sourcePage));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 assert.equal(chapters[32].lastPage,196);

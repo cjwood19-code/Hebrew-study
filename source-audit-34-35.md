@@ -16,7 +16,7 @@ Source: the user-supplied scanned *ללמוד עברית ברמה ב׳*. One-bas
 - PDF 208–212: measurement, restaurant notice, comparison, and כ questions remain in the Chapter Test as sentence-level practice. The unsupported `המלצרים אינם סגורים` prompt was removed because the printed notice instead says the restaurant remains closed. The malformed nursing sentence was repaired from the printed word-choice exercise. Word-choice questions on printed page 209 now cite PDF page 212; the earlier page 213 citation was imprecise. The two printed opposite prompts from PDF 212 were moved beside the whale passage, where the matching source words are visible.
 - PDF 212: the whale-rescue fill-in report now appears with selected original Hebrew lines and the printed comprehension structure in Reading Practice. The passage is shown alongside the questions.
 
-The separate interpretation checks for these units remain in the Chapter Test. The app still advances after a correct answer and waits for **Next** after an incorrect answer, showing the correction. Existing chapter progress, reading history, flashcard ratings, and independent practice storage keys were not changed. All 56 general flashcards retain contextual examples.
+The six separate interpretation checks for these units remain in the Chapter Test and now have lesson-based explanations. The app still advances after a correct answer and waits for **Next** after an incorrect answer, showing the correction. Existing chapter progress, reading history, flashcard ratings, and independent practice storage keys were not changed. All 56 general flashcards retain contextual examples.
 
 ## Limits and curriculum mapping
 
