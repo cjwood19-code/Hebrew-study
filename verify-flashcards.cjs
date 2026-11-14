@@ -6,7 +6,7 @@ const storage=new Map([['hebrewGeneralFlashcardsV1',JSON.stringify({version:1,ca
 const context={window:{},document:{getElementById:element},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)}};
 vm.createContext(context);
 for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
-assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,61);
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,65);
 element('flashcardSet').value='review';element('flashcardSet').onchange();
 element('flashcardStart').onclick();
 assert.equal(element('flashcardFront').textContent,'סוס');
@@ -34,4 +34,4 @@ element('flashcardReveal').onclick();
 assert.equal(element('flashcardExampleHe').textContent,card.exampleHe);
 element('flashcardExit').onclick();
 assert.equal(JSON.parse(storage.get('hebrewGeneralFlashcardsV1')).cards['lilmod-7-8-002'].status,'known');
-console.log('PASS: all 61 context examples; reveal timing; both directions; review ratings and saved progress intact.');
+console.log('PASS: all 65 context examples; reveal timing; both directions; review ratings and saved progress intact.');

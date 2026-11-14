@@ -80,8 +80,7 @@ checks, and eight contextual Reading Practice questions based on the scanned
 checks, seven contextual Reading Practice activities, and five flashcards with
 examples. See
 [units 19 and 1 audit](source-audit-36-37.md).
-Chapters 38–39 add 57 source-based questions from *עברית בשניים לרמה ב׳*
-chapters 2–3, plus six interpretation checks. See [chapters 2–3 coverage](source-audit-38-39.md).
+Chapter 38 has been rebuilt from the scanned *עברית בשניים לרמה ב׳* chapter 2: 11 active chapter-bank questions, three Hebrew interpretation checks, and four Reading Practice activities with 12 questions. Chapter 39 remains in its earlier state and awaits this detailed audit. See [chapter 38 audit and chapter 39 status](source-audit-38-39.md).
 Chapters 40–41 add 59 source-based questions from *עברית בשניים לרמה ב׳*
 chapters 4–5, plus six interpretation checks. See [chapters 4–5 coverage](source-audit-40-41.md).
 Chapters 42–43 add 49 source-based questions from the same book, chapters 6–7,

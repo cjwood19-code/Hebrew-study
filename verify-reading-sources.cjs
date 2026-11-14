@@ -12,7 +12,23 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,39);
+assert.equal(passages.length,43);
+for(const [id,page,questions,phrase] of [
+ ['shnayim-2-travel',38,3,'חלק מהאנשים האלה הצליחו לחזור הביתה בשלום'],
+ ['shnayim-2-ruthie',50,3,'דינה: רותי, לאן _____ לפני שנה?'],
+ ['shnayim-2-benjamin',46,3,'מסעות בנימין מטודלה'],
+ ['shnayim-2-neve',54,3,'התלמידים לומדים בשתי שפות: בערבית ובעברית']
+]){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`chapter 2.*PDF page ${page}`));
+ assert.equal(p.questions.length,questions);assert.ok(p.he.includes(phrase),id);
+ assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);
+}
+const bank38={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-38-39.js'),'utf8'),bank38);
+assert.equal(bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].length,11);
+assert.ok(bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].every(q=>q.explanation&&q.sourceExercise&&q.practiceOrigin&&q.sourcePage>=38&&q.sourcePage<=65));
+assert.ok(!bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].some(q=>/^(Reading|Dialogue)/.test(q.category)));
 const shnayimOne=[
  ['shnayim-1-greeting-cards',13,4,'היום כמעט אף אחד לא עומד בתור בדואר'],
  ['shnayim-1-holiday-dialogue',15,4,'אוכלים תפוח בדבש'],

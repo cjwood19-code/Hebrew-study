@@ -487,5 +487,34 @@ window.HEBREW_GENERAL_FLASHCARDS = [
     "chapter": 37,
     "sourcePage": 37,
     "book": "עברית בשניים לרמה ב׳"
-  }
+  },
+  {
+  "id": "shnayim-2-001",
+  "he": "לצאת לדרך",
+  "en": "to set out",
+  "chapter": 38,
+  "sourcePage": 38,
+  "book": "עברית בשניים לרמה ב׳"
+},{
+  "id": "shnayim-2-002",
+  "he": "מכתבים",
+  "en": "letters",
+  "chapter": 38,
+  "sourcePage": 38,
+  "book": "עברית בשניים לרמה ב׳"
+},{
+  "id": "shnayim-2-003",
+  "he": "קהילה",
+  "en": "community",
+  "chapter": 38,
+  "sourcePage": 62,
+  "book": "עברית בשניים לרמה ב׳"
+},{
+  "id": "shnayim-2-004",
+  "he": "תושב",
+  "en": "resident",
+  "chapter": 38,
+  "sourcePage": 62,
+  "book": "עברית בשניים לרמה ב׳"
+}
 ];

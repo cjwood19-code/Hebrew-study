@@ -20,7 +20,14 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,39);
+assert.equal(buttons.length,43);
+const travel=buttons.find(b=>b.textContent==='היום קל יותר');assert.ok(travel);travel.onclick();
+assert.match(get('readingSource').textContent,/chapter 2.*PDF page 38/);
+assert.match(get('readingPassage').textContent,/במשך מאות שנים עזבו אנשים את הבית/);
+const travelWrong=get('readingChoices').children.find(b=>b.textContent!=='חלקם חזרו הביתה וחלקם נעלמו בדרך');travelWrong.onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: חלקם חזרו הביתה וחלקם נעלמו בדרך/);
+assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
+get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 3$/);
 const greeting=buttons.find(b=>b.textContent==='כרטיסי ברכה');assert.ok(greeting);greeting.onclick();
 assert.match(get('readingSource').textContent,/chapter 1.*PDF page 13/);
 assert.match(get('readingPassage').textContent,/במאה ה־14 בגרמניה ובאוסטריה/);

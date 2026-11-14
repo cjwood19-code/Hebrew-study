@@ -3,33 +3,17 @@
 (function(){"use strict";
 const rows={
 38:[
-[38,"reading.1","Reading • היום קל יותר","In היום קל יותר, what has become easier according to the travel reading?","לצאת לדרך","לכתוב מכתב","לבנות אונייה","ללכת ברגל"],
-[38,"reading.2","Reading • היום קל יותר","What did travelers write to people at home?","מכתבים","מפות","ספרי לימוד","כרטיסי טיסה"],
-[38,"reading.3","Reading • היום קל יותר","What helps modern travelers plan and book a trip?","האינטרנט","מכתבים בלבד","סוסים","מצפן בלבד"],
-[39,"connective.1","Connectives • ואילו","Choose the contrast word from the source: בעבר נסעו לאט, _____ היום קל יותר לנסוע.","ואילו","מפני ש","לכן","כדי"],
-[39,"word-choice.1","Word choice • נסיעה","Complete the travel comparison: בעבר הנסיעה הייתה קשה יותר; היום היא _____.","קלה יותר","מסוכנת יותר תמיד","איטית יותר תמיד","בלתי אפשרית"],
-[40,"opposites.1","Opposites • דרך","Choose the opposite of קשה in the reading comparison.","קל","רחוק","יקר","ישן"],
-[40,"directions.1","Directions • מיקום","אשדוד נמצאת _____ לתל אביב.","מדרום","מצפון","ממזרח","במרכז"],
-[40,"directions.2","Directions • מיקום","תל אביב נמצאת _____ לאשדוד.","מצפון","מדרום","ממזרח","במערב"],
-[42,"directions.3","Directions • מדינות","סין נמצאת _____ למונגוליה.","מדרום","מצפון","ממערב","בתוך"],
-[42,"directions.4","Directions • מדינות","איראן נמצאת _____ לטורקיה.","ממזרח","ממערב","מצפון","בתוך"],
-[42,"dialogue.1","Dialogue • הפעם לא מתאים לי","What does הפעם לא מתאים לי express?","It does not suit me this time","I travel every time","This is my map","I live here"],
-[46,"reading.4","Reading • בנימין מטודלה","Who was the traveler discussed in this reading?","בנימין מטודלה","דוד בן־גוריון","צ'רלס דרווין","אלכס ברונו הוסאר"],
-[46,"reading.5","Reading • בנימין מטודלה","What did Benjamin of Tudela write about?","מסעותיו והמקומות שביקר בהם","הוראות בנייה","תפריט מסעדה","תחזית מזג האוויר"],
-[50,"dialogue.2","Dialogue • יוצאת או לא יוצאת לדרך?","What does קומי tell a woman to do?","לקום","לשבת","לנסוע","לשכב"],
-[50,"imperative.1","Imperative • קומי","Choose the negative instruction paired with קומי in the source.","אל תקומי","לא קמתי","היא תקום","אנחנו קמים"],
-[52,"root.1","Word family • שם עצם ושם תואר","החוקר מצא את העובדה העתיקה בכפר הרחוק. Which form is an adjective?","הרחוק","החוקר","העובדה","הכפר"],
-[54,"reading.6","Reading • לחיות את החלום","What was דודו אריאל's dream?","לטייל בעולם","ללמוד רק בבית","לבנות כביש","לגור במלון"],
-[54,"reading.7","Reading • נווה שלום","What two languages do pupils study at the village school?","עברית וערבית","עברית וצרפתית","אנגלית וסינית","ערבית ורוסית"],
-[54,"reading.8","Reading • נווה שלום","Why was נווה שלום founded according to the reading?","כדי שיהודים וערבים יחיו חיים משותפים","כדי לבנות שדה תעופה","כדי לייצר מכוניות","כדי לפתוח בנק"],
-[54,"grammar.1","Number agreement • תואר","Choose the adjective that agrees with אנשים: אנשים _____.","צעירים","צעירות","צעיר","צעירה"],
-[58,"prepositions.1","Prepositions • ב־","Which preposition follows להתאהב in the source dialogue?","ב־","על","אל","מן"],
-[58,"prepositions.2","Prepositions • ב־","Which preposition follows להסתכל in the dialogue?","ב־","את","עם","מן"],
-[62,"vocabulary.1","Vocabulary match • קהילה","Choose the definition of קהילה.","קבוצה של אנשים שחיים ביחד","אדם ששומר כסף בבנק","איש דת שלא התחתן","כלי תחבורה בים"],
-[62,"vocabulary.2","Vocabulary match • תושב","Choose the definition of תושב.","מישהו שגר וחי במקום מסוים","פתח בהר","קבוצת שרים ושרות","בגדים שלובשים בשבת"],
+[39,"connective.1","Connectives • ואילו","בצפון מדברים אנגלית, _____ בדרום אמריקה מדברים ספרדית.","ואילו","מפני ש","לכן","כדי"],
+[50,"verb-cloze.1","Verb fill-in • שם הפועל","דינה: רותי, לאן _____ לפני שנה? (לטוס)","טסת","טסתי","טסתם","יטוס"],
+[50,"verb-cloze.2","Verb fill-in • שם הפועל","רותי: אני לא _____ כל שנה, מפני שהטיסות יקרות. (לטוס)","טסה","טס","טסתי","טסתם"],
+[54,"noun-adjective.1","Noun and adjective • התאמה","שם עצם ושם תואר: אורח נחמד → אורחת _____.","נחמדה","נחמד","נחמדים","נחמדות"],
+[58,"preposition.1","Prepositions • ב־","בשיחה: ״התאהבתי בו ברגע שראיתי אותו״. איזו מילת יחס באה אחרי התאהבתי?","ב־","על","אל","מן"],
+[62,"odd-one-out.1","Odd one out • אוצר מילים","סמנו בקו מה לא שייך: אונייה / מכונית / רכבת / אחר.","אחר","אונייה","מכונית","רכבת"],
+[62,"matching.1","Vocabulary matching • קהילה","התאימו להגדרה: קהילה — _____.","קבוצה של אנשים שחיים ביחד","כלי תחבורה בים","פתח בהר","קבוצת שרים ושרות"],
+[62,"matching.2","Vocabulary matching • תושב","התאימו להגדרה: תושב — _____.","מישהו שגר וחי במקום מסוים","איש דת שלא התחתן","כלי תחבורה בים","מישהו שמוכר מזון"],
 [64,"connective.2","Connective choice • ואילו / אבל","ישראל נמצאת במזרח הים התיכון, _____ ספרד נמצאת במערב הים התיכון.","ואילו","מפני ש","כדי","לכן"],
-[64,"verb.1","Future tense • להגיע","Choose the future form for הוא: מחר הוא _____ לפסגה.","יגיע","הגיע","מגיעים","הגעתי"],
-[64,"verb.2","Future tense • להחליט","מתי _____ את כל הדברים שאת לא משתמשת בהם?","תחליטי","החלטתם","מחליט","החליטו"]
+[64,"future.1","Future tense • להחליט","מתי _____ (להחליט) לזרוק את כל הדברים שאת לא משתמשת בהם?","תחליטי","תחליט","החלטתם","מחליט"],
+[64,"future.2","Future tense • להמשיך","אתם _____ (להמשיך) לגור בירושלים?","תמשיכו","ימשיכו","המשכתם","ממשיך"]
 ],
 39:[
 [66,"reading.1","Reading • תמונות נוף","Which landscapes are contrasted in the opening passage?","שדות ירוקים ונוף מדבר","שלג וקרח בלבד","רק ערים וכבישים","רק הרים מושלגים"],
@@ -63,5 +47,18 @@ const rows={
 [100,"word-choice.2","Word choice • כל אחד יכול להצליח","Which word completes the contrast in the Bialik passage: הוא לא רק כתב שירים, _____ גם תרגם ספרים לעברית.","אלא","מפני ש","לכן","אחרי"],
 [100,"reading.17","Reading • חיים נחמן ביאליק","Who was חיים נחמן ביאליק?","משורר עברי","גאולוג","מנהל מלון","ממציא המטוס"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const explanations38=[
+"בעמוד 27 ואילו מחברת שני משפטים ומדגישה ניגוד בין אזורים ושפות.",
+"בשיחה בעמוד 38 דינה פונה לרותי בלשון את ושואלת על השנה שעברה, ולכן טסת.",
+"רותי מדברת על הרגל בהווה: אני לא טסה כל שנה.",
+"בעמוד 42 הדוגמה משנה אורח נחמד לנקבה יחידה: אורחת נחמדה.",
+"בשיחה בעמוד 47 כתוב התאהבתי בו; ב־ היא מילת היחס המצורפת.",
+"בעמוד 50 שלוש המילים הראשונות הן כלי תחבורה; אחר פירושו שונה.",
+"בעמוד 51 קהילה מותאמת להגדרה קבוצה של אנשים שחיים ביחד.",
+"בעמוד 51 תושב מותאם להגדרה מישהו שגר וחי במקום מסוים.",
+"בעמוד 53 יש ניגוד בין מזרח הים התיכון למערב; ואילו היא מילת הניגוד.",
+"בעמוד 53 הנושא את מצריך את צורת העתיד תחליטי.",
+"בעמוד 53 הנושא אתם מצריך תמשיכו בעתיד."
+];
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c],i)=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===38?{explanation:explanations38[i],practiceOrigin:"Printed exercise • choices adapted"}:{})}))])));
 })();

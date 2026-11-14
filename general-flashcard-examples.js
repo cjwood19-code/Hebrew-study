@@ -62,7 +62,11 @@ const rows=[
  ["מנהג","זה מנהג של המשפחה.","This is a family custom."],
  ["ממתקים","הילדים מקבלים ממתקים בחג.","The children receive sweets on the holiday."],
  ["מיתוס","מיתוס הוא סיפור עם.","A myth is a folk story."],
- ["חתונה","המשפחה חוגגת את החתונה.","The family celebrates the wedding."]
+ ["חתונה","המשפחה חוגגת את החתונה.","The family celebrates the wedding."],
+ ["לצאת לדרך", "מחר כדאי לצאת לדרך ארוכה.", "Tomorrow we will set out on a long journey."],
+ ["מכתבים", "המטיילים שלחו הביתה מכתבים.", "The travelers sent letters home."],
+ ["קהילה", "בכפר יש קהילה של משפחות.", "There is a community of families in the village."],
+ ["תושב", "התושב גר בכפר הזה.", "The resident lives in this village."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");
