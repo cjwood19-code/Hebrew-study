@@ -12,7 +12,29 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,32);
+assert.equal(passages.length,39);
+const shnayimOne=[
+ ['shnayim-1-greeting-cards',13,4,'היום כמעט אף אחד לא עומד בתור בדואר'],
+ ['shnayim-1-holiday-dialogue',15,4,'אוכלים תפוח בדבש'],
+ ['shnayim-1-childhood-cloze',19,3,'היה _____ (לחפש) עבודה'],
+ ['shnayim-1-myth',21,3,'הסיפורים עברו במשך מאות שנים'],
+ ['shnayim-1-thousand-nights',23,4,'שחרזדה'],
+ ['shnayim-1-animal-names',33,3,'לתת שם מתאים לכל בעל חיים'],
+ ['shnayim-1-wedding-cloze',37,3,'כולם אומרים _____ (כלות / ברכות)']
+];
+for(const [id,page,count,phrase] of shnayimOne){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`chapter 1.*PDF page(?:s)? ${page}`));
+ assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase),id);
+ assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);
+}
+const checked37={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-36-37.js'),'utf8'),checked37);
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-36-37.js'),'utf8'),checked37);
+assert.equal(checked37.window.HEBREW_TEXTBOOK_QUESTION_BANKS[37].length,17);
+assert.ok(checked37.window.HEBREW_TEXTBOOK_QUESTION_BANKS[37].every(q=>q.sourcePage>=13&&q.sourcePage<=37&&q.sourceExercise&&q.explanation&&q.practiceOrigin));
+assert.deepEqual(Array.from(checked37.window.HEBREW_CHAPTER_INTERPRETATION[37],q=>q.sourcePage),[13,15,21]);
+assert.ok(checked37.window.HEBREW_CHAPTER_INTERPRETATION[37].every(q=>q.explanation));
 const kol=passages.find(p=>p.id==='lilmod-19-kol-nidrei');
 assert.ok(kol);
 assert.match(kol.source,/unit 19.*PDF page 214.*PDF page 216/);
@@ -158,4 +180,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–35, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–37, and 46; original Hebrew reading context; source labels and corrections present.');

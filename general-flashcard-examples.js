@@ -1,4 +1,4 @@
-/* Supplemental example sentences built from the vocabulary and grammar in units 7–8.
+/* Supplemental example sentences built from source vocabulary and taught grammar.
    They are practice examples, not quotations from the textbook. */
 (function(){"use strict";
 const rows=[
@@ -57,7 +57,12 @@ const rows=[
  ["לגרום","מה יכול לגרום לבעיה?","What can cause a problem?"],
  ["ביקור","הביקור היה קצר.","The visit was short."],
  ["הצעה","יש לי הצעה חדשה.","I have a new suggestion."],
- ["ספה","הספה נמצאת ליד החלון.","The sofa is next to the window."]
+ ["ספה","הספה נמצאת ליד החלון.","The sofa is next to the window."],
+ ["כרטיסי ברכה","אני שולח כרטיסי ברכה לחברים.","I send greeting cards to friends."],
+ ["מנהג","זה מנהג של המשפחה.","This is a family custom."],
+ ["ממתקים","הילדים מקבלים ממתקים בחג.","The children receive sweets on the holiday."],
+ ["מיתוס","מיתוס הוא סיפור עם.","A myth is a folk story."],
+ ["חתונה","המשפחה חוגגת את החתונה.","The family celebrates the wedding."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

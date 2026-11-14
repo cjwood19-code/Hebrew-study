@@ -4,8 +4,8 @@ PDF numbers below are one-based indices in the user-supplied scans. Each index m
 
 | App chapter | Textbook lesson | Scan index | Active chapter bank | Interpretation | Reading Practice | Status |
 | ---: | --- | --- | ---: | ---: | ---: | --- |
-| 36 | *ללמוד עברית ברמה ב׳* unit 19, כל נדרי בארץ רחוקה | 214 (printed 211), 216 (printed 212) | 6 | 3 | 8 | Rebuilt and scan-checked in this run |
-| 37 | *עברית בשניים לרמה ב׳* chapter 1, ברכות | 13–37 | 38 | 3 | 0 | Indexed; full question audit pending |
+| 36 | *ללמוד עברית ברמה ב׳* unit 19, כל נדרי בארץ רחוקה | 214 (printed 211), 216 (printed 212) | 6 | 3 | 8 | Rebuilt and scan-checked |
+| 37 | *עברית בשניים לרמה ב׳* chapter 1, ברכות | 13–37 (printed 1–25) | 17 | 3 | 24 across seven activities | Rebuilt and scan-checked |
 
 ## Chapter 36 corrections
 
@@ -15,9 +15,15 @@ Reading Practice now displays selected original Hebrew with an omission marker, 
 
 The existing chapter IDs, progress keys, and independent adaptive practice remain in place. Passing the interpretation checkpoint still controls advancement. Correct choices advance automatically; incorrect choices show an explanation and wait for Next.
 
-## Chapter 37 pending issues
+## Chapter 37 corrections
 
-The bank covers a long unit with greeting-card reading, holiday dialogue, myth and story reading, grammar, and wedding exercises. Its 38 active rows have not yet been individually reconciled against the scan, and its story-dependent prompts still need their source passages beside them. Do not count chapter 37 as source-verified. The earlier description of 42 source rows was stale: 38 are active after the context guard. This run did not change chapter 37 content.
+The active bank previously had 38 rows after the context guard. Five greeting-card reading items, three holiday-dialogue items, three myth items, three *אלף לילה ולילה* items, two animal-naming items, and three wedding-choice items depended on unseen source material. Several citations pointed to an adjacent image of a repeated spread. A greeting-writing item asked what learners were told to do instead of having them practice Hebrew. These items were removed from the chapter test and replaced by contextual Reading Practice activities.
+
+Seven activities now display checked Hebrew from the scanned chapter and place 24 questions next to the relevant reading or original fill-in structure: greeting cards (PDF 13/15), Eid al-Fitr and Rosh Hashanah dialogue (15/17), childhood habitual-past cloze (19), myth reading (21), *אלף לילה ולילה* cloze (23), animal-naming story (33–35), and wedding word-choice passage (37). Selected excerpts use an explicit omission marker. Printed questions are labeled as adapted choices; additional comprehension questions are labeled supplemental. The full open writing tasks remain open-ended in the book and are not represented as falsely graded multiple-choice items.
+
+The chapter test now has 17 short grammar and verb-form questions from the printed exercises and relation tables on PDF pages 19, 23, 25, 27, 29, 31, and 33. The one relation-table adaptation is explicitly labeled supplemental. Every active row has its scan page, exercise label, instructional explanation, and four distinct choices. Three Hebrew-to-English interpretation checks quote lesson sentences on pages 13, 15, and 21 and include lesson-based explanations. Five source-word flashcards have clearly labeled supplemental example sentences in context.
+
+The app continues to use the same chapter ID and progress storage. A correct answer advances automatically; an incorrect answer shows the correction and waits for Next. Independent adaptive practice remains separate.
 
 ## Curriculum count
 

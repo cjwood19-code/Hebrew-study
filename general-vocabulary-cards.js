@@ -447,6 +447,45 @@ window.HEBREW_GENERAL_FLASHCARDS = [
     "chapter": 25,
     "sourcePage": 108,
     "book": "ללמוד עברית ברמה ב׳"
+  },
+  {
+    "id": "shnayim-1-001",
+    "he": "כרטיסי ברכה",
+    "en": "greeting cards",
+    "chapter": 37,
+    "sourcePage": 13,
+    "book": "עברית בשניים לרמה ב׳"
+  },
+  {
+    "id": "shnayim-1-002",
+    "he": "מנהג",
+    "en": "custom",
+    "chapter": 37,
+    "sourcePage": 13,
+    "book": "עברית בשניים לרמה ב׳"
+  },
+  {
+    "id": "shnayim-1-003",
+    "he": "ממתקים",
+    "en": "sweets",
+    "chapter": 37,
+    "sourcePage": 15,
+    "book": "עברית בשניים לרמה ב׳"
+  },
+  {
+    "id": "shnayim-1-004",
+    "he": "מיתוס",
+    "en": "myth",
+    "chapter": 37,
+    "sourcePage": 21,
+    "book": "עברית בשניים לרמה ב׳"
+  },
+  {
+    "id": "shnayim-1-005",
+    "he": "חתונה",
+    "en": "wedding",
+    "chapter": 37,
+    "sourcePage": 37,
+    "book": "עברית בשניים לרמה ב׳"
   }
 ];
-
