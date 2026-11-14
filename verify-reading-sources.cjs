@@ -28,6 +28,9 @@ for(const [id,page,count,phrase] of shnayimOne){
  assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase),id);
  assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);
 }
+const myth=passages.find(p=>p.id==='shnayim-1-myth');
+assert.ok(myth.he.includes('תמונה חברתית על הקהילה, על החיים ועל הערכים שלה'));
+assert.ok(!myth.he.includes('על הרגשות והבעיות שלנו'));
 const checked37={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-36-37.js'),'utf8'),checked37);
 vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-36-37.js'),'utf8'),checked37);
