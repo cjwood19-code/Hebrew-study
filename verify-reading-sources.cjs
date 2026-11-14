@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,53);
+assert.equal(passages.length,60);
 for(const [id,page,phrase] of [
  ['shnayim-3-landscapes',66,'ישראל היא קצת ירוקה, קצת צהובה, קצת כחולה וקצת לבנה'],
  ['shnayim-3-mitzpe',66,'אחד היישובים הקטנים בנגב הוא מצפה רמון'],
@@ -213,6 +213,11 @@ for(const p of passages.filter(p=>/^(אולפן עברית|עברית בשניי
  assert.ok(p.he.trim()&&p.source.includes('PDF page'));
  for(const q of p.questions){assert.equal(q.opts.length,4);assert.ok(q.opts.includes(q.a));assert.ok(q.explanation)}
 }
+for(const id of ['shnayim-4-open-houses','shnayim-4-photo','shnayim-4-synagogue','shnayim-4-hadid','shnayim-4-architect-cloze','shnayim-4-shanti','shnayim-4-wise-man']){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,/chapter 4.*PDF page/);assert.ok(p.questions.every(q=>q.explanation&&q.kind));
+}
+assert.ok(passages.find(p=>p.id==='shnayim-4-synagogue').questions.some(q=>q.a==='רם כרמי'));
+assert.ok(passages.find(p=>p.id==='shnayim-4-architect-cloze').he.includes('_____ בבתי קפה'));
 const communication=passages.find(p=>p.id==='shnayim-10-communication-language');
 assert.ok(communication);
 assert.match(communication.source,/עברית בשניים.*chapter 10.*PDF page 275/);

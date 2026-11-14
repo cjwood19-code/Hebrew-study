@@ -3,33 +3,19 @@
 (function(){"use strict";
 const rows={
 40:[
-[102,"reading.1","Reading • בתים פתוחים","In which city does the בתים פתוחים festival take place?","לונדון","ירושלים","רמלה","חיפה"],
-[102,"reading.2","Reading • בתים פתוחים","How many visitors does the London festival draw in a year, according to the reading?","כ־300,000","כ־3,000","כ־30","כ־3,000,000"],
-[102,"reading.3","Reading • בתים פתוחים","Who began the project in 1992?","ויקטוריה תורנטון","זאהא חדיד","מרים ילן־שטקליס","הנרייטה סאלד"],
-[102,"reading.4","Reading • בתים פתוחים","What may the public visit during the festival?","בניינים שבדרך כלל אינם פתוחים לקהל","רק בתי ספר","רק בתי מלון","רק פארקים"],
-[102,"questions.1","Reported speech • שאלות","Choose the source's reported question form of 'האם יבואו אנשים לביקור בבתים הפתוחים?'","מנהל האירוע שאל אם יבואו אנשים לביקור בבתים הפתוחים.","מנהל האירוע שאל למה הגיעו לבתים הפתוחים.","מנהל האירוע אמר שבאו אנשים אתמול.","מנהל האירוע שאל מתי בנו את הבתים."],
-[104,"rules.1","Rules • ביקור בבית פתוח","According to the visit rules, what is forbidden inside homes?","לעשן","לשאול שאלות","לשמוע על התוכנית","להסתובב בדירה"],
-[104,"rules.2","Rules • ביקור בבית פתוח","Choose the correct modal from the source: _____ לצלם את החדרים ואת הרהיטים.","אפשר","אסור","לא כדאי","קשה"],
-[104,"rules.3","Rules • ביקור בבית פתוח","Choose the source rule: _____ לכבד את בעלי הבית.","צריך","אסור","לא כדאי","אי אפשר"],
-[106,"reading.5","Reading • תמונה מספרת","Where was the famous photograph of workers high above the street taken?","בניו יורק","בלונדון","בירושלים","ברמלה"],
-[106,"reading.6","Reading • תמונה מספרת","What question does the passage raise about the photograph?","האם התצלום היה מבוים או אמיתי","מי המציא את המצלמה","כמה בניינים יש בלונדון","מתי נבנה בית הספר"],
-[106,"verb.1","Future • פעל מגזרת ל״ה","Choose the future form of לקנות for אני.","אקנה","קניתי","קונים","יקנו"],
-[108,"verb.2","Future • פעל מגזרת ל״ה","Choose the future form of לפנות for אתם.","תפנו","פניתם","פונים","אפנה"],
-[108,"verb.3","Future • פעל מגזרת ל״ה","Choose the future form of להיות for הוא.","יהיה","היה","הווה","יהיו"],
-[108,"verb.4","Future • פעל מגזרת ל״ה","Choose the future form of לבנות for אנחנו.","נבנה","בנינו","בונים","יבנו"],
-[110,"dialogue.1","Dialogue • תוכניות לעתיד","What does Shual want for the new house?","בית פרטי עם גינה","חדר במלון","דירה בלי חלונות","משרד בבניין גבוה"],
-[110,"verb.5","Future • להיות","אני רוצה בית עם גינה אחת בלי מדרגות. כש_____ זקנה, אני לא _____ כל יום למעלה.","אהיה; אעלה","הייתי; עליתי","תהיי; תעלי","יהיו; יעלו"],
-[112,"modal.1","Modal sentences • משפטים פרסונליים","Choose the personal form of אפשר לשאול את המדריך שאלות.","אתם יכולים לשאול את המדריך שאלות.","אתם שאלתם את המדריך אתמול.","המדריך שואל אתכם שאלות.","אסור לכם לשאול שאלות."],
-[112,"modal.2","Modal sentences • משפטים פרסונליים","Choose the personal form of כדאי לדעת את שמות האומנים.","אתן צריכות לדעת את שמות האומנים.","אסור לכן לדעת את שמות האומנים.","אתן ידעתן את שמות האומנים.","האומנים צריכים לדעת את שמכן."],
-[114,"reading.7","Reading • בית הכנסת בהר הצופים","Who was the architect of the synagogue on Mount Scopus?","מאיר יעקב שיק","זאהא חדיד","ויקטוריה תורנטון","ברונו הוסאר"],
-[114,"reading.8","Reading • בית הכנסת בהר הצופים","What can worshippers see through the large window?","את ירושלים העתיקה","את לונדון","את ים המלח","את מכתש רמון"],
-[116,"reading.9","Reading • זאהא חדיד","What profession did Zaha Hadid practice?","אדריכלית","מורה","סופרת","רופאה"],
-[116,"reading.10","Reading • זאהא חדיד","Where was Zaha Hadid born according to the reading?","בעיראק","באנגליה","בנורווגיה","בישראל"],
-[118,"reading.11","Reading • מונולוג של אדריכל","What kind of building is the monologue about?","מגדל בעיר","בית הכנסת","בית ספר","בית מלון"],
-[120,"reading.12","Reading • בית השנטי","Who does בית השנטי help?","נערים ונערות שעזבו את הבית ונשארו ברחוב","אדריכלים בלבד","תיירים המבקרים בלונדון","רק מורים"],
-[122,"reading.13","Reading • איש חכם","What did the wise father tell his children to look for?","אוצר שהסתיר בבית ובאדמה","כרטיסי ברכה","ספרי לימוד","מכתבים מלונדון"],
-[124,"matching.1","Match • שמות בתים","Match בית ספר to its meaning in the source exercise.","בית שלומדים בו","בית של יהודים מתפללים בו","בית של שופטים","בית לתיירים"],
-[124,"matching.2","Match • שמות בתים","Match בית משפט to its meaning in the source exercise.","בית שבו שופטים מחליטים מי יהיה בבית כלא","בית שלומדים בו","בית לתיירים","בית של אנשים מתים"]
+[102,"reported-question.1","Reported questions","מנהל האירוע שאל: ״האם יבואו אנשים לביקור בבתים הפתוחים?״ השלימו: מנהל האירוע שאל _____ יבואו אנשים לביקור בבתים הפתוחים.","אם","למה","מתי","כמה","משפט שאלה בלי מילת שאלה מקבל אם בדיבור עקיף.","Printed transformation • adapted to choices"],
+[104,"modal-rule.1","Home visit rules","השלימו את הכלל: _____ לעשן בתוך הבתים.","אסור","אפשר","כדאי","קל","בעמוד 93 הכלל אוסר לעשן בתוך הבתים.","Printed rule • adapted to choices"],
+[104,"modal-rule.2","Home visit rules","השלימו את הכלל: _____ לצלם את החדרים ואת הרהיטים.","אפשר","אסור","לא כדאי","קשה","הכללים בעמוד 93 מתירים לצלם את החדרים ואת הרהיטים.","Printed rule • adapted to choices"],
+[104,"modal-rule.3","Home visit rules","השלימו את הכלל: _____ לכבד את בעלי הבית.","צריך","אסור","אי אפשר","לא כדאי","הכללים בעמוד 93 אומרים שצריך לכבד את בעלי הבית.","Printed rule • adapted to choices"],
+[106,"future-table.1","Future • ל״ה verbs","אני _____ לקנות מצלמה חדשה מחר. (לקנות)","אקנה","קניתי","קונים","יקנו","לפי טבלת לקנות בעמוד 95, עתיד בגוף אני הוא אקנה.","Printed conjugation table • supplemental sentence"],
+[108,"future-exercise.7","Future • ל״ה verbs","אנחנו _____ ימינה. (לפנות)","נפנה","פנינו","פונים","יפנו","בתרגיל העתיד בעמוד 96, אנחנו + לפנות מקבל נ׳: נפנה.","Printed fill-in • adapted to choices"],
+[108,"future-exercise.4","Future • להיות","הוא _____ בישיבה. (להיות)","יהיה","היה","הווה","יהיו","טבלת להיות בעמוד 96 נותנת הוא יהיה.","Printed fill-in • adapted to choices"],
+[108,"future-exercise.3","Future • ל״ה verbs","את _____ ארמון מזהב. (לבנות)","תבני","בנינו","בונים","יבנו","בתרגיל בעמוד 96 הנושא את עם לבנות דורש תבני.","Printed fill-in • adapted to choices"],
+[110,"housing-dialogue.1","Housing dialogue • future","דפנה: ״אני רוצה בית עם גינה אחת בלי מדרגות. כש_____ זקנה, אני לא _____ כל יום למעלה.״","אהיה; אעלה","הייתי; עליתי","תהיי; תעלי","יהיו; יעלו","בדברי דפנה בעמוד 98, כשאהיה זקנה מתאר עתיד; לא אעלה למעלה.","Printed dialogue fill-in • adapted to choices"],
+[112,"personal-sentence.1","Personal modal sentences","אפשר לשאול את המדריך שאלות. כתבו בגוף אתם: _____","אתם יכולים לשאול את המדריך שאלות.","אתם שאלתם את המדריך אתמול.","המדריך שואל אתכם שאלות.","אסור לכם לשאול שאלות.","הכלל בעמוד 100 ממיר אפשר ל־אתם יכולים.","Printed transformation • adapted to choices"],
+[112,"personal-sentence.2","Personal modal sentences","כדאי לדעת את שמות האומנים. כתבו בגוף אתן: _____","כדאי לכן לדעת את שמות האומנים.","אסור לכן לדעת את שמות האומנים.","אתן ידעתן את שמות האומנים.","האומנים צריכים לדעת את שמכן.","כדאי הוא המלצה; עם אתן אפשר לכתוב כדאי לכן. אין כאן חובה של צריכות.","Supplemental transformation • lesson pattern"],
+[125,"matching.1","Compound בית names","בתרגיל שמות הבתים: בית ספר הוא _____","בית שלומדים בו","בית של יהודים מתפללים בו","בית של שופטים","בית לתיירים","עמוד 113 מתאים בית ספר לבית שלומדים בו.","Printed matching • adapted to choices"],
+[125,"matching.2","Compound בית names","בתרגיל שמות הבתים: בית משפט הוא _____","בית שבו שופטים מחליטים מי יהיה בבית כלא","בית שלומדים בו","בית לתיירים","בית של אנשים מתים","עמוד 113 מתאים בית משפט לבית שבו שופטים מחליטים מי יהיה בבית כלא.","Printed matching • adapted to choices"]
 ],
 41:[
 [126,"reading.1","Reading • בית ספר דו־לשוני","Which two languages do pupils learn at the bilingual school?","עברית וערבית","עברית ואנגלית","ערבית ורוסית","אנגלית וצרפתית"],
@@ -65,5 +51,5 @@ const rows={
 [150,"reading.19","Reading • רובין הוד","What does the text call the Robin Hood story?","אגדה או מציאות היסטורית?","סיפור מדעי על קופים","סיפור על בית ספר","אגדה על מכתש רמון"],
 [150,"grammar.1","Sequence • הקטעים","Which group in the source sequence is called האספסוף?","הקבוצה הראשונה","הקבוצה השנייה","הקבוצה השלישית","אף קבוצה"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c,explanation,practiceOrigin])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(explanation?{explanation,practiceOrigin}: {})}))])));
 })();

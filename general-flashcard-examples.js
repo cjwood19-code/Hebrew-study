@@ -70,7 +70,11 @@ const rows=[
  ["נוף", "ממצפה רמון רואים נוף מדברי.", "From Mitzpe Ramon, one sees a desert landscape."],
  ["מכתש", "מכתש רמון נמצא בנגב.", "The Ramon Crater is in the Negev."],
  ["פסיפסים", "במוזיאון שומרים פסיפסים עתיקים.", "The museum protects old mosaics."],
- ["גאולוגים", "גאולוגים חוקרים את האדמה.", "Geologists study the earth."]
+ ["גאולוגים", "גאולוגים חוקרים את האדמה.", "Geologists study the earth."],
+ ["אדריכל", "האדריכל תכנן את בית הכנסת.", "The architect designed the synagogue."],
+ ["בניינים", "בפסטיבל מבקרים בבניינים מיוחדים.", "During the festival people visit special buildings."],
+ ["אוצר", "האב סיפר לילדיו על אוצר.", "The father told his children about a treasure."],
+ ["נערים", "בית השנטי עוזר לנערים שעזבו את הבית.", "Beit Hashanti helps youths who left home."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

@@ -520,5 +520,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
  {"id": "shnayim-3-001", "he": "נוף", "en": "landscape or view", "chapter": 39, "sourcePage": 66, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-3-002", "he": "מכתש", "en": "crater", "chapter": 39, "sourcePage": 66, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-3-003", "he": "פסיפסים", "en": "mosaics", "chapter": 39, "sourcePage": 74, "book": "עברית בשניים לרמה ב׳"},
- {"id": "shnayim-3-004", "he": "גאולוגים", "en": "geologists", "chapter": 39, "sourcePage": 70, "book": "עברית בשניים לרמה ב׳"}
+ {"id": "shnayim-3-004", "he": "גאולוגים", "en": "geologists", "chapter": 39, "sourcePage": 70, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-4-001", "he": "אדריכל", "en": "architect", "chapter": 40, "sourcePage": 114, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-4-002", "he": "בניינים", "en": "buildings", "chapter": 40, "sourcePage": 102, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-4-003", "he": "אוצר", "en": "treasure", "chapter": 40, "sourcePage": 122, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-4-004", "he": "נערים", "en": "youths", "chapter": 40, "sourcePage": 120, "book": "עברית בשניים לרמה ב׳"}
 ];
