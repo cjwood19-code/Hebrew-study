@@ -66,7 +66,11 @@ const rows=[
  ["לצאת לדרך", "מחר כדאי לצאת לדרך ארוכה.", "Tomorrow we will set out on a long journey."],
  ["מכתבים", "המטיילים שלחו הביתה מכתבים.", "The travelers sent letters home."],
  ["קהילה", "בכפר יש קהילה של משפחות.", "There is a community of families in the village."],
- ["תושב", "התושב גר בכפר הזה.", "The resident lives in this village."]
+ ["תושב", "התושב גר בכפר הזה.", "The resident lives in this village."],
+ ["נוף", "ממצפה רמון רואים נוף מדברי.", "From Mitzpe Ramon, one sees a desert landscape."],
+ ["מכתש", "מכתש רמון נמצא בנגב.", "The Ramon Crater is in the Negev."],
+ ["פסיפסים", "במוזיאון שומרים פסיפסים עתיקים.", "The museum protects old mosaics."],
+ ["גאולוגים", "גאולוגים חוקרים את האדמה.", "Geologists study the earth."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

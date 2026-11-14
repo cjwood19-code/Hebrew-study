@@ -516,5 +516,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
   "chapter": 38,
   "sourcePage": 62,
   "book": "עברית בשניים לרמה ב׳"
-}
+},
+ {"id": "shnayim-3-001", "he": "נוף", "en": "landscape or view", "chapter": 39, "sourcePage": 66, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-3-002", "he": "מכתש", "en": "crater", "chapter": 39, "sourcePage": 66, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-3-003", "he": "פסיפסים", "en": "mosaics", "chapter": 39, "sourcePage": 74, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-3-004", "he": "גאולוגים", "en": "geologists", "chapter": 39, "sourcePage": 70, "book": "עברית בשניים לרמה ב׳"}
 ];

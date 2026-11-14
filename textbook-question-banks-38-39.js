@@ -16,37 +16,33 @@ const rows={
 [64,"future.2","Future tense • להמשיך","אתם _____ (להמשיך) לגור בירושלים?","תמשיכו","ימשיכו","המשכתם","ממשיך"]
 ],
 39:[
-[66,"reading.1","Reading • תמונות נוף","Which landscapes are contrasted in the opening passage?","שדות ירוקים ונוף מדבר","שלג וקרח בלבד","רק ערים וכבישים","רק הרים מושלגים"],
-[66,"reading.2","Reading • תמונות נוף","Which two seas are named in the geography passage?","ים המלח והים התיכון","ים הכנרת וים סוף","הים השחור והים התיכון","ים המלח והים השחור"],
-[66,"reading.3","Reading • מצפה רמון","Where is מצפה רמון?","בנגב","בגליל","במרכז תל אביב","באירופה"],
-[66,"reading.4","Reading • מצפה רמון","What natural feature is near מצפה רמון?","מכתש רמון","ים הכנרת","הר החרמון","נחל הירקון"],
-[66,"grammar.1","True or false • לא רק... אלא גם","בנגב נמצא לא רק מכתש רמון, אלא גם עוד ארבעה מכתשים. נכון או לא נכון?","נכון","לא נכון","הקטע אינו עוסק במכתשים","המכתשים נמצאים רק בים"],
-[70,"reading.5","Reading • המכתשים","What are geologists studying in the crater scene?","את האדמה והסלעים","את הרכבות","את שירי החג","את בתי הכנסת"],
-[70,"reading.6","Reading • העיר רמלה","Who decided to establish רמלה?","סלימאן עבד אל־מלך","צ'רלס דרווין","בנימין מטודלה","שימעון פרס"],
-[70,"reading.7","Reading • העיר רמלה","What does רמלה mean in Arabic according to the text?","חול","הר","ים","בית"],
-[70,"reading.8","Reading • העיר רמלה","What structures brought water to the city?","בריכות מים","רכבות","מנהרות רכבת","גשרים"],
-[74,"reading.9","Reading • שומר הפסיפסים","What did שואלב אבו דיאב protect?","פסיפסים","כרטיסי ברכה","סוסים","מפות"],
-[74,"reading.10","Reading • שומר הפסיפסים","Where did he work in the 1980s?","במוזיאון","בבית ספר","בחברת תעופה","בבנק"],
-[74,"grammar.2","Temporal choice • לפני / אחרי","_____ שהתחיל לעבוד במוזיאון, הוא למד על ההיסטוריה של הפסיפסים.","אחרי","לפני ש","כאשר לא","מפני"],
-[74,"grammar.3","Future binyan • אפעל","Choose the future form of לכתוב for אני.","אכתוב","יכתוב","כתבתי","כותבים"],
-[78,"future.1","Future practice • שם הפועל","שר החינוך הודיע: שנת הלימודים התחילה בלי בעיות. Rewrite the verb in future tense for היא.","תתחיל","התחילה","מתחילים","אתחיל"],
-[78,"future.2","Future practice • שם הפועל","Choose the future form of לפתח for החברה.","תפתח","פיתחה","מפתחים","אפתח"],
-[78,"future.3","Future practice • שם הפועל","Choose the future form of לפנות for אתם.","תפנו","פניתם","פונים","יפנו"],
-[82,"reading.11","Reading • מלון בראשית","Where was מלון בראשית built?","על יד מכתש רמון","ליד ים הכנרת","בתוך תל אביב","בגליל העליון"],
-[82,"reading.12","Reading • מלון בראשית","Which animals did the hotel manager mention near the site?","יעלים","דובים","סוסים","גמלים"],
-[82,"reading.13","Reading • מלון בראשית","What did the manager say the hotel would give tourists?","נוף של המכתש","כרטיסי רכבת","ספרי דקדוק","מפת אירופה"],
-[86,"smikhut.1","Construct state • סמיכות","Choose the construct phrase for 'desert plants'.","צמחי מדבר","צמחים מדבר","צמח המדברים","מדבר צמחים"],
-[86,"smikhut.2","Construct state • סמיכות","Choose the plural construct phrase for 'residents of the city'.","תושבי עיר","תושבים עיר","תושב ערים","עיר תושבים"],
-[90,"reading.14","Reading • אב קדמון משותף","What did Charles Darwin study on his voyage?","בעלי חיים וצמחים","מפות רכבת בלבד","שפות עתיקות בלבד","בניית ערים"],
-[90,"reading.15","Reading • אב קדמון משותף","What is the title of Darwin's book mentioned in the text?","מוצא המינים","כל נדרי","אשת לוט","אי אפשר אחרת"],
-[94,"dialogue.1","Dialogue • חוות האלפקות","Which animals can visitors ride in the dialogue?","חמורים","אלפקות","דגים","פרפרים"],
-[94,"dialogue.2","Dialogue • חוות האלפקות","How does the guide answer the question about the weather?","כמו במדבר","כמו בים","כמו בחורף אירופי","כמו בצפון הקפוא"],
-[98,"reading.16","Reading • אגדה בדווית","What did the first angel receive in the Bedouin tale?","תפקיד להכין את המדבר","תפקיד לבנות רכבת","תפקיד ללמד עברית","תפקיד לצייר מפות"],
-[98,"matching.1","Picture matching • בעלי חיים","Which Hebrew word names the pictured camel?","גמל","צבי","נחש","סוס"],
-[100,"word-choice.1","Word choice • נופים","הבחורים הצעירים האלה _____ עכשיו על קירות גבוהים.","מטפסים","נוסעים","יושבים","מסתתרים"],
-[100,"word-choice.2","Word choice • כל אחד יכול להצליח","Which word completes the contrast in the Bialik passage: הוא לא רק כתב שירים, _____ גם תרגם ספרים לעברית.","אלא","מפני ש","לכן","אחרי"],
-[100,"reading.17","Reading • חיים נחמן ביאליק","Who was חיים נחמן ביאליק?","משורר עברי","גאולוג","מנהל מלון","ממציא המטוס"]
+[66,"contrast.1","Contrast • לא רק... אלא גם","בנגב חיים לא רק יהודים, _____ גם בדווים.","אלא","מפני ש","לכן","כדי"],
+[74,"temporal.1","Time expression • כאשר / אחרי","ע׳אלב אבו דיאב היה ילד _____ הוא התנדב לעבוד בעבודות שונות.","כאשר","אחרי","לכן","כדי"],
+[74,"temporal.2","Time expression • אחרי כן","ב־1980 הוא סיים ללמוד לימודי דת בעיר חברון, ו_____ הוא התחיל לעבוד במוזיאון.","אחרי כן","במשך","לפני ש","למרות"],
+[78,"future.1","Future tense • לשמוח","שר החינוך והעוזר שלו: שמחנו לשמוע ששנת הלימודים התחילה בלי בעיות. כתבו את שמחנו בעתיד: _____.","נשמח","ישמחו","שמחו","אשמח"],
+[78,"future.2","Future tense • לכעוס","חברי הכנסת כועסים על דברי העיתונאי. כתבו בעתיד: _____.","יכעסו","תכעס","כעסתי","כועסים"],
+[78,"future.3","Future tense • ללמוד","שר החינוך לתלמיד: אתה לומד לתחרות העולמית בפיזיקה? כתבו בעתיד: _____.","תלמד","ילמד","למדת","אלמד"],
+[78,"future.4","Future tense • לנעול","סינדרלה _____ (לנעול) את נעל הזכוכית במסיבה. כתבו בעתיד.","תנעל","ינעל","נעלה","נועלת"],
+[86,"smikhut.1","Construct state • סמיכות רבים","תושבים + עיר → _____.","תושבי עיר","תושבים עיר","תושב ערים","עיר תושבים"],
+[86,"smikhut.2","Construct state • סמיכות רבים","אזורים + תעשייה → _____.","אזורי תעשייה","אזורים תעשייה","אזור תעשיות","תעשייה אזורים"],
+[100,"word-choice.1","Word choice • נופים","הבחורים הצעירים האלה _____ עכשיו על קירות גבוהים.","מטפסים","מגרשים","מתיישבים","מכירים"],
+[100,"word-choice.2","Word choice • יישובים","הבדווים גרים _____ בנגב הדרומי.","ביישובים","ביערות","בשבילים","בבנקים"],
+[100,"word-choice.3","Word choice • להשקיע","התלמידים האלה _____ הרבה זמן בלימודים, ולכן הם הצליחו.","השקיעו","הפריעו","השפיעו","הסתכלו"]
 ]};
+const explanations39=[
+  "הדוגמה המודפסת בעמוד 55 משתמשת בלא רק ... אלא גם כדי להוסיף קבוצה.",
+  "בתחילת הקטע המודפס בעמוד 62, כאשר מציינת את הזמן שבו היה ילד.",
+  "בקטע המודפס בעמוד 62, אחרי כן מסמן מה קרה בעקבות סיום לימודיו.",
+  "הדוברים אומרים שמחנו בלשון אנחנו; בעתיד זו הצורה נשמח.",
+  "חברי הכנסת הם רבים נסתרים; צורת העתיד היא יכעסו.",
+  "אתה הוא נוכח יחיד; עתיד של ללמוד הוא תלמד.",
+  "סינדרלה היא נקבה יחידה; עתיד של לנעול הוא תנעל.",
+  "בטבלת הסמיכות בעמוד 75, תושבים נעשה תושבי לפני עיר.",
+  "בטבלת הסמיכות בעמוד 75, אזורים נעשה אזורי לפני תעשייה.",
+  "בתרגיל הבחירה בעמוד 88, מטפסים מתאים לפעולה על קירות גבוהים.",
+  "בתרגיל הבחירה בעמוד 88, גרים ביישובים הוא הצירוף שמתאר מקום מגורים.",
+  "בתרגיל הבחירה בעמוד 88, להשקיע זמן בלימודים מתאים לסיבה להצלחה."
+];
 const explanations38=[
 "בעמוד 27 ואילו מחברת שני משפטים ומדגישה ניגוד בין אזורים ושפות.",
 "בשיחה בעמוד 38 דינה פונה לרותי בלשון את ושואלת על השנה שעברה, ולכן טסת.",
@@ -60,5 +56,5 @@ const explanations38=[
 "בעמוד 53 הנושא את מצריך את צורת העתיד תחליטי.",
 "בעמוד 53 הנושא אתם מצריך תמשיכו בעתיד."
 ];
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c],i)=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===38?{explanation:explanations38[i],practiceOrigin:"Printed exercise • choices adapted"}:{})}))])));
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c],i)=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===38?{explanation:explanations38[i],practiceOrigin:"Printed exercise • choices adapted"}:Number(level)===39?{explanation:explanations39[i],practiceOrigin:"Printed exercise • choices adapted"}:{})}))])));
 })();

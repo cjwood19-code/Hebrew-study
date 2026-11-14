@@ -7,8 +7,8 @@ make(54,"נווה שלום הוא כפר של יהודים, מוסלמים ונ�
 make(58,"יש לי חלומות רבים.", "I have many dreams.", "I have many tickets.", "I had one dream.", "I have many maps.","יש לי means I have, חלומות means dreams, and רבים means many."),
 make(64,"ישראל נמצאת במזרח הים התיכון, ואילו ספרד נמצאת במערב הים התיכון.","Israel is in the eastern Mediterranean, whereas Spain is in the western Mediterranean.","Israel and Spain are both east of the Mediterranean.","Spain is east of Israel on the Mediterranean.","Israel is west of Spain on the Mediterranean.","מזרח is east, מערב is west, and ואילו marks a contrast. The printed exercise asks the student to choose ואילו or אבל.")],
 39:[
-make(66,"בנגב נמצא לא רק מכתש רמון, אלא גם עוד ארבעה מכתשים.","The Negev has not only the Ramon Crater but four other craters too.","The Negev has only the Ramon Crater.","The Ramon Crater is one of four seas.","There are four cities inside the Ramon Crater."),
-make(70,"אורך מכתש רמון הוא 40 קילומטרים.","The Ramon Crater is 40 kilometers long.","The Ramon Crater is 40 meters deep.","Ramon is 40 kilometers from the sea.","The crater has 40 cities."),
-make(82,"אין נוף כזה בכל העולם.","There is no landscape like this anywhere in the world.","This landscape is found all over the world.","There is no view from the hotel.","The whole world can be seen here.")]
+make(66,"ישראל היא קצת ירוקה, קצת צהובה, קצת כחולה וקצת לבנה.","Israel is a little green, a little yellow, a little blue, and a little white.","Israel has only a yellow desert.","Israel is entirely covered in snow.","Israel has no blue landscape.","הקריאה משתמשת בצבעים לתיאור השדות, המדבר, הימים והשלג."),
+make(70,"אורך מכתש רמון הוא 40 קילומטרים.","The Ramon Crater is 40 kilometers long.","The Ramon Crater is 40 meters deep.","Ramon is 40 kilometers from the sea.","The crater has 40 cities.","אורך פירושו length; העומק מופיע בנפרד בקטע."),
+make(82,"אין נוף כזה בכל העולם.","There is no landscape like this anywhere in the world.","This landscape is found all over the world.","There is no view from the hotel.","The whole world can be seen here.","המנהל מתפעל מנוף המכתש; אין נוף כזה אומר שאין נוף דומה לו.")]
 });
 })();

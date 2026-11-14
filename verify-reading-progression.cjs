@@ -20,7 +20,14 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,43);
+assert.equal(buttons.length,53);
+const mosaic=buttons.find(b=>b.textContent==='שומר הפסיפסים — בחירת מילים');assert.ok(mosaic);mosaic.onclick();
+assert.match(get('readingSource').textContent,/chapter 3.*PDF page 74/);
+assert.match(get('readingPassage').textContent,/ע׳אלב אבו דיאב היה ילד/);
+const mosaicWrong=get('readingChoices').children.find(b=>b.textContent!=='כאשר');mosaicWrong.onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: כאשר/);
+assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
+get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const travel=buttons.find(b=>b.textContent==='היום קל יותר');assert.ok(travel);travel.onclick();
 assert.match(get('readingSource').textContent,/chapter 2.*PDF page 38/);
 assert.match(get('readingPassage').textContent,/במשך מאות שנים עזבו אנשים את הבית/);

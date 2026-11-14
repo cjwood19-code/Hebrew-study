@@ -12,7 +12,29 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,43);
+assert.equal(passages.length,53);
+for(const [id,page,phrase] of [
+ ['shnayim-3-landscapes',66,'ישראל היא קצת ירוקה, קצת צהובה, קצת כחולה וקצת לבנה'],
+ ['shnayim-3-mitzpe',66,'אחד היישובים הקטנים בנגב הוא מצפה רמון'],
+ ['shnayim-3-crater',70,'אורך מכתש רמון הוא 40 קילומטרים'],
+ ['shnayim-3-ramla',70,'משמעות השם בערבית היא חול או חולות'],
+ ['shnayim-3-mosaic',74,'ע׳אלב אבו דיאב היה ילד'],
+ ['shnayim-3-hotel',82,'אין נוף כזה בכל העולם'],
+ ['shnayim-3-darwin',90,'הוא היה סקרן מאוד'],
+ ['shnayim-3-alpacas',94,'הם יכולים לרכוב על חמורים'],
+ ['shnayim-3-bedouin',98,'ואז נשאר רק המדבר'],
+ ['shnayim-3-bialik',100,'הוא היה לא רק משורר']
+]){
+ const p=passages.find(x=>x.id===id);assert.ok(p,id);
+ assert.match(p.source,new RegExp(`chapter 3.*PDF page ${page}`));
+ assert.equal(p.questions.length,2);assert.ok(p.he.includes(phrase),id);
+ assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);
+}
+const bank39={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-38-39.js'),'utf8'),bank39);
+assert.equal(bank39.window.HEBREW_TEXTBOOK_QUESTION_BANKS[39].length,12);
+assert.ok(bank39.window.HEBREW_TEXTBOOK_QUESTION_BANKS[39].every(q=>q.explanation&&q.sourceExercise&&q.practiceOrigin&&q.sourcePage>=66&&q.sourcePage<=101));
+assert.ok(!bank39.window.HEBREW_TEXTBOOK_QUESTION_BANKS[39].some(q=>/^(Reading|Dialogue|Story)/.test(q.category)));
 for(const [id,page,questions,phrase] of [
  ['shnayim-2-travel',38,3,'חלק מהאנשים האלה הצליחו לחזור הביתה בשלום'],
  ['shnayim-2-ruthie',50,3,'דינה: רותי, לאן _____ לפני שנה?'],
@@ -199,4 +221,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–37, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–39, and 46; original Hebrew reading context; source labels and corrections present.');
