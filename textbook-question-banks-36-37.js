@@ -3,31 +3,12 @@
 (function(){"use strict";
 const rows={
 36:[
-[214,"reading.1","Reading • כל נדרי בארץ רחוקה","Read: זה היה בחודש ספטמבר 1966. Where does the story begin in time?","בספטמבר 1966","בינואר 1943","בספטמבר 1996","בערב ראש השנה 1967"],
-[214,"reading.2","Reading • כל נדרי בארץ רחוקה","Read: האונייה שלנו עגנה בנמל דייגים קטן בצפון נורווגיה. Where did the ship dock?","בנמל דייגים בצפון נורווגיה","בנמל גדול באנגליה","בחוף ישראל","בנמל באוסטרליה"],
-[214,"reading.3","Reading • כל נדרי בארץ רחוקה","Read: ירדתי מהאונייה כדי לבקר בעירייה. Where did the narrator go?","לעירייה","לבית הכנסת","לבית הספר","לשדה התעופה"],
-[214,"reading.4","Reading • כל נדרי בארץ רחוקה","Read: השעה הייתה חמש לפנות ערב. What time was it?","חמש לפנות ערב","חמש בבוקר","עשר בלילה","שתים עשרה בצהריים"],
-[214,"reading.5","Reading • כל נדרי בארץ רחוקה","Read: חשבתי על משפחתי, על אשתי. Whom did the narrator think about?","משפחתו ואשתו","חבריו באונייה","הרופא","הדייגים"],
-[214,"reading.6","Reading • כל נדרי בארץ רחוקה","Read: חזן ומקהלה שרו את 'כל נדרי'. What did he hear?","חזן ומקהלה שרים כל נדרי","ילדים שרים שירי חג","חדשות ברדיו","פעמוני כנסייה"],
-[214,"reading.7","Reading • כל נדרי בארץ רחוקה","Read: נדהמתי. Why was he surprised?","ששמע את תפילת כל נדרי במקום הרחוק","שהנמל נסגר","שמצא את משפחתו","שלא היה אוכל באונייה"],
-[214,"reading.8","Reading • כל נדרי בארץ רחוקה","Read: הרי רק בעוד שבוע יהיה ראש השנה! What made the timing puzzling?","ראש השנה עדיין לא הגיע","יום כיפור כבר חלף","היה חודש ינואר","השעה הייתה מוקדמת"],
-[215,"reading.9","Reading • כל נדרי בארץ רחוקה","Read: איש לא היה בו: לא חזן ולא מקהלה. What did he find in the room?","חדר ריק","חזן ומקהלה","משפחה גדולה","דייגים רבים"],
-[215,"reading.10","Reading • כל נדרי בארץ רחוקה","Read: והשירה נשמעה מתוך תקליט. What was the source of the singing?","תקליט","אדם חי ששר בחדר","רדיו מקומי","ילדים בחוץ"],
-[215,"reading.11","Reading • כל נדרי בארץ רחוקה","Read: בשנת 1943 הגיעה אלינו אישה יהודייה שברחה מגרמניה הנאצית. Who arrived in 1943?","אישה יהודייה שברחה מגרמניה הנאצית","חזן מאוסטרליה","הקברניט","קבוצת תיירים"],
-[215,"reading.12","Reading • כל נדרי בארץ רחוקה","Read: כל בני משפחתה נהרגו בגרמניה ביום הקדוש ליהודים. What had happened to her family?","הם נהרגו בגרמניה","הם עברו לנורווגיה","הם נשארו באונייה","הם התחתנו"],
-[215,"reading.13","Reading • כל נדרי בארץ רחוקה","Read: היינו משמיעים את התקליט לזכר בני משפחתה. Why did they play the record?","לזכר בני משפחתה","כדי למכור תקליטים","כדי להזמין תיירים","כדי ללמוד לשיר"],
-[215,"reading.14","Reading • כל נדרי בארץ רחוקה","Read: לפני עשר שנים מתה האישה, והשאירָה לנו את התקליט. What did she leave behind?","את התקליט","את האונייה","את העירייה","את בית הכנסת"],
-[215,"reading.15","Reading • כל נדרי בארץ רחוקה","Read: מאז אני משמיעה את התפילה בכל יום כיפורים. How often does the woman play it?","בכל יום כיפורים","בכל יום רגיל","פעם בחודש","רק בראש השנה"],
-[216,"questions.1","Reading questions • שאלות","מי הוא המספר?","ימאי יהודי שירד מן האונייה","אישה מנורווגיה","חזן מן המקהלה","דייג מן הנמל"],
-[216,"questions.2","Reading questions • שאלות","מה הדהים אותו?","לשמוע כל נדרי בנורווגיה לפני יום כיפור","לשמוע שיר ילדים באונייה","לראות את משפחתו בנמל","לגלות שאין בית בעיר"],
-[216,"questions.3","Reading questions • שאלות","מדוע הוא נמשך לקול השירה?","חשב שהוא שומע חזן ומקהלה שרים כל נדרי","רצה לקנות תקליט","חיפש את הקברניט","שמע מישהו קורא לעזרה"],
-[216,"questions.4","Reading questions • שאלות","מדוע הוא התפלא כשנכנס לחדר?","לא היה בו איש והשירה באה מתקליט","החדר היה מלא אנשים","האישה היהודייה חיכתה לו","הוא מצא שם את משפחתו"],
-[216,"questions.5","Reading questions • שאלות","מדוע השמיעה הזקנה הנורווגית את התקליט ביום הכיפורים?","לזכר האישה היהודייה ובני משפחתה","כדי לאמן מקהלה","כדי למכור את התקליט","מפני שזה היה ראש השנה"],
-[216,"questions.6","Reading questions • שאלות","האם חשוב לתאריכים שהזקנה משמיעה בו את התקליט? Choose the factual reason the question invites you to discuss.","התקליט מושמע לזכר האישה ובני משפחתה ביום כיפור","היום נבחר מפני שמתחיל הקיץ","הוא מושמע בכל ערב רגיל","התאריך הוא יום הולדתו של הימאי"],
-[217,"discussion.1","Discussion • כל נדרי","The source's last question asks learners to explain their answer. Which detail supports the memorial interpretation?","האישה ביקשה להשמיע את התקליט לזכר משפחתה","הימאי קנה את התקליט","הקברניט שר באונייה","העירייה ערכה קונצרט"],
-[217,"sequence.1","Sequence • כל נדרי","Which event happened first in the story's history?","האישה היהודייה הגיעה לנורווגיה ב־1943","הימאי ירד מהאונייה ב־1966","הזקנה סיפרה לימאי את הסיפור","הימאי שמע את התקליט"],
-[217,"sequence.2","Sequence • כל נדרי","Which event follows the narrator hearing 'כל נדרי'?","הוא עלה למקום שממנו נשמעה השירה","הוא חזר מיד לאונייה","הוא התקשר למשפחתו","הוא קנה תקליט"],
-[217,"sequence.3","Sequence • כל נדרי","What explained the seemingly early Yom Kippur prayer?","הזקנה השמיעה תקליט ביום הכיפורים לזכר אישה יהודייה","העיר חגגה ראש השנה מוקדם","החזן טעה בתאריך","הימאי שכח את החודש"]
+[214,"vocab.1","Lesson vocabulary • כל נדרי בארץ רחוקה","האונייה שלנו _____ בנמל דייגים קטן בצפון נורווגיה. Choose the verb from the opening sentence.","עגנה","טסה","ישנה","נולדה"],
+[214,"vocab.2","Lesson vocabulary • כל נדרי בארץ רחוקה","טיילתי ברחובות הריקים של העירייה. What does הריקים describe?","רחובות בלי אנשים","רחובות מלאים","רחובות חדשים","רחובות רחוקים"],
+[214,"verb.1","Narrative verb • כל נדרי בארץ רחוקה","קולות השירה _____ מהקומה העליונה של אחד הבתים. Complete the printed story sentence.","נשמעו","נשמע","נשמעה","ישמעו"],
+[214,"verb.2","Habitual past • כל נדרי בארץ רחוקה","כל שנה ביום זה היא _____ את התקליט לזכר בני משפחתה. Complete the repeated past action.","היתה משמיעה","משמיעה","תשמיע","השמיעה"],
+[214,"vocab.3","Lesson vocabulary • כל נדרי בארץ רחוקה","האישה ביקשה לשבת, ובמעט המילים שידעה באנגלית _____: ... Choose the verb for 'explained'.","הסבירה","הקשיבה","הזמינה","שאלה"],
+[214,"meaning.1","Sentence meaning • כל נדרי בארץ רחוקה","מה פירוש 'לפני עשר שנים מתה האישה, והשאירה לנו את התקליט' בהקשר הסיפור?","האישה נפטרה והשאירה את התקליט","האישה קנתה אונייה","האישה שרה במקהלה","האישה חזרה לגרמניה"]
 ],
 37:[
 [13,"reading.1","Reading • כרטיסי ברכה","Read: במאה ה־14 בגרמניה ובאוסטריה התחילו לשלוח כרטיסי ברכה לכבוד הכריסמס. Where did this custom begin in the passage?","בגרמניה ובאוסטריה","בישראל ובקנדה","באנגליה ובצרפת","בנורווגיה וביוון"],
@@ -73,5 +54,6 @@ const rows={
 [36,"wedding.2","Word choice • טקסי חתונה בתרבויות שונות","החברים _____ (משתמשים / חוגגים) את האירוע.","חוגגים","משתמשים","מפסיקים","מבינים"],
 [36,"wedding.3","Word choice • טקסי חתונה בתרבויות שונות","בסוף הטקס כולם אומרים _____ (כלות / ברכות), כמו 'מזל טוב'.","ברכות","כלות","תפילות","מילים"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const explanations={"vocab.1":"עגנה means docked; the opening sentence says the ship docked in a small fishing port.","vocab.2":"ריקים means empty; the narrator walked the empty streets and met no one.","verb.1":"קולות is plural, so the story uses נשמעו: the sounds were heard from upstairs.","verb.2":"כל שנה marks repetition; היתה משמיעה is the story's habitual past form.","vocab.3":"הסבירה means she explained; the woman explained the record in the little English she knew.","meaning.1":"The woman died ten years earlier and left the record; the Norwegian woman plays it in her memory."};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===36?{practiceOrigin:"Supplemental lesson practice · source sentence on PDF 214",explanation:explanations[sourceExercise]}:{})}))])));
 })();

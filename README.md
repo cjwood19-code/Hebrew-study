@@ -74,9 +74,11 @@ Chapters 32–33 add 68 source-based questions from units 15–16, plus six
 interpretation checks. See [units 15–16 coverage](source-audit-32-33.md).
 Chapters 34–35 add source-based questions from units 17–18, plus six
 interpretation checks. See [units 17–18 coverage](source-audit-34-35.md).
-Chapters 36–37 add 67 source-based questions from the final unit of
-*ללמוד עברית ברמה ב׳* and the first unit of *עברית בשניים לרמה ב׳*, plus
-six interpretation checks. See [units 19 and 1 coverage](source-audit-36-37.md).
+Chapter 36 has six lesson-based chapter questions, three Hebrew interpretation
+checks, and eight contextual Reading Practice questions based on the scanned
+*כל נדרי בארץ רחוקה*. Chapter 37 retains 38 active bank questions and three
+interpretation checks pending a full source reconciliation. See
+[units 19 and 1 audit](source-audit-36-37.md).
 Chapters 38–39 add 57 source-based questions from *עברית בשניים לרמה ב׳*
 chapters 2–3, plus six interpretation checks. See [chapters 2–3 coverage](source-audit-38-39.md).
 Chapters 40–41 add 59 source-based questions from *עברית בשניים לרמה ב׳*

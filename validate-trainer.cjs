@@ -11,7 +11,7 @@ const context={window:{},document:{getElementById:()=>null}};vm.createContext(co
 for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
 const reviewQueue=context.window.HEBREW_CONTEXT_REVIEW_QUEUE;
-assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===134);
+assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===132);
 assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,46);
 let count=0;
 for(const [level,bank] of Object.entries(banks)){
@@ -76,7 +76,7 @@ assert.equal(chapters[32].lastPage,196);
 assert.equal(chapters[33].firstPage,197);assert.equal(chapters[33].lastPage,205);
 assert.equal(chapters[34].firstPage,206);assert.equal(chapters[34].lastPage,213);
 for(const level of [36,37]){
-  assert.equal(banks[level].length,level===36?23:38);
+  assert.equal(banks[level].length,level===36?6:38);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }

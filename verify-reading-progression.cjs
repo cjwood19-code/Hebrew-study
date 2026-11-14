@@ -20,7 +20,16 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,31);
+assert.equal(buttons.length,32);
+const kolButton=buttons.find(b=>b.textContent==='כל נדרי בארץ רחוקה');assert.ok(kolButton);
+kolButton.onclick();
+assert.match(get('readingSource').textContent,/unit 19.*PDF page 214.*PDF page 216/);
+assert.match(get('readingPassage').textContent,/מאז אני משמיעה את התפילה בכל יום כיפורים/);
+assert.equal(get('readingQuestionProgress').textContent,'Printed question 1 · PDF 216 · adapted choices • Question 1 of 8');
+const kolWrong=get('readingChoices').children.find(b=>b.textContent!=='איש יהודי שירד מן האונייה');kolWrong.onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: איש יהודי שירד מן האונייה/);
+assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
+get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 8$/);
 for(const title of ['העבודה והבטלה','החכמים בכיכר הכפר — מילות יחס','התינוק הגדול ביותר בעולם','מבצע להצלת הלווייתנים'])assert.ok(buttons.some(b=>b.textContent===title),title);
 assert.ok(buttons.some(b=>b.textContent==='לאט אבל בטוח'));
 assert.ok(buttons.some(b=>b.textContent==='כל כך הרבה אבנים'));

@@ -12,7 +12,25 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,31);
+assert.equal(passages.length,32);
+const kol=passages.find(p=>p.id==='lilmod-19-kol-nidrei');
+assert.ok(kol);
+assert.match(kol.source,/unit 19.*PDF page 214.*PDF page 216/);
+assert.equal(kol.questions.length,8);
+assert.ok(kol.he.includes('קולות השירה נשמעו מהקומה העליונה'));
+assert.ok(kol.he.includes('מאז אני משמיעה את התפילה בכל יום כיפורים'));
+assert.ok(!kol.he.includes('חשבתי על משפחתי'));
+assert.ok(kol.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));
+const chapter36={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-36-37.js'),'utf8'),chapter36);
+assert.equal(chapter36.window.HEBREW_TEXTBOOK_QUESTION_BANKS[36].length,6);
+assert.ok(chapter36.window.HEBREW_TEXTBOOK_QUESTION_BANKS[36].every(q=>q.sourcePage===214&&q.explanation&&q.practiceOrigin));
+const chapter36Interpretation={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-36-37.js'),'utf8'),chapter36Interpretation);
+for(const q of chapter36Interpretation.window.HEBREW_CHAPTER_INTERPRETATION[36]){
+ assert.equal(q.sourcePage,214);assert.ok(q.explanation);
+ assert.ok(kol.he.includes(q.prompt.split('\n')[1]));
+}
 for(const [id,unit,page,count] of [['lilmod-17-solon',17,197,8],['lilmod-17-prepositions',17,205,3],['lilmod-18-whale',18,206,14],['lilmod-18-rescue',18,212,3]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
