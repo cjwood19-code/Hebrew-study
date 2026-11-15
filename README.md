@@ -92,8 +92,7 @@ questions and 6 Reading Practice activities with 14 contextual questions.
 Chapter 43 has 8 standalone Chapter Test questions and 10 Reading Practice
 activities with 19 contextual questions. Each chapter has 3 Hebrew interpretation
 checks and 4 flashcards with examples. See [chapters 6–7 coverage](source-audit-42-43.md).
-Chapters 44–45 add 67 source-based questions from the same book, chapters 8–9,
-plus six interpretation checks. See [chapters 8–9 coverage](source-audit-44-45.md).
+Chapter 44 has 13 source-checked standalone Chapter Test questions, nine Reading Practice activities with 19 contextual questions, three Hebrew interpretation checks, and four flashcards with examples. Chapter 45 is indexed but its line-by-line source audit is pending. See [chapters 8–9 coverage](source-audit-44-45.md).
 Chapter 46 adds 45 source-based questions from chapter 10, שפה, plus three
 Hebrew interpretation checks. See [chapter 10 coverage](source-audit-46.md).
 See [source coverage and validation](source-audit-24-25.md) for the inspected

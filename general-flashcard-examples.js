@@ -86,7 +86,11 @@ const rows=[
  ["קליגרפיה", "קליגרפיה היא כתיבה אומנותית.", "Calligraphy is artistic writing."],
  ["ערבסקה", "בערבסקה יש צורות גאומטריות.", "Arabesque contains geometric forms."],
  ["גרפיטי", "דניאל מצייר גרפיטי על קיר.", "Daniel paints graffiti on a wall."],
- ["מעברות", "המעברות היו מחנות אוהלים לעולים.", "The transit camps were tent camps for immigrants."]
+ ["מעברות", "המעברות היו מחנות אוהלים לעולים.", "The transit camps were tent camps for immigrants."],
+ ["זכות בחירה", "נשים דרשו זכות בחירה.", "Women demanded the right to vote."],
+ ["יוכבד", "יוכבד הייתה אימא של משה.", "Yocheved was Moses’s mother."],
+ ["שוויון", "הן נאבקו למען שוויון.", "They struggled for equality."],
+ ["מעבדה", "רוזלינד עבדה במעבדה.", "Rosalind worked in a laboratory."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

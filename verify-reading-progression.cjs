@@ -20,7 +20,8 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,87);
+assert.equal(buttons.length,96);
+const marathon44=buttons.find(b=>b.textContent==='קתרין סוויצר ומרתון בוסטון');assert.ok(marathon44);marathon44.onclick();assert.match(get('readingSource').textContent,/chapter 8.*PDF page 238/);assert.match(get('readingPassage').textContent,/קתרין סוויצר/);const marathonWrong=get('readingChoices').children.find(b=>b.textContent!=='1967');marathonWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: 1967/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const ghetto42=buttons.find(b=>b.textContent==='גטו — קריאה ושאלות');assert.ok(ghetto42);ghetto42.onclick();
 assert.match(get('readingSource').textContent,/chapter 6.*PDF page 152/);
 assert.match(get('readingPassage').textContent,/אפשרו ליהודים להישאר בעיר ולחיות רק בשכונה הזאת/);

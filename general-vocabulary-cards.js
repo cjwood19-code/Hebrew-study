@@ -536,5 +536,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
  {"id": "shnayim-7-001", "he": "קליגרפיה", "en": "calligraphy", "chapter": 43, "sourcePage": 181, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-7-002", "he": "ערבסקה", "en": "arabesque", "chapter": 43, "sourcePage": 181, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-7-003", "he": "גרפיטי", "en": "graffiti", "chapter": 43, "sourcePage": 188, "book": "עברית בשניים לרמה ב׳"},
- {"id": "shnayim-7-004", "he": "מעברות", "en": "transit camps", "chapter": 43, "sourcePage": 194, "book": "עברית בשניים לרמה ב׳"}
+ {"id": "shnayim-7-004", "he": "מעברות", "en": "transit camps", "chapter": 43, "sourcePage": 194, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-8-001", "he": "זכות בחירה", "en": "right to vote", "chapter": 44, "sourcePage": 212, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-8-002", "he": "יוכבד", "en": "Yocheved", "chapter": 44, "sourcePage": 212, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-8-003", "he": "שוויון", "en": "equality", "chapter": 44, "sourcePage": 238, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-8-004", "he": "מעבדה", "en": "laboratory", "chapter": 44, "sourcePage": 232, "book": "עברית בשניים לרמה ב׳"}
 ];

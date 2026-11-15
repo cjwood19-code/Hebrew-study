@@ -12,7 +12,18 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,87);
+assert.equal(passages.length,96);
+for(const [id,page,count,phrase] of [
+ ['shnayim-8-women-history',212,3,'הפרלמנט הבריטי'],
+ ['shnayim-8-moses',212,3,'יוכבד'],
+ ['shnayim-8-dorothea',216,1,'אם ל־7 ילדים'],
+ ['shnayim-8-malala',218,3,'מלאלה יוספזאי'],
+ ['shnayim-8-get-film',220,1,'הסרט גט'],
+ ['shnayim-8-laqiya',222,2,'לקיה'],
+ ['shnayim-8-ali-baba',224,2,'סומסום, בבקשה להיפתח!'],
+ ['shnayim-8-franklin',232,2,'רוזלינד פרנקלין'],
+ ['shnayim-8-marathon',238,2,'קתרין סוויצר']
+]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 8.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,page,count,phrase] of [
  ['shnayim-6-ghetto',152,3,'אפשרו ליהודים להישאר בעיר'],
  ['shnayim-6-righteous',154,2,'החליטה ממשלת ישראל'],
@@ -268,4 +279,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–43, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–44, and 46; original Hebrew reading context; source labels and corrections present.');

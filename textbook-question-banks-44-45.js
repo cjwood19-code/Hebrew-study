@@ -2,38 +2,19 @@
 (function(){"use strict";
 const rows={
 44:[
-[212,"reading.history.1","Reading • היסטוריה בקצרה","Which change in the fourteenth century does the passage describe?","נשים קיבלו קצת עצמאות","נשים קיבלו זכות בחירה","נשים שירתו בצבא","נשים נבחרו לפרלמנט"],
-[212,"reading.history.2","Reading • היסטוריה בקצרה","What did women in many places still lack in 1912?","זכות לבחור","זכות ללמוד לקרוא","אפשרות לצייר","אפשרות לבשל"],
-[212,"reading.history.3","Reading • היסטוריה בקצרה","In which year did the passage say women in Britain received voting rights?","1918","1912","1935","1962"],
-[212,"purpose.1","Purpose • כדי","Choose the purpose word in the printed exercise: נשים יצאו לעבוד _____ לפרנס את משפחותיהן.","כדי","אלא","מפני ש","למרות"],
-[212,"purpose.2","Purpose • כדי","Complete the printed structure: _____ שהממשלה תקבל את הדרישות שלהן, הנשים הפגינו.","כדי","לפני","אחרי","בגלל"],
-[214,"reading.moses.1","Reading • גיבורות שלי","Who found Moses in the basket in the source story?","בת פרעה","מרים","ציפורה","יוכבד"],
-[214,"reading.moses.2","Reading • גיבורות שלי","Who was Moses's mother in the source story?","יוכבד","בת פרעה","יהודית","מלאלה"],
-[214,"reading.moses.3","Reading • גיבורות שלי","Which woman asked the princess about bringing a nurse for the baby?","מרים","ציפורה","אסתר","יודית"],
-[216,"purpose.3","Purpose • כדי","Complete the source's goal clause: הנשים הישראליות רצו לצאת לעבודה _____ להגדיל את הכנסת המשפחה.","כדי","אלא","למרות","אחרי"],
-[216,"reading.lange.1","Reading • האם הנודדת","What did Dorothea Lange photograph during the Great Depression?","אם ושבעת ילדיה","מלך ובתו","בית משפט","גן חיות"],
-[218,"reading.malala.1","Reading • מלאלה יוספזאי","At what age did Malala begin writing against Taliban restrictions?","11","7","20","30"],
-[218,"reading.malala.2","Reading • מלאלה יוספזאי","What did the Taliban ban for girls in the passage?","ללכת לבית הספר","לשחק בכדור","לאכול בבית","לדבר עם ההורים"],
-[218,"reading.malala.3","Reading • מלאלה יוספזאי","What prize did Malala receive in 2014?","פרס נובל לשלום","פרס ישראל","פרס אוסקר","פרס ספיר"],
-[220,"reading.film.1","Reading • הסרט ג'מי","Which court does the woman arrive at in the film description?","בית הדין","בית משפט לתעבורה","בית ספר","בית חולים"],
-[220,"negation.1","Negation • לא... אלא","Complete the printed pattern: הוא לא למד עברית _____ ערבית.","אלא","מפני ש","כדי","למרות"],
-[220,"negation.2","Negation • לא... אלא","Complete the printed pattern: בסרט אין דמויות אמיתיות _____ שחקנים.","אלא","כדי","לפני","אחרי"],
-[222,"reading.lakya.1","Reading • לקיה","When was the Bedouin women's organization in Lakya established?","1996","1918","2012","1962"],
-[222,"reading.lakya.2","Reading • לקיה","What was the organization's main aim?","לשפר את מעמד הנשים הבדואיות","ללמד גברים לצייר","לבנות בתי מלון","לסגור בתי ספר"],
-[224,"passive.nifal.1","Passive • נפעל","Choose the past form in the printed נפעל table for הוא from להיפגש.","נפגש","נפגשת","ייפגש","נפגשים"],
-[224,"passive.nifal.2","Passive • נפעל","Choose the future form for אני from להיפגש.","איפגש","נפגשתי","נפגשים","תיפגש"],
-[224,"reading.ali.1","Reading • עלי באבא","What did Ali Baba hear while hiding in the tree?","סומסום, היפתח","פתחי את הדלת","בוא הביתה","אני רוצה ללמוד"],
-[224,"reading.ali.2","Reading • עלי באבא","What did the robbers take from the cave?","זהב וכסף","ספרים ומפות","אוכל ומים","פרחים וצמחים"],
-[228,"passive.hufal.1","Passive • הפעיל / הופעל","Choose the passive form for השודד גנב את האוצר בלילה.","האוצר נגנב בלילה בידי השודד.","השודד יגנוב את האוצר.","השודד גונב את האוצר.","האוצר גונב את השודד."],
-[228,"passive.hufal.2","Passive • הפעיל / הופעל","Choose the passive form from the printed exercise: השומר סגר את הדלת.","הדלת נסגרה על ידי השומר.","השומר יסגור את הדלת.","הדלת סוגרת את השומר.","השומר סוגר את הדלת."],
-[230,"pronoun.bishvil.1","Pronouns • בשביל","Which printed form means 'for me'?","בשבילי","בשבילו","בשבילנו","בשבילם"],
-[230,"pronoun.bishvil.2","Pronouns • בשביל","Which printed form means 'for them' (masculine)?","בשבילם","בשבילן","בשבילנו","בשבילה"],
-[232,"reading.franklin.1","Reading • פרס נובל? לא בשבילה","Which subject did Rosalind Franklin study?","DNA","קליגרפיה","אסטרונומיה","חקלאות"],
-[232,"reading.franklin.2","Reading • פרס נובל? לא בשבילה","Which two scientists received the 1962 Nobel Prize described in the passage?","פרנסיס קריק וג'יימס ווטסון","ואן גוך וקלימט","איינשטיין וניוטון","מארי קירי ורוזלינד פרנקלין"],
-[236,"reading.marathon.1","Reading • חולצה בריצה","In which city did Kathrine Switzer run the marathon in 1967?","בוסטון","לונדון","ונציה","ירושלים"],
-[236,"reading.marathon.2","Reading • חולצה בריצה","Who tried to stop Switzer during the race?","ג'וק סמפל","ג'יימס ווטסון","אבו גוש","עלי באבא"],
-[238,"passive.nifal.3","Passive • נפעל","Choose the past passive completion: התוצאה _____ אלייך מן המעבדה.","נשלחה","נשלח","תישלח","שולחת"],
-[238,"vocabulary.1","Vocabulary • נשים","Which printed word means 'equal'?","שוויון","כישלון","ניצחון","מסע"]
+[212,"purpose.1","Purpose • כדי","השלימו את דוגמת המקור: היום נשים עובדות מחוץ לבית _____ לפרנס את משפחותיהן.","כדי","אלא","מפני ש","למרות"],
+[212,"purpose.2","Purpose • כדי ש","השלימו את דוגמת המקור: הנשים הפגינו _____ שהממשלה תקבל את הדרישות שלהן.","כדי","לפני","אחרי","בגלל"],
+[216,"purpose.3","Purpose • כדי","בתרגיל על יציאה לעבודה, השלימו את המטרה: נשים יוצאות לעבודה _____ להגדיל את הכנסות המשפחה.","כדי","אלא","למרות","אחרי"],
+[220,"negation.1","Negation • לא... אלא","השלימו את דוגמת המקור: האנס לא לימד עברית _____ ערבית.","אלא","מפני ש","כדי","למרות"],
+[220,"negation.2","Negation • לא... אלא","השלימו את דוגמת המקור: בסרט אין דמויות אמיתיות _____ שחקנים.","אלא","כדי","לפני","אחרי"],
+[224,"passive.nifal.1","Passive • נפעל","השלימו לפי טבלת להיפגש: הוא (עבר) _____", "נפגש","נפגשת","ייפגש","נפגשים"],
+[224,"passive.nifal.2","Passive • נפעל","השלימו לפי טבלת להיפגש: אני (עתיד) _____", "איפגש","נפגשתי","נפגשים","תיפגש"],
+[228,"passive.nifal.3","Passive • נפעל","השלימו את התרגיל המודפס: החתול שבר את הצלחת. הצלחת _____ בכיור.","נשברה","נשבר","תישבר","שוברת"],
+[228,"passive.nifal.4","Passive • נפעל","השלימו את התרגיל המודפס: עלי באבא לקח את האוצרות. האוצרות _____ מהשודדים.","נלקחו","נלקח","יילקחו","לוקחים"],
+[230,"pronoun.bishvil.1","Pronouns • בשביל","בטבלת בשביל, איזו צורה פירושה for me?", "בשבילי","בשבילו","בשבילנו","בשבילם"],
+[230,"pronoun.bishvil.2","Pronouns • בשביל","בטבלת בשביל, איזו צורה פירושה for them (masculine)?", "בשבילם","בשבילן","בשבילנו","בשבילה"],
+[238,"passive.nifal.5","Passive • נפעל","בחרו מן התרגיל: אפשר _____ במרפאה השכונתית, מפני שכל יום יש שם רופאים.","להירפא","להידבק","להיקלח","להיפגש"],
+[238,"vocabulary.1","Vocabulary • נשים","איזו מילה מרשימת הפרק פירושה equality?", "שוויון","כישלון","ניצחון","מסע"]
 ],
 45:[
 [240,"reading.maathai.1","Reading • מגיע לה פרס","Who is the Kenyan Nobel Peace Prize winner in the opening reading?","ואנגרי מאתאי","מלאלה יוספזאי","רוזלינד פרנקלין","קתרין סוויצר"],
@@ -72,5 +53,19 @@ const rows={
 [270,"reading.families.2","Reading • משפחות ירוקות","What do the families use instead of buying plastic bags?","בדים או תיקים רב־פעמיים","שקיות חדשות בכל יום","קופסאות זהב","עיתונים ישנים בלבד"],
 [272,"pronoun.atzmi.3","Pronouns • עצמי","Complete the printed dialogue: לבד, בפינה בתוך _____ (עצם).","עצמו","עצמי","עצמם","עצמה"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const explain44={
+"purpose.1":"כדי באה לפני שם הפועל לפרנס ומציגה את מטרת העבודה.",
+"purpose.2":"כדי ש פותחת פסוקית מטרה: הממשלה תקבל את הדרישות.",
+"purpose.3":"בתרגיל המטרה היא להגדיל את הכנסות המשפחה; לפני שם הפועל באה כדי.",
+"negation.1":"בדוגמת לא...אלא, אלא מציינת את החלופה: ערבית במקום עברית.",
+"negation.2":"בדוגמת הספר הסרט אינו מציג דמויות אמיתיות אלא שחקנים.",
+"passive.nifal.1":"בטבלת להיפגש, צורת העבר של הוא היא נפגש.",
+"passive.nifal.2":"בטבלת להיפגש, צורת העתיד של אני היא איפגש.",
+"passive.nifal.3":"הפעולה על הצלחת מבוטאת בנפעל בעבר נקבה: הצלחת נשברה.",
+"passive.nifal.4":"האוצרות הם נושא רבים של צורת נפעל בעבר: נלקחו.",
+"pronoun.bishvil.1":"בטבלת מילת היחס בשביל, הצורה למדבר יחיד היא בשבילי.",
+"pronoun.bishvil.2":"בטבלת בשביל, צורת הרבים הזכרית היא בשבילם.",
+"passive.nifal.5":"במרפאה אפשר להירפא; זה הפועל המתאים לפי ההקשר והאפשרויות המודפסות.",
+"vocabulary.1":"שוויון פירושו equality, רעיון מרכזי בקריאת הפרק על זכויות נשים."};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===44?{explanation:explain44[sourceExercise],practiceOrigin:"Textbook exercise with adapted choices"}:{})}))])));
 })();
