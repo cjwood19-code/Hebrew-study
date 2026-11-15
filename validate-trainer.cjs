@@ -11,7 +11,7 @@ const context={window:{},document:{getElementById:()=>null}};vm.createContext(co
 for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
 const reviewQueue=context.window.HEBREW_CONTEXT_REVIEW_QUEUE;
-assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===38);
+assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===20);
 assert.equal(chapters.length,46);assert.equal(chapters.filter(c=>c.ready).length,46);
 let count=0;
 for(const [level,bank] of Object.entries(banks)){
@@ -104,7 +104,7 @@ assert.equal(chapters[41].firstPage,152);assert.equal(chapters[41].lastPage,180)
 assert.equal(chapters[42].firstPage,181);assert.equal(chapters[42].lastPage,211);
 for(const level of [44,45]){
   assert.equal(banks[level].length,level===44?13:17);
-  assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
+  assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise&&q.explanation&&q.practiceOrigin&&/[\u0590-\u05FF]/.test(q.prompt)));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 assert.equal(chapters[43].firstPage,212);assert.equal(chapters[43].lastPage,239);
@@ -129,7 +129,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,89);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,93);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&c.exampleKind==='Supplemental practice example',c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));

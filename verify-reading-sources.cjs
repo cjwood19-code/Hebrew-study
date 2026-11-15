@@ -12,7 +12,19 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,96);
+assert.equal(passages.length,106);
+for(const [id,page,count,phrase] of [
+ ['shnayim-9-maathai',240,3,'ואנגרי מאתאי'],
+ ['shnayim-9-population',242,2,'7.2 מיליארד'],
+ ['shnayim-9-dog-nose',246,2,'דייזי'],
+ ['shnayim-9-pluto',256,2,'עדיין לא גילו את הכוכב'],
+ ['shnayim-9-roofs',260,2,'על הגגות'],
+ ['shnayim-9-gardens',262,2,'נבוכדנצר השני'],
+ ['shnayim-9-self-sufficient',266,2,'לבנות ______ את הבית'],
+ ['shnayim-9-healthy',266,2,'פירות וירקות אורגניים'],
+ ['shnayim-9-eucalyptus',268,2,'האקליפטוס'],
+ ['shnayim-9-green-families',270,2,'לחיות / להפסיד']
+]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 9.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);}
 for(const [id,page,count,phrase] of [
  ['shnayim-8-women-history',212,3,'הפרלמנט הבריטי'],
  ['shnayim-8-moses',212,3,'יוכבד'],
@@ -279,4 +291,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–44, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–46; original Hebrew reading context; source labels and corrections present.');

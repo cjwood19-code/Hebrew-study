@@ -90,7 +90,11 @@ const rows=[
  ["זכות בחירה", "נשים דרשו זכות בחירה.", "Women demanded the right to vote."],
  ["יוכבד", "יוכבד הייתה אימא של משה.", "Yocheved was Moses’s mother."],
  ["שוויון", "הן נאבקו למען שוויון.", "They struggled for equality."],
- ["מעבדה", "רוזלינד עבדה במעבדה.", "Rosalind worked in a laboratory."]
+ ["מעבדה", "רוזלינד עבדה במעבדה.", "Rosalind worked in a laboratory."],
+ ["אוכלוסייה", "האוכלוסייה בעולם גדלה.", "The world population grows."],
+ ["אשפה", "המשפחה לא זורקת אשפה ברחוב.", "The family does not throw trash in the street."],
+ ["גגות", "על הגגות שותלים פרחים וירקות.", "Flowers and vegetables are planted on rooftops."],
+ ["אקליפטוס", "האקליפטוס הגיע מאוסטרליה.", "The eucalyptus came from Australia."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

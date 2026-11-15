@@ -1,6 +1,6 @@
 /* Source Hebrew-to-English interpretation checks from the user's scanned textbook. */
 (function(){"use strict";
-const make=(sourcePage,he,answer,a,b,c)=>({category:"Interpretation • Hebrew to English",sourcePage,prompt:"What does this Hebrew mean?\n"+he,answer,options:[answer,a,b,c],interpretation:true,...(sourcePage<240?{sourceExercise:"chapter 8 printed reading sentence",explanation:"The English answer follows the scanned Hebrew sentence and its chapter 8 reading context."}:{})});
+const make=(sourcePage,he,answer,a,b,c)=>({category:"Interpretation • Hebrew to English",sourcePage,prompt:"What does this Hebrew mean?\n"+he,answer,options:[answer,a,b,c],interpretation:true,...({sourceExercise:sourcePage<240?"chapter 8 printed reading sentence":"chapter 9 printed reading sentence",explanation:"The English answer follows the scanned Hebrew sentence and its lesson context."})});
 Object.assign(window.HEBREW_CHAPTER_INTERPRETATION||{}, {
 44:[
 make(212,"בשנת 1912 לא הסכים הפרלמנט הבריטי לתת לנשים זכות לבחור.","In 1912 the British Parliament did not agree to give women the right to vote.","In 1912 women voted in the British Parliament.","The British Parliament closed in 1912.","Women refused to vote in Britain in 1912."),

@@ -17,42 +17,25 @@ const rows={
 [238,"vocabulary.1","Vocabulary • נשים","איזו מילה מרשימת הפרק פירושה equality?", "שוויון","כישלון","ניצחון","מסע"]
 ],
 45:[
-[240,"reading.maathai.1","Reading • מגיע לה פרס","Who is the Kenyan Nobel Peace Prize winner in the opening reading?","ואנגרי מאתאי","מלאלה יוספזאי","רוזלינד פרנקלין","קתרין סוויצר"],
-[240,"reading.maathai.2","Reading • מגיע לה פרס","What did Maathai organize women to plant?","עצים","פרחים בלבד","חיטה בלבד","ירקות בלבד"],
-[240,"reading.maathai.3","Reading • מגיע לה פרס","In which year did Maathai receive the Nobel Peace Prize?","2004","1940","2012","1967"],
-[242,"reading.population.1","Reading • אסון דמוגרפי","What figure does the passage give for world population in 2012?","7.2 מיליארד","900,000","30 מיליון","21 מיליון"],
-[242,"reading.population.2","Reading • אסון דמוגרפי","What problem do demographers discuss in this passage?","גידול האוכלוסייה","צבעי הבגדים","זכויות הצבעה","שפת הקליגרפיה"],
-[244,"matching.population.1","Matching • אסון דמוגרפי","Complete the printed match: אוכלוסיית העולם בשנת 2012 _____.","הייתה 7.2 מיליארד","הייתה מיליון אחד","הייתה 21 מיליון","הייתה 900 אלף"],
-[244,"matching.population.2","Matching • אסון דמוגרפי","Complete the printed match: נשים _____.","מביאות פחות ילדים לעולם","נולדות באנגליה","מבקרות במוזאון","משחקות בכדור"],
-[246,"vocabulary.environment.1","Vocabulary • סביבה","Which word in the printed matching exercise means 'environment'?","סביבה","אוכלוסייה","צדק","מזון"],
-[246,"vocabulary.environment.2","Vocabulary • קיימות","Which printed term means 'sustainability'?","קיימות","תחרות","בריאות","עשייה"],
-[246,"reading.hawking.1","Reading • סטיבן הוקינג","What device did Stephen Hawking use to speak after his illness progressed?","מחשב","מכונת כתיבה בלבד","טלפון ציבורי","רדיו"],
-[248,"superlative.1","Superlatives • ערך ההפלגה","Complete the printed pattern: ההר _____ בעולם הוא האוורסט.","הגבוה ביותר","הארוך ביותר","הגדול ביותר","העמוק ביותר"],
-[248,"superlative.2","Superlatives • ערך ההפלגה","Complete the printed pattern: הספר _____ בעולם נמצא בהודו.","הגדול ביותר","הגבוה ביותר","העמוק ביותר","הארוך ביותר"],
-[248,"reading.hawking.2","Reading • סטיבן הוקינג","What field did Hawking continue to work in?","פיזיקה","ציור","חקלאות","משפטים"],
-[250,"verb.lamedhe.1","Future • לשנות","Choose the future first-person form of לשנות from the exercise.","אשנה","שיניתי","משנה","ישנו"],
-[250,"verb.lamedhe.2","Future • לגלות","Choose the future first-person form of לגלות from the exercise.","אגלה","גיליתי","מגלה","יגלו"],
-[252,"past.1","Past • לשנות","Choose the past masculine singular of לשנות for the printed sentence about mathematical understanding.","שינה","ישנה","משנה","שינו"],
-[252,"past.2","Past • לגלות","Choose the past feminine singular of לגלות from the source verb exercise.","גילתה","תגלה","מגלה","גילו"],
-[254,"future.1","Future • לשנות","Choose the future plural form for הם of לשנות from the printed table.","ישנו","שינו","משנים","נשנה"],
-[254,"phrase.1","Phrases • שום דבר","Complete the printed meaning: שום דבר לא יהיה אותו הדבר בעוד מיליון שנים = _____.","Nothing will be the same in a million years.","Everything will stay the same this year.","Nobody will learn for a million years.","No one remembers the past."],
-[256,"reading.pluto.1","Reading • יגלו או לא יגלו","What is the topic of the dialogue?","כוכב חדש","מרתון בוסטון","זכות בחירה","בית הדין"],
-[256,"phrase.2","Phrases • אף אחד","Choose the printed sentence meaning 'No one knows how it will happen.'","אף אחד לא יודע איך זה יקרה.","כולם יודעים איך זה יקרה.","אף פעם לא ראיתי את זה.","שום דבר לא קרה."],
-[258,"phrase.3","Phrases • כבר","Which phrase in the box means 'not yet'?","עדיין לא","כבר","אף פעם","שום דבר"],
-[260,"reading.roofs.1","Reading • טבע אורבני, טבע עירוני","What do green roofs help reduce in the passage?","חום בערים","מספר הספרים","זכות הבחירה","גובה הבניינים"],
-[260,"reading.roofs.2","Reading • טבע אורבני, טבע עירוני","What do farmers grow on city roofs?","ירקות","פסלים","מכוניות","מחשבים"],
-[262,"reading.gardens.1","Reading • הגנים התלויים בבבל","Who, according to the story, built the Hanging Gardens?","נבוכדנצר השני","אלכסנדר מוקדון","נפוליאון","ואנגרי מאתאי"],
-[262,"reading.gardens.2","Reading • הגנים התלויים בבבל","For whom does the story say the gardens were built?","אשתו של המלך","תלמידי בית הספר","חיילי העיר","האיכרים"],
-[264,"pronoun.atzmi.1","Pronouns • עצמי","Which form in the printed table means 'myself'?","עצמי","עצמך","עצמו","עצמנו"],
-[264,"pronoun.atzmi.2","Pronouns • עצמי","Which form in the printed table means 'themselves' (masculine)?","עצמם","עצמן","עצמנו","עצמה"],
-[266,"reading.family.1","Reading • הכול בעצמנו","What do the families in the passage hope to do?","לחיות חיים עצמאיים","לעבור לבית מלון","לפתוח מוזאון","לסגור בית ספר"],
-[266,"reading.family.2","Reading • אנחנו רוצים להיות בריאים","What does Dr. Yarkoni suggest children grow themselves?","פירות וירקות","ממתקים","משקאות ממותקים","מזון מהיר"],
-[268,"reading.eucalyptus.1","Reading • לכרות או לא לכרות","What kind of trees are at the center of the passage?","אקליפטוסים","עצי זית","עצי תפוח","דקלים"],
-[268,"reading.eucalyptus.2","Reading • לכרות או לא לכרות","What question divides the people in the passage?","האם לכרות את העצים","האם לבנות בית ספר","האם לצייר על הקיר","האם לנסוע לאנגליה"],
-[270,"reading.families.1","Reading • משפחות ירוקות","What do the families want to reduce?","השימוש בפלסטיק","מספר הספרים","לימודי העברית","מספר הילדים"],
-[270,"reading.families.2","Reading • משפחות ירוקות","What do the families use instead of buying plastic bags?","בדים או תיקים רב־פעמיים","שקיות חדשות בכל יום","קופסאות זהב","עיתונים ישנים בלבד"],
-[272,"pronoun.atzmi.3","Pronouns • עצמי","Complete the printed dialogue: לבד, בפינה בתוך _____ (עצם).","עצמו","עצמי","עצמם","עצמה"]
+[244,"matching.population.1","Matching • אסון דמוגרפי","השלימו את ההתאמה המודפסת: אוכלוסיית העולם בשנת 2012 _____.","הייתה 7.2 מיליארד","הייתה מיליון אחד","הייתה 21 מיליון","הייתה 900 אלף"],
+[244,"matching.population.2","Matching • אסון דמוגרפי","השלימו את ההתאמה המודפסת: נשים _____.","מביאות פחות ילדים לעולם","נולדות באנגליה","מבקרות במוזאון","משחקות בכדור"],
+[246,"vocabulary.1","Vocabulary • אוכלוסייה","ברשימת המילים המודפסת, מה פירוש ״מספר האנשים בארץ, ביבשה ובעולם״?","אוכלוסייה","אשפה","מזון","עץ"],
+[246,"vocabulary.2","Vocabulary • אשפה","ברשימת המילים המודפסת, מה פירוש ״דברים שזורקים לפח״?","אשפה","צמחייה","מזון","תחרות"],
+[248,"superlative.1","Superlatives • ערך ההפלגה","השלימו מהתרגיל: ההר _____ בעולם הוא הר האוורסט.","הגבוה ביותר","הארוך ביותר","הגדול ביותר","העמוק ביותר"],
+[248,"superlative.2","Superlatives • ערך ההפלגה","השלימו מהתרגיל: בית הספר _____ בעולם נמצא בהודו.","הגדול ביותר","הגבוה ביותר","העמוק ביותר","הארוך ביותר"],
+[250,"past.table.1","Past • לשנות","בטבלת העבר של לשנות, השלימו: הוא _____.","שינה","שיניתי","ישנה","משנה"],
+[250,"past.table.2","Past • לשנות","בטבלת העבר של לשנות, השלימו: אני _____.","שיניתי","שינה","אשנה","משנה"],
+[252,"past.exercise.1","Past • לשנות","השלימו את התרגיל בעבר: אבן מוסא אל־ח׳ואריזמי _____ את ההבנה המתמטית של האדם.","שינה","שינתה","ישנה","משנה"],
+[252,"past.exercise.2","Past • לגלות","השלימו את התרגיל בעבר: העיתונאית אמרה לאדריכלית אתי: את _____ את סגנון האדריכלות בעולם.","גילית","גילתה","תגלה","מגלה"],
+[254,"future.table.1","Future • לשנות","בטבלת העתיד של לשנות, השלימו: הם _____.","ישנו","שינו","משנים","נשנה"],
+[254,"phrase.1","Phrases • שום דבר","מה פירוש משפט המקור: ״שום דבר לא יהיה אותו הדבר בכדור הארץ בעוד מיליון שנים״?","Nothing on Earth will be the same in a million years.","Everything on Earth will stay the same.","No one will study for a million years.","Nothing happened on Earth a million years ago."],
+[256,"negative.1","Phrases • אף אחד","השלימו מדוגמת המקור: _____ לא ראה את הסרט החדש.","אף אחד","שום דבר","אף פעם","כבר"],
+[258,"phrase.2","Phrases • עדיין לא","איזה צירוף מן התיבה פירושו “not yet”?","עדיין לא","כבר","אף פעם","שום דבר"],
+[264,"pronoun.atzmi.1","Pronouns • עצמי","בטבלת עצמי, איזו צורה פירושה “myself”?","עצמי","עצמך","עצמו","עצמנו"],
+[264,"pronoun.atzmi.2","Pronouns • עצמי","בטבלת עצמי, איזו צורה פירושה “themselves” בזכר?","עצמם","עצמן","עצמנו","עצמה"],
+[272,"pronoun.atzmi.3","Pronouns • עצמי","השלימו מהדו־שיח: לבד, בפינה בתוך _____ (עצם).","עצמו","עצמי","עצמם","עצמה"]
 ]};
+const explain45={"matching.population.1": "ההתאמה בעמוד 232 נותנת לאוכלוסיית העולם בשנת 2012 את המספר 7.2 מיליארד.", "matching.population.2": "בהתאמה המודפסת נשים נקשרות למשפט מביאות פחות ילדים לעולם.", "vocabulary.1": "ברשימת המילים, אוכלוסייה היא מספר האנשים באזור.", "vocabulary.2": "אשפה היא מה שזורקים לפח; כך מוגדר המונח בתרגיל.", "superlative.1": "האוורסט הוא ההר הגבוה ביותר; ערך ההפלגה בנוי מהתואר ו־ביותר.", "superlative.2": "התרגיל מדבר על בית הספר הגדול ביותר, ולא על ספר.", "past.table.1": "בטבלת העבר של לשנות, צורת הוא היא שינה.", "past.table.2": "בטבלת העבר של לשנות, צורת אני היא שיניתי.", "past.exercise.1": "אבן מוסא הוא נושא יחיד זכר, ולכן בעבר שינה.", "past.exercise.2": "העיתונאית פונה לאתי בלשון את; העבר של לגלות הוא גילית.", "future.table.1": "בטבלת העתיד של לשנות, צורת הם היא ישנו.", "phrase.1": "שום דבר לא יהיה אותו הדבר פירושו שלא יהיה דבר שיישאר כפי שהוא.", "negative.1": "אף אחד לא ראה פירושו שאיש לא ראה; זו הדוגמה המודפסת.", "phrase.2": "עדיין לא פירושו not yet, כפי שמוצג בתיבת הביטויים.", "pronoun.atzmi.1": "עצמי היא הצורה למדבר יחיד בטבלת מילת היחס.", "pronoun.atzmi.2": "עצמם היא הצורה לרבים זכר בטבלה.", "pronoun.atzmi.3": "הדיאלוג מתאר אדם יחיד זכר שיושב לבדו בתוך עצמו."};
 const explain44={
 "purpose.1":"כדי באה לפני שם הפועל לפרנס ומציגה את מטרת העבודה.",
 "purpose.2":"כדי ש פותחת פסוקית מטרה: הממשלה תקבל את הדרישות.",
@@ -67,5 +50,5 @@ const explain44={
 "pronoun.bishvil.2":"בטבלת בשביל, צורת הרבים הזכרית היא בשבילם.",
 "passive.nifal.5":"במרפאה אפשר להירפא; זה הפועל המתאים לפי ההקשר והאפשרויות המודפסות.",
 "vocabulary.1":"שוויון פירושו equality, רעיון מרכזי בקריאת הפרק על זכויות נשים."};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===44?{explanation:explain44[sourceExercise],practiceOrigin:"Textbook exercise with adapted choices"}:{})}))])));
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===44?{explanation:explain44[sourceExercise],practiceOrigin:"Textbook exercise with adapted choices"}:{explanation:explain45[sourceExercise],practiceOrigin:"Textbook exercise with adapted choices"})}))])));
 })();

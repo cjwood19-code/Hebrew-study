@@ -540,5 +540,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
 {"id": "shnayim-8-001", "he": "זכות בחירה", "en": "right to vote", "chapter": 44, "sourcePage": 212, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-8-002", "he": "יוכבד", "en": "Yocheved", "chapter": 44, "sourcePage": 212, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-8-003", "he": "שוויון", "en": "equality", "chapter": 44, "sourcePage": 238, "book": "עברית בשניים לרמה ב׳"},
-{"id": "shnayim-8-004", "he": "מעבדה", "en": "laboratory", "chapter": 44, "sourcePage": 232, "book": "עברית בשניים לרמה ב׳"}
+{"id": "shnayim-8-004", "he": "מעבדה", "en": "laboratory", "chapter": 44, "sourcePage": 232, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-9-001", "he": "אוכלוסייה", "en": "population", "chapter": 45, "sourcePage": 246, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-9-002", "he": "אשפה", "en": "trash", "chapter": 45, "sourcePage": 246, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-9-003", "he": "גגות", "en": "roofs", "chapter": 45, "sourcePage": 260, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-9-004", "he": "אקליפטוס", "en": "eucalyptus", "chapter": 45, "sourcePage": 268, "book": "עברית בשניים לרמה ב׳"}
 ];
