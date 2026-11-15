@@ -87,10 +87,11 @@ Chapters 40–41 are scan-checked: chapter 40 has 13 Chapter Test items and seve
 Reading Practice activities (14 contextual questions); chapter 41 has 12 Chapter
 Test items and 11 Reading Practice activities (22 contextual questions). Each has
 three Hebrew interpretation checks and four contextual flashcards. See [chapters 4–5 coverage](source-audit-40-41.md).
-Chapter 42 is scan-checked: ten standalone Chapter Test questions, three Hebrew
-interpretation checks, six Reading Practice activities with 14 contextual
-questions, and four flashcards with examples. Chapter 43 remains indexed but
-awaits a full source and context audit. See [chapters 6–7 coverage](source-audit-42-43.md).
+Chapters 42–43 are scan-checked. Chapter 42 has 10 standalone Chapter Test
+questions and 6 Reading Practice activities with 14 contextual questions.
+Chapter 43 has 8 standalone Chapter Test questions and 10 Reading Practice
+activities with 19 contextual questions. Each chapter has 3 Hebrew interpretation
+checks and 4 flashcards with examples. See [chapters 6–7 coverage](source-audit-42-43.md).
 Chapters 44–45 add 67 source-based questions from the same book, chapters 8–9,
 plus six interpretation checks. See [chapters 8–9 coverage](source-audit-44-45.md).
 Chapter 46 adds 45 source-based questions from chapter 10, שפה, plus three

@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,77);
+assert.equal(buttons.length,87);
 const ghetto42=buttons.find(b=>b.textContent==='גטו — קריאה ושאלות');assert.ok(ghetto42);ghetto42.onclick();
 assert.match(get('readingSource').textContent,/chapter 6.*PDF page 152/);
 assert.match(get('readingPassage').textContent,/אפשרו ליהודים להישאר בעיר ולחיות רק בשכונה הזאת/);
@@ -28,6 +28,15 @@ const ghettoWrong=get('readingChoices').children.find(b=>b.textContent!=='ונצ
 assert.match(get('readingQuestionFeedback').textContent,/Correct answer: ונציה/);
 assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
 get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 3$/);
+const art43=buttons.find(b=>b.textContent==='לא פסל ולא מסכה — קריאה ונכון/לא נכון');assert.ok(art43);art43.onclick();
+assert.match(get('readingSource').textContent,/chapter 7.*PDF pages 181–182/);
+assert.match(get('readingPassage').textContent,/בכתבי־יד יהודיים יש דמויות/);
+const artWrong=get('readingChoices').children.find(b=>b.textContent!=='קליגרפיה');artWrong.onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: קליגרפיה/);
+assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
+get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 4$/);
+const transit43=buttons.find(b=>b.textContent==='תקופת המעברות — השלמה');assert.ok(transit43);transit43.onclick();
+assert.match(get('readingPassage').textContent,/המעברות ________ מחנות אוהלים/);
 const mosaic=buttons.find(b=>b.textContent==='שומר הפסיפסים — בחירת מילים');assert.ok(mosaic);mosaic.onclick();
 assert.match(get('readingSource').textContent,/chapter 3.*PDF page 74/);
 assert.match(get('readingPassage').textContent,/ע׳אלב אבו דיאב היה ילד/);

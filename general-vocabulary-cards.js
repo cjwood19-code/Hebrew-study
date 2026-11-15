@@ -532,5 +532,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
  {"id": "shnayim-6-001", "he": "גטו", "en": "ghetto", "chapter": 42, "sourcePage": 152, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-6-002", "he": "שכונה", "en": "neighborhood", "chapter": 42, "sourcePage": 152, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-6-003", "he": "כלבלבים", "en": "puppies", "chapter": 42, "sourcePage": 166, "book": "עברית בשניים לרמה ב׳"},
- {"id": "shnayim-6-004", "he": "פינגווין", "en": "penguin", "chapter": 42, "sourcePage": 176, "book": "עברית בשניים לרמה ב׳"}
+ {"id": "shnayim-6-004", "he": "פינגווין", "en": "penguin", "chapter": 42, "sourcePage": 176, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-7-001", "he": "קליגרפיה", "en": "calligraphy", "chapter": 43, "sourcePage": 181, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-7-002", "he": "ערבסקה", "en": "arabesque", "chapter": 43, "sourcePage": 181, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-7-003", "he": "גרפיטי", "en": "graffiti", "chapter": 43, "sourcePage": 188, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-7-004", "he": "מעברות", "en": "transit camps", "chapter": 43, "sourcePage": 194, "book": "עברית בשניים לרמה ב׳"}
 ];

@@ -14,31 +14,14 @@ const rows={
 [178,"classification.2","Classification • צבעים","איזו מילה מתאימה לקבוצת צבעים בתרגיל המיון?","שחור","שולחן","שדה","דמעה"]
 ],
 43:[
-[181,"reading.art.1","Reading • יא פסל ולא מסכה","Which Jewish art form does the opening text say can be found in many places?","קליגרפיה","ג'ודו","גאולוגיה","חקלאות"],
-[181,"reading.art.2","Reading • יא פסל ולא מסכה","What material does the passage say Jewish artists use in their works?","מילים ואותיות","רק ברזל","רק חול","רק זכוכית"],
-[182,"truefalse.1","True or false • אומנות יהודית","According to the unit exercise, is it true that many Jewish prayer houses have paintings and sculptures?","לא נכון","נכון","לא מוזכר","רק באיטליה"],
-[182,"truefalse.2","True or false • אומנות יהודית","According to the unit exercise, can human images be seen in Jewish manuscripts?","נכון","לא נכון","רק בספרי ילדים","רק ברחוב"],
-[182,"reading.anisa.1","Interview • אניסה אשקר","What art form did Anisa Ashkar learn in order to write on faces?","קליגרפיה","פיסול","גרפיטי","אדריכלות"],
-[182,"reading.anisa.2","Interview • אניסה אשקר","Which language does Anisa say is her mother tongue?","ערבית","עברית","אנגלית","איטלקית"],
-[186,"reading.found.1","Reading • לא כל מה שמוצא חן בעיניי","What is the writer's opinion of abstract art?","היא אוהבת אומנות מופשטת","היא שונאת כל אומנות","היא מציירת רק קירות","היא מעדיפה רק פסלים"],
-[186,"reading.found.2","Reading • לא כל מה שמוצא חן בעיניי","What does the writer say about the small figures of David Reubeni?","הן מוצאות חן בעיניה","הן מכוערות בעיניה","הן פסלים יווניים","הן תמונות מגטו ונציה"],
-[186,"expression.1","Expression • מוצא חן בעיניי","What does מוצא חן בעיניי mean in the reading?","I like it","I forgot it","I sculpted it","I paid for it"],
-[188,"interview.graffiti.1","Interview • דניאל","Where does Daniel say he paints?","בכל מקום","רק במוזאון","רק בבית הספר","רק בבית"],
-[188,"interview.graffiti.2","Interview • דניאל","What does Daniel say will happen if someone catches him painting?","הוא ינסה לברוח","הוא יבקש פרס","הוא יקנה כרטיס","הוא יפסיק ללמוד"],
-[188,"conditional.1","Conditional • אם","Complete the printed conditional pattern: אם תבוא למסיבה, _____ הרבה אנשים.","תפגוש","פגשת","פוגש","פגשו"],
-[192,"reading.vangogh.1","Reading • ואן גוך","What is the date in the heading of Van Gogh's letter?","16 באוקטובר 1888","24 באוגוסט 1979","בשנת 1907","בשנת 1950"],
-[192,"reading.vangogh.2","Reading • ואן גוך","What does Van Gogh describe painting in the letter?","החדר שלי","חומת העיר","גן החיות","בית הכנסת"],
-[192,"reading.street.1","Reading • אומנות רחוב","Which art form is discussed in the street-art passage?","גרפיטי","קליגרפיה בלבד","ציור על פנים בלבד","ציור בספרים בלבד"],
-[194,"past.1","Past tense • תקופת המעברות","Complete the source exercise: המעברות _____ מחנות אוהלים לעולים שהגיעו לישראל.","היו","היה","תהיה","יהיו"],
-[194,"past.2","Past tense • תקופת המעברות","Complete the source exercise: מספר העולים שהגיע אז לארץ _____ יותר מ־900,000 איש.","היה","היו","יהיה","יהיו"],
-[198,"verb.hitpael.1","Verb matching • התפעל","Match להתרגל to the printed context: _____ לשפה, למזג האוויר, לתרבות ולמנהגים בארץ חדשה.","להתרגל","להתפלל","להצטלם","להתווכח"],
-[198,"verb.hitpael.2","Verb matching • התפעל","Match להתפלל to the printed context: _____ בכנסייה העתיקה.","להתפלל","להתחפש","להצטלם","להתקדם"],
-[200,"reading.shared.1","Reading • שיתוף","What does the shared-space activity discuss?","ערבים ויהודים","יהודים וצוענים","רק ציירים","רק ילדים"],
-[204,"reading.klimt.1","Reading • גוסטב קלימט","Who painted 'האישה בזהב' according to the passage?","גוסטב קלימט","וינסנט ואן גוך","אניסה אשקר","דוד ראובן"],
-[204,"reading.klimt.2","Reading • גוסטב קלימט","Who was depicted in the painting described in the passage?","אדלה בלוך־באואר","הילדים בבית הספר","מנהל גן החיות","פאוזי אבו גוש"],
-[206,"preposition.el.1","Preposition • אל","Choose the printed form: אבא _____ בערב, ואביא _____ פרחים ושוקולד.","אליכם; לכם","אליך; לך","אליי; לי","אליהם; להם"],
-[210,"reading.pompeii.1","Reading • פומפיי","What buried the city of Pompeii, according to the reading?","אפר געשי","חול מדברי","שלג","מי ים"],
-[210,"reading.comics.1","Reading • ספרות קומיקס","What does the comics passage say is a feature of comics?","ציורים ומעט מילים","רק מילים בלי ציורים","רק פיסול","רק מוזיקה"]
+[186,"expression.1","Expression • מוצא חן בעיניי","בכותרת ״לא כל מה שמוצא חן בעיניי מוצא חן בעיניה״, מה פירוש מוצא חן בעיניי?","I like it","I forgot it","I sculpted it","I paid for it"],
+[188,"conditional.1","Conditional • אם","השלימו את דוגמת המקור: אם תבואו למסיבה, _____ הרבה אנשים.","תפגשו","פגשתם","פוגשים","פגשו"],
+[188,"conditional.2","Conditional • אם","השלימו את דוגמת המקור: השכר שלך יעלה, אם _____ בפרויקט החדש.","תצליח","הצלחת","מצליחים","הצליחו"],
+[198,"verb.hitpael.1","Verb matching • התפעל","השלימו את תרגיל ההתאמה: _____ לשפה, למזג האוויר, לתרבות ולמנהגים בארץ חדשה.","להתרגל","להתפלל","להצטלם","להתווכח"],
+[198,"verb.hitpael.2","Verb matching • התפעל","השלימו את תרגיל ההתאמה: _____ בכנסייה העתיקה.","להתפלל","להתחפש","להצטלם","להתקדם"],
+[198,"verb.hitpael.3","Verb matching • התפעל","השלימו את תרגיל ההתאמה: _____ לימים אחרים בהיסטוריה.","להתגעגע","להתחנן","להשתמש","להתלבש"],
+[198,"verb.hitpael.4","Verb matching • התפעל","השלימו את תרגיל ההתאמה: _____ בתמונה עם כל בני המשפחה.","להצטלם","להתלבש","להשתתף","להתפלל"],
+[206,"preposition.el.1","Preposition • אל","השלימו את משפט המקור: כן, אבוא _____ בשמונה בערב, ואביא _____ פרחים ושוקולד.","אליכם; לכם","אליך; לך","אליי; לי","אליהם; להם"]
 ]};
 const explanations42={
 "reading.ghetto.1":"הקטע ״גטו״ מתאר את שכונת היהודים בעיר ונציה שבאיטליה.",
@@ -64,5 +47,14 @@ const explanations42={
 "choice.penguin.2":"הטקסט אומר שז׳ואאו טיפל בפינגווין והאכיל אותו.",
 "classification.1":"ברשימת המיון המודפסת חולצה היא בגד.",
 "classification.2":"ברשימת המיון המודפסת שחור הוא צבע."};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===42?{explanation:explanations42[sourceExercise]||"בתרגיל המקור התשובה המתאימה היא "+answer+".",practiceOrigin:"Textbook exercise with adapted choices"}:{})}))])));
+const explanations43={
+"expression.1":"בכותרת מוצא חן בעיניי מציין שמשהו אהוב או נעים בעיניי.",
+"conditional.1":"בדוגמת משפט התנאי שבספר, אם תבואו למסיבה פותח תנאי, ותפגשו הוא העתיד המתאים לרבים.",
+"conditional.2":"בדוגמת הספר, השכר יעלה אם תצליח בפרויקט החדש; שתי הפעולות בעתיד.",
+"verb.hitpael.1":"בתרגיל ההתאמה להתרגל מתחבר לשפה, למזג האוויר, לתרבות ולמנהגים בארץ חדשה.",
+"verb.hitpael.2":"בתרגיל ההתאמה להתפלל מתחבר לבכנסייה העתיקה.",
+"verb.hitpael.3":"בתרגיל ההתאמה להתגעגע מתחבר לימים אחרים בהיסטוריה.",
+"verb.hitpael.4":"בתרגיל ההתאמה להצטלם מתחבר לבתמונה עם כל בני המשפחה.",
+"preposition.el.1":"אבוא אליכם מציין כיוון אליכם; אביא לכם מציין עבור מי הפרחים והשוקולד."};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...([42,43].includes(Number(level))?{explanation:(Number(level)===42?explanations42:explanations43)[sourceExercise]||"בתרגיל המקור התשובה המתאימה היא "+answer+".",practiceOrigin:"Textbook exercise with adapted choices"}:{})}))])));
 })();

@@ -82,7 +82,11 @@ const rows=[
  ["גטו", "היהודים גרו בגטו בוונציה.", "The Jews lived in the Venice ghetto."],
  ["שכונה", "השכונה נסגרה בלילה.", "The neighborhood was closed at night."],
  ["כלבלבים", "שנדי טיפלה בשני כלבלבים.", "Shendi cared for two puppies."],
- ["פינגווין", "ז׳ואאו מצא פינגווין בברזיל.", "João found a penguin in Brazil."]
+ ["פינגווין", "ז׳ואאו מצא פינגווין בברזיל.", "João found a penguin in Brazil."],
+ ["קליגרפיה", "קליגרפיה היא כתיבה אומנותית.", "Calligraphy is artistic writing."],
+ ["ערבסקה", "בערבסקה יש צורות גאומטריות.", "Arabesque contains geometric forms."],
+ ["גרפיטי", "דניאל מצייר גרפיטי על קיר.", "Daniel paints graffiti on a wall."],
+ ["מעברות", "המעברות היו מחנות אוהלים לעולים.", "The transit camps were tent camps for immigrants."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

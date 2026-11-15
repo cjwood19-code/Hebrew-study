@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,77);
+assert.equal(passages.length,87);
 for(const [id,page,count,phrase] of [
  ['shnayim-6-ghetto',152,3,'אפשרו ליהודים להישאר בעיר'],
  ['shnayim-6-righteous',154,2,'החליטה ממשלת ישראל'],
@@ -25,6 +25,31 @@ const bank42={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'text
 assert.equal(bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].length,10);
 assert.ok(bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].every(q=>q.explanation&&q.practiceOrigin&&q.sourceExercise&&/[\u0590-\u05FF]/.test(q.prompt)));
 assert.ok(!bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].some(q=>/^(Reading|Interview|Completion)/.test(q.category)||q.sourceExercise.startsWith('choice.penguin')));
+for(const [id,page,count,phrase] of [
+ ['shnayim-7-art',181,4,'הקליגרפיה היא כתיבה אומנותית'],
+ ['shnayim-7-anisa',182,2,'ערבית היא השפה שלי'],
+ ['shnayim-7-found',186,2,'אומנות פיגורטיבית'],
+ ['shnayim-7-graffiti-interview',188,2,'להתקשר להוריי'],
+ ['shnayim-7-vangogh',192,2,'הציור של החדר שלי'],
+ ['shnayim-7-street-art',192,1,'אומנות הגרפיטי'],
+ ['shnayim-7-maabarot-cloze',194,2,'המעברות ________ מחנות אוהלים'],
+ ['shnayim-7-klimt',204,2,'אדלה בלוך־באואר'],
+ ['shnayim-7-pompeii',210,1,'אבנים גדולות וסלעים'],
+ ['shnayim-7-comics',210,1,'בספרי הקומיקס יש ציורים']
+]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 7.*PDF pages? '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
+assert.ok(passages.find(p=>p.id==='shnayim-7-found').he.includes('זאב רבן'));
+assert.ok(!passages.find(p=>p.id==='shnayim-7-pompeii').questions.some(q=>q.a==='אפר געשי'));
+const bank43={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-42-43.js'),'utf8'),bank43);
+assert.equal(bank43.window.HEBREW_TEXTBOOK_QUESTION_BANKS[43].length,8);
+assert.ok(bank43.window.HEBREW_TEXTBOOK_QUESTION_BANKS[43].every(q=>q.explanation&&q.practiceOrigin&&q.sourceExercise&&/[\u0590-\u05FF]/.test(q.prompt)));
+assert.ok(!bank43.window.HEBREW_TEXTBOOK_QUESTION_BANKS[43].some(q=>/^(Reading|Interview|Past tense|True or false)/.test(q.category)));
+const interpretation43={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-42-43.js'),'utf8'),interpretation43);
+for(const [i,id,page] of [[0,'shnayim-7-anisa',182],[1,'shnayim-7-found',186],[2,'shnayim-7-vangogh',192]]){
+ const x=interpretation43.window.HEBREW_CHAPTER_INTERPRETATION[43][i],p=passages.find(v=>v.id===id);
+ const normalize=v=>v.replace(/[.,:!?״]/g,'').replace(/\s+/g,' ').trim();
+ assert.equal(x.sourcePage,page);assert.ok(x.sourceExercise&&x.explanation);
+ assert.ok(normalize(p.he).includes(normalize(x.prompt.split('\n')[1])),id);
+}
 for(const [id,page,phrase] of [
  ['shnayim-3-landscapes',66,'ישראל היא קצת ירוקה, קצת צהובה, קצת כחולה וקצת לבנה'],
  ['shnayim-3-mitzpe',66,'אחד היישובים הקטנים בנגב הוא מצפה רמון'],
@@ -243,4 +268,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–42, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–43, and 46; original Hebrew reading context; source labels and corrections present.');
