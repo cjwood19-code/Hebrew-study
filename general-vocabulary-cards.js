@@ -528,5 +528,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
  {"id": "shnayim-5-001", "he": "דו־לשוני", "en": "bilingual", "chapter": 41, "sourcePage": 126, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-5-002", "he": "הדסה", "en": "Hadassah", "chapter": 41, "sourcePage": 132, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-5-003", "he": "משמעת", "en": "discipline", "chapter": 41, "sourcePage": 136, "book": "עברית בשניים לרמה ב׳"},
- {"id": "shnayim-5-004", "he": "משוררת", "en": "female poet", "chapter": 41, "sourcePage": 144, "book": "עברית בשניים לרמה ב׳"}
+ {"id": "shnayim-5-004", "he": "משוררת", "en": "female poet", "chapter": 41, "sourcePage": 144, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-6-001", "he": "גטו", "en": "ghetto", "chapter": 42, "sourcePage": 152, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-6-002", "he": "שכונה", "en": "neighborhood", "chapter": 42, "sourcePage": 152, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-6-003", "he": "כלבלבים", "en": "puppies", "chapter": 42, "sourcePage": 166, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-6-004", "he": "פינגווין", "en": "penguin", "chapter": 42, "sourcePage": 176, "book": "עברית בשניים לרמה ב׳"}
 ];

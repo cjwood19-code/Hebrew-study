@@ -27,7 +27,9 @@ when known. Adapted multiple-choice questions are identified as practice,
 not as verbatim textbook exercises.
 
 The later note calling this a 39-chapter curriculum differs from the live
-46-chapter sequence by the seven Fourth Part lessons. The app retains stable
+46-chapter sequence by seven chapters. The app includes seven Fourth Part lessons,
+but no approved mapping confirms that these are the chapters meant to be excluded.
+The app retains stable
 chapter IDs and saved progress while that difference is reconciled. "Indexed
 ready" describes access to a chapter; it does not mean every question has
 been compared with its scanned textbook page.
@@ -85,8 +87,10 @@ Chapters 40–41 are scan-checked: chapter 40 has 13 Chapter Test items and seve
 Reading Practice activities (14 contextual questions); chapter 41 has 12 Chapter
 Test items and 11 Reading Practice activities (22 contextual questions). Each has
 three Hebrew interpretation checks and four contextual flashcards. See [chapters 4–5 coverage](source-audit-40-41.md).
-Chapters 42–43 add 49 source-based questions from the same book, chapters 6–7,
-plus six interpretation checks. See [chapters 6–7 coverage](source-audit-42-43.md).
+Chapter 42 is scan-checked: ten standalone Chapter Test questions, three Hebrew
+interpretation checks, six Reading Practice activities with 14 contextual
+questions, and four flashcards with examples. Chapter 43 remains indexed but
+awaits a full source and context audit. See [chapters 6–7 coverage](source-audit-42-43.md).
 Chapters 44–45 add 67 source-based questions from the same book, chapters 8–9,
 plus six interpretation checks. See [chapters 8–9 coverage](source-audit-44-45.md).
 Chapter 46 adds 45 source-based questions from chapter 10, שפה, plus three

@@ -78,7 +78,11 @@ const rows=[
  ["דו־לשוני", "הם לומדים בבית ספר דו־לשוני.", "They study at a bilingual school."],
  ["הדסה", "הנרייטה סאלד הקימה את הדסה.", "Henrietta Szold founded Hadassah."],
  ["משמעת", "בחינוך הספרטני המשמעת הייתה חזקה.", "Discipline was strict in Spartan education."],
- ["משוררת", "לאה גולדברג הייתה משוררת.", "Leah Goldberg was a poet."]
+ ["משוררת", "לאה גולדברג הייתה משוררת.", "Leah Goldberg was a poet."],
+ ["גטו", "היהודים גרו בגטו בוונציה.", "The Jews lived in the Venice ghetto."],
+ ["שכונה", "השכונה נסגרה בלילה.", "The neighborhood was closed at night."],
+ ["כלבלבים", "שנדי טיפלה בשני כלבלבים.", "Shendi cared for two puppies."],
+ ["פינגווין", "ז׳ואאו מצא פינגווין בברזיל.", "João found a penguin in Brazil."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

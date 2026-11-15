@@ -2,30 +2,16 @@
 (function(){"use strict";
 const rows={
 42:[
-[152,"reading.ghetto.1","Reading • גטו","In which city is the ghetto described in the reading?","ונציה","ברלין","ירושלים","ורשה"],
-[152,"reading.ghetto.2","Reading • גטו","What happened in 1516 according to the passage?","היהודים גורשו לגטו","נפתח בית ספר חדש","הוקם מוזאון לאומנות","נחתם הסכם שלום"],
-[152,"reading.ghetto.3","Reading • גטו","Who opened the ghetto gates in 1797?","החיילים של נפוליאון","הציירים של ונציה","תלמידי בית הספר","ארגון הצוענים"],
 [154,"choice.1","Choice • למרות / אף על פי ש","Complete the printed contrast: היהודים הצליחו לשרוד בגטו בוונציה _____ התנאים הקשים.","למרות","משום ש","כדי","לכן"],
-[154,"choice.2","Choice • למרות / אף על פי ש","Complete the printed contrast: _____ היהודים נאלצו לגור בגטאות בארצות האסלאם, הם הצליחו ליצור אומנות.","אף על פי ש","למרות","כדי","לכן"],
-[154,"reading.righteous.1","Reading • חסידי אומות העולם","Which organization grants the חסידי אומות העולם recognition described here?","יד ושם","הדסה","אונסקו","בית השנטי"],
-[154,"reading.righteous.2","Reading • חסידי אומות העולם","What did Dr. Mohamed Helmy do?","עזר ליהודים בגרמניה","בנה את הגטו בוונציה","צייר פסלים בברלין","לימד ילדים בפינלנד"],
-[158,"reading.roma.1","Reading • הצוענים","When does the passage say the Roma reached Europe?","במאה ה־10","במאה ה־20","בשנת 1939","בשנת 1797"],
-[158,"reading.roma.2","Reading • הצוענים","What name does the passage say the English use for the Roma?","ג'יפסי","וונציה","אביטל","יד ושם"],
-[158,"reading.roma.3","Reading • הצוענים","Which two groups are said to have been killed by the Nazis?","יהודים וצוענים","אדריכלים ומורים","ציירים ופסלים","ילדים ומנהלים"],
-[160,"interview.1","Interview • מנהל בית הספר","Why did the school director take pupils to Poland?","כדי ללמוד על מלחמת העולם השנייה ועל מה שקרה ליהודים","כדי ללמוד ציור רחוב","כדי לבנות גן חיות","כדי להקים מוזאון"],
-[160,"interview.2","Interview • מנהל בית הספר","Why did parents want their children to visit the camps?","כדי להבין את סבלם של היהודים","כדי ללמוד ציור רחוב","כדי להשתתף בספורט","כדי לבנות גן חיות"],
-[164,"verb.yarad.1","Verb table • לרדת","Choose the future first-person singular of לרדת from the printed verb table.","ארד","ירדתי","יורד","ירדו"],
-[164,"verb.yarad.2","Verb table • לרדת","Choose the feminine singular past form of לרדת.","ירדה","ירד","תרד","יורדת"],
-[166,"completion.animals.1","Completion • לחיות עם חיות","Complete the animal story with the future form: אביטל _____ מהבית במשך חודש ורק _____ בגורים הקטנים.","לא יצאה; טיפלה","לא תצא; תטפל","לא יוצאת; מטפלת","לא תצאו; תטפלו"],
-[166,"reading.animals.1","Reading • לחיות עם חיות","What kind of animal did Avital care for?","גורי כלבים","גורי אריות","ציפורים","סוסים"],
-[170,"verb.latet.1","Verb table • לתת","Choose the future form of לתת for אני.","אתן","נתתי","נותן","ייתן"],
-[170,"verb.latet.2","Verb table • לתת","Choose the past form of לתת for אנחנו.","נתנו","ניתן","נותנים","נתן"],
-[172,"preposition.min.1","Preposition • מן","Choose the form of מן meaning 'from us' in the printed table.","מאתנו","ממני","מכם","מהם"],
-[176,"choice.penguin.1","Choice • פינגווין מיוחד","Who became attached to the penguin in the reading?","ז'ואאו פריירה דה סוזה","פאוזי אבו גוש","אמין אל־חוסייני","נפוליאון"],
-[176,"choice.penguin.2","Choice • פינגווין מיוחד","What did João do when he found the penguin?","טיפל בו","מכר אותו","צייר אותו","שלח אותו לבית ספר"],
-[178,"choice.1","Choice • תרגילי חיזוק","Choose the printed contrast: לא נתתי לך את התרגיל מפני ש / למרות / למרות זאת היה לי רק דף אחד.","מפני ש","למרות","למרות זאת","אף על פי ש"],
-[178,"classification.1","Classification • בגדים ואופנה","Which word from the printed sorting exercise belongs to בגדים ואופנה?","חולצה","שמח","עמוק","מלחמה"],
-[178,"classification.2","Classification • צבעים","Which word from the printed sorting exercise belongs to צבעים?","שחור","שולחן","שדה","דמעה"]
+[154,"choice.2","Choice • למרות / אף על פי ש","השלימו את משפט המקור: _____ יהודים ונוצרים חיו בגטאות בארצות האסלאם, הם הצליחו ליצור אומנות.","אף על פי ש","למרות","כדי","לכן"],
+[164,"verb.yarad.1","Verb table • לרדת","השלימו לפי טבלת לרדת: אני (עתיד) _____", "ארד","ירדתי","יורד","ירדו"],
+[164,"verb.yarad.2","Verb table • לרדת","השלימו לפי טבלת לרדת: היא (עבר) _____", "ירדה","ירד","תרד","יורדת"],
+[170,"verb.latet.1","Verb table • לתת","השלימו לפי טבלת לתת: אני (עתיד) _____", "אתן","נתתי","נותן","ייתן"],
+[170,"verb.latet.2","Verb table • לתת","השלימו לפי טבלת לתת: אנחנו (עבר) _____", "נתנו","ניתן","נותנים","נתן"],
+[172,"preposition.min.1","Preposition • מן","בטבלת מילת היחס מן, איזו צורה פירושה from us?", "מאתנו","ממני","מכם","מהם"],
+[178,"choice.1","Choice • תרגילי חיזוק","בחרו במילה הנכונה במשפט המקור: _____ מזג האוויר הנעים, נשארנו בבית ולא יצאנו לטייל.","למרות","בגלל","אף על פי ש","לכן"],
+[178,"classification.1","Classification • בגדים ואופנה","איזו מילה מתאימה לקבוצת בגדים ואופנה בתרגיל המיון?","חולצה","שמח","עמוק","מלחמה"],
+[178,"classification.2","Classification • צבעים","איזו מילה מתאימה לקבוצת צבעים בתרגיל המיון?","שחור","שולחן","שדה","דמעה"]
 ],
 43:[
 [181,"reading.art.1","Reading • יא פסל ולא מסכה","Which Jewish art form does the opening text say can be found in many places?","קליגרפיה","ג'ודו","גאולוגיה","חקלאות"],
@@ -54,5 +40,29 @@ const rows={
 [210,"reading.pompeii.1","Reading • פומפיי","What buried the city of Pompeii, according to the reading?","אפר געשי","חול מדברי","שלג","מי ים"],
 [210,"reading.comics.1","Reading • ספרות קומיקס","What does the comics passage say is a feature of comics?","ציורים ומעט מילים","רק מילים בלי ציורים","רק פיסול","רק מוזיקה"]
 ]};
-window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c]}))])));
+const explanations42={
+"reading.ghetto.1":"הקטע ״גטו״ מתאר את שכונת היהודים בעיר ונציה שבאיטליה.",
+"reading.ghetto.2":"לפי ״גטו״, השליטים הרשו ליהודים להישאר בוונציה ולחיות רק בשכונה הסגורה.",
+"reading.ghetto.3":"הקריאה אומרת שנפוליון כבש את איטליה בסוף המאה ה־18 ושחרר את היהודים.",
+"choice.1":"למרות באה לפני שם העצם ״התנאים הקשים״; אף על פי ש פותחת פסוקית.",
+"choice.2":"אף על פי ש פותחת את הפסוקית ״יהודים ונוצרים חיו בגטאות״.",
+"reading.righteous.1":"בתחילת הקריאה כתוב שבשנת 1953 ממשלת ישראל החליטה לתת את התעודה.",
+"reading.righteous.2":"בסיפור על ד״ר מוחמד חלמי הוא הסתיר ועזר ליהודים בזמן המלחמה.",
+"reading.roma.1":"בתרגיל ״הצוענים״ כתוב שהגיעו לאירופה כבר במאה ה־10.",
+"reading.roma.2":"בתרגיל ״הצוענים״ נאמר שהאנגלים קוראים להם ״ג׳יפסי״.",
+"reading.roma.3":"בפרק מתוארת רדיפת היהודים והצוענים בידי הנאצים.",
+"interview.1":"מנהל בית הספר אומר שהתלמידים נסעו כדי ללמוד על מלחמת העולם השנייה ועל מה שקרה לעם היהודי.",
+"interview.2":"בריאיון נאמר שההורים רצו שילדיהם יבינו את סבלם של היהודים.",
+"verb.yarad.1":"בטבלת השורש ירד, צורת העתיד של אני היא ארד.",
+"verb.yarad.2":"בטבלת העבר של ירד, הצורה של היא היא ירדה.",
+"completion.animals.1":"הסיפור כתוב בעבר: היא לא יצאה מהבית ורק טיפלה בגורים.",
+"reading.animals.1":"הטקסט מכנה את שנדי כלבה ואת ילדיה כלבלבים.",
+"verb.latet.1":"בטבלת הפועל לתת, צורת העתיד של אני היא אתן.",
+"verb.latet.2":"בטבלת העבר של לתת, הצורה של אנחנו היא נתנו.",
+"preposition.min.1":"בטבלת מילת היחס מן, ״מאתנו״ פירושה from us.",
+"choice.penguin.1":"בקריאה ״פינגווין מיוחד״ ז׳ואאו פררה ד׳ סוזה מצא את הפינגווין וטיפל בו.",
+"choice.penguin.2":"הטקסט אומר שז׳ואאו טיפל בפינגווין והאכיל אותו.",
+"classification.1":"ברשימת המיון המודפסת חולצה היא בגד.",
+"classification.2":"ברשימת המיון המודפסת שחור הוא צבע."};
+window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(Number(level)===42?{explanation:explanations42[sourceExercise]||"בתרגיל המקור התשובה המתאימה היא "+answer+".",practiceOrigin:"Textbook exercise with adapted choices"}:{})}))])));
 })();

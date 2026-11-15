@@ -20,7 +20,14 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,71);
+assert.equal(buttons.length,77);
+const ghetto42=buttons.find(b=>b.textContent==='גטו — קריאה ושאלות');assert.ok(ghetto42);ghetto42.onclick();
+assert.match(get('readingSource').textContent,/chapter 6.*PDF page 152/);
+assert.match(get('readingPassage').textContent,/אפשרו ליהודים להישאר בעיר ולחיות רק בשכונה הזאת/);
+const ghettoWrong=get('readingChoices').children.find(b=>b.textContent!=='ונציה');ghettoWrong.onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: ונציה/);
+assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);
+get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 3$/);
 const mosaic=buttons.find(b=>b.textContent==='שומר הפסיפסים — בחירת מילים');assert.ok(mosaic);mosaic.onclick();
 assert.match(get('readingSource').textContent,/chapter 3.*PDF page 74/);
 assert.match(get('readingPassage').textContent,/ע׳אלב אבו דיאב היה ילד/);

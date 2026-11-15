@@ -12,7 +12,19 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,71);
+assert.equal(passages.length,77);
+for(const [id,page,count,phrase] of [
+ ['shnayim-6-ghetto',152,3,'אפשרו ליהודים להישאר בעיר'],
+ ['shnayim-6-righteous',154,2,'החליטה ממשלת ישראל'],
+ ['shnayim-6-roma',158,3,'הגיעו מצפון הודו'],
+ ['shnayim-6-school-interview',160,2,'התלמידים נסעו לקיבוץ גבעת חביבה'],
+ ['shnayim-6-animal-cloze',166,2,'שנדי הכלבה שני כלבלבים'],
+ ['shnayim-6-penguin',176,2,'מצא ז׳ואאו פררה ד׳ סוזה']
+]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 6.*PDF pages? '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));}
+const bank42={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-42-43.js'),'utf8'),bank42);
+assert.equal(bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].length,10);
+assert.ok(bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].every(q=>q.explanation&&q.practiceOrigin&&q.sourceExercise&&/[\u0590-\u05FF]/.test(q.prompt)));
+assert.ok(!bank42.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].some(q=>/^(Reading|Interview|Completion)/.test(q.category)||q.sourceExercise.startsWith('choice.penguin')));
 for(const [id,page,phrase] of [
  ['shnayim-3-landscapes',66,'ישראל היא קצת ירוקה, קצת צהובה, קצת כחולה וקצת לבנה'],
  ['shnayim-3-mitzpe',66,'אחד היישובים הקטנים בנגב הוא מצפה רמון'],
@@ -231,4 +243,4 @@ assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–39, and 46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 10, 18–29, 34–42, and 46; original Hebrew reading context; source labels and corrections present.');
