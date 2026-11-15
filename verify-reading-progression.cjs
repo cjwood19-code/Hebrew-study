@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,60);
+assert.equal(buttons.length,71);
 const mosaic=buttons.find(b=>b.textContent==='שומר הפסיפסים — בחירת מילים');assert.ok(mosaic);mosaic.onclick();
 assert.match(get('readingSource').textContent,/chapter 3.*PDF page 74/);
 assert.match(get('readingPassage').textContent,/ע׳אלב אבו דיאב היה ילד/);

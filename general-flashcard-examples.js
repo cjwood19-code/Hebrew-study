@@ -74,7 +74,11 @@ const rows=[
  ["אדריכל", "האדריכל תכנן את בית הכנסת.", "The architect designed the synagogue."],
  ["בניינים", "בפסטיבל מבקרים בבניינים מיוחדים.", "During the festival people visit special buildings."],
  ["אוצר", "האב סיפר לילדיו על אוצר.", "The father told his children about a treasure."],
- ["נערים", "בית השנטי עוזר לנערים שעזבו את הבית.", "Beit Hashanti helps youths who left home."]
+ ["נערים", "בית השנטי עוזר לנערים שעזבו את הבית.", "Beit Hashanti helps youths who left home."],
+ ["דו־לשוני", "הם לומדים בבית ספר דו־לשוני.", "They study at a bilingual school."],
+ ["הדסה", "הנרייטה סאלד הקימה את הדסה.", "Henrietta Szold founded Hadassah."],
+ ["משמעת", "בחינוך הספרטני המשמעת הייתה חזקה.", "Discipline was strict in Spartan education."],
+ ["משוררת", "לאה גולדברג הייתה משוררת.", "Leah Goldberg was a poet."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

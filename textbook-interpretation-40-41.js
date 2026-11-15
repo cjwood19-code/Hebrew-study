@@ -10,5 +10,10 @@ make(120,"בית השנטי הוא ארגון שעוזר לנערים ולנער
 make(126,"בבתי הספר האלה לומדים ילדים יהודים, מוסלמים ונוצרים ביחד.","Jewish, Muslim, and Christian children learn together in these schools.","Only Jewish children learn in these schools.","The schools are for adults from three cities.","Children from these schools study separately."),
 make(136,"ספרטה הייתה עיר חשובה ביוון העתיקה.","Sparta was an important city in ancient Greece.","Sparta is a new city in Greece.","Sparta was a city in ancient Israel.","Greece was a city in ancient Sparta."),
 make(144,"היא גם כתבה שירים וסיפורים לילדים.","She also wrote poems and stories for children.","She only read stories to children.","She wrote books about children but no poems.","Children wrote poems and stories for her.")]
-});
+ });
+window.HEBREW_CHAPTER_INTERPRETATION[41].forEach((q,i)=>{q.explanation=[
+  "הקריאה על בית הספר הדו־לשוני בעמוד 114 אומרת שילדים יהודים, מוסלמים ונוצרים לומדים ביחד.",
+  "הפתיחה של חינוך ספרטני בעמוד 124 מתארת את ספרטה כעיר חשובה ביוון העתיקה.",
+  "הביוגרפיה של לאה גולדברג בעמוד 132 אומרת שכתבה שירים וסיפורים לילדים."
+][i]});
 })();
