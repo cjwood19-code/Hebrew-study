@@ -12,7 +12,8 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,125);
+assert.equal(passages.length,128);
+for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,page,count,phrase] of [
  ['shnayim-9-maathai',240,3,'ואנגרי מאתאי'],
  ['shnayim-9-population',242,2,'7.2 מיליארד'],

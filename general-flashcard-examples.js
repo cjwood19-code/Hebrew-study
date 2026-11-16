@@ -110,7 +110,13 @@ const rows=[
  ["העירייה","העירייה על־יד התחנה המרכזית.","The city hall is beside the central station."],
  ["הספרייה","הספרייה החדשה על־יד הקניון החדש.","The new library is beside the new mall."],
  ["משרד","במשרד אין טלוויזיה.","There is no television in the office."],
- ["טלוויזיה","במשרד אין טלוויזיה.","There is no television in the office."]
+ ["טלוויזיה","במשרד אין טלוויזיה.","There is no television in the office."],
+ ["בעל", "הבעל שלי, יעקב, נחמד וחכם.", "My husband Yaakov is kind and wise."],
+ ["קיבוץ", "המשפחה של מיכאל גרה בקיבוץ דגניה.", "Michael’s family lives at Kibbutz Degania."],
+ ["בסוף השבוע", "בסוף השבוע הם נוסעים למשפחות שלהם.", "On the weekend they travel to their families."],
+ ["לשתות", "אני רוצה לשתות קפה.", "I want to drink coffee."],
+ ["להישאר", "אני צריכה להישאר בבית.", "I need to stay at home."],
+ ["יכולה", "אני רוצה לבוא, אבל אני לא יכולה.", "I want to come, but I cannot."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

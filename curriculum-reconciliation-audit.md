@@ -8,8 +8,8 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 2 | אולפן עברית 1 | 2 | 15–30 | 15 | 15 | 3 | 7 | 0 | 4 | 0 | 0 |
 | 3 | אולפן עברית 1 | 3 | 31–38 | 13 | 13 | 3 | 6 | 0 | 4 | 0 | 0 |
 | 4 | אולפן עברית 1 | 4 | 39–49 | 12 | 12 | 3 | 9 | 0 | 4 | 0 | 0 |
-| 5 | אולפן עברית 1 | 5 | 50–62 | 14 | 0 | 3 | 0 | 0 | 0 | 14 | 3 |
-| 6 | אולפן עברית 1 | 6 | 63–72 | 24 | 0 | 3 | 0 | 0 | 0 | 24 | 3 |
+| 5 | אולפן עברית 1 | 5 | 50–62 | 8 | 8 | 3 | 7 | 0 | 3 | 0 | 0 |
+| 6 | אולפן עברית 1 | 6 | 63–72 | 8 | 8 | 3 | 4 | 0 | 3 | 0 | 0 |
 | 7 | אולפן עברית 1 | 7 | 73–80 | 14 | 0 | 3 | 0 | 0 | 0 | 14 | 3 |
 | 8 | אולפן עברית 1 | 8 | 81–89 | 22 | 0 | 3 | 0 | 0 | 0 | 22 | 3 |
 | 9 | אולפן עברית 1 | 9 | 90–101 | 15 | 0 | 3 | 0 | 0 | 0 | 15 | 3 |
@@ -51,10 +51,13 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 885 active chapter-bank questions; 138 Hebrew interpretation checks; 125 Reading Practice activities with 403 questions; 0 context-dependent bank items held out of chapter tests; 109 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 863 active chapter-bank questions; 138 Hebrew interpretation checks; 128 Reading Practice activities with 414 questions; 0 context-dependent bank items held out of chapter tests; 115 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
+- ulpan-5-golan-family: 4 questions; chapter 5; אולפן עברית • lesson 5 • PDF page 56 (printed page 68) • original reading; printed comprehension adapted to choices.
+- ulpan-5-weekend-travel: 3 questions; chapter 5; אולפן עברית • lesson 5 • PDF page 58 (printed page 70) • selected original reading with marked omission; printed questions adapted to choices.
+- ulpan-6-good-student: 4 questions; chapter 6; אולפן עברית • lesson 6 • PDF page 71 (printed page 83) • original dialogue and printed fill-in; choices adapted.
 - ulpan-3-eilat-dialogue: 3 questions; chapter 3; אולפן עברית • lesson 3 • PDF page 33 (printed page 45) • selected original dialogue with marked omissions; printed completion adapted to choices.
 - ulpan-3-work-professions: 3 questions; chapter 3; אולפן עברית • lesson 3 • PDF page 35 (printed page 47) • selected original Hebrew with marked omissions; printed comprehension adapted to choices.
 - ulpan-4-kfar-saba: 2 questions; chapter 4; אולפן עברית • lesson 4 • PDF page 41 (printed page 53) • selected original Hebrew with marked omissions; place questions adapted.
@@ -186,8 +189,8 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - The current app index contains 46 chapters: 10 from אולפן עברית First Part, 7 from its Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The later 39-chapter note equals 10 + 19 + 10 and appears to omit the seven Fourth Part chapters, but that intent has not been confirmed. Keep the 46 stable chapter IDs and saved progress until the intended mapping is resolved; 46 indexed ready does not mean 46 source-verified.
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
-- 388 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 39 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 666 active bank questions have item-specific explanations. The remaining 219 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 350 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 33 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
+- 682 active bank questions have item-specific explanations. The remaining 181 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.

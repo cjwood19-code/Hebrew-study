@@ -560,5 +560,11 @@ window.HEBREW_GENERAL_FLASHCARDS = [
   {"id":"ulpan-4-001","he":"העירייה","en":"the city hall","chapter":4,"sourcePage":43,"book":"אולפן עברית"},
   {"id":"ulpan-4-002","he":"הספרייה","en":"the library","chapter":4,"sourcePage":43,"book":"אולפן עברית"},
   {"id":"ulpan-4-003","he":"משרד","en":"office","chapter":4,"sourcePage":46,"book":"אולפן עברית"},
-  {"id":"ulpan-4-004","he":"טלוויזיה","en":"television","chapter":4,"sourcePage":46,"book":"אולפן עברית"}
+  {"id":"ulpan-4-004","he":"טלוויזיה","en":"television","chapter":4,"sourcePage":46,"book":"אולפן עברית"},
+  {"id":"ulpan-5-001","he":"בעל","en":"husband","chapter":5,"sourcePage":56,"book":"אולפן עברית"},
+  {"id":"ulpan-5-002","he":"קיבוץ","en":"kibbutz","chapter":5,"sourcePage":58,"book":"אולפן עברית"},
+  {"id":"ulpan-5-003","he":"בסוף השבוע","en":"on the weekend","chapter":5,"sourcePage":58,"book":"אולפן עברית"},
+  {"id":"ulpan-6-001","he":"לשתות","en":"to drink","chapter":6,"sourcePage":63,"book":"אולפן עברית"},
+  {"id":"ulpan-6-002","he":"להישאר","en":"to stay","chapter":6,"sourcePage":71,"book":"אולפן עברית"},
+  {"id":"ulpan-6-003","he":"יכולה","en":"can (feminine singular)","chapter":6,"sourcePage":71,"book":"אולפן עברית"}
 ];
