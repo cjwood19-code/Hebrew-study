@@ -544,5 +544,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
 {"id": "shnayim-9-001", "he": "אוכלוסייה", "en": "population", "chapter": 45, "sourcePage": 246, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-9-002", "he": "אשפה", "en": "trash", "chapter": 45, "sourcePage": 246, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-9-003", "he": "גגות", "en": "roofs", "chapter": 45, "sourcePage": 260, "book": "עברית בשניים לרמה ב׳"},
-{"id": "shnayim-9-004", "he": "אקליפטוס", "en": "eucalyptus", "chapter": 45, "sourcePage": 268, "book": "עברית בשניים לרמה ב׳"}
+{"id": "shnayim-9-004", "he": "אקליפטוס", "en": "eucalyptus", "chapter": 45, "sourcePage": 268, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-10-001", "he": "אספרנטו", "en": "Esperanto", "chapter": 46, "sourcePage": 275, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-10-002", "he": "ניקוד", "en": "vowel marks", "chapter": 46, "sourcePage": 291, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-10-003", "he": "שפת הסימנים", "en": "sign language", "chapter": 46, "sourcePage": 297, "book": "עברית בשניים לרמה ב׳"},
+{"id": "shnayim-10-004", "he": "כתב ברייל", "en": "Braille script", "chapter": 46, "sourcePage": 305, "book": "עברית בשניים לרמה ב׳"}
 ];

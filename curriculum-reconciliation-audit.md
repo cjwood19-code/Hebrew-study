@@ -49,12 +49,25 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 43 | עברית בשניים ב׳ | 7 | 181–211 | 8 | 8 | 3 | 19 | 0 | 4 | 0 | 0 |
 | 44 | עברית בשניים ב׳ | 8 | 212–239 | 13 | 13 | 3 | 19 | 0 | 4 | 0 | 0 |
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
-| 46 | עברית בשניים ב׳ | 10 | 275–308 | 25 | 0 | 3 | 2 | 20 | 0 | 0 | 0 |
+| 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 910 active chapter-bank questions; 135 Hebrew interpretation checks; 106 Reading Practice activities with 358 questions; 20 context-dependent bank items held out of chapter tests; 93 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 906 active chapter-bank questions; 135 Hebrew interpretation checks; 118 Reading Practice activities with 381 questions; 0 context-dependent bank items held out of chapter tests; 97 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
+- shnayim-10-communication-language: 4 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 275 (printed page 263) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-disappearing-languages: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 277 (printed page 265) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-hotel-dialogue: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 281 (printed page 268–269) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-bilingual: 1 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 283 (printed page 271) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-cheese-book: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 285 (printed page 272) • selected original fill-in lines with blanks preserved; choices adapted.
+- shnayim-10-professions: 1 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 285 (printed page 273) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-ads: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 289 (printed page 276) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-hebrew-script: 3 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 291 (printed page 278) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-sign-performance: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 297 and 299 (printed page 285–286) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-arbrabit: 1 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 301 (printed page 289) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-babel: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 303 and 305 (printed page 291–292) • selected original Hebrew with marked omissions; comprehension choices adapted.
+- shnayim-10-braille: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 305 (printed page 293) • selected original choose-the-word reading with printed alternatives; choices adapted.
+- shnayim-10-xyz: 1 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 307 and 308 (printed page 295–296) • selected original Hebrew with marked omissions; comprehension choices adapted.
 - shnayim-9-maathai: 3 questions; chapter 45; עברית בשניים לרמה ב׳ • chapter 9 • PDF page 240 (printed page 229) • selected original Hebrew with marked omissions; choices adapted.
 - shnayim-9-population: 2 questions; chapter 45; עברית בשניים לרמה ב׳ • chapter 9 • PDF page 242 (printed page 231) • selected original Hebrew with marked omissions; choices adapted.
 - shnayim-9-dog-nose: 2 questions; chapter 45; עברית בשניים לרמה ב׳ • chapter 9 • PDF page 246 and 248 (printed page 235–236) • selected original Hebrew with marked omissions; choices adapted.
@@ -159,16 +172,15 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-12-colors: 10 questions; chapter 29; ללמוד עברית ברמה ב׳ • unit 12 • PDF page 143 (printed page 139) original reading; printed completion on PDF 144 (printed page 140), answer choices adapted.
 - lilmod-12-locker-room: 3 questions; chapter 29; ללמוד עברית ברמה ב׳ • unit 12 • PDF page 153 (printed page 149) • original newspaper excerpt; comprehension supplemental.
 - ulpan-10-nahalal: 6 questions; chapter 10; אולפן עברית • First Part, lesson 10 • PDF page 105 (printed page 117) • original passage and questions; answer choices adapted.
-- shnayim-10-communication-language: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10, שפה • PDF page 275 • textbook excerpt; comprehension choices adapted for practice.
 - ulpan-10-anat-completion: 3 questions; chapter 10; אולפן עברית • First Part, lesson 10 • PDF page 106 (printed page 118) • original fill-in passage; answer choices adapted.
 
 ## Reconciliation findings
 
 - The current app index contains 46 chapters: 10 from אולפן עברית First Part, 7 from its Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The later 39-chapter note equals 10 + 19 + 10 and appears to omit the seven Fourth Part chapters, but that intent has not been confirmed. Keep the 46 stable chapter IDs and saved progress until the intended mapping is resolved; 46 indexed ready does not mean 46 source-verified.
 
-- 20 passage-dependent chapter items are held out of scoring and still await passage transcription and comparison. The Reading Practice activities do not automatically replace these individual questions.
+- 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
 - 449 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 48 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 605 active bank questions have item-specific explanations. The remaining 305 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 626 active bank questions have item-specific explanations. The remaining 280 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 18–19 (ללמוד עברית ברמה ב׳ units 1–2): all 14 former reading-category bank prompts were removed from scoring; their English recall questions no longer appear without a passage. The scanned Hebrew stories on PDF pages 11 and 24 now appear with 11 contextual questions in Reading Practice, including the printed completion/comprehension structures and labeled supplemental checks.
@@ -185,8 +197,9 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - Chapter 43 (עברית בשניים לרמה ב׳ chapter 7): ten visible Reading Practice activities now contain 19 source-linked questions, including printed true/false and past-tense fill-ins. Eight standalone chapter questions and three Hebrew interpretation checks remain with page/exercise citations and explanations. Corrected the art preference, the artist זאב רבן, Daniel’s response to being caught, the Pompeii description, and the אליכם/לכם prompt. Four flashcards have context examples. See source-audit-42-43.md.
 - Chapter 44 (עברית בשניים לרמה ב׳ chapter 8): 19 isolated reading questions were moved to nine visible source activities. The 13 standalone chapter questions now have lesson and PDF references and explanations. The film title, Ali Baba quotation, passive examples, and marathon page reference were corrected. Four flashcards have examples. See source-audit-44-45.md.
 - Chapter 45 (עברית בשניים לרמה ב׳ chapter 9): 18 context-free reading prompts were removed from the scored bank and replaced by ten visible Hebrew activities with 21 questions. The 17 remaining grammar and vocabulary items have page and exercise citations and lesson explanations. Removed unsupported Stephen Hawking, sustainability, heat reduction, and bag claims; corrected the superlative and past-tense forms. Four flashcards have context examples. See source-audit-44-45.md.
+- Chapter 46 (עברית בשניים לרמה ב׳ chapter 10): 20 held passage-dependent items and four other context-dependent prompts were replaced by 13 visible source activities with 25 questions. The 21 remaining standalone bank questions cite the page and exercise and explain corrections. The hotel dialogue begins with יומיים, the להבין table shows present tense, and the Esperanto and Babel passages were corrected against the scan. Three interpretation checks and four flashcards have page and context references. See source-audit-46.md.
 - The source scan for ללמוד עברית ברמה ב׳ PDF page 96 shows a transport crossword. Its clue טסים בו supports מטוס; the previous מסוק card and question had no visible support there. The card was removed without reusing its stable ID, and the question now uses the original Hebrew clue. The bicycle clue also now appears in Hebrew.
 
 ## Next source review
 
-Next, audit the remaining 20 held items against their printed Hebrew, then compare the remaining held items against their passages. Inspect every item lacking an exercise label or interpretation page. Map independent adaptive entries to an approved lesson only where the uploaded source supports that mapping. Do not treat these counts as a completed line-by-line source audit.
+Next, inspect active items without an exercise label or interpretation page and compare each with its scan. Map independent adaptive entries to an approved lesson only where the uploaded source supports that mapping. Do not treat the indexed-ready count as a completed line-by-line source audit.

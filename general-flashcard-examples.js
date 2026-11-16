@@ -94,7 +94,11 @@ const rows=[
  ["אוכלוסייה", "האוכלוסייה בעולם גדלה.", "The world population grows."],
  ["אשפה", "המשפחה לא זורקת אשפה ברחוב.", "The family does not throw trash in the street."],
  ["גגות", "על הגגות שותלים פרחים וירקות.", "Flowers and vegetables are planted on rooftops."],
- ["אקליפטוס", "האקליפטוס הגיע מאוסטרליה.", "The eucalyptus came from Australia."]
+ ["אקליפטוס", "האקליפטוס הגיע מאוסטרליה.", "The eucalyptus came from Australia."],
+ ["אספרנטו", "זמנהוף המציא את אספרנטו.", "Zamenhof invented Esperanto."],
+ ["ניקוד", "קשה לקרוא עברית בלי ניקוד.", "It is hard to read Hebrew without vowel marks."],
+ ["שפת הסימנים", "המשתתפים למדו את שפת הסימנים.", "The participants learned sign language."],
+ ["כתב ברייל", "כתב ברייל משתמש בנקודות.", "Braille script uses dots."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

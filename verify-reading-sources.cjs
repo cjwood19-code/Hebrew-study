@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,106);
+assert.equal(passages.length,118);
 for(const [id,page,count,phrase] of [
  ['shnayim-9-maathai',240,3,'ואנגרי מאתאי'],
  ['shnayim-9-population',242,2,'7.2 מיליארד'],
@@ -286,6 +286,10 @@ assert.ok(passages.find(p=>p.id==='shnayim-5-robin').he.includes('(לספר, א�
 const communication=passages.find(p=>p.id==='shnayim-10-communication-language');
 assert.ok(communication);
 assert.match(communication.source,/עברית בשניים.*chapter 10.*PDF page 275/);
+for(const [id,page,count,phrase] of [
+ ['disappearing-languages',277,2,'7,000'],['hotel-dialogue',281,2,'יומיים'],['bilingual',283,1,'שתי השפות'],['cheese-book',285,2,'______'],['professions',285,1,'חלבן'],['ads',289,2,'דרוש חלבן'],['hebrew-script',291,3,'אותיות לטיניות'],['sign-performance',297,2,'תנועות ידיים'],['arbrabit',301,1,'ערברבית'],['babel',303,2,'מגדל גבוה'],['braille',305,2,'שש נקודות'],['xyz',307,1,'דור ה־X']]){
+ const p=passages.find(x=>x.id==='shnayim-10-'+id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 10.*PDF page '+page));assert.equal(p.questions.length,count,id);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);
+}
 const anat=passages.find(p=>p.id==='ulpan-10-anat-completion');
 assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
