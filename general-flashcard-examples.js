@@ -98,13 +98,17 @@ const rows=[
  ["אספרנטו", "זמנהוף המציא את אספרנטו.", "Zamenhof invented Esperanto."],
  ["ניקוד", "קשה לקרוא עברית בלי ניקוד.", "It is hard to read Hebrew without vowel marks."],
  ["שפת הסימנים", "המשתתפים למדו את שפת הסימנים.", "The participants learned sign language."],
- ["כתב ברייל", "כתב ברייל משתמש בנקודות.", "Braille script uses dots."]
+ ["כתב ברייל", "כתב ברייל משתמש בנקודות.", "Braille script uses dots."],
+ ["מיכאל","מיכאל ואני סטודנטים.","Michael and I are students."],
+ ["סטודנטים","מיכאל ואני סטודנטים.","Michael and I are students."],
+ ["עובדים","אנחנו גם עובדים.","We also work."],
+ ["מסעדה","מיכאל עובד במסעדה.","Michael works in a restaurant."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");
 cards.forEach((card,i)=>{
  const [word,he,en]=rows[i];
  if(card.he!==word||!he.includes(word)||!en)throw new Error("Flashcard example mismatch: "+card.id);
- card.exampleHe=he;card.exampleEn=en;card.exampleKind="Supplemental practice example";
+ card.exampleHe=he;card.exampleEn=en;card.exampleKind=card.id.startsWith("ulpan-2-")?"Textbook sentence":"Supplemental practice example";
 });
 })();

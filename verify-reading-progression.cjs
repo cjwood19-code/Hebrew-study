@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,118);
+assert.equal(buttons.length,120);
 const green45=buttons.find(b=>b.textContent==='משפחות ירוקות — בחירת מילים');assert.ok(green45);green45.onclick();assert.match(get('readingSource').textContent,/chapter 9.*PDF page 270/);assert.match(get('readingPassage').textContent,/לחיות \/ להפסיד/);const greenWrong=get('readingChoices').children.find(b=>b.textContent!=='לחיות');greenWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: לחיות/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const marathon44=buttons.find(b=>b.textContent==='קתרין סוויצר ומרתון בוסטון');assert.ok(marathon44);marathon44.onclick();assert.match(get('readingSource').textContent,/chapter 8.*PDF page 238/);assert.match(get('readingPassage').textContent,/קתרין סוויצר/);const marathonWrong=get('readingChoices').children.find(b=>b.textContent!=='1967');marathonWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: 1967/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const ghetto42=buttons.find(b=>b.textContent==='גטו — קריאה ושאלות');assert.ok(ghetto42);ghetto42.onclick();
@@ -88,6 +88,7 @@ assert.ok(buttons.some(b=>b.textContent==='טיול מסוכן'));
 assert.ok(buttons.some(b=>b.textContent==='עשיר ומאושר'));
 assert.ok(buttons.some(b=>b.textContent==='הצבעים'));
 assert.ok(buttons.some(b=>b.textContent==='צבע הקירות של חדר ההלבשה'));
+const friends2=buttons.find(b=>b.textContent==='חברים טובים');assert.ok(friends2);friends2.onclick();assert.match(get('readingSource').textContent,/lesson 2.*PDF page 22/);assert.match(get('readingPassage').textContent,/מיכאל עובד במסעדה/);const wrong2=get('readingChoices').children.find(b=>b.textContent!=='באוניברסיטה בתל־אביב');wrong2.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: באוניברסיטה בתל־אביב/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 4$/);
 const button=buttons.find(b=>b.textContent==='שפת תקשורת');assert.ok(button);button.onclick();
 assert.match(get('readingSource').textContent,/PDF page 275/);
 assert.match(get('readingPassage').textContent,/האספרנטו לא הצליחה/);

@@ -67,7 +67,7 @@ function renderMenu(){
  $("chapterBest").textContent=state.best[ch.level]===undefined?"Not attempted":state.best[ch.level]+"% best";
  const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];
  const available=ch.ready&&(ch.level===1||(Array.isArray(bank)&&bank.length>0));
- $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice is ready.":"Lesson-matched practice: "+bank.length+" questions plus 3 Hebrew-to-English interpretation checks. Passage-based comprehension belongs in Reading Practice. At least 2 of 3 interpretation answers and 85% overall are required to pass. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
+ $("chapterAvailability").textContent=available?(ch.level===1?"Chapter-matched alphabet practice plus 3 Hebrew interpretation checks. At least 2 of 3 interpretation answers and 85% overall are required to pass.":"Lesson-matched practice: "+bank.length+" questions plus 3 Hebrew-to-English interpretation checks. Passage-based comprehension belongs in Reading Practice. At least 2 of 3 interpretation answers and 85% overall are required to pass. PDF pages "+ch.firstPage+"–"+ch.lastPage+"."):"This chapter is indexed in the correct order, but its exercises have not yet been verified against the book. Earlier-level or unrelated exercises will not be substituted.";
  $("chapterStart").disabled=!available;
  $("chapterStart").textContent=available?"Practice this chapter":"Chapter content not mapped yet";
  $("chapterIndex").textContent="Chapter "+ch.level+" of "+chapters.length+" • "+(available?"ready":"awaiting exercise mapping");
@@ -90,7 +90,7 @@ function advanceChapter(){cancelChapterAdvance();idx++;next()}
 function begin(){
  cancelChapterAdvance();
  const ch=selected();if(!ch.ready)return;
- if(ch.level===1){questions=letters.map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1}));}
+ if(ch.level===1){const checks=(window.HEBREW_CHAPTER_INTERPRETATION||{})[1];if(!Array.isArray(checks)||checks.length!==3)return;questions=[...letters.map((x,i)=>({letter:x[0],name:x[1],reverse:i%2===1,sourcePage:i<15?1:2,sourceExercise:"Alphabet chart"})),...checks];}
  else{const bank=(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{})[ch.level];if(!Array.isArray(bank)||!bank.length)return;const checks=(window.HEBREW_CHAPTER_INTERPRETATION||{})[ch.level];if(!Array.isArray(checks)||checks.length!==3)return;questions=[...bank,...checks];}
  idx=0;score=0;interpretationCorrect=0;interpretationAttempted=0;sessionSkills={};
  $("chapterMenu").classList.add("hidden");
@@ -103,7 +103,7 @@ function next(){
  chosen=false;const q=questions[idx],isBank=Array.isArray(q.options),answer=isBank?q.answer:(q.reverse?q.letter:q.name);
  $("chapterQuestion").textContent="Question "+(idx+1)+" of "+questions.length;
  renderSession();
- $("chapterDirection").textContent=isBank?q.category+" • "+sourceLabel(q):(q.reverse?"Choose the Hebrew letter":"Identify the Hebrew letter");
+ $("chapterDirection").textContent=isBank?q.category+" • "+sourceLabel(q):(q.reverse?"Choose the Hebrew letter":"Identify the Hebrew letter")+" • "+sourceLabel(q);
  $("chapterPrompt").textContent=isBank?q.prompt:(q.reverse?q.name:q.letter);
  $("chapterPrompt").dir=isBank?(/[\u0590-\u05FF]/.test(q.prompt)?"rtl":"ltr"):(q.reverse?"ltr":"rtl");
  $("chapterOptions").innerHTML="";

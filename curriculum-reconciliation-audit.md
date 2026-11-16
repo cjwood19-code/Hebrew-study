@@ -4,8 +4,8 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 | Chapter | Book | Lesson/unit | PDF pages | Chapter bank | Bank with rationale | Hebrew interpretation | Reading Practice questions | Held for passage | Flashcards | Bank without exercise label | Interpretation without page |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | אולפן עברית 1 | 1 | 1–14 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| 2 | אולפן עברית 1 | 2 | 15–30 | 23 | 0 | 3 | 0 | 0 | 0 | 23 | 3 |
+| 1 | אולפן עברית 1 | 1 | 1–14 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 |
+| 2 | אולפן עברית 1 | 2 | 15–30 | 15 | 15 | 3 | 7 | 0 | 4 | 0 | 0 |
 | 3 | אולפן עברית 1 | 3 | 31–38 | 22 | 0 | 3 | 0 | 0 | 0 | 22 | 3 |
 | 4 | אולפן עברית 1 | 4 | 39–49 | 16 | 0 | 3 | 0 | 0 | 0 | 16 | 3 |
 | 5 | אולפן עברית 1 | 5 | 50–62 | 14 | 0 | 3 | 0 | 0 | 0 | 14 | 3 |
@@ -51,10 +51,12 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 906 active chapter-bank questions; 135 Hebrew interpretation checks; 118 Reading Practice activities with 381 questions; 0 context-dependent bank items held out of chapter tests; 97 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 898 active chapter-bank questions; 138 Hebrew interpretation checks; 120 Reading Practice activities with 388 questions; 0 context-dependent bank items held out of chapter tests; 101 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
+- ulpan-2-bank-dialogue: 3 questions; chapter 2; אולפן עברית • lesson 2 • PDF page 19 (printed page 31) • selected original dialogue with marked omissions; printed comprehension adapted to choices.
+- ulpan-2-good-friends: 4 questions; chapter 2; אולפן עברית • lesson 2 • PDF page 22 (printed page 34) • selected original reading; printed comprehension adapted to choices.
 - shnayim-10-communication-language: 4 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 275 (printed page 263) • selected original Hebrew with marked omissions; comprehension choices adapted.
 - shnayim-10-disappearing-languages: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 277 (printed page 265) • selected original Hebrew with marked omissions; comprehension choices adapted.
 - shnayim-10-hotel-dialogue: 2 questions; chapter 46; עברית בשניים לרמה ב׳ • chapter 10 • PDF page 281 (printed page 268–269) • selected original Hebrew with marked omissions; comprehension choices adapted.
@@ -179,10 +181,11 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - The current app index contains 46 chapters: 10 from אולפן עברית First Part, 7 from its Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The later 39-chapter note equals 10 + 19 + 10 and appears to omit the seven Fourth Part chapters, but that intent has not been confirmed. Keep the 46 stable chapter IDs and saved progress until the intended mapping is resolved; 46 indexed ready does not mean 46 source-verified.
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
-- 449 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 48 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 626 active bank questions have item-specific explanations. The remaining 280 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 426 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 45 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
+- 641 active bank questions have item-specific explanations. The remaining 257 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
+- Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.
 - Chapters 18–19 (ללמוד עברית ברמה ב׳ units 1–2): all 14 former reading-category bank prompts were removed from scoring; their English recall questions no longer appear without a passage. The scanned Hebrew stories on PDF pages 11 and 24 now appear with 11 contextual questions in Reading Practice, including the printed completion/comprehension structures and labeled supplemental checks.
 - Chapters 24–25 (ללמוד עברית ברמה ב׳ units 7–8): nine isolated reading prompts were removed from scored chapter tests and replaced by two visible source passages with ten contextual questions in Reading Practice. The unit 8 interpretation sentence was corrected from ענו למודעה to the scanned ענו לבחורה. The 57 remaining chapter questions have lesson explanations; their multiple-choice wording is labeled supplemental unless the reading question adapts a printed prompt.
 - Chapters 26–27 (ללמוד עברית ברמה ב׳ units 9–10): 15 excerpt-only reading prompts and 13 story-linked fill-ins were removed from scoring. Two visible Hebrew source excerpts with 28 contextual questions now appear in Reading Practice, including adapted printed comprehension, original fill-in structures with adapted choices, and labeled supplemental checks. The 123 remaining chapter-bank questions retain exercise identifiers and now have lesson-based explanations. The Western Wall account remains explicitly labeled as a legend.

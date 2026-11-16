@@ -60,7 +60,7 @@ The chapter counts below describe the source-bank entries written during each
 build. The context guard currently holds 137 entries until their passages are
 available in Reading Practice; those entries are not active quiz questions.
 
-All 46 indexed textbook chapters are available. Chapters 24–25 now have
+All 46 indexed textbook chapters are available. Chapters 1–2 have now been audited against the first אולפן עברית scan: chapter 1 retains its alphabet practice and adds three interpretation checks; chapter 2 has 15 standalone source questions, two Reading Practice activities with seven questions, three interpretation checks, and four contextual flashcards. See [chapters 1–2 source audit](source-audit-1-2.md). Chapters 24–25 now have
 57 contextual grammar/vocabulary questions and ten questions beside the original
 Hebrew readings from ללמוד עברית ברמה ב׳ units 7–8.
 Chapters 26–27 retain 123 grammar and vocabulary questions from units 9–10,
@@ -123,6 +123,9 @@ Run `node verify-chapters-32-33.cjs` to check units 15–16, including the
 interpretation gate and the next unavailable chapter.
 
 
+
+Run `node verify-chapters-1-2.cjs` to check the alphabet and early lesson tests,
+interpretation gate, correction and Next, and saved progress.
 
 Run `node verify-chapters-34-35.cjs` to check units 17–18, including the
 interpretation gate, correction and Next, and saved progress.

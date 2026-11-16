@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,118);
+assert.equal(passages.length,120);
 for(const [id,page,count,phrase] of [
  ['shnayim-9-maathai',240,3,'ואנגרי מאתאי'],
  ['shnayim-9-population',242,2,'7.2 מיליארד'],
@@ -283,6 +283,7 @@ for(const id of ['bilingual','facebook','szold','father','sparta','finland','gol
 }
 assert.ok(passages.find(p=>p.id==='shnayim-5-harlow').he.includes('לאם מבד'));
 assert.ok(passages.find(p=>p.id==='shnayim-5-robin').he.includes('(לספר, אני)'));
+for(const [id,page,count,phrase] of [['ulpan-2-bank-dialogue',19,3,'יעקב לוי'],['ulpan-2-good-friends',22,4,'מיכאל עובד במסעדה']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('אולפן עברית.*lesson 2.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));}
 const communication=passages.find(p=>p.id==='shnayim-10-communication-language');
 assert.ok(communication);
 assert.match(communication.source,/עברית בשניים.*chapter 10.*PDF page 275/);

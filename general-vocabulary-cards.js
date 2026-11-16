@@ -548,5 +548,9 @@ window.HEBREW_GENERAL_FLASHCARDS = [
 {"id": "shnayim-10-001", "he": "אספרנטו", "en": "Esperanto", "chapter": 46, "sourcePage": 275, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-10-002", "he": "ניקוד", "en": "vowel marks", "chapter": 46, "sourcePage": 291, "book": "עברית בשניים לרמה ב׳"},
 {"id": "shnayim-10-003", "he": "שפת הסימנים", "en": "sign language", "chapter": 46, "sourcePage": 297, "book": "עברית בשניים לרמה ב׳"},
-{"id": "shnayim-10-004", "he": "כתב ברייל", "en": "Braille script", "chapter": 46, "sourcePage": 305, "book": "עברית בשניים לרמה ב׳"}
+{"id": "shnayim-10-004", "he": "כתב ברייל", "en": "Braille script", "chapter": 46, "sourcePage": 305, "book": "עברית בשניים לרמה ב׳"},
+  {"id":"ulpan-2-001","he":"מיכאל","en":"Michael","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
+  {"id":"ulpan-2-002","he":"סטודנטים","en":"students","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
+  {"id":"ulpan-2-003","he":"עובדים","en":"work (plural)","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
+  {"id":"ulpan-2-004","he":"מסעדה","en":"restaurant","chapter":2,"sourcePage":22,"book":"אולפן עברית"}
 ];

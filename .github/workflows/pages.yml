@@ -22,6 +22,7 @@ jobs:
       - name: Validate JavaScript before publishing
         run: |
           node validate-trainer.cjs
+          node verify-chapters-1-2.cjs
           node verify-chapters-26-27.cjs
           node verify-chapters-28-29.cjs
           node verify-chapters-30-31.cjs
@@ -34,6 +35,7 @@ jobs:
           node verify-chapters-44-45.cjs
           node verify-chapter-46.cjs
           node verify-reading-sources.cjs
+          node verify-reading-progression.cjs
           node verify-flashcards.cjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
