@@ -23,6 +23,7 @@ jobs:
         run: |
           node validate-trainer.cjs
           node verify-chapters-1-2.cjs
+          node verify-chapters-3-4.cjs
           node verify-chapters-26-27.cjs
           node verify-chapters-28-29.cjs
           node verify-chapters-30-31.cjs

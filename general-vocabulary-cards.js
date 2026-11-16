@@ -552,5 +552,13 @@ window.HEBREW_GENERAL_FLASHCARDS = [
   {"id":"ulpan-2-001","he":"מיכאל","en":"Michael","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
   {"id":"ulpan-2-002","he":"סטודנטים","en":"students","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
   {"id":"ulpan-2-003","he":"עובדים","en":"work (plural)","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
-  {"id":"ulpan-2-004","he":"מסעדה","en":"restaurant","chapter":2,"sourcePage":22,"book":"אולפן עברית"}
+  {"id":"ulpan-2-004","he":"מסעדה","en":"restaurant","chapter":2,"sourcePage":22,"book":"אולפן עברית"},
+  {"id":"ulpan-3-001","he":"ספרים","en":"books","chapter":3,"sourcePage":32,"book":"אולפן עברית"},
+  {"id":"ulpan-3-002","he":"תמונות","en":"pictures","chapter":3,"sourcePage":32,"book":"אולפן עברית"},
+  {"id":"ulpan-3-003","he":"פקיד","en":"clerk","chapter":3,"sourcePage":35,"book":"אולפן עברית"},
+  {"id":"ulpan-3-004","he":"סופרת","en":"woman writer","chapter":3,"sourcePage":35,"book":"אולפן עברית"},
+  {"id":"ulpan-4-001","he":"העירייה","en":"the city hall","chapter":4,"sourcePage":43,"book":"אולפן עברית"},
+  {"id":"ulpan-4-002","he":"הספרייה","en":"the library","chapter":4,"sourcePage":43,"book":"אולפן עברית"},
+  {"id":"ulpan-4-003","he":"משרד","en":"office","chapter":4,"sourcePage":46,"book":"אולפן עברית"},
+  {"id":"ulpan-4-004","he":"טלוויזיה","en":"television","chapter":4,"sourcePage":46,"book":"אולפן עברית"}
 ];

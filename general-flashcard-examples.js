@@ -102,13 +102,21 @@ const rows=[
  ["מיכאל","מיכאל ואני סטודנטים.","Michael and I are students."],
  ["סטודנטים","מיכאל ואני סטודנטים.","Michael and I are students."],
  ["עובדים","אנחנו גם עובדים.","We also work."],
- ["מסעדה","מיכאל עובד במסעדה.","Michael works in a restaurant."]
+ ["מסעדה","מיכאל עובד במסעדה.","Michael works in a restaurant."],
+ ["ספרים","אלה ספרים טובים.","These are good books."],
+ ["תמונות","אלה תמונות טובות.","These are good pictures."],
+ ["פקיד","דן פקיד.","Dan is a clerk."],
+ ["סופרת","רבקה לוין סופרת מפורסמת.","Rivka Levin is a famous writer."],
+ ["העירייה","העירייה על־יד התחנה המרכזית.","The city hall is beside the central station."],
+ ["הספרייה","הספרייה החדשה על־יד הקניון החדש.","The new library is beside the new mall."],
+ ["משרד","במשרד אין טלוויזיה.","There is no television in the office."],
+ ["טלוויזיה","במשרד אין טלוויזיה.","There is no television in the office."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");
 cards.forEach((card,i)=>{
  const [word,he,en]=rows[i];
  if(card.he!==word||!he.includes(word)||!en)throw new Error("Flashcard example mismatch: "+card.id);
- card.exampleHe=he;card.exampleEn=en;card.exampleKind=card.id.startsWith("ulpan-2-")?"Textbook sentence":"Supplemental practice example";
+ card.exampleHe=he;card.exampleEn=en;card.exampleKind=card.id.startsWith("ulpan-")?"Textbook sentence":"Supplemental practice example";
 });
 })();
