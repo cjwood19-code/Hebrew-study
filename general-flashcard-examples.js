@@ -114,7 +114,7 @@ const rows=[
  ["בעל", "הבעל שלי, יעקב, נחמד וחכם.", "My husband Yaakov is kind and wise."],
  ["קיבוץ", "המשפחה של מיכאל גרה בקיבוץ דגניה.", "Michael’s family lives at Kibbutz Degania."],
  ["בסוף השבוע", "בסוף השבוע הם נוסעים למשפחות שלהם.", "On the weekend they travel to their families."],
- ["לשתות", "אני רוצה לשתות קפה.", "I want to drink coffee."],
+ ["לשתות", "אני רוצה לשתות מיץ תפוזים קר ולאכול עוגה.", "I want to drink cold orange juice and eat cake."],
  ["להישאר", "אני צריכה להישאר בבית.", "I need to stay at home."],
  ["יכולה", "אני רוצה לבוא, אבל אני לא יכולה.", "I want to come, but I cannot."]
 ];

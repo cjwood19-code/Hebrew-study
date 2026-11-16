@@ -5,14 +5,14 @@ const rows={
 [50,'direction.dialogue.1','Direction • source dialogue','השלימו מן השיחה: אני נוסע _____ העבודה.','ל','ב','על','עם','בשיחה יוסי אומר שהוא נוסע לעבודה; ל־ מציינת יעד.'],
 [51,'direction.exercise.1','Direction • printed completion','השלימו: התלמידים לומדים _____ אולפן. מחר הם נוסעים _____ טיול.','ב, ל','ל, ב','ב, ב','ל, ל','באולפן מציין מקום; לטיול מציין יעד.'],
 [51,'direction.exercise.3','Direction • printed completion','השלימו: דניאל לומד _____ בית־ספר. הוא הולך _____ בית הספר ברגל.','ב, ל','ל, ב','ב, ב','ל, ל','בבית־ספר מציין מקום לימודים; לבית הספר מציין יעד הליכה.'],
-[52,'question.exercise.1','Question word • printed exercise','הפכו לשאלה: אני נוסעת לגן־אביב. → _____ את נוסעת?','לאן','איפה','מתי','מי','בשאלת יעד לגן־אביב משתמשים בלאן.'],
+[52,'question.exercise.2','Question word • printed exercise','כתבו שאלה לפי התרגיל: חנה נוסעת לתל־אביב. → _____ חנה נוסעת?','לאן','איפה','מתי','מי','תל־אביב היא יעד הנסיעה של חנה; מילת השאלה על יעד היא לאן.'],
 [54,'possessive.model.1','Possessive • printed model','השלימו לפי הדוגמה: הספר של דני = הספר _____.','שלו','שלה','שלי','שלנו','שלו מחליף את של דני, זכר יחיד.'],
 [54,'possessive.model.2','Possessive • printed model','השלימו לפי הדוגמה: הספר של רחל = הספר _____.','שלה','שלו','שלי','שלכם','שלה מחליף את של רחל, נקבה יחידה.'],
 [56,'family.exercise.b1','Family • printed completion','השלימו לפי הקריאה: יעקב — ה_____ של רינה.','בעל','בן','אח','אבא','בתרגיל אחרי משפחת גולן משלימים בעל: יעקב הוא הבעל של רינה.'],
-[60,'adjective.exercise.1','Adjective agreement • printed completion','השלימו: האבא בן 90. הוא איש _____.','זקן','זקנה','זקנים','זקנות','בעמוד 60 האבא בן 90 ומתואר כאיש זקן.']
+[60,'adjective.exercise.2','Adjective agreement • printed completion','השלימו: הסבא של דניאל בן 85. הוא _____ וחכם.','זקן','זקנה','זקנים','זקנות','בתרגיל הסבא בן 85; הצורה המתאימה לזכר יחיד היא זקן.']
 ],
 6:[
-[63,'infinitive.dialogue.1','Infinitive • source dialogue','השלימו מן השיחה: אתה רוצה _____ קפה?','לשתות','שותה','שתתה','שותים','אחרי רוצה בא שם הפועל לשתות.'],
+[63,'infinitive.dialogue.1','Infinitive • source dialogue','השלימו מן השיחה: אני רוצה _____ מיץ תפוזים קר ולאכול עוגה.','לשתות','שותה','שתתה','שותים','גדי אומר שהוא רוצה לשתות מיץ תפוזים קר ולאכול עוגה; אחרי רוצה בא שם הפועל.'],
 [64,'infinitive.table.1','Infinitive • printed table','השלימו מן הטבלה: גר → _____.','לגור','גרה','גרים','גרות','בטבלת שם הפועל הצורה של גר היא לגור.'],
 [64,'infinitive.table.2','Infinitive • printed table','השלימו מן הטבלה: באה → _____.','לבוא','באה','באים','באות','בטבלת שם הפועל הצורה של באה היא לבוא.'],
 [64,'infinitive.table.3','Infinitive • printed table','השלימו מן הטבלה: כותבים → _____.','לכתוב','כותב','כותבות','לומדים','בטבלה כותבים שייך לשם הפועל לכתוב.'],
@@ -29,7 +29,7 @@ const checks={
 [58,'weekend.reading','בסוף השבוע הם נוסעים למשפחות שלהם.','On the weekend they travel to their families.',['On the weekend they travel to their families.','On the weekend they study at the university.','Their families travel to Jerusalem every day.','They work with their families on the weekend.'],'בקטע מיכאל, דינה ושרה נוסעים בסוף השבוע למשפחות שלהם.']
 ],
 6:[
-[63,'infinitive.dialogue','אני רוצה לשתות קפה.','I want to drink coffee.',['I want to drink coffee.','I drink coffee every day.','I need to buy coffee.','I want to eat breakfast.'],'רוצה + שם הפועל לשתות מציין רצון לשתות.'],
+[63,'infinitive.dialogue','אני רוצה לשתות מיץ תפוזים קר ולאכול עוגה.','I want to drink cold orange juice and eat cake.',['I want to drink cold orange juice and eat cake.','I want to drink coffee and eat cake.','I drink cold juice every morning.','I want to buy orange juice and cake.'],'גדי אומר שהוא רוצה לשתות מיץ תפוזים קר ולאכול עוגה.'],
 [67,'jerusalem.reading','ירושלים, הבירה של ישראל.','Jerusalem, the capital of Israel.',['Jerusalem, the capital of Israel.','Jerusalem, a city near Israel.','Israel, the capital of Jerusalem.','Jerusalem, a city in Egypt.'],'בפתיחת הקריאה ירושלים מוצגת כבירה של ישראל.'],
 [71,'student.dialogue','אני צריכה להישאר בבית.','I need to stay at home.',['I need to stay at home.','I want to travel home.','I can study at home.','I need to leave home.'],'בדיאלוג דינה אומרת שהיא צריכה להישאר בבית.']
 ]};
