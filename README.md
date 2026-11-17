@@ -158,3 +158,5 @@ Run `node verify-flashcards.cjs` to check all context examples, reveal timing,
 both card directions, and saved review ratings.
 
 - [Source audit: chapters 5–6](source-audit-5-6.md) compares both practice forms with the First Part scan and records the 39/46 sequence discrepancy.
+
+- [Source audit: chapters 7–8](source-audit-7-8.md) compares the tests, reading activities, and flashcards with the First Part scan.

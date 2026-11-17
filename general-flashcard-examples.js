@@ -116,7 +116,13 @@ const rows=[
  ["בסוף השבוע", "בסוף השבוע הם נוסעים למשפחות שלהם.", "On the weekend they travel to their families."],
  ["לשתות", "אני רוצה לשתות מיץ תפוזים קר ולאכול עוגה.", "I want to drink cold orange juice and eat cake."],
  ["להישאר", "אני צריכה להישאר בבית.", "I need to stay at home."],
- ["יכולה", "אני רוצה לבוא, אבל אני לא יכולה.", "I want to come, but I cannot."]
+ ["יכולה", "אני רוצה לבוא, אבל אני לא יכולה.", "I want to come, but I cannot."],
+ ["פתק", "על השולחן הוא רואה פתק.", "He sees a note on the table."],
+ ["מצות", "בפסח – הוא תמיד אוכל מצות.", "On Passover he always eats matzah."],
+ ["תמיד", "ביום הכיפורים – הוא תמיד צם.", "On Yom Kippur he always fasts."],
+ ["כנפיים", "לספינקס המצרי אין כנפיים.", "The Egyptian sphinx has no wings."],
+ ["סבלנות", "יש לך סבלנות?", "Do you have patience?"],
+ ["מחשב", "יש בעיה במחשב, ואני לא יכול לשחק.", "There is a problem with the computer, and I cannot play."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");

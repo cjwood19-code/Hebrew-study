@@ -566,5 +566,11 @@ window.HEBREW_GENERAL_FLASHCARDS = [
   {"id":"ulpan-5-003","he":"בסוף השבוע","en":"on the weekend","chapter":5,"sourcePage":58,"book":"אולפן עברית"},
   {"id":"ulpan-6-001","he":"לשתות","en":"to drink","chapter":6,"sourcePage":63,"book":"אולפן עברית"},
   {"id":"ulpan-6-002","he":"להישאר","en":"to stay","chapter":6,"sourcePage":71,"book":"אולפן עברית"},
-  {"id":"ulpan-6-003","he":"יכולה","en":"can (feminine singular)","chapter":6,"sourcePage":71,"book":"אולפן עברית"}
+  {"id":"ulpan-6-003","he":"יכולה","en":"can (feminine singular)","chapter":6,"sourcePage":71,"book":"אולפן עברית"},
+  {"id":"ulpan-7-001","he":"פתק","en":"note","chapter":7,"sourcePage":73,"book":"אולפן עברית"},
+  {"id":"ulpan-7-002","he":"מצות","en":"matzah","chapter":7,"sourcePage":75,"book":"אולפן עברית"},
+  {"id":"ulpan-7-003","he":"תמיד","en":"always","chapter":7,"sourcePage":75,"book":"אולפן עברית"},
+  {"id":"ulpan-8-001","he":"כנפיים","en":"wings","chapter":8,"sourcePage":81,"book":"אולפן עברית"},
+  {"id":"ulpan-8-002","he":"סבלנות","en":"patience","chapter":8,"sourcePage":84,"book":"אולפן עברית"},
+  {"id":"ulpan-8-003","he":"מחשב","en":"computer","chapter":8,"sourcePage":84,"book":"אולפן עברית"}
 ];
