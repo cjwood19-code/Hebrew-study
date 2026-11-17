@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,134);
+assert.equal(passages.length,139);
 for(const [id,lesson,page,count,phrase] of [['ulpan-7-notes',7,73,5,'אני נמצא בגן הציבורי'],['ulpan-7-tradition',7,75,3,'הוא תמיד אוכל מצות'],['ulpan-7-apartment',7,78,3,'שלושה חדרים גדולים'],['ulpan-8-mythology',8,81,3,'לספינקס המצרי אין כנפיים'],['ulpan-8-roni',8,84,3,'אין לי זמן עכשיו']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan-7-notes'?'s':'')+' '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,page,count,phrase] of [
@@ -296,9 +296,10 @@ for(const [id,page,count,phrase] of [
  ['disappearing-languages',277,2,'7,000'],['hotel-dialogue',281,2,'יומיים'],['bilingual',283,1,'שתי השפות'],['cheese-book',285,2,'______'],['professions',285,1,'חלבן'],['ads',289,2,'דרוש חלבן'],['hebrew-script',291,3,'אותיות לטיניות'],['sign-performance',297,2,'תנועות ידיים'],['arbrabit',301,1,'ערברבית'],['babel',303,2,'מגדל גבוה'],['braille',305,2,'שש נקודות'],['xyz',307,1,'דור ה־X']]){
  const p=passages.find(x=>x.id==='shnayim-10-'+id);assert.ok(p,id);assert.match(p.source,new RegExp('chapter 10.*PDF page '+page));assert.equal(p.questions.length,count,id);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);
 }
+for(const [id,lesson,page,count,phrase] of [['ulpan4-30-ads',30,3,5,'דרושה מזכירה רפואית'],['ulpan4-30-job',30,1,4,'מיכאל מצא הרבה מודעות'],['ulpan4-30-marina',30,4,4,'מרינה זקוקה לכסף'],['ulpan4-31-omelet',31,10,3,'אני בדרך הביתה, אגיע בעוד כ-20 דקות'],['ulpan4-31-vision',31,15,4,'באחרית הימים יהיה צדק בעולם']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan4-31-omelet'?'s':'')+' '+page));assert.equal(p.questions.length,count,id);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)&&new Set(q.opts).size===4),id);}
 const anat=passages.find(p=>p.id==='ulpan-10-anat-completion');
 assert.ok(anat);
 assert.match(anat.source,/אולפן עברית.*lesson 10.*PDF page 106/);
 assert.match(anat.he,/אחרי הצהריים היא נוסעת ________ במכללה/);
 assert.equal(anat.questions[0].a,'ללמוד');
-console.log('PASS: source readings in chapters 10, 18–29, 34–46; original Hebrew reading context; source labels and corrections present.');
+console.log('PASS: source readings in chapters 9–12, 18–29, 34–46; original Hebrew reading context; source labels and corrections present.');

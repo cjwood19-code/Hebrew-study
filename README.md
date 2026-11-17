@@ -159,5 +159,6 @@ both card directions, and saved review ratings.
 
 - [Source audit: chapters 5–6](source-audit-5-6.md) compares both practice forms with the First Part scan and records the 39/46 sequence discrepancy.
 
+- [Source audit: chapters 11–12](source-audit-11-12.md) checks Fourth Part job search, future tense, readings, and contextual cards.
 - [Source audit: chapters 9–10](source-audit-9-10.md) checks the First Part time, preferences, construct forms, reading, tests, and contextual cards.
 - [Source audit: chapters 7–8](source-audit-7-8.md) compares the tests, reading activities, and flashcards with the First Part scan.

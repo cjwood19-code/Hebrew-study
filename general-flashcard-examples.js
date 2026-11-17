@@ -123,13 +123,14 @@ const rows=[
  ["כנפיים", "לספינקס המצרי אין כנפיים.", "The Egyptian sphinx has no wings."],
  ["סבלנות", "יש לך סבלנות?", "Do you have patience?"],
  ["מחשב", "יש בעיה במחשב, ואני לא יכול לשחק.", "There is a problem with the computer, and I cannot play."],
- ["שעה", "מה השעה?", "What time is it?"],["מעדיף", "אני מעדיף לשתות קולה.", "I prefer to drink cola."],["קשר רציני", "היא רוצה להכיר בחור לקשר רציני.", "She wants to meet a man for a serious relationship."],["מושב", "מושב נהלל, מושב העובדים הראשון בישראל, נוסד ב-1921.", "Nahalal, the first workers’ moshav in Israel, was founded in 1921."],["חקלאות", "רוב האנשים שחיים במושב עובדים בחקלאות.", "Most people who live in the moshav work in agriculture."],["חינוך", "ענת רוצה להיות מורה, לכן היא לומדת חינוך.", "Anat wants to be a teacher, so she studies education."]
+ ["שעה", "מה השעה?", "What time is it?"],["מעדיף", "אני מעדיף לשתות קולה.", "I prefer to drink cola."],["קשר רציני", "היא רוצה להכיר בחור לקשר רציני.", "She wants to meet a man for a serious relationship."],["מושב", "מושב נהלל, מושב העובדים הראשון בישראל, נוסד ב-1921.", "Nahalal, the first workers’ moshav in Israel, was founded in 1921."],["חקלאות", "רוב האנשים שחיים במושב עובדים בחקלאות.", "Most people who live in the moshav work in agriculture."],["חינוך", "ענת רוצה להיות מורה, לכן היא לומדת חינוך.", "Anat wants to be a teacher, so she studies education."],
+ ["קורות חיים", "הוא שלח קורות חיים לחברות מתאימות.", "He sent résumés to suitable companies."],["משרה חלקית", "היא מחפשת עבודה במשרה חלקית מפני שהיא עדיין לומדת באולפן.", "She seeks part-time work because she still studies at ulpan."],["הוצאות", "למרינה יש הרבה הוצאות.", "Marina has many expenses."],["אגיע", "אני בדרך הביתה, אגיע בעוד כ-20 דקות.", "I am on my way home; I will arrive in about twenty minutes."],["תקנה", "תיכנס לסופרמרקט ותקנה קמח.", "Enter the supermarket and buy flour."],["צדק", "באחרית הימים יהיה צדק בעולם.", "In the end of days there will be justice in the world."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");
 cards.forEach((card,i)=>{
  const [word,he,en]=rows[i];
  if(card.he!==word||!he.includes(word)||!en)throw new Error("Flashcard example mismatch: "+card.id);
- card.exampleHe=he;card.exampleEn=en;card.exampleKind=card.id.startsWith("ulpan-")?"Textbook sentence":"Supplemental practice example";
+ card.exampleHe=he;card.exampleEn=en;card.exampleKind=(card.id.startsWith("ulpan-")||card.id.startsWith("ulpan4-"))?"Textbook sentence":"Supplemental practice example";
 });
 })();
