@@ -572,5 +572,6 @@ window.HEBREW_GENERAL_FLASHCARDS = [
   {"id":"ulpan-7-003","he":"תמיד","en":"always","chapter":7,"sourcePage":75,"book":"אולפן עברית"},
   {"id":"ulpan-8-001","he":"כנפיים","en":"wings","chapter":8,"sourcePage":81,"book":"אולפן עברית"},
   {"id":"ulpan-8-002","he":"סבלנות","en":"patience","chapter":8,"sourcePage":84,"book":"אולפן עברית"},
-  {"id":"ulpan-8-003","he":"מחשב","en":"computer","chapter":8,"sourcePage":84,"book":"אולפן עברית"}
+  {"id":"ulpan-8-003","he":"מחשב","en":"computer","chapter":8,"sourcePage":84,"book":"אולפן עברית"},
+  {"id": "ulpan-9-001", "he": "שעה", "en": "hour / time", "chapter": 9, "sourcePage": 90, "book": "אולפן עברית"},{"id": "ulpan-9-002", "he": "מעדיף", "en": "prefers (masculine)", "chapter": 9, "sourcePage": 94, "book": "אולפן עברית"},{"id": "ulpan-9-003", "he": "קשר רציני", "en": "serious relationship", "chapter": 9, "sourcePage": 98, "book": "אולפן עברית"},{"id": "ulpan-10-004", "he": "מושב", "en": "moshav / cooperative village", "chapter": 10, "sourcePage": 105, "book": "אולפן עברית"},{"id": "ulpan-10-005", "he": "חקלאות", "en": "agriculture", "chapter": 10, "sourcePage": 105, "book": "אולפן עברית"},{"id": "ulpan-10-006", "he": "חינוך", "en": "education", "chapter": 10, "sourcePage": 106, "book": "אולפן עברית"}
 ];

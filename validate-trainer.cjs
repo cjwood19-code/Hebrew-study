@@ -125,6 +125,7 @@ assert.equal(chapters[37].firstPage,38);assert.equal(chapters[37].lastPage,65);
 assert.equal(chapters[38].firstPage,66);assert.equal(chapters[38].lastPage,101);
 assert.equal(chapters[35].firstPage,214);assert.equal(chapters[35].lastPage,217);
 assert.equal(chapters[36].firstPage,13);assert.equal(chapters[36].lastPage,37);
+for(const level of [9,10]){assert.equal(banks[level].length,level===9?8:7);assert.ok(banks[level].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&q.sourcePage>=chapters[level-1].firstPage&&q.sourcePage<=chapters[level-1].lastPage));}
 const checks=context.window.HEBREW_CHAPTER_INTERPRETATION;
 for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
   assert.equal(checks[ch.level]?.length,3,'Missing interpretation checkpoint '+ch.level);
@@ -135,7 +136,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,121);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,127);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&['Supplemental practice example','Textbook sentence'].includes(c.exampleKind),c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));

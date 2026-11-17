@@ -122,7 +122,8 @@ const rows=[
  ["תמיד", "ביום הכיפורים – הוא תמיד צם.", "On Yom Kippur he always fasts."],
  ["כנפיים", "לספינקס המצרי אין כנפיים.", "The Egyptian sphinx has no wings."],
  ["סבלנות", "יש לך סבלנות?", "Do you have patience?"],
- ["מחשב", "יש בעיה במחשב, ואני לא יכול לשחק.", "There is a problem with the computer, and I cannot play."]
+ ["מחשב", "יש בעיה במחשב, ואני לא יכול לשחק.", "There is a problem with the computer, and I cannot play."],
+ ["שעה", "מה השעה?", "What time is it?"],["מעדיף", "אני מעדיף לשתות קולה.", "I prefer to drink cola."],["קשר רציני", "היא רוצה להכיר בחור לקשר רציני.", "She wants to meet a man for a serious relationship."],["מושב", "מושב נהלל, מושב העובדים הראשון בישראל, נוסד ב-1921.", "Nahalal, the first workers’ moshav in Israel, was founded in 1921."],["חקלאות", "רוב האנשים שחיים במושב עובדים בחקלאות.", "Most people who live in the moshav work in agriculture."],["חינוך", "ענת רוצה להיות מורה, לכן היא לומדת חינוך.", "Anat wants to be a teacher, so she studies education."]
 ];
 const cards=window.HEBREW_GENERAL_FLASHCARDS||[];
 if(cards.length!==rows.length)throw new Error("Flashcard example count does not match the deck");
