@@ -18,8 +18,8 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 12 | אולפן עברית 4 | 31 | 8–18 | 10 | 10 | 3 | 7 | 0 | 3 | 0 | 0 |
 | 13 | אולפן עברית 4 | 32 | 19–22 | 10 | 10 | 3 | 4 | 0 | 3 | 0 | 0 |
 | 14 | אולפן עברית 4 | 33 | 23–31 | 10 | 10 | 3 | 8 | 0 | 3 | 0 | 0 |
-| 15 | אולפן עברית 4 | 34 | 32–39 | 12 | 0 | 3 | 0 | 0 | 0 | 12 | 3 |
-| 16 | אולפן עברית 4 | 35 | 40–43 | 17 | 0 | 3 | 0 | 0 | 0 | 17 | 3 |
+| 15 | אולפן עברית 4 | 34 | 32–39 | 12 | 12 | 3 | 5 | 0 | 3 | 0 | 0 |
+| 16 | אולפן עברית 4 | 35 | 40–43 | 10 | 10 | 3 | 6 | 0 | 3 | 0 | 0 |
 | 17 | אולפן עברית 4 | 36 | 44–55 | 23 | 0 | 3 | 0 | 0 | 0 | 23 | 3 |
 | 18 | ללמוד עברית ב׳ | 1 | 11–23 | 22 | 22 | 3 | 6 | 0 | 0 | 22 | 0 |
 | 19 | ללמוד עברית ב׳ | 2 | 24–34 | 24 | 24 | 3 | 5 | 0 | 0 | 24 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 804 active chapter-bank questions; 138 Hebrew interpretation checks; 142 Reading Practice activities with 468 questions; 0 context-dependent bank items held out of chapter tests; 139 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 797 active chapter-bank questions; 138 Hebrew interpretation checks; 146 Reading Practice activities with 479 questions; 0 context-dependent bank items held out of chapter tests; 145 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -223,9 +223,10 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - Chapter 43 (עברית בשניים לרמה ב׳ chapter 7): ten visible Reading Practice activities now contain 19 source-linked questions, including printed true/false and past-tense fill-ins. Eight standalone chapter questions and three Hebrew interpretation checks remain with page/exercise citations and explanations. Corrected the art preference, the artist זאב רבן, Daniel’s response to being caught, the Pompeii description, and the אליכם/לכם prompt. Four flashcards have context examples. See source-audit-42-43.md.
 - Chapter 44 (עברית בשניים לרמה ב׳ chapter 8): 19 isolated reading questions were moved to nine visible source activities. The 13 standalone chapter questions now have lesson and PDF references and explanations. The film title, Ali Baba quotation, passive examples, and marathon page reference were corrected. Four flashcards have examples. See source-audit-44-45.md.
 - Chapter 45 (עברית בשניים לרמה ב׳ chapter 9): 18 context-free reading prompts were removed from the scored bank and replaced by ten visible Hebrew activities with 21 questions. The 17 remaining grammar and vocabulary items have page and exercise citations and lesson explanations. Removed unsupported Stephen Hawking, sustainability, heat reduction, and bag claims; corrected the superlative and past-tense forms. Four flashcards have context examples. See source-audit-44-45.md.
+- Chapters 15–16 (אולפן עברית Fourth Part lessons 34–35): 22 scored lesson questions and six interpretation checks now cite scanned exercises and explain errors. Four visible Reading Practice activities contain 11 contextual questions. Six flashcards show source sentences. The planned move is in two months; the invitation is signed רותי ודויד צור. See source-audit-15-16.md.
 - Chapter 46 (עברית בשניים לרמה ב׳ chapter 10): 20 held passage-dependent items and four other context-dependent prompts were replaced by 13 visible source activities with 25 questions. The 21 remaining standalone bank questions cite the page and exercise and explain corrections. The hotel dialogue begins with יומיים, the להבין table shows present tense, and the Esperanto and Babel passages were corrected against the scan. Three interpretation checks and four flashcards have page and context references. See source-audit-46.md.
 - The source scan for ללמוד עברית ברמה ב׳ PDF page 96 shows a transport crossword. Its clue טסים בו supports מטוס; the previous מסוק card and question had no visible support there. The card was removed without reusing its stable ID, and the question now uses the original Hebrew clue. The bicycle clue also now appears in Hebrew.
 
 ## Next source review
 
-Next, inspect active items without an exercise label or interpretation page and compare each with its scan. Map independent adaptive entries to an approved lesson only where the uploaded source supports that mapping. Do not treat the indexed-ready count as a completed line-by-line source audit.
+Next consecutive source review: chapter 17, אולפן עברית Fourth Part lesson 36, PDF pages 44–55. Then inspect active items without an exercise label or interpretation page and compare each with its scan. Map independent adaptive entries to an approved lesson only where the uploaded source supports that mapping. Do not treat the indexed-ready count as a completed line-by-line source audit.

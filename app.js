@@ -1299,6 +1299,46 @@ const readingPassages=[
     ]
   },
 
+  {id:"ulpan4-34-st-louis",title:"הטרגדיה של ״סנט לואיס״",
+   source:"אולפן עברית — חלק רביעי • lesson 34 • PDF pages 32–33 (printed pages 380–381) • selected original Hebrew; printed questions and verb completions adapted to choices",
+   he:"ב־13 במאי 1939 יצאה מנמל המבורג שבגרמניה הספינה ״סנט לואיס״, ועליה כ־930 יהודים שברחו מגרמניה הנאצית. הספינה הייתה בדרכה לקובה. ליהודים היו אשרות כניסה (ויזות) לקובה, אף על פי כן כאשר הגיעה הספינה לחופי קובה, לא אושרה כניסתם על־ידי השלטונות, ואשרות הכניסה שלהם בוטלו. ארצות הברית וקנדה סירבו (לא הסכימו) גם הן לתת ליהודים מקלט.",
+   en:"In May 1939 the St. Louis sailed from Hamburg with about 930 Jewish refugees toward Cuba. Cuba canceled their entry permits, and the United States and Canada refused them refuge.",
+   vocab:[["אשרות כניסה","entry permits"],["בוטלו","were canceled"],["מקלט","refuge"]],
+   questions:[
+    {q:"מאין יצאה הספינה ״סנט לואיס״?",a:"מנמל המבורג שבגרמניה",opts:["מנמל המבורג שבגרמניה","מקובה","מבריטניה","מצרפת"],kind:"Printed comprehension · PDF 32 · choices adapted",explanation:"בתחילת הקטע כתוב: יצאה מנמל המבורג שבגרמניה."},
+    {q:"אילו מדינות סירבו לתת מקלט ליהודים?",a:"ארצות הברית וקנדה",opts:["ארצות הברית וקנדה","בריטניה וצרפת","בלגיה והולנד","גרמניה וקובה"],kind:"Printed comprehension · PDF 32 · choices adapted",explanation:"הקטע אומר שארצות הברית וקנדה סירבו לתת מקלט."},
+    {q:"השלימו מן הקטע: אשרות הכניסה שלהם _____.",a:"בוטלו",opts:["בוטלו","ביטלו","יבוטלו","מבוטלות"],kind:"Printed verb completion · PDF 33 · choices adapted",explanation:"השלטונות ביטלו את האשרות; בצורת הסביל: האשרות בוטלו."}
+   ]},
+  {id:"ulpan4-34-seas",title:"ים המלח וים כנרת",
+   source:"אולפן עברית — חלק רביעי • lesson 34 • PDF page 35 (printed page 383) • selected original Hebrew; printed comprehension adapted to choices",
+   he:"שני ימים יש בישראל, אולם (אבל) הבדל גדול קיים (יש) ביניהם. הכנרת נמצאת בחלק הצפוני של נהר הירדן, לעומתה ים המלח נמצא בדרום הירדן. ים כנרת נמצא כ־200 מטר מתחת לפני הים, ואילו ים המלח נמצא כ־400 מטר מתחת לפני הים. שיעור (אחוז) המלח בים המלח הוא כ־33% לעומת כ־3.5% בים התיכון. ים המלח נקרא בעולם ״ים המוות״ משום שאין בו חיים.",
+   en:"The Sea of Galilee and the Dead Sea differ in location, elevation, and salinity. The Dead Sea is about 33% salt, compared with about 3.5% in the Mediterranean.",
+   vocab:[["לעומתה","by contrast with it"],["ואילו","whereas"],["שיעור המלח","salt concentration"]],
+   questions:[
+    {q:"מהו אחוז המלח בים התיכון?",a:"כ־3.5%",opts:["כ־3.5%","כ־33%","כ־20%","כ־50%"],kind:"Printed comprehension · PDF 35 · choices adapted",explanation:"בסוף הקטע נאמר כ־3.5% בים התיכון."},
+    {q:"מדוע ים המלח נקרא ״ים המוות״?",a:"משום שאין בו חיים",opts:["משום שאין בו חיים","משום שיש בו הרבה דגים","משום שהוא בצפון","משום שהוא עמוק מן האוקיינוס"],kind:"Printed comprehension · PDF 35 · choices adapted",explanation:"המשך הקטע בעמוד 35 מסביר שאין בו חיים; התשובה נתמכת בפסקה המלאה בסריקה."}
+   ]},
+  {id:"ulpan4-35-housewarming",title:"חנוכת בית — שיחה",
+   source:"אולפן עברית — חלק רביעי • lesson 35 • PDF page 41 (printed page 389) • selected original dialogue; printed questions adapted to choices",
+   he:"רותי: יש לנו חדשות טובות! חתמנו אתמול על החוזה, קנינו את הדירה שרצינו...\nאורן: בשעה טובה! מתי הפינוי?\nרותי: הפינוי מידי. כבר קיבלנו את המפתח...\nאורן: הדירה גדולה?\nרותי: כן, היא גדולה ומרווחת, אבל ישנה וזקוקה לשיפוץ.\nרותי: אנחנו מקווים שניכנס לדירה בעוד חודשיים, משום שאנחנו רוצים לשפץ את הדירה ולהשקיע בשיפוץ.",
+   en:"Ruthie and Oren discuss the apartment Ruthie bought. They have the key immediately, but the large apartment needs renovation.",
+   vocab:[["חוזה","contract"],["פינוי מידי","immediate vacancy"],["זקוקה לשיפוץ","needs renovation"]],
+   questions:[
+    {q:"מה החדשות הטובות שיש לרותי לספר?",a:"הם קנו את הדירה שרצו",opts:["הם קנו את הדירה שרצו","הם מכרו את הבית","הם מצאו עבודה","הם נוסעים לחוץ לארץ"],kind:"Printed comprehension · PDF 41 · choices adapted",explanation:"רותי אומרת שחתמו על החוזה וקנו את הדירה שרצו."},
+    {q:"מתי הם ייכנסו לדירה?",a:"בעוד חודשיים",opts:["בעוד חודשיים","בעוד שנה","אחרי החגים","בעוד שבועיים"],kind:"Printed comprehension · PDF 41 · choices adapted",explanation:"למרות הפינוי המידי, רותי מקווה להיכנס לדירה בעוד חודשיים אחרי השיפוץ."},
+    {q:"מדוע הדירה זקוקה לשיפוץ?",a:"היא ישנה",opts:["היא ישנה","היא קטנה","אין בה מפתח","היא רחוקה"],kind:"Printed comprehension · PDF 41 · choices adapted",explanation:"רותי אומרת שהדירה גדולה ומרווחת, אבל ישנה וזקוקה לשיפוץ."}
+   ]},
+  {id:"ulpan4-35-invitation",title:"הזמנה לחנוכת בית",
+   source:"אולפן עברית — חלק רביעי • lesson 35 • PDF page 42 (printed page 390) • selected original invitation; printed questions adapted to choices",
+   he:"בשעה טובה ומוצלחת נכנסנו לביתנו החדש!\nאתם מוזמנים לחנוכת בית שתיערך ביום שלישי, 21.7.08, בשעה 19:30 בדירתנו – ברחוב הרצל 3 אשדוד.\nנשמח לארחכם בין אורחינו!\nרותי ודויד צור",
+   en:"Ruthie and David Tzur invite guests to their new home in Ashdod on Tuesday at 19:30.",
+   vocab:[["הזמנה","invitation"],["חנוכת בית","housewarming"],["תיערך","will be held"]],
+   questions:[
+    {q:"מי מזמין לחנוכת בית?",a:"רותי ודויד צור",opts:["רותי ודויד צור","אורן ורותי כהן","הילדים בבית הספר","המורה והתלמידים"],kind:"Printed comprehension · PDF 42 · choices adapted",explanation:"בסוף ההזמנה חתומים רותי ודויד צור."},
+    {q:"איפה תיערך חנוכת הבית?",a:"ברחוב הרצל 3 באשדוד",opts:["ברחוב הרצל 3 באשדוד","ברחוב הרצל 3 בחיפה","בבית הספר","במסעדה"],kind:"Printed comprehension · PDF 42 · choices adapted",explanation:"הכתובת מופיעה בהזמנה: רחוב הרצל 3 באשדוד."},
+    {q:"מתי תיערך חנוכת הבית?",a:"ביום שלישי בשעה 19:30",opts:["ביום שלישי בשעה 19:30","ביום ראשון בבוקר","ביום שישי בשעה 19:30","ביום שלישי בשעה 9:30"],kind:"Printed comprehension · PDF 42 · choices adapted",explanation:"בהזמנה מצוינים יום שלישי והשעה 19:30."}
+   ]},
+
 ];
 let readingSession=null;
 let readingAdvanceTimer=null;

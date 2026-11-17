@@ -38,6 +38,7 @@ function show(){
   $("flashcardBack").hidden=true;
   $("flashcardExampleHe").textContent=c.exampleHe;
   $("flashcardExampleEn").textContent=c.exampleEn;
+  $("flashcardExampleKind").textContent="Example in context · "+(c.exampleKind||"Supplemental practice");
   $("flashcardExample").hidden=true;
   $("flashcardSource").textContent=c.book+" · Chapter "+c.chapter+" · PDF page "+c.sourcePage;
   $("flashcardReveal").hidden=false;
