@@ -20,7 +20,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 14 | אולפן עברית 4 | 33 | 23–31 | 10 | 10 | 3 | 8 | 0 | 3 | 0 | 0 |
 | 15 | אולפן עברית 4 | 34 | 32–39 | 12 | 12 | 3 | 5 | 0 | 3 | 0 | 0 |
 | 16 | אולפן עברית 4 | 35 | 40–43 | 10 | 10 | 3 | 6 | 0 | 3 | 0 | 0 |
-| 17 | אולפן עברית 4 | 36 | 44–55 | 23 | 0 | 3 | 0 | 0 | 0 | 23 | 3 |
+| 17 | אולפן עברית 4 | 36 | 44–55 | 12 | 12 | 3 | 5 | 0 | 4 | 0 | 0 |
 | 18 | ללמוד עברית ב׳ | 1 | 11–23 | 22 | 22 | 3 | 6 | 0 | 0 | 22 | 0 |
 | 19 | ללמוד עברית ב׳ | 2 | 24–34 | 24 | 24 | 3 | 5 | 0 | 0 | 24 | 0 |
 | 20 | ללמוד עברית ב׳ | 3 | 35–47 | 17 | 17 | 3 | 5 | 0 | 0 | 17 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 797 active chapter-bank questions; 138 Hebrew interpretation checks; 146 Reading Practice activities with 479 questions; 0 context-dependent bank items held out of chapter tests; 145 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 786 active chapter-bank questions; 138 Hebrew interpretation checks; 148 Reading Practice activities with 484 questions; 0 context-dependent bank items held out of chapter tests; 149 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -197,14 +197,20 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-12-locker-room: 3 questions; chapter 29; ללמוד עברית ברמה ב׳ • unit 12 • PDF page 153 (printed page 149) • original newspaper excerpt; comprehension supplemental.
 - ulpan-10-nahalal: 6 questions; chapter 10; אולפן עברית • First Part, lesson 10 • PDF page 105 (printed page 117) • original passage and questions; answer choices adapted.
 - ulpan-10-anat-completion: 3 questions; chapter 10; אולפן עברית • First Part, lesson 10 • PDF page 106 (printed page 118) • original fill-in passage; answer choices adapted.
+- ulpan4-34-st-louis: 3 questions; chapter 15; אולפן עברית — חלק רביעי • lesson 34 • PDF pages 32–33 (printed pages 380–381) • selected original Hebrew; printed questions and verb completions adapted to choices.
+- ulpan4-34-seas: 2 questions; chapter 15; אולפן עברית — חלק רביעי • lesson 34 • PDF page 35 (printed page 383) • selected original Hebrew; printed comprehension adapted to choices.
+- ulpan4-35-housewarming: 3 questions; chapter 16; אולפן עברית — חלק רביעי • lesson 35 • PDF page 41 (printed page 389) • selected original dialogue; printed questions adapted to choices.
+- ulpan4-35-invitation: 3 questions; chapter 16; אולפן עברית — חלק רביעי • lesson 35 • PDF page 42 (printed page 390) • selected original invitation; printed questions adapted to choices.
+- ulpan4-36-jonathan: 3 questions; chapter 17; אולפן עברית — חלק רביעי • lesson 36 • PDF page 49 (printed page 397) • selected original reading; printed comprehension questions adapted to choices.
+- ulpan4-36-jerusalem: 2 questions; chapter 17; אולפן עברית — חלק רביעי • lesson 36 • PDF page 53 (printed page 401) • selected original reading; printed passive transformations on PDF 54 adapted to choices.
 
 ## Reconciliation findings
 
 - The current app index contains 46 chapters: 10 from אולפן עברית First Part, 7 from its Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The later 39-chapter note equals 10 + 19 + 10 and appears to omit the seven Fourth Part chapters, but that intent has not been confirmed. Keep the 46 stable chapter IDs and saved progress until the intended mapping is resolved; 46 indexed ready does not mean 46 source-verified.
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
-- 221 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 9 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 752 active bank questions have item-specific explanations. The remaining 52 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 169 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 0 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
+- 786 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.
@@ -223,10 +229,11 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - Chapter 43 (עברית בשניים לרמה ב׳ chapter 7): ten visible Reading Practice activities now contain 19 source-linked questions, including printed true/false and past-tense fill-ins. Eight standalone chapter questions and three Hebrew interpretation checks remain with page/exercise citations and explanations. Corrected the art preference, the artist זאב רבן, Daniel’s response to being caught, the Pompeii description, and the אליכם/לכם prompt. Four flashcards have context examples. See source-audit-42-43.md.
 - Chapter 44 (עברית בשניים לרמה ב׳ chapter 8): 19 isolated reading questions were moved to nine visible source activities. The 13 standalone chapter questions now have lesson and PDF references and explanations. The film title, Ali Baba quotation, passive examples, and marathon page reference were corrected. Four flashcards have examples. See source-audit-44-45.md.
 - Chapter 45 (עברית בשניים לרמה ב׳ chapter 9): 18 context-free reading prompts were removed from the scored bank and replaced by ten visible Hebrew activities with 21 questions. The 17 remaining grammar and vocabulary items have page and exercise citations and lesson explanations. Removed unsupported Stephen Hawking, sustainability, heat reduction, and bag claims; corrected the superlative and past-tense forms. Four flashcards have context examples. See source-audit-44-45.md.
-- Chapters 15–16 (אולפן עברית Fourth Part lessons 34–35): 22 scored lesson questions and six interpretation checks now cite scanned exercises and explain errors. Four visible Reading Practice activities contain 11 contextual questions. Six flashcards show source sentences. The planned move is in two months; the invitation is signed רותי ודויד צור. See source-audit-15-16.md.
 - Chapter 46 (עברית בשניים לרמה ב׳ chapter 10): 20 held passage-dependent items and four other context-dependent prompts were replaced by 13 visible source activities with 25 questions. The 21 remaining standalone bank questions cite the page and exercise and explain corrections. The hotel dialogue begins with יומיים, the להבין table shows present tense, and the Esperanto and Babel passages were corrected against the scan. Three interpretation checks and four flashcards have page and context references. See source-audit-46.md.
+- Chapters 15–16 (אולפן עברית Fourth Part lessons 34–35): 22 scored lesson questions and six interpretation checks now cite the scanned exercises and explain mistakes. Four visible Reading Practice activities contain 11 contextual questions from the St. Louis, seas, housewarming, and invitation material. Six cards use source sentence context. The planned move after renovation is in two months, and the invitation is signed רותי ודויד צור. See source-audit-15-16.md.
+- Chapter 17 (אולפן עברית Fourth Part lesson 36): 12 source-identified passive transformations/completions and three Hebrew interpretation checks replace context-free bank items. Two source excerpts with five printed-question adaptations appear in Reading Practice; four cards show source sentence context. See source-audit-17.md.
 - The source scan for ללמוד עברית ברמה ב׳ PDF page 96 shows a transport crossword. Its clue טסים בו supports מטוס; the previous מסוק card and question had no visible support there. The card was removed without reusing its stable ID, and the question now uses the original Hebrew clue. The bicycle clue also now appears in Hebrew.
 
 ## Next source review
 
-Next consecutive source review: chapter 17, אולפן עברית Fourth Part lesson 36, PDF pages 44–55. Then inspect active items without an exercise label or interpretation page and compare each with its scan. Map independent adaptive entries to an approved lesson only where the uploaded source supports that mapping. Do not treat the indexed-ready count as a completed line-by-line source audit.
+Next consecutive source review: chapter 18, ללמוד עברית ברמה ב׳ unit 1, PDF pages 11–23. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
