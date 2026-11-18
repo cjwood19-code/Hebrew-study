@@ -1051,7 +1051,7 @@ const readingPassages=[
   },
   {
     id:"lilmod-1-slowly-surely",title:"לאט אבל בטוח",
-    source:"ללמוד עברית ברמה ב׳ • unit 1 • PDF page 11 (printed page 7) • original reading; printed completion exercise adapted to answer choices; additional comprehension marked supplemental",
+    source:"ללמוד עברית ברמה ב׳ • unit 1 • PDF page 11 (printed page 7) • original reading and printed questions 1–2; answer choices adapted",
     he:"סטודנט לרפואה לא למד במשך כל השנה. בסוף השנה, כאשר התקרבו המבחנים, נבהל הסטודנט הצעיר, כי פחד להיכשל.\nהוא פנה אל הפרופסור שלו ושאל: \"אדוני הפרופסור, האם מספיק ללמוד במשך חודש אחד כדי להצליח במבחנים?\"\nענה הפרופסור הזקן: \"אתה רוצה להיות רופא. הרבה פעמים מגיעים למרפאה אנשים שמנים מאוד. אתה יכול לתת להם דיאטה ארוכה וקלה או להציע להם לצום כמה ימים כדי לרזות. מה אתה בוחר להציע להם?\"",
     en:"A medical student did not study all year. Near the exams he feared failing and asked his professor whether one month of study was enough. The professor answered with a comparison: would a doctor offer a long, easy diet or a few days of fasting?",
     vocab:[["רפואה","medicine"],["בחינות","exams"],["להיכשל","to fail"],["לצום","to fast"]],
@@ -1060,8 +1060,8 @@ const readingPassages=[
       {q:"הסטודנט לא למד ______ כל השנה.",a:"במשך",opts:["במשך","אחרי","לפני","בלי"],kind:"Printed completion · answer choices adapted",explanation:"המשפט הראשון אומר: לא למד במשך כל השנה."},
       {q:"הוא שאל את ה______ שלו.",a:"פרופסור",opts:["פרופסור","נהג","מוכר","חבר"],kind:"Printed completion · answer choices adapted",explanation:"בקטע כתוב שהוא פנה אל הפרופסור שלו ושאל."},
       {q:"כדי ______ במבחנים.",a:"להצליח",opts:["להצליח","לנסוע","לשחות","לבשל"],kind:"Printed completion · answer choices adapted",explanation:"השאלה של הסטודנט מסתיימת במילים כדי להצליח במבחנים."},
-      {q:"מתי נבהל הסטודנט?",a:"כאשר התקרבו המבחנים",opts:["כאשר התקרבו המבחנים","בתחילת השנה","בחופשה","אחרי שסיים ללמוד"],kind:"Supplemental comprehension",explanation:"המשפט הראשון קושר את הפחד להתקרבות המבחנים."},
-      {q:"מה הציע הפרופסור כאפשרויות לאנשים שרוצים לרזות?",a:"דיאטה ארוכה וקלה או צום של כמה ימים",opts:["דיאטה ארוכה וקלה או צום של כמה ימים","לימוד במשך חודש","נסיעה לירושלים","שינה במשך כל היום"],kind:"Supplemental comprehension",explanation:"הפרופסור משווה דיאטה ארוכה וקלה לצום של כמה ימים."}
+      {q:"האם לדעתכם הפרופסור באמת ענה על שאלת הסטודנט?",a:"הוא ענה בעקיפין בעזרת השוואה בין דיאטה ארוכה לצום קצר",opts:["הוא ענה בעקיפין בעזרת השוואה בין דיאטה ארוכה לצום קצר","הוא אמר במפורש שחודש מספיק","הוא אמר שהמבחן בוטל","הוא סירב לדבר עם הסטודנט"],kind:"Printed question 2 · interpretive answer choices adapted",explanation:"הפרופסור לא אומר כן או לא; הוא משווה בין תהליך ארוך לצום קצר כדי שהסטודנט יסיק את התשובה."},
+      {q:"מה הציע הפרופסור כאפשרויות לאנשים שרוצים לרזות?",a:"דיאטה ארוכה וקלה או צום של כמה ימים",opts:["דיאטה ארוכה וקלה או צום של כמה ימים","לימוד במשך חודש","נסיעה לירושלים","שינה במשך כל היום"],kind:"Supplemental comprehension from the visible passage",explanation:"הפרופסור משווה דיאטה ארוכה וקלה לצום של כמה ימים."}
     ]
   },
   {

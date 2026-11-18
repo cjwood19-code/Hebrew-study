@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),asse
 const root=__dirname,html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
 const context={window:{},document:{getElementById:()=>null}};vm.createContext(context);
-for(const file of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'||f==='ulpan4-cards-15-16.js'||f==='ulpan4-cards-17.js'||f==='data.js'||f==='book-exercises.js'))
+for(const file of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'||f==='ulpan4-cards-15-16.js'||f==='ulpan4-cards-17.js'||f==='lilmod-cards-18.js'||f==='data.js'||f==='book-exercises.js'))
   vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
 const {HEBREW_TEXTBOOK_CHAPTERS:chapters,HEBREW_TEXTBOOK_QUESTION_BANKS:banks,HEBREW_CHAPTER_INTERPRETATION:checks,HEBREW_CONTEXT_REVIEW_QUEUE:held,HEBREW_GENERAL_FLASHCARDS:cards,TRAINER_DATA:data}=context.window;
 assert.equal(chapters.length,46);
@@ -71,11 +71,12 @@ const report=[
   '- Chapter 46 (עברית בשניים לרמה ב׳ chapter 10): 20 held passage-dependent items and four other context-dependent prompts were replaced by 13 visible source activities with 25 questions. The 21 remaining standalone bank questions cite the page and exercise and explain corrections. The hotel dialogue begins with יומיים, the להבין table shows present tense, and the Esperanto and Babel passages were corrected against the scan. Three interpretation checks and four flashcards have page and context references. See source-audit-46.md.',
   '- Chapters 15–16 (אולפן עברית Fourth Part lessons 34–35): 22 scored lesson questions and six interpretation checks now cite the scanned exercises and explain mistakes. Four visible Reading Practice activities contain 11 contextual questions from the St. Louis, seas, housewarming, and invitation material. Six cards use source sentence context. The planned move after renovation is in two months, and the invitation is signed רותי ודויד צור. See source-audit-15-16.md.',
   '- Chapter 17 (אולפן עברית Fourth Part lesson 36): 12 source-identified passive transformations/completions and three Hebrew interpretation checks replace context-free bank items. Two source excerpts with five printed-question adaptations appear in Reading Practice; four cards show source sentence context. See source-audit-17.md.',
+  '- Chapter 18 (ללמוד עברית ברמה ב׳ unit 1): 13 source-identified test questions and three reading interpretation checks replace 22 generic bank questions. The original story and six contextual questions remain in Reading Practice, with the printed interpretive question restored. Four cards show source sentence context. See source-audit-18.md.',
   '- The source scan for ללמוד עברית ברמה ב׳ PDF page 96 shows a transport crossword. Its clue טסים בו supports מטוס; the previous מסוק card and question had no visible support there. The card was removed without reusing its stable ID, and the question now uses the original Hebrew clue. The bicycle clue also now appears in Hebrew.',
   '',
   '## Next source review',
   '',
-  'Next consecutive source review: chapter 18, ללמוד עברית ברמה ב׳ unit 1, PDF pages 11–23. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.'
+  'Next consecutive source review: chapter 19, ללמוד עברית ברמה ב׳ unit 2, PDF pages 24–34. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.'
 ].join('\n')+'\n';
 fs.writeFileSync(path.join(root,'curriculum-reconciliation-audit.md'),report);
 console.log(JSON.stringify({chapters:chapters.length,activeBank:rows.reduce((n,r)=>n+r.bank,0),explained:rows.reduce((n,r)=>n+r.explained,0),interpretation:rows.reduce((n,r)=>n+r.interpretation,0),readingActivities:reading.length,readingQuestions:reading.reduce((n,p)=>n+p.questions.length,0),held:held.length,flashcards:cards.length,missingExercise,missingInterpretationPage,unassignedReading:unassigned.length,adaptive:{vocab:vocab.length,sentences:sentences.length,bookExercises:exercises.length}}));
