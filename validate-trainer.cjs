@@ -8,7 +8,7 @@ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
 for(const f of scripts)assert.ok(fs.existsSync(path.join(root,f)),'Missing script '+f);
 const context={window:{},document:{getElementById:()=>null}};vm.createContext(context);
-for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'||f==='ulpan4-cards-15-16.js'||f==='ulpan4-cards-17.js'||f==='lilmod-cards-18.js'||f==='lilmod-cards-19.js'))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
+for(const f of scripts.filter(f=>f.startsWith('textbook-')||f==='general-vocabulary-cards.js'||f==='general-flashcard-examples.js'||f.startsWith('ulpan4-cards-')||f.startsWith('lilmod-cards-')))vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f});
 const banks=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS,chapters=context.window.HEBREW_TEXTBOOK_CHAPTERS,cards=context.window.HEBREW_GENERAL_FLASHCARDS;
 const reviewQueue=context.window.HEBREW_CONTEXT_REVIEW_QUEUE;
 assert.ok(Array.isArray(reviewQueue)&&reviewQueue.length===0);
@@ -138,7 +138,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,157);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,161);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&['Supplemental practice example','Textbook sentence','Textbook sentence or printed exercise'].includes(c.exampleKind),c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));
