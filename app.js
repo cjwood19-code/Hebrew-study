@@ -1166,6 +1166,33 @@ const readingPassages=[
     ]
   },
   {
+    id:"lilmod-6-nationalities",title:"היהודי הנודד — לאומים",
+    source:"ללמוד עברית ברמה ב׳ • unit 6 • PDF page 75 (printed page 71) • original nationality fill-in excerpt; answer choices adapted",
+    he:"השלימו — היהודי הנודד:\nסבתא שלי נולדה ברוסיה. היא היתה ______. סבא שלי נולד בצרפת. הוא היה ______. שניהם עברו לאיטליה, שם הם נפגשו והתחתנו.",
+    en:"The printed exercise asks for nationality words that agree with the grandmother and grandfather. The original Hebrew remains visible while you fill the two blanks.",
+    vocab:[["רוסייה","Russian woman"],["צרפתי","French man"]],
+    questions:[
+      {q:"סבתא שלי נולדה ברוסיה. היא היתה ______.",a:"רוסייה",opts:["רוסייה","רוסי","צרפתייה","איטלקי"],kind:"Printed nationality fill-in · choices adapted",explanation:"סבתא היא נקבה יחידה ונולדה ברוסיה, לכן הצורה היא רוסייה."},
+      {q:"סבא שלי נולד בצרפת. הוא היה ______.",a:"צרפתי",opts:["צרפתי","צרפתייה","רוסייה","איטלקייה"],kind:"Printed nationality fill-in · choices adapted",explanation:"סבא הוא זכר יחיד ונולד בצרפת, לכן הצורה היא צרפתי."}
+    ]
+  },
+  {
+    id:"lilmod-6-ticket-prepositions",title:"ענת, רפי והכרטיס — מילות יחס",
+    source:"ללמוד עברית ברמה ב׳ • unit 6 • PDF page 84 (printed page 80) • original preposition fill-in excerpt; answer choices adapted",
+    he:"כתבו בנפרד או בנטייה את מילות היחס: את, ל, עם, ב, אצל, בשביל.\nענת חיפשה ______ פנינה באוניברסיטה ולא מצאה ______. היא נכנסה ______ הכיתה ופגשה ______ רפי. היא שאלה ______ איפה פנינה, והוא אמר ______ שהוא ראה ______ בחוץ לפני חמש דקות.",
+    en:"The printed passage practices separate and attached forms of prepositions and object pronouns. The Hebrew excerpt stays beside the blanks.",
+    vocab:[["את","direct-object marker"],["אותה","her"],["אותו","him"],["לה","to her"]],
+    questions:[
+      {q:"ענת חיפשה ______ פנינה באוניברסיטה.",a:"את",opts:["את","אותה","על","עם"],kind:"Printed preposition fill-in · choices adapted",explanation:"פנינה היא מושא ישיר מיודע, ולכן לפני השם משתמשים ב־את."},
+      {q:"ענת חיפשה את פנינה באוניברסיטה ולא מצאה ______.",a:"אותה",opts:["אותה","אותו","את","לה"],kind:"Printed preposition fill-in · choices adapted",explanation:"פנינה היא נקבה; במקום לחזור על שמה משתמשים ב־אותה כמושא ישיר."},
+      {q:"היא נכנסה ______ הכיתה.",a:"ל",opts:["ל","את","עם","על"],kind:"Printed preposition fill-in · choices adapted",explanation:"נכנסה לכיתה מציין תנועה אל הכיתה, לכן מוסיפים ל־."},
+      {q:"היא נכנסה לכיתה ופגשה ______ רפי.",a:"את",opts:["את","אותו","על","ל"],kind:"Printed preposition fill-in · choices adapted",explanation:"רפי הוא מושא ישיר מיודע, ולכן לפני שמו מופיעה את."},
+      {q:"היא שאלה ______ איפה פנינה.",a:"אותו",opts:["אותו","אותה","על","את"],kind:"Printed preposition fill-in · choices adapted",explanation:"ענת שואלת את רפי; כשמחליפים את שמו בכינוי מושא זכר יחיד משתמשים ב־אותו."},
+      {q:"והוא אמר ______ שהוא ראה אותה בחוץ.",a:"לה",opts:["לה","לו","אותה","את"],kind:"Printed preposition fill-in · choices adapted",explanation:"רפי אומר לענת, שהיא נקבה יחידה; לכן אומרים אמר לה."},
+      {q:"הוא אמר לה שהוא ראה ______ בחוץ לפני חמש דקות.",a:"אותה",opts:["אותה","אותו","לה","את"],kind:"Printed preposition fill-in · choices adapted",explanation:"רפי ראה את פנינה; כינוי המושא לנקבה יחידה הוא אותה."}
+    ]
+  },
+  {
     id:"lilmod-7-transport",title:"סוס וחמור - כלי תחבורה",
     source:"ללמוד עברית ברמה ב׳ • unit 7 • PDF page 86 (printed page 82) original reading excerpt; printed comprehension on printed page 83, adapted to choices",
     he:"למשל, עד סוף המאה ה־19 השתמשו בסוסים ובחמורים כדי לעבור ממקום למקום. כבישים לא היו, כמובן, והדרכים היו צרות מאוד. הנסיעה מיפו לירושלים נמשכה שש עשרה שעות, ומירושלים לצפת נסעו חמישה ימים, ולכן היו מוכרחים לעצור בדרך. הטורקים ששלטו אז בארץ, בנו בתי מלון (חאן). שם אפשר היה לנוח, לאכול ולהאכיל את הסוסים.\nאף אחד לא האמין שבתוך פחות ממאה שנה יהיו כבישים רחבים ורכבות מהירות.\nהיום נמשכת הנסיעה ברכבת מתל־אביב לחיפה כשעה. במכונית הנוסעת בכביש המהיר, מגיעים מירושלים לתל־אביב בתוך 45 דקות. במקום חאן בונים תחנות דלק, ובמקום להשתמש בבעלי חיים משתמשים באוטובוסים ובמכוניות. אבל מחיר הדלק עולה כל הזמן, ובוודאי יעלה גם בעתיד, ואולי בעוד זמן לא רב נהיה מוכרחים לשוב לסוס ולחמור.",

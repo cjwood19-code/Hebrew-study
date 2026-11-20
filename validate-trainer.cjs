@@ -37,6 +37,8 @@ for(const [level,size] of [[3,13],[4,12]]){assert.equal(banks[level].length,size
 for(const level of [5,6]){assert.equal(banks[level].length,8);assert.ok(banks[level].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&/[\u0590-\u05ff]/.test(q.prompt)));assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[level].length===3&&context.window.HEBREW_CHAPTER_INTERPRETATION[level].every(q=>q.sourcePage&&q.sourceExercise&&q.explanation&&q.interpretation));}
 for(const level of [7,8]){assert.equal(banks[level].length,8);assert.ok(banks[level].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&/[\u0590-\u05ff]/.test(q.prompt)));assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[level].length===3&&context.window.HEBREW_CHAPTER_INTERPRETATION[level].every(q=>q.sourcePage&&q.sourceExercise&&q.explanation&&q.interpretation));}
 for(const level of [20,21,22]){assert.equal(banks[level].length,17);assert.ok(banks[level].every(q=>q.category!=='Reading with context'&&q.explanation&&q.practiceOrigin));}
+assert.equal(banks[23].length,13);assert.ok(banks[23].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&/[\u0590-\u05FF]/.test(q.prompt)));
+assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[23].every(q=>q.sourcePage===73&&q.sourceExercise&&q.explanation));
 for(const level of [24,25]){
   assert.equal(banks[level].length,level===24?29:28);
   if(level===24){assert.ok(banks[level].some(q=>q.sourcePage===96&&q.prompt.startsWith('טסים בו')&&q.answer==='מטוס'));assert.ok(!banks[level].some(q=>q.sourcePage===96&&/מסוק/.test(q.prompt)));}
@@ -138,7 +140,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,169);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,173);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&['Supplemental practice example','Textbook sentence','Textbook sentence or printed exercise'].includes(c.exampleKind),c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));
