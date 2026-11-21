@@ -40,9 +40,9 @@ for(const level of [20,21,22]){assert.equal(banks[level].length,17);assert.ok(ba
 assert.equal(banks[23].length,13);assert.ok(banks[23].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&/[\u0590-\u05FF]/.test(q.prompt)));
 assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[23].every(q=>q.sourcePage===73&&q.sourceExercise&&q.explanation));
 for(const level of [24,25]){
-  assert.equal(banks[level].length,level===24?24:28);
+  assert.equal(banks[level].length,24);
   if(level===24){assert.ok(banks[level].some(q=>q.sourcePage===96&&q.prompt.startsWith('טסים בו')&&q.answer==='מטוס'));assert.ok(!banks[level].some(q=>q.sourcePage===96&&/מסוק/.test(q.prompt)));}
-  assert.ok(banks[level].every(q=>!q.category.startsWith('Reading')&&q.explanation&&q.practiceOrigin&&(level===25||q.sourceExercise&&/[\u0590-\u05FF]/.test(q.prompt))));
+  assert.ok(banks[level].every(q=>!q.category.startsWith('Reading')&&q.explanation&&q.practiceOrigin&&q.sourceExercise&&/[\u0590-\u05FF]/.test(q.prompt)));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage),'New bank source ordering');
 }
 for(const level of [26,27]){

@@ -1,0 +1,9 @@
+# Chapter 25 source audit — ללמוד עברית ברמה ב׳, unit 8
+
+Compared the 28 active Chapter Test questions, three Hebrew interpretation checks, five Swedish advertisement Reading Practice questions, and 25 contextual flashcards with the user-supplied scan, indexed PDF pages 99–108 (printed pages 95–104). Only chapter 25 was corrected in this run. The app's stable chapter ID and progress key remain unchanged.
+
+The old test had five isolated vocabulary prompts, four pronoun blanks from the printed connected dialogue, and 19 other grammar and vocabulary checks. The five vocabulary prompts now quote their context from the Swedish advertisement reading. The four pronoun blanks moved to Reading Practice, where a selected original Hebrew dialogue excerpt and one additional printed blank remain visible beside five questions. Ellipses explicitly mark omitted source lines. The old masculine עליך clue was wrong for a woman addressed in the printed dialogue; the corrected answer is feminine עלייך. The remaining 24 test items now have source exercise labels, lesson explanations, and adapted-choice labels. The three required Hebrew interpretation checks quote the story and now explain corrections.
+
+The Swedish advertisement reading stays in Reading Practice beside its five questions, including three adaptations of printed comprehension prompts. The 25 existing flashcards retain their stable IDs and contextual examples; their example sentences are supplemental uses of unit 8 vocabulary rather than claimed textbook quotations. Saved chapter scores and the independent adaptive pool remain intact.
+
+The 46 stable app chapter IDs comprise 10 אולפן עברית First Part lessons, seven Fourth Part lessons, 19 ללמוד units, and 10 עברית בשניים chapters. The later 39-chapter note appears to omit the seven Fourth Part lessons; that mapping remains unresolved. Indexed readiness is not complete source verification. Chapter 26 is next for fresh scan comparison.

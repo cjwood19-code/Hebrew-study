@@ -1240,6 +1240,20 @@ const readingPassages=[
     ]
   },
   {
+    id:"lilmod-8-pronoun-dialogue",title:"משה, מיכאל והכיסא — כינויי יחס",
+    source:"ללמוד עברית ברמה ב׳ • unit 8 • PDF page 108 (printed page 104) • selected original dialogue cloze excerpt; choices adapted",
+    he:"כתבו ׳אל׳ או ׳על׳ בנפרד או בנטייה:\nאמרתי למיכאל שיבוא ______ בערב לביקור. ... ופתאום נכנס משה. הוא הסתכל ______ ואמר: ״חשבתי ______ כל היום.״ ...\nכשנכנסנו לדירה, אמר לנו שמואל: ״בואו, שבו. הזדרזו! הכיסא הזה שבור. אסור לשבת ______, אבל הספה חדשה, ואפשר לשבת ______.״",
+    en:"Selected sentences from the printed connected dialogue. Ellipses mark omitted parts of the source passage; the five shown blanks retain their positions and context.",
+    vocab:[["עלייך","about you (to a woman)"],["עליו","on it (masculine)"],["עליה","on it (feminine)"]],
+    questions:[
+      {q:"אמרתי למיכאל שיבוא ______ בערב לביקור.",a:"אליי",opts:["אליי","עליי","אליו","עליו"],kind:"Printed pronoun fill-in · choices adapted",explanation:"מיכאל יבוא אל המספרת; אליי פירושו ׳אליי / to me׳."},
+      {q:"הוא הסתכל ______ ואמר",a:"עליי",opts:["עליי","אליי","עליו","אליו"],kind:"Printed pronoun fill-in · choices adapted",explanation:"משה הסתכל על המספרת; הסתכל עליי פירושו ׳looked at me׳."},
+      {q:"משה אמר למספרת: ״חשבתי ______ כל היום.״",a:"עלייך",opts:["עלייך","עליך","אלייך","עליו"],kind:"Printed pronoun fill-in · choices adapted",explanation:"משה מדבר אל אישה ואומר שחשב עליה: עלייך היא צורת הנקבה של ׳about you׳."},
+      {q:"הכיסא הזה שבור. אסור לשבת ______.",a:"עליו",opts:["עליו","עליה","אליו","אליה"],kind:"Printed pronoun fill-in · choices adapted",explanation:"כיסא הוא שם עצם זכר, ולכן יושבים עליו."},
+      {q:"אבל הספה חדשה, ואפשר לשבת ______.",a:"עליה",opts:["עליה","עליו","אליה","אליו"],kind:"Printed pronoun fill-in · choices adapted",explanation:"ספה היא שם עצם נקבה, ולכן יושבים עליה."}
+    ]
+  },
+  {
     id:"lilmod-9-school-on-wheels",title:"בית ספר על גלגלים",
     source:"ללמוד עברית ברמה ב׳ • unit 9 • PDF page 109 (printed page 105) • original reading excerpts; printed comprehension on PDF page 110 (printed page 106), adapted to choices",
     he:"לא בכל מדינה אפשר ללמד את כל התושבים לקרוא ולכתוב. חלק מתושבי העולם חיים ביערות או במדבריות, וצורת החיים שלהם לא השתנתה במשך אלפי שנים. במדבריות אוסטרליה, למשל, יש עדיין כמה שבטים שקשה להגיע אליהם, מפני שהם נודדים ממקום למקום. ממשלת אוסטרליה החליטה ללמד אותם, ופתחה בית ספר באמצע המדבר.\nבית הספר נמצא בארבע מכוניות גדולות, והילדים מגיעים אליו ברגל. הם אינם מביאים אתם ספרים, מחברות או אוכל, ובית הספר נותן להם הכול. פעם בשבועיים מגיעה למקום מכונית שמביאה מחברות, עפרונות, מזון ותרופות.\nכל בוקר חייבים הילדים להתרחץ לפני תחילת הלימודים. בכיתות לומדים ילדים וילדות מכל הגילים. אפשר לראות בכיתה אחת ילדים בני עשר ונערות בגיל חמש עשרה–שש עשרה.\nהאם יש איחורים או חיסורים? ״כן״ אומרת המנהלת, ״אבל תמיד יש סיבות רציניות לכך. כאשר ילד לא בא לבית הספר, אני יודעת שקרה משהו: או שנחש הכיש אותו בדרך, או שלא יכול היה לעבור את הנחל, מפני שהיו בו תנינים רבים.״",
