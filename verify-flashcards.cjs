@@ -5,8 +5,8 @@ function element(id){if(!elements.has(id))elements.set(id,{textContent:'',value:
 const storage=new Map([['hebrewGeneralFlashcardsV1',JSON.stringify({version:1,cards:{'lilmod-7-8-001':{status:'review',seen:2},'lilmod-7-8-002':{status:'known',seen:1}}})]]);
 const context={window:{},document:{getElementById:element},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)}};
 vm.createContext(context);
-for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','ulpan4-cards-15-16.js','ulpan4-cards-17.js','lilmod-cards-18.js','lilmod-cards-19.js','lilmod-cards-20.js','lilmod-cards-21.js','lilmod-cards-22.js','lilmod-cards-23.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
-assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,173);
+for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','ulpan4-cards-15-16.js','ulpan4-cards-17.js','lilmod-cards-18.js','lilmod-cards-19.js','lilmod-cards-20.js','lilmod-cards-21.js','lilmod-cards-22.js','lilmod-cards-23.js','lilmod-cards-26.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,178);
 element('flashcardSet').value='review';element('flashcardSet').onchange();
 element('flashcardStart').onclick();
 assert.equal(element('flashcardFront').textContent,'סוס');
@@ -34,4 +34,4 @@ element('flashcardReveal').onclick();
 assert.equal(element('flashcardExampleHe').textContent,card.exampleHe);
 element('flashcardExit').onclick();
 assert.equal(JSON.parse(storage.get('hebrewGeneralFlashcardsV1')).cards['lilmod-7-8-002'].status,'known');
-console.log('PASS: all 173 context examples; reveal timing; both directions; review ratings and saved progress intact.');
+console.log('PASS: all 178 context examples; reveal timing; both directions; review ratings and saved progress intact.');

@@ -249,7 +249,7 @@ const pronouns=passages.find(x=>x.id==='lilmod-8-pronoun-dialogue');
 assert.ok(pronouns);assert.match(pronouns.source,/unit 8.*PDF page 108.*selected original dialogue cloze/);
 assert.equal(pronouns.questions.length,5);assert.match(pronouns.he,/חשבתי ______ כל היום/);
 assert.equal(pronouns.questions[2].a,'עלייך');assert.ok(pronouns.questions.every(q=>q.kind.includes('Printed')&&q.explanation&&q.opts.length===4&&new Set(q.opts).size===4&&q.opts.includes(q.a)));
-for(const [level,id,page,count] of [[26,'lilmod-9-school-on-wheels',109,13],[27,'lilmod-10-western-wall-legend',119,15]]){
+for(const [level,id,page,count] of [[26,'lilmod-9-school-on-wheels',109,16],[27,'lilmod-10-western-wall-legend',119,15]]){
  const p=passages.find(x=>x.id===id);assert.ok(p);
  assert.match(p.source,new RegExp('PDF page '+page));assert.equal(p.questions.length,count);
  assert.ok(p.he.length>500&&p.questions.every(q=>q.kind&&q.explanation&&/[\u0590-\u05FF]/.test(q.q)));

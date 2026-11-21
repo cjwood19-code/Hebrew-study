@@ -29,7 +29,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 23 | ללמוד עברית ב׳ | 6 | 73–85 | 13 | 13 | 3 | 14 | 0 | 4 | 0 | 0 |
 | 24 | ללמוד עברית ב׳ | 7 | 86–98 | 24 | 24 | 3 | 15 | 0 | 31 | 0 | 0 |
 | 25 | ללמוד עברית ב׳ | 8 | 99–108 | 24 | 24 | 3 | 10 | 0 | 25 | 0 | 0 |
-| 26 | ללמוד עברית ב׳ | 9 | 109–118 | 52 | 52 | 3 | 13 | 0 | 0 | 0 | 0 |
+| 26 | ללמוד עברית ב׳ | 9 | 109–118 | 48 | 48 | 3 | 16 | 0 | 5 | 0 | 0 |
 | 27 | ללמוד עברית ב׳ | 10 | 119–131 | 71 | 71 | 3 | 15 | 0 | 0 | 0 | 0 |
 | 28 | ללמוד עברית ב׳ | 11 | 132–142 | 27 | 27 | 3 | 12 | 0 | 0 | 0 | 0 |
 | 29 | ללמוד עברית ב׳ | 12 | 143–154 | 33 | 33 | 3 | 13 | 0 | 0 | 0 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 766 active chapter-bank questions; 138 Hebrew interpretation checks; 154 Reading Practice activities with 519 questions; 0 context-dependent bank items held out of chapter tests; 173 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 762 active chapter-bank questions; 138 Hebrew interpretation checks; 154 Reading Practice activities with 522 questions; 0 context-dependent bank items held out of chapter tests; 178 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -195,7 +195,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-7-budapest-prepositions: 10 questions; chapter 24; ללמוד עברית ברמה ב׳ • unit 7 • PDF page 98 (printed page 94) • original passage fill-in; answer choices adapted.
 - lilmod-8-swedish-ad: 5 questions; chapter 25; ללמוד עברית ברמה ב׳ • unit 8 • PDF page 99 (printed page 95) original reading and advertisement; printed questions on PDF page 100 (printed page 96), adapted to choices.
 - lilmod-8-pronoun-dialogue: 5 questions; chapter 25; ללמוד עברית ברמה ב׳ • unit 8 • PDF page 108 (printed page 104) • selected original dialogue cloze excerpt; choices adapted.
-- lilmod-9-school-on-wheels: 13 questions; chapter 26; ללמוד עברית ברמה ב׳ • unit 9 • PDF page 109 (printed page 105) • original reading excerpts; printed comprehension on PDF page 110 (printed page 106), adapted to choices.
+- lilmod-9-school-on-wheels: 16 questions; chapter 26; ללמוד עברית ברמה ב׳ • unit 9 • PDF page 109 (printed page 105) • selected original reading with marked omissions; printed comprehension on PDF page 110 (printed page 106) and fill-ins on PDF page 118 (printed page 114), choices adapted.
 - lilmod-10-western-wall-legend: 15 questions; chapter 27; ללמוד עברית ברמה ב׳ • unit 10 • PDF page 119 (printed page 115) • original legend excerpts; printed comprehension on PDF page 120 (printed page 116), adapted to choices; presented as a legend.
 - lilmod-11-dangerous-trip: 10 questions; chapter 28; ללמוד עברית ברמה ב׳ • unit 11 • PDF pages 132–133 (printed pages 128–129) • original reading excerpt; printed comprehension PDF 132 and multiple-choice PDF 140 adapted to choices.
 - lilmod-11-rich-happy: 2 questions; chapter 28; ללמוד עברית ברמה ב׳ • unit 11 • PDF page 142 (printed page 138) • original story excerpt; supplemental comprehension.
@@ -216,7 +216,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
 - 0 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 0 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 766 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 762 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.
@@ -241,6 +241,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - Chapter 19 (ללמוד עברית ברמה ב׳ unit 2): 24 source-identified test questions and three Hebrew interpretation checks replace generic forms. Two Reading Practice activities show the original stone story and the original Shabbat story completion with 11 contextual questions. Four flashcards cite sentence context. See source-audit-19.md.
 - Chapter 20 (ללמוד עברית ברמה ב׳ unit 3): 17 identified test questions and three Hebrew interpretation checks cite the scanned reading, plural, infinitive, and modal exercises. One visible reading excerpt has four contextual questions. Four flashcards show sentence context. A context inference without support in the visible reading was removed. See source-audit-20.md.
 - Chapter 25 (ללמוד עברית ברמה ב׳ unit 8): 24 standalone scored questions and three Hebrew interpretation checks now have exercise labels and lesson explanations. The Swedish advertisement story remains visible beside five contextual questions. A selected excerpt from the original pronoun dialogue appears beside five printed fill-ins in Reading Practice, with the feminine עלייך corrected from the old masculine prompt. Existing contextual flashcards and saved progress remain intact. See source-audit-25.md.
+- Chapter 26 (ללמוד עברית ברמה ב׳ unit 9): 48 Chapter Test questions and three Hebrew interpretation checks were compared with PDF pages 109–118. The selected original school-on-wheels story now marks omitted lines and includes its ending. Six original fill-ins were already in Reading Practice; three more preposition fill-ins moved there, giving 16 related reading questions. The unrelated Columbus sentence was withheld. Five new flashcards use original story sentences in context. See source-audit-26.md.
 - Chapter 24 (ללמוד עברית ברמה ב׳ unit 7): 24 standalone scored questions and three interpretation checks now have exercise labels and lesson explanations. The visible transport reading keeps five contextual questions, and the printed Budapest preposition passage appears beside all ten fill-ins in Reading Practice. Four isolated cloze prompts and one malformed definite-object completion were removed from the Chapter Test. Existing contextual flashcard examples and saved progress remain intact. See source-audit-24.md.
 - Chapter 23 (ללמוד עברית ברמה ב׳ unit 6): 13 scan-linked scored questions cover Sherlock Holmes vocabulary in sentence context and the printed לחכות verb chart. The original Hebrew reading remains beside five comprehension questions. Two additional visible excerpts hold two nationality and seven preposition fill-ins from PDF pages 75 and 84, with choices adapted for scoring. Three interpretation checks and four flashcards use source sentences. An incorrect preposition prompt and unsupported standalone completions were removed. See source-audit-23.md.
 - Chapter 22 (ללמוד עברית ברמה ב׳ unit 5): 17 scored questions now cite the clinic reading, the definite noun and construct exercise, the future-tense לספר chart, and the בשביל completion. Six visible clinic-story questions remain in Reading Practice; three Hebrew interpretation checks and four contextual flashcards quote the reading. Past-tense items incorrectly cited to the future chart were replaced. See source-audit-22.md.
@@ -250,4 +251,4 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 ## Next source review
 
-Next consecutive source review: chapter 26, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
+Next consecutive source review: chapter 27, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
