@@ -1,0 +1,9 @@
+# Chapter 27 source audit — ללמוד עברית ברמה ב׳, unit 10
+
+Compared the 71 previously active Chapter Test questions, three Hebrew interpretation checks, 15 Reading Practice questions, and absent chapter 27 flashcards with the user-supplied scan, indexed PDF pages 119–131 (printed pages 115–127). Only chapter 27 was corrected in this run. The stable chapter ID and saved progress keys remain unchanged.
+
+The displayed Western Wall legend now follows the scanned Hebrew through its ending, including the source word **וציוו** where the previous app passage incorrectly said **ורצו**. The textbook frames this story as an אגדה, and the app keeps that framing. The chapter title now matches the printed title, כך נתגלה הכותל המערבי.
+
+Five Chapter Test blanks from the printed page-124 preposition exercise moved to Reading Practice. Its final three blanks stay together as one question, preserving the printed exercise structure. Reading Practice now has 19 questions alongside the original passage. A separate printed sentence about Columbus was withheld because it is unrelated to the story or an already taught concept. The Chapter Test now has 65 scored questions from the unit's construct phrases, יכול forms, time expressions, vocabulary distinctions, review, and action nouns, plus three source-sentence Hebrew interpretation checks. Answer choices are editorial adaptations, and wrong-answer explanations point to the relevant sentence or grammar rule. Five new flashcards use source sentences as context.
+
+The 46 stable app chapter IDs comprise 10 אולפן עברית First Part lessons, seven Fourth Part lessons, 19 ללמוד units, and 10 עברית בשניים chapters. The later 39-chapter note appears to omit the seven Fourth Part lessons; this mapping is unresolved. Indexed readiness is not complete source verification. Chapter 28 is next for scan comparison.

@@ -49,7 +49,7 @@ assert.equal(saved().level,27);assert.equal(saved().best[26],100);assert.equal(s
 assert.equal(saved().history.at(-1).interpretationCorrect,3);assert.equal(saved().history.at(-1).passed,true);
 assert.equal(get('chapterSelect').value,'27');
 begin(27);
-for(let i=0;i<71;i++){answer();tick()}
+for(let i=0;i<65;i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -60,7 +60,7 @@ for(let i=0;i<3;i++){
 assert.equal(saved().level,27);assert.equal(saved().history.at(-1).passed,false);
 assert.ok(saved().best[27]>=85);assert.equal(get('textbookPassed').textContent,'2 / 46');
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(27);for(let i=0;i<74;i++){answer();tick()}
+begin(27);for(let i=0;i<68;i++){answer();tick()}
 assert.equal(saved().level,28);assert.equal(saved().best[27],100);
 assert.equal(get('chapterSelect').value,'28');assert.equal(get('chapterStart').disabled,false);
 assert.equal(get('textbookPassed').textContent,'3 / 46');

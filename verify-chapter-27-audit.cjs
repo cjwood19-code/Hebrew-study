@@ -1,0 +1,22 @@
+/* Unit 10 source, context, and placement regression. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const read=f=>fs.readFileSync(path.join(__dirname,f),'utf8'),html=read('index.html');
+const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
+const c={window:{}};vm.createContext(c);
+for(const f of scripts.filter(x=>x.startsWith('textbook-')&&x!=='textbook-curriculum.js'))vm.runInContext(read(f),c,{filename:f});
+const bank=c.window.HEBREW_TEXTBOOK_QUESTION_BANKS[27],checks=c.window.HEBREW_CHAPTER_INTERPRETATION[27];
+assert.match(read('textbook-curriculum.js'),/כך נתגלה הכותל המערבי/);assert.equal(bank.length,65);assert.equal(checks.length,3);
+assert.ok(bank.every(q=>q.sourcePage>=119&&q.sourcePage<=131&&q.sourceExercise&&q.explanation&&q.options.includes(q.answer)));
+assert.ok(!bank.some(q=>q.sourcePage===128||q.sourceExercise==='ד2.2'));
+assert.ok(checks.every(q=>q.interpretation&&q.sourcePage===119&&q.sourceExercise&&q.explanation));
+const app=read('app.js'),from=app.indexOf('const readingPassages=['),to=app.indexOf('let readingSession=null;',from);
+const passages=vm.runInNewContext(app.slice(from,to).replace('const readingPassages=','readingPassages=').replace(/\n$/, '')+';readingPassages');
+const p=passages.find(x=>x.id==='lilmod-10-western-wall-legend');assert.ok(p);assert.equal(p.questions.length,19);
+assert.match(p.he,/וציוו לשפוך אשפה במקום הזה/);assert.doesNotMatch(p.he,/ורצו לשפוך אשפה במקום הזה/);
+assert.match(p.source,/PDF page 119.*PDF page 120.*PDF page 128/);
+assert.equal(p.questions.filter(q=>q.kind.includes('preposition fill-in')).length,4);
+assert.ok(p.questions.every(q=>q.explanation&&q.opts.length===4&&q.opts.includes(q.a)));
+for(const f of scripts.filter(x=>x==='general-vocabulary-cards.js'||x==='general-flashcard-examples.js'||x.includes('-cards-')))vm.runInContext(read(f),c,{filename:f});
+const deck=c.window.HEBREW_GENERAL_FLASHCARDS.filter(x=>x.chapter===27);assert.equal(deck.length,5);
+for(const card of deck)assert.ok(p.he.includes(card.exampleHe)&&card.exampleHe.includes(card.he)&&card.exampleEn&&card.sourcePage===119);
+console.log('PASS: chapter 27 source Hebrew, exercise placement, pages, interpretation, and contextual cards');
