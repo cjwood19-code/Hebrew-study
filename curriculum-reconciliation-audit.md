@@ -36,7 +36,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 30 | ללמוד עברית ב׳ | 13 | 155–164 | 29 | 29 | 3 | 12 | 0 | 4 | 0 | 0 |
 | 31 | ללמוד עברית ב׳ | 14 | 165–178 | 32 | 32 | 3 | 15 | 0 | 4 | 0 | 0 |
 | 32 | ללמוד עברית ב׳ | 15 | 179–186 | 16 | 16 | 3 | 16 | 0 | 4 | 0 | 0 |
-| 33 | ללמוד עברית ב׳ | 16 | 187–196 | 17 | 17 | 3 | 21 | 0 | 0 | 0 | 0 |
+| 33 | ללמוד עברית ב׳ | 16 | 187–196 | 12 | 12 | 3 | 25 | 0 | 4 | 0 | 0 |
 | 34 | ללמוד עברית ב׳ | 17 | 197–205 | 17 | 17 | 3 | 11 | 0 | 0 | 0 | 0 |
 | 35 | ללמוד עברית ב׳ | 18 | 206–213 | 14 | 14 | 3 | 17 | 0 | 0 | 0 | 0 |
 | 36 | ללמוד עברית ב׳ | 19 | 214–217 | 6 | 6 | 3 | 8 | 0 | 0 | 0 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 736 active chapter-bank questions; 138 Hebrew interpretation checks; 160 Reading Practice activities with 560 questions; 0 context-dependent bank items held out of chapter tests; 204 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 731 active chapter-bank questions; 138 Hebrew interpretation checks; 161 Reading Practice activities with 564 questions; 0 context-dependent bank items held out of chapter tests; 208 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -177,7 +177,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-16-ducklings: 11 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF page 187 (printed page 183) • selected original reading; comprehension and ordering adapted to choices.
 - lilmod-16-nurit: 4 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF page 191 (printed page 187) • selected original narrative exercise; comprehension adapted to choices.
 - lilmod-16-police-order: 3 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF page 193 (printed page 189) • original sentence-ordering exercise excerpts; choices adapted.
-- lilmod-16-caption: 3 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF pages 194–195 (printed page 191) • original photo-caption fill-in excerpts; choices adapted.
+- lilmod-16-caption: 3 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF page 195 (printed page 191) • original photo-caption fill-in excerpts; choices adapted.
 - lilmod-13-free-woman: 6 questions; chapter 30; ללמוד עברית ברמה ב׳ • unit 13 • PDF pages 155–156 (printed pages 151–152) • selected original reading excerpts; comprehension adapted to choices.
 - lilmod-13-family-possessives: 2 questions; chapter 30; ללמוד עברית ברמה ב׳ • unit 13 • PDF pages 158–159 (printed page 154) • selected original connected fill-in; choices adapted.
 - lilmod-13-soccer-future: 4 questions; chapter 30; ללמוד עברית ברמה ב׳ • unit 13 • PDF pages 160–161 (printed page 156) • selected original connected future-tense fill-in; choices adapted.
@@ -215,6 +215,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - ulpan4-35-invitation: 3 questions; chapter 16; אולפן עברית — חלק רביעי • lesson 35 • PDF page 42 (printed page 390) • selected original invitation; printed questions adapted to choices.
 - ulpan4-36-jonathan: 3 questions; chapter 17; אולפן עברית — חלק רביעי • lesson 36 • PDF page 49 (printed page 397) • selected original reading; printed comprehension questions adapted to choices.
 - ulpan4-36-jerusalem: 2 questions; chapter 17; אולפן עברית — חלק רביעי • lesson 36 • PDF page 53 (printed page 401) • selected original reading; printed passive transformations on PDF 54 adapted to choices.
+- lilmod-16-passive-cloze: 4 questions; chapter 33; ללמוד עברית ברמה ב׳ • unit 16 • PDF page 190 (printed page 186) • original future passive cloze, selected sentences; choices adapted.
 
 ## Reconciliation findings
 
@@ -222,7 +223,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
 - 0 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 0 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 736 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 731 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.
@@ -263,4 +264,6 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 ## Next source review
 
-Next consecutive source review: chapter 33, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
+- Chapter 33 (ללמוד עברית ברמה ב׳ unit 16): 12 standalone scored questions and three Hebrew interpretation checks remain in Chapter Test. Four connected passive cloze items now appear with their original sentence context in Reading Practice. The Nurit passage was corrected against the scan, page citations for signs and photo caption were corrected, and four cards show source sentence context. See source-audit-33.md.
+
+Next consecutive source review: chapter 34, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
