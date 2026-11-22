@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,159);
+assert.equal(passages.length,160);
 for(const [id,page,count,phrase] of [['ulpan4-36-jonathan',49,3,'98 נוסעים'],['ulpan4-36-jerusalem',53,2,'שלמה המלך']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson 36.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)&&new Set(q.opts).size===4));}
 for(const [id,lesson,page,count,phrase] of [['ulpan-7-notes',7,73,5,'אני נמצא בגן הציבורי'],['ulpan-7-tradition',7,75,3,'הוא תמיד אוכל מצות'],['ulpan-7-apartment',7,78,3,'שלושה חדרים גדולים'],['ulpan-8-mythology',8,81,3,'לספינקס המצרי אין כנפיים'],['ulpan-8-roni',8,84,3,'אין לי זמן עכשיו']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan-7-notes'?'s':'')+' '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
@@ -175,12 +175,14 @@ for(const [level,expected] of [[34,17],[35,14]]){
 }
 assert.ok(!newBank.window.HEBREW_TEXTBOOK_QUESTION_BANKS[34].some(q=>q.sourceExercise==='noun.3'));
 assert.ok(!newBank.window.HEBREW_TEXTBOOK_QUESTION_BANKS[35].some(q=>q.sourceExercise==='notice.3'));
-for(const [id,page,count] of [['lilmod-15-real-story',179,10],['lilmod-15-cake',180,1],['lilmod-16-ducklings',187,11],['lilmod-16-nurit',191,4],['lilmod-16-police-order',193,3],['lilmod-16-caption',194,3]]){
+for(const [id,page,count] of [['lilmod-15-real-story',179,11],['lilmod-15-cake',180,2],['lilmod-15-family-possessives',180,3],['lilmod-16-ducklings',187,11],['lilmod-16-nurit',191,4],['lilmod-16-police-order',193,3],['lilmod-16-caption',194,3]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`PDF page(?:s)? ${page}`));
  assert.equal(p.questions.length,count);
  assert.ok(p.he.length>80&&p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));
 }
+assert.ok(passages.find(p=>p.id==='lilmod-15-real-story').he.includes('והכניס ליין שלה סם מרדים'));
+assert.ok(passages.find(p=>p.id==='lilmod-15-cake').he.includes('יש לה גם גיבנת'));
 assert.ok(!passages.find(p=>p.id==='lilmod-16-police-order').he.includes('גנב כסף מן המשרד'));
 assert.ok(passages.find(p=>p.id==='lilmod-16-ducklings').he.includes('שבעה ברווזונים'));
 const checks={32:'lilmod-15-real-story',33:'lilmod-16-ducklings'};
