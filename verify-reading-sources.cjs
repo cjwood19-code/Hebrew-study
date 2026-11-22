@@ -193,7 +193,7 @@ for(const [level,id] of Object.entries(checks)){
   assert.ok(passage.he.replace(/[.,]/g,'').includes(phrase),`chapter ${level} interpretation missing from reading`);
  }
 }
-for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,10],['lilmod-14-rabbit',14,166,1],['lilmod-14-kruger',14,177,1]]){
+for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14-spoils',14,165,12],['lilmod-14-rabbit',14,166,2],['lilmod-14-kruger',14,177,1]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
  assert.equal(p.questions.length,count);
@@ -202,6 +202,8 @@ for(const [id,unit,page,count] of [['lilmod-13-free-woman',13,155,6],['lilmod-14
 assert.ok(passages.find(p=>p.id==='lilmod-13-free-woman').he.includes('אתה יוצא כל בוקר מהבית'));
 assert.ok(!passages.find(p=>p.id==='lilmod-13-free-woman').he.includes('הוא יוצא כל בוקר מהבית'));
 assert.ok(passages.find(p=>p.id==='lilmod-14-spoils').he.includes('אני והזאב נסתפק בשפן'));
+assert.ok(passages.find(p=>p.id==='lilmod-14-rabbit').he.includes('הארנבת רצה על חייה'));
+assert.ok(passages.find(p=>p.id==='lilmod-14-rabbit').he.includes('אינני חושב כך'));
 for(const [id,page,count] of [['lilmod-1-slowly-surely',11,6],['lilmod-2-many-stones',24,5],['lilmod-3-anywhere',35,4],['lilmod-4-credulous',48,6]]){
  const p=passages.find(x=>x.id===id);assert.ok(p);
  assert.match(p.source,new RegExp('PDF pages? '+page));assert.equal(p.questions.length,count);

@@ -140,7 +140,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,196);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,200);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&['Supplemental practice example','Textbook sentence','Textbook sentence or printed exercise'].includes(c.exampleKind),c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));
