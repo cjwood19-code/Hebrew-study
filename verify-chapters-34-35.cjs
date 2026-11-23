@@ -47,8 +47,8 @@ for(let i=1;i<12;i++){answer();tick()}
 assert.equal(saved().level,35);assert.equal(saved().best[34],100);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);
 assert.equal(get('chapterSelect').value,'35');
-begin(35);assert.equal(get('chapterQuestion').textContent,'Question 1 of 17');
-for(let i=0;i<14;i++){answer();tick()}
+begin(35);assert.equal(get('chapterQuestion').textContent,'Question 1 of 9');
+for(let i=0;i<6;i++){answer();tick()}
 for(let i=0;i<3;i++){
  const before=get('chapterQuestion').textContent;answer(true);tick();
  assert.equal(get('chapterQuestion').textContent,before);
@@ -58,7 +58,7 @@ for(let i=0;i<3;i++){
 }
 assert.equal(saved().level,35);assert.equal(saved().history.at(-1).passed,false);
 assert.match(get('chapterOutcome').textContent,/Interpretation checkpoint not passed/);
-begin(35);for(let i=0;i<17;i++){answer();tick()}
+begin(35);for(let i=0;i<9;i++){answer();tick()}
 assert.equal(saved().level,36);assert.equal(saved().best[35],100);
 assert.equal(get('chapterSelect').value,'36');assert.equal(get('chapterStart').disabled,false);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
