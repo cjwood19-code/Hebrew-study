@@ -41,9 +41,9 @@ function answer(wrong=false){
  button.click();button.click();return get('chapterScore').textContent;
 }
 assert.equal(get('textbookCurrent').textContent,'34 / 46');
-begin(34);assert.equal(get('chapterQuestion').textContent,'Question 1 of 20');
+begin(34);assert.equal(get('chapterQuestion').textContent,'Question 1 of 12');
 answer();tick();assert.match(get('chapterQuestion').textContent,/^Question 2 /);
-for(let i=1;i<20;i++){answer();tick()}
+for(let i=1;i<12;i++){answer();tick()}
 assert.equal(saved().level,35);assert.equal(saved().best[34],100);
 assert.equal(saved().history.at(-1).interpretationCorrect,3);
 assert.equal(get('chapterSelect').value,'35');
@@ -71,6 +71,6 @@ begin(34);answer();get('chapterRestart').click();tick();
 assert.equal(get('chapterScore').textContent,'0 / 0');
 storage.set('hebrewTextbookProgressV1',JSON.stringify({level:34,best:{},history:[]}));
 vm.runInContext(fs.readFileSync(path.join(__dirname,'textbook-curriculum.js'),'utf8'),context);
-begin(34);for(let i=0;i<20;i++){const wrong=i===17;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
+begin(34);for(let i=0;i<12;i++){const wrong=i===9;answer(wrong);if(wrong)get('chapterNext').click();else tick()}
 assert.equal(saved().history.at(-1).interpretationCorrect,2);assert.equal(saved().history.at(-1).passed,true);
 console.log('PASS: 34 → 35 → available 36; correct auto-advance; wrong correction and Next; interpretation gate; reload; progress and independent practice preserved.');
