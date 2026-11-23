@@ -1,15 +1,15 @@
 # Chapters 36–37 source audit status
 
-PDF numbers below are one-based indices in the user-supplied scans. Each index may show a two-page spread.
+PDF numbers below are one-based indices in the user-supplied scans. The one-based page indices cited for unit 19 are the individual scanned pages.
 
 | App chapter | Textbook lesson | Scan index | Active chapter bank | Interpretation | Reading Practice | Status |
 | ---: | --- | --- | ---: | ---: | ---: | --- |
-| 36 | *ללמוד עברית ברמה ב׳* unit 19, כל נדרי בארץ רחוקה | 214 (printed 211), 216 (printed 212) | 6 | 3 | 8 | Rebuilt and scan-checked |
+| 36 | *ללמוד עברית ברמה ב׳* unit 19, כל נדרי בארץ רחוקה | 215 (printed 211), 216 (printed 212) | 6 | 3 | 8 | Rebuilt and scan-checked |
 | 37 | *עברית בשניים לרמה ב׳* chapter 1, ברכות | 13–37 (printed 1–25) | 17 | 3 | 24 across seven activities | Rebuilt and scan-checked |
 
 ## Chapter 36 corrections
 
-The story is on PDF image 214; image 215 repeats that facing spread. The printed question page is image 216; image 217 repeats it. The previous bank attached several reading lines to image 215 and sequence/discussion items to image 217. Those page claims were imprecise. A purported quotation about the narrator thinking of his wife does not appear in the story and has been removed. Other story lines were paraphrased as if quoted and were removed or replaced with checked Hebrew.
+A later inspection of the actual scan corrected the page boundary: PDF 214 (printed 210) finishes unit 18; the unit 19 story is on PDF 215 (printed 211), and its questions are on PDF 216 (printed 212). PDF 217 begins the appendix. The earlier claim that 214 and 215 repeat a spread was incorrect. The active chapter 36 bank and interpretation checks now cite PDF 215, and the Reading Practice labels cite PDF 215–216. A purported quotation about the narrator thinking of his wife does not appear in the story and has been removed. Other story lines were paraphrased as if quoted and were removed or replaced with checked Hebrew.
 
 Reading Practice now displays selected original Hebrew with an omission marker, followed by four adapted printed comprehension questions, one adapted printed discussion question, and three clearly marked supplemental comprehension questions. The final printed question asks for the learner's own view about the date. It has no single right answer, so it is not graded as a multiple choice question. The chapter test retains six short sentence and vocabulary checks derived from the same story, with item explanations. Three Hebrew-to-English interpretations quote sentences visible in the passage and explain incorrect choices.
 
