@@ -41,7 +41,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 35 | ללמוד עברית ב׳ | 18 | 206–214 | 6 | 6 | 3 | 33 | 0 | 4 | 0 | 0 |
 | 36 | ללמוד עברית ב׳ | 19 | 215–216 | 6 | 6 | 3 | 8 | 0 | 4 | 0 | 0 |
 | 37 | עברית בשניים ב׳ | 1 | 13–37 | 17 | 17 | 3 | 24 | 0 | 5 | 0 | 0 |
-| 38 | עברית בשניים ב׳ | 2 | 38–65 | 11 | 11 | 3 | 12 | 0 | 4 | 0 | 0 |
+| 38 | עברית בשניים ב׳ | 2 | 38–65 | 7 | 7 | 3 | 14 | 0 | 4 | 0 | 0 |
 | 39 | עברית בשניים ב׳ | 3 | 66–101 | 12 | 12 | 3 | 20 | 0 | 4 | 0 | 0 |
 | 40 | עברית בשניים ב׳ | 4 | 102–125 | 13 | 13 | 3 | 14 | 0 | 4 | 0 | 0 |
 | 41 | עברית בשניים ב׳ | 5 | 126–151 | 12 | 12 | 3 | 22 | 0 | 4 | 0 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 715 active chapter-bank questions; 138 Hebrew interpretation checks; 167 Reading Practice activities with 588 questions; 0 context-dependent bank items held out of chapter tests; 220 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 711 active chapter-bank questions; 138 Hebrew interpretation checks; 168 Reading Practice activities with 590 questions; 0 context-dependent bank items held out of chapter tests; 220 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -222,6 +222,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-18-restaurant-notice: 2 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 209 (printed page 205) • selected original restaurant notice fill-in; choices adapted.
 - lilmod-18-comparisons: 3 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 210 (printed page 206) • selected original comparison fill-in lines; choices adapted.
 - lilmod-18-like: 3 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 214 (printed page 210) • selected original כמו-inflection fill-ins; choices adapted.
+- shnayim-2-future-cloze: 2 questions; chapter 38; עברית בשניים לרמה ב׳ • chapter 2 • PDF page 64 (printed page 53) • selected original future-tense fill-ins; choices adapted.
 
 ## Reconciliation findings
 
@@ -229,7 +230,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 - 0 passage-dependent chapter items remain held out of scoring. Chapter 46 now has source excerpts in Reading Practice; the activities do not automatically replace each former item.
 - 0 active bank questions lack a specific source-exercise label (though they have in-range PDF page metadata); 0 interpretation questions lack PDF page metadata. Those items need source-by-source editorial verification before claiming exact correspondence.
-- 715 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
+- 711 active bank questions have item-specific explanations. The remaining 0 currently show the correct answer and a source reference; their rationale still needs authoring and review against the lesson.
 - Every visible Reading Practice activity maps to a chapter in one of the three approved textbooks. Older intermediate-note material remains in the separate adaptive data without changing saved progress.
 - The earlier independent adaptive practice is a separate progression. It has 382 vocabulary entries (205 with source), 59 sentences (15 with source), and 63 book exercises. Its level numbers are not the textbook chapter numbers, so these pools cannot be counted as reconciled chapter questions. Saved adaptive progress is preserved.
 - Chapters 1–2 (אולפן עברית First Part): chapter 1 alphabet chart and vowel exercises were checked against PDF 1–14; its letter practice now carries page labels and three source-word interpretation checks. Chapter 2 has 15 corrected standalone exercise questions, three source-linked interpretation checks, and two visible source readings with seven adapted printed comprehension questions. Four flashcards quote lesson 2 sentences. See source-audit-1-2.md.
@@ -277,4 +278,6 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - Chapter 35 (ללמוד עברית ברמה ב׳ unit 18): three printed כ meaning questions and three contextual vocabulary questions remain in Chapter Test, alongside three Hebrew interpretation checks. The original measurement, restaurant notice, comparison, and כמו inflection fill-ins now appear in four Reading Practice activities. The whale and rescue activities were corrected against PDF pages 206–214, including page 213 citations and the source rescue count of two whales. Four cards quote the whale reading. See source-audit-35.md.
 - Chapter 36 (ללמוד עברית ברמה ב׳ unit 19): six contextual Chapter Test questions and three Hebrew interpretation checks now cite PDF 215; eight story questions display selected original Hebrew from PDF 215–216. The town spelling עיירה and the invitation wording were corrected, and four cards quote source sentences. See source-audit-36.md.
 
-Next consecutive source review: chapter 37, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
+- Chapter 38 (עברית בשניים לרמה ב׳ chapter 2): seven standalone Chapter Test questions and three Hebrew interpretation checks remain. The existing travel, Ruthie, Benjamin of Tudela, and Neve Shalom readings were compared with PDF pages 38–64. Two Ruthie dialogue blanks were already in Reading Practice, so duplicate test rows were removed. Two printed future-tense blanks from PDF 64 now appear together in a visible Reading Practice excerpt. Four flashcard examples were corrected or tied to original lesson definitions. See source-audit-38.md.
+
+Next consecutive source review: chapter 39, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.

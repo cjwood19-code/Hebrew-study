@@ -89,7 +89,7 @@ for(const level of [36,37]){
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [38,39]){
-  assert.equal(banks[level].length,level===38?11:12);
+  assert.equal(banks[level].length,level===38?7:12);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }

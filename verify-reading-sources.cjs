@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,167);
+assert.equal(passages.length,168);
 for(const [id,page,count,phrase] of [['ulpan4-36-jonathan',49,3,'98 נוסעים'],['ulpan4-36-jerusalem',53,2,'שלמה המלך']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson 36.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)&&new Set(q.opts).size===4));}
 for(const [id,lesson,page,count,phrase] of [['ulpan-7-notes',7,73,5,'אני נמצא בגן הציבורי'],['ulpan-7-tradition',7,75,3,'הוא תמיד אוכל מצות'],['ulpan-7-apartment',7,78,3,'שלושה חדרים גדולים'],['ulpan-8-mythology',8,81,3,'לספינקס המצרי אין כנפיים'],['ulpan-8-roni',8,84,3,'אין לי זמן עכשיו']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan-7-notes'?'s':'')+' '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
@@ -102,18 +102,23 @@ for(const [id,page,questions,phrase] of [
  ['shnayim-2-travel',38,3,'חלק מהאנשים האלה הצליחו לחזור הביתה בשלום'],
  ['shnayim-2-ruthie',50,3,'דינה: רותי, לאן _____ לפני שנה?'],
  ['shnayim-2-benjamin',46,3,'מסעות בנימין מטודלה'],
- ['shnayim-2-neve',54,3,'התלמידים לומדים בשתי שפות: בערבית ובעברית']
+ ['shnayim-2-neve',54,3,'התלמידים לומדים בשתי שפות: בערבית ובעברית'],
+ ['shnayim-2-future-cloze',64,2,'אתם _____ (להמשיך) לגור בירושלים?']
 ]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`chapter 2.*PDF page ${page}`));
  assert.equal(p.questions.length,questions);assert.ok(p.he.includes(phrase),id);
  assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.length===4&&q.opts.includes(q.a)),id);
 }
-const bank38={window:{}};
+const bank38={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-38-39.js'),'utf8'),bank38);
-assert.equal(bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].length,11);
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-38-39.js'),'utf8'),bank38);
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-audit-38.js'),'utf8'),bank38);
+assert.equal(bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].length,7);
 assert.ok(bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].every(q=>q.explanation&&q.sourceExercise&&q.practiceOrigin&&q.sourcePage>=38&&q.sourcePage<=65));
 assert.ok(!bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].some(q=>/^(Reading|Dialogue)/.test(q.category)));
+assert.ok(!bank38.window.HEBREW_TEXTBOOK_QUESTION_BANKS[38].some(q=>['verb-cloze.1','verb-cloze.2','future.1','future.2'].includes(q.sourceExercise)));
+assert.equal(bank38.window.HEBREW_CHAPTER_INTERPRETATION[38].length,3);
 const shnayimOne=[
  ['shnayim-1-greeting-cards',13,4,'היום כמעט אף אחד לא עומד בתור בדואר'],
  ['shnayim-1-holiday-dialogue',15,4,'אוכלים תפוח בדבש'],
