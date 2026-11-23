@@ -82,7 +82,7 @@ for(const level of [34,35]){
 }
 assert.equal(chapters[32].lastPage,196);
 assert.equal(chapters[33].firstPage,197);assert.equal(chapters[33].lastPage,205);
-assert.equal(chapters[34].firstPage,206);assert.equal(chapters[34].lastPage,213);
+assert.equal(chapters[34].firstPage,206);assert.equal(chapters[34].lastPage,214);
 for(const level of [36,37]){
   assert.equal(banks[level].length,level===36?6:17);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
@@ -125,7 +125,7 @@ assert.equal(chapters[39].firstPage,102);assert.equal(chapters[39].lastPage,125)
 assert.equal(chapters[40].firstPage,126);assert.equal(chapters[40].lastPage,151);
 assert.equal(chapters[37].firstPage,38);assert.equal(chapters[37].lastPage,65);
 assert.equal(chapters[38].firstPage,66);assert.equal(chapters[38].lastPage,101);
-assert.equal(chapters[35].firstPage,214);assert.equal(chapters[35].lastPage,217);
+assert.equal(chapters[35].firstPage,215);assert.equal(chapters[35].lastPage,216);
 assert.equal(chapters[36].firstPage,13);assert.equal(chapters[36].lastPage,37);
 for(const level of [9,10]){assert.equal(banks[level].length,level===9?8:7);assert.ok(banks[level].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&q.sourcePage>=chapters[level-1].firstPage&&q.sourcePage<=chapters[level-1].lastPage));}
 for(const level of [11,12]){assert.equal(banks[level].length,level===11?9:10);assert.ok(banks[level].every(q=>q.sourceExercise&&q.explanation&&q.practiceOrigin&&q.sourcePage>=chapters[level-1].firstPage&&q.sourcePage<=chapters[level-1].lastPage));assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));}
@@ -140,7 +140,7 @@ for(const ch of chapters.filter(ch=>ch.ready&&ch.level>1)){
     if(ch.level>=26)assert.ok(q.sourcePage>=ch.firstPage&&q.sourcePage<=ch.lastPage);
   }
 }
-assert.equal(cards.length,216);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
+assert.equal(cards.length,220);assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);assert.equal(new Set(cards.map(c=>c.he)).size,cards.length);
 assert.ok(!cards.some(c=>c.he==='מסוק'));
 for(const c of cards){assert.ok(c.he&&c.en&&c.book);const ch=chapters[c.chapter-1];assert.ok(ch.ready&&c.sourcePage>=ch.firstPage&&c.sourcePage<=ch.lastPage);assert.ok(c.exampleHe.includes(c.he)&&c.exampleEn&&['Supplemental practice example','Textbook sentence','Textbook sentence or printed exercise'].includes(c.exampleKind),c.id+' / context example');}
 console.log(JSON.stringify({syntax:'PASS',bankValidation:'PASS',chaptersReady:46,totalChapters:46,activeBankQuestions:count,contextQuestionsAwaitingPassages:reviewQueue.length,flashcards:cards.length}));

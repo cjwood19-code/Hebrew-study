@@ -38,8 +38,8 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 32 | ללמוד עברית ב׳ | 15 | 179–186 | 16 | 16 | 3 | 16 | 0 | 4 | 0 | 0 |
 | 33 | ללמוד עברית ב׳ | 16 | 187–196 | 12 | 12 | 3 | 25 | 0 | 4 | 0 | 0 |
 | 34 | ללמוד עברית ב׳ | 17 | 197–205 | 9 | 9 | 3 | 19 | 0 | 4 | 0 | 0 |
-| 35 | ללמוד עברית ב׳ | 18 | 206–213 | 6 | 6 | 3 | 30 | 0 | 4 | 0 | 0 |
-| 36 | ללמוד עברית ב׳ | 19 | 214–217 | 6 | 6 | 3 | 8 | 0 | 0 | 0 | 0 |
+| 35 | ללמוד עברית ב׳ | 18 | 206–214 | 6 | 6 | 3 | 33 | 0 | 4 | 0 | 0 |
+| 36 | ללמוד עברית ב׳ | 19 | 215–216 | 6 | 6 | 3 | 8 | 0 | 4 | 0 | 0 |
 | 37 | עברית בשניים ב׳ | 1 | 13–37 | 17 | 17 | 3 | 24 | 0 | 5 | 0 | 0 |
 | 38 | עברית בשניים ב׳ | 2 | 38–65 | 11 | 11 | 3 | 12 | 0 | 4 | 0 | 0 |
 | 39 | עברית בשניים ב׳ | 3 | 66–101 | 12 | 12 | 3 | 20 | 0 | 4 | 0 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 715 active chapter-bank questions; 138 Hebrew interpretation checks; 166 Reading Practice activities with 585 questions; 0 context-dependent bank items held out of chapter tests; 216 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 715 active chapter-bank questions; 138 Hebrew interpretation checks; 167 Reading Practice activities with 588 questions; 0 context-dependent bank items held out of chapter tests; 220 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -166,7 +166,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - shnayim-1-thousand-nights: 4 questions; chapter 37; עברית בשניים לרמה ב׳ • chapter 1 • PDF page 23 (printed page 10) original story fill-in • selected Hebrew with blanks; choices adapted.
 - shnayim-1-animal-names: 3 questions; chapter 37; עברית בשניים לרמה ב׳ • chapter 1 • PDF pages 33–35 (printed pages 21–22) selected original story; choices adapted.
 - shnayim-1-wedding-cloze: 3 questions; chapter 37; עברית בשניים לרמה ב׳ • chapter 1 • PDF page 37 (printed page 24) original word-choice passage • selected Hebrew with blanks; choices adapted.
-- lilmod-19-kol-nidrei: 8 questions; chapter 36; ללמוד עברית ברמה ב׳ • unit 19 • PDF page 214 (printed page 211) story; PDF page 216 (printed page 212) printed questions • selected original Hebrew with marked omissions; printed questions adapted to choices.
+- lilmod-19-kol-nidrei: 8 questions; chapter 36; ללמוד עברית ברמה ב׳ • unit 19 • PDF page 215 (printed page 211) story; PDF page 216 (printed page 212) questions • selected original Hebrew with marked omissions; printed questions adapted to choices.
 - lilmod-17-solon: 8 questions; chapter 34; ללמוד עברית ברמה ב׳ • unit 17 • PDF pages 197–198 (printed pages 193–194) • selected original reading; printed questions adapted to choices; supplemental comprehension labeled.
 - lilmod-17-prepositions: 3 questions; chapter 34; ללמוד עברית ברמה ב׳ • unit 17 • PDF page 205 (printed page 201) • selected original cloze lines with blanks; answer choices adapted.
 - lilmod-18-whale: 17 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF pages 206–207 (printed pages 202–203) and question exercise PDF 213 (printed page 209) • selected original reading; printed comprehension, number, opposite, and word-choice questions adapted to choices.
@@ -221,6 +221,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - lilmod-18-measurements: 3 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 208 (printed page 204) • selected original noun and measurement fill-in lines; choices adapted.
 - lilmod-18-restaurant-notice: 2 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 209 (printed page 205) • selected original restaurant notice fill-in; choices adapted.
 - lilmod-18-comparisons: 3 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 210 (printed page 206) • selected original comparison fill-in lines; choices adapted.
+- lilmod-18-like: 3 questions; chapter 35; ללמוד עברית ברמה ב׳ • unit 18 • PDF page 214 (printed page 210) • selected original כמו-inflection fill-ins; choices adapted.
 
 ## Reconciliation findings
 
@@ -273,6 +274,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 
 - Chapter 34 (ללמוד עברית ברמה ב׳ unit 17): nine standalone scored questions and three Hebrew interpretation checks remain in Chapter Test. The original Red Riding Hood imperative and father’s habitual-action clozes now appear as selected connected excerpts in Reading Practice with eight scored blanks. Four flashcards quote the Solon reading. Corrected a printed word-choice option and removed a test sentence not present in the scan. See source-audit-34.md.
 
-- Chapter 35 (ללמוד עברית ברמה ב׳ unit 18): three printed כ meaning questions and three contextual vocabulary questions remain in Chapter Test, alongside three Hebrew interpretation checks. The original measurement, restaurant notice, and comparison fill-ins now appear in three Reading Practice activities. The whale and rescue activities were corrected against PDF pages 206–213, including page 213 citations and the source rescue count of two whales. Four cards quote the whale reading. See source-audit-35.md.
+- Chapter 35 (ללמוד עברית ברמה ב׳ unit 18): three printed כ meaning questions and three contextual vocabulary questions remain in Chapter Test, alongside three Hebrew interpretation checks. The original measurement, restaurant notice, comparison, and כמו inflection fill-ins now appear in four Reading Practice activities. The whale and rescue activities were corrected against PDF pages 206–214, including page 213 citations and the source rescue count of two whales. Four cards quote the whale reading. See source-audit-35.md.
+- Chapter 36 (ללמוד עברית ברמה ב׳ unit 19): six contextual Chapter Test questions and three Hebrew interpretation checks now cite PDF 215; eight story questions display selected original Hebrew from PDF 215–216. The town spelling עיירה and the invitation wording were corrected, and four cards quote source sentences. See source-audit-36.md.
 
-Next consecutive source review: chapter 36, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.
+Next consecutive source review: chapter 37, then remaining source claims and exercise labels in established chapter order; the 46 chapter index is loaded, but that does not establish complete source verification. Then inspect other active items without exercise labels or interpretation pages and map independent adaptive entries only where the uploaded source supports that mapping. Do not treat indexed-ready as a completed line-by-line source audit.

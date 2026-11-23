@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,166);
+assert.equal(passages.length,167);
 for(const [id,page,count,phrase] of [['ulpan4-36-jonathan',49,3,'98 נוסעים'],['ulpan4-36-jerusalem',53,2,'שלמה המלך']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson 36.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)&&new Set(q.opts).size===4));}
 for(const [id,lesson,page,count,phrase] of [['ulpan-7-notes',7,73,5,'אני נמצא בגן הציבורי'],['ulpan-7-tradition',7,75,3,'הוא תמיד אוכל מצות'],['ulpan-7-apartment',7,78,3,'שלושה חדרים גדולים'],['ulpan-8-mythology',8,81,3,'לספינקס המצרי אין כנפיים'],['ulpan-8-roni',8,84,3,'אין לי זמן עכשיו']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan-7-notes'?'s':'')+' '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
@@ -141,23 +141,24 @@ assert.deepEqual(Array.from(checked37.window.HEBREW_CHAPTER_INTERPRETATION[37],q
 assert.ok(checked37.window.HEBREW_CHAPTER_INTERPRETATION[37].every(q=>q.explanation));
 const kol=passages.find(p=>p.id==='lilmod-19-kol-nidrei');
 assert.ok(kol);
-assert.match(kol.source,/unit 19.*PDF page 214.*PDF page 216/);
+assert.match(kol.source,/unit 19.*PDF page 215.*PDF page 216/);
 assert.equal(kol.questions.length,8);
 assert.ok(kol.he.includes('קולות השירה נשמעו מהקומה העליונה'));
 assert.ok(kol.he.includes('מאז אני משמיעה את התפילה בכל יום כיפורים'));
 assert.ok(!kol.he.includes('חשבתי על משפחתי'));
+assert.ok(kol.he.includes('עיירה')&&!kol.he.includes('עירייה'));
 assert.ok(kol.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));
-const chapter36={window:{}};
+const chapter36={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-question-banks-36-37.js'),'utf8'),chapter36);
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-36-37.js'),'utf8'),chapter36);
+vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-audit-36.js'),'utf8'),chapter36);
 assert.equal(chapter36.window.HEBREW_TEXTBOOK_QUESTION_BANKS[36].length,6);
-assert.ok(chapter36.window.HEBREW_TEXTBOOK_QUESTION_BANKS[36].every(q=>q.sourcePage===214&&q.explanation&&q.practiceOrigin));
-const chapter36Interpretation={window:{HEBREW_CHAPTER_INTERPRETATION:{}}};
-vm.runInNewContext(fs.readFileSync(path.join(root,'textbook-interpretation-36-37.js'),'utf8'),chapter36Interpretation);
-for(const q of chapter36Interpretation.window.HEBREW_CHAPTER_INTERPRETATION[36]){
- assert.equal(q.sourcePage,214);assert.ok(q.explanation);
+assert.ok(chapter36.window.HEBREW_TEXTBOOK_QUESTION_BANKS[36].every(q=>q.sourcePage===215&&q.explanation&&q.practiceOrigin));
+for(const q of chapter36.window.HEBREW_CHAPTER_INTERPRETATION[36]){
+ assert.equal(q.sourcePage,215);assert.ok(q.explanation);
  assert.ok(kol.he.includes(q.prompt.split('\n')[1]));
 }
-for(const [id,unit,page,count] of [['lilmod-17-solon',17,197,8],['lilmod-17-prepositions',17,205,3],['lilmod-17-red-hood-imperative',17,200,5],['lilmod-17-habitual-cloze',17,202,3],['lilmod-18-whale',18,206,17],['lilmod-18-rescue',18,212,5],['lilmod-18-measurements',18,208,3],['lilmod-18-restaurant-notice',18,209,2],['lilmod-18-comparisons',18,210,3]]){
+for(const [id,unit,page,count] of [['lilmod-17-solon',17,197,8],['lilmod-17-prepositions',17,205,3],['lilmod-17-red-hood-imperative',17,200,5],['lilmod-17-habitual-cloze',17,202,3],['lilmod-18-whale',18,206,17],['lilmod-18-rescue',18,212,5],['lilmod-18-measurements',18,208,3],['lilmod-18-restaurant-notice',18,209,2],['lilmod-18-comparisons',18,210,3],['lilmod-18-like',18,214,3]]){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);
  assert.match(p.source,new RegExp(`unit ${unit}.*PDF page(?:s)? ${page}`));
  assert.equal(p.questions.length,count);

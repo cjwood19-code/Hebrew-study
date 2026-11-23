@@ -20,3 +20,7 @@ Four new flashcards quote complete source sentences in context. Saved chapter pr
 ## Curriculum limit
 
 The application still indexes 46 chapters: 10 from אולפן עברית First Part, seven from אולפן עברית Fourth Part, 19 from ללמוד עברית ברמה ב׳, and 10 from עברית בשניים לרמה ב׳. The user's 39-chapter note differs by seven, matching the Fourth Part block numerically, but the intended mapping is unconfirmed. This run source-audited chapter 35 only; indexed-ready does not establish line-by-line source verification of every chapter.
+
+## Page-boundary correction (subsequent run)
+
+The scan shows that PDF page 214 (printed page 210) is the last page of unit 18. The chapter index now covers PDF pages 206–214. Three selected original כמו-inflection blanks from that page appear together in Reading Practice with adapted choices and explanations. Chapter Test remains six scored questions plus three Hebrew interpretation checks. The earlier audit stopped at PDF 213; this addendum covers the missed final page.

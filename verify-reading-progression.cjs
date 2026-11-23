@@ -20,7 +20,7 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,166);
+assert.equal(buttons.length,167);
 const green45=buttons.find(b=>b.textContent==='משפחות ירוקות — בחירת מילים');assert.ok(green45);green45.onclick();assert.match(get('readingSource').textContent,/chapter 9.*PDF page 270/);assert.match(get('readingPassage').textContent,/לחיות \/ להפסיד/);const greenWrong=get('readingChoices').children.find(b=>b.textContent!=='לחיות');greenWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: לחיות/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const marathon44=buttons.find(b=>b.textContent==='קתרין סוויצר ומרתון בוסטון');assert.ok(marathon44);marathon44.onclick();assert.match(get('readingSource').textContent,/chapter 8.*PDF page 238/);assert.match(get('readingPassage').textContent,/קתרין סוויצר/);const marathonWrong=get('readingChoices').children.find(b=>b.textContent!=='1967');marathonWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: 1967/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const ghetto42=buttons.find(b=>b.textContent==='גטו — קריאה ושאלות');assert.ok(ghetto42);ghetto42.onclick();
@@ -66,7 +66,7 @@ assert.match(get('readingSource').textContent,/PDF page 37/);
 assert.match(get('readingPassage').textContent,/כולם אומרים _____ \(כלות \/ ברכות\)/);
 const kolButton=buttons.find(b=>b.textContent==='כל נדרי בארץ רחוקה');assert.ok(kolButton);
 kolButton.onclick();
-assert.match(get('readingSource').textContent,/unit 19.*PDF page 214.*PDF page 216/);
+assert.match(get('readingSource').textContent,/unit 19.*PDF page 215.*PDF page 216/);
 assert.match(get('readingPassage').textContent,/מאז אני משמיעה את התפילה בכל יום כיפורים/);
 assert.equal(get('readingQuestionProgress').textContent,'Printed question 1 · PDF 216 · adapted choices • Question 1 of 8');
 const kolWrong=get('readingChoices').children.find(b=>b.textContent!=='איש יהודי שירד מן האונייה');kolWrong.onclick();
