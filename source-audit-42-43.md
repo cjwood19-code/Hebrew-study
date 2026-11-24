@@ -11,7 +11,7 @@ Source: user-supplied scan `עברית בשניים_לרמת בי(1).pdf`. Page 
 
 The previous bank contained 24 items. Its 1516 ghetto answer falsely said Jews were expelled; the passage says Venice's rulers permitted them to remain only in the ghetto neighborhood. The passage attributes their later release to Napoleon, not specifically to his soldiers. The recognition text attributes the 1953 decision to the Israeli government; it does not identify Yad Vashem. The animal story concerns Shendi the dog and her puppies, and its blanks require past tense. An unsupported exercise sentence was replaced with the printed contrast sentence about pleasant weather. A penguin interpretation sentence absent from PDF 176 was replaced with one from the printed reading.
 
-The ghetto reading, Righteous Among the Nations reading, Roma contrast statements, school director interview, Shendi story completion, and penguin choice exercise appear in Reading Practice with selected source Hebrew beside the questions. Omissions are marked. The 10 remaining chapter questions and 3 interpretation checks have page, exercise, and lesson explanation fields.
+The ghetto reading, Righteous Among the Nations reading, Roma contrast statements, school director interview, Shendi story completion, and penguin choice exercise appear in Reading Practice with selected source Hebrew beside the questions. Omissions are marked. The 10 remaining chapter questions and 3 interpretation checks have page, exercise, and lesson explanation fields. A later scan comparison of PDF page 172 (printed page 160) corrected the scored "from us" form from **מאתנו** to the book's **מאיתנו** and updated its explanation. The source image, not the supplementary student notes, establishes this spelling.
 
 ## Chapter 43
 

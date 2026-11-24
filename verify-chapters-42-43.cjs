@@ -34,6 +34,10 @@ function tick(){const pending=[...timers.values()];timers.clear();pending.forEac
 function saved(){return JSON.parse(storage.get('hebrewTextbookProgressV1'))}
 function bankCount(level){return context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[level].length}
 function total(level){return bankCount(level)+3}
+const fromUs=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[42].find(q=>q.sourceExercise==='preposition.min.1');
+assert.equal(fromUs.sourcePage,172);
+assert.equal(fromUs.answer,'מאיתנו');
+assert.ok(fromUs.explanation.includes('מאיתנו'));
 function begin(level){get('chapterSelect').value=String(level);get('chapterSelect').onchange();assert.equal(get('chapterStart').disabled,false);get('chapterStart').click()}
 function answer(wrong=false){
  const level=+get('chapterSelect').value;
