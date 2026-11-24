@@ -5,7 +5,7 @@ function element(id){if(!elements.has(id))elements.set(id,{textContent:'',value:
 const storage=new Map([['hebrewGeneralFlashcardsV1',JSON.stringify({version:1,cards:{'lilmod-7-8-001':{status:'review',seen:2},'lilmod-7-8-002':{status:'known',seen:1}}})]]);
 const context={window:{},document:{getElementById:element},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)}};
 vm.createContext(context);
-for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','shnayim-cards-38.js','ulpan4-cards-15-16.js','ulpan4-cards-17.js','lilmod-cards-18.js','lilmod-cards-19.js','lilmod-cards-20.js','lilmod-cards-21.js','lilmod-cards-22.js','lilmod-cards-23.js','lilmod-cards-26.js','lilmod-cards-27.js','lilmod-cards-28.js','lilmod-cards-29.js','lilmod-cards-30.js','lilmod-cards-31.js','lilmod-cards-32.js','lilmod-cards-33.js','lilmod-cards-34.js','lilmod-cards-35.js','lilmod-cards-36.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
+for(const file of ['general-vocabulary-cards.js','general-flashcard-examples.js','shnayim-cards-38.js','shnayim-cards-39.js','ulpan4-cards-15-16.js','ulpan4-cards-17.js','lilmod-cards-18.js','lilmod-cards-19.js','lilmod-cards-20.js','lilmod-cards-21.js','lilmod-cards-22.js','lilmod-cards-23.js','lilmod-cards-26.js','lilmod-cards-27.js','lilmod-cards-28.js','lilmod-cards-29.js','lilmod-cards-30.js','lilmod-cards-31.js','lilmod-cards-32.js','lilmod-cards-33.js','lilmod-cards-34.js','lilmod-cards-35.js','lilmod-cards-36.js','general-flashcards.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
 assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.length,220);
 element('flashcardSet').value='review';element('flashcardSet').onchange();
 element('flashcardStart').onclick();
@@ -35,6 +35,7 @@ assert.equal(element('flashcardExampleHe').textContent,card.exampleHe);
 const travel=context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-2-001');
 assert.equal(travel.exampleEn,'Tomorrow it is worthwhile to set out on a long journey.');
 assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-2-003').exampleHe,/קבוצה של אנשים שחיים ביחד/);
+assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-3-003').exampleHe,/פסיפסים/);
 element('flashcardExit').onclick();
 assert.equal(JSON.parse(storage.get('hebrewGeneralFlashcardsV1')).cards['lilmod-7-8-002'].status,'known');
 console.log('PASS: all 220 context examples; reveal timing; both directions; review ratings and saved progress intact.');
