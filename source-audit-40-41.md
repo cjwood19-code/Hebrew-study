@@ -4,14 +4,14 @@ The source is the user's scan of *עברית בשניים לרמה ב׳*. PDF in
 
 | Trainer chapter | Printed chapter | PDF pages | Audited active work |
 | --- | --- | --- | --- |
-| 40 | פרק רביעי: בית | 102–125 (printed 90–113) | 13 Chapter Test items; 3 Hebrew interpretation checks; 7 Reading Practice activities with 14 contextual questions; 4 chapter flashcards with examples |
+| 40 | פרק רביעי: בית | 102–125 (printed 90–113) | 9 Chapter Test items; 3 Hebrew interpretation checks; 9 Reading Practice activities with 19 contextual questions; 4 chapter flashcards with examples |
 | 41 | פרק חמישי: חינוך | 126–151 (printed 114–141) | 12 Chapter Test items; 3 Hebrew interpretation checks; 11 Reading Practice activities with 22 contextual questions; 4 chapter flashcards with examples |
 
 ## Chapter 40 corrections
 
-The former bank included 13 passage-dependent questions without the passage beside them. Those items were removed from the Chapter Test and replaced with seven visible source excerpts and questions in Reading Practice. The excerpts cover *בתים פתוחים*, *תמונה מספרת*, the Mount Scopus synagogue, Zaha Hadid, the architect's original fill-in monologue, *בית השנטי*, and *איש חכם*. Omitted text is marked `[...]`; selected source Hebrew and printed blanks are retained. Questions adapted to choices and supplemental comprehension are labeled separately.
+The former bank included 13 passage-dependent questions without the passage beside them. Those items were removed from the Chapter Test and replaced with nine visible source excerpts and questions in Reading Practice. The excerpts cover *בתים פתוחים*, *תמונה מספרת*, the original future-tense fill-in exercise, the housing dialogue, the Mount Scopus synagogue, Zaha Hadid, the architect's original fill-in monologue, *בית השנטי*, and *איש חכם*. Omitted text is marked `[...]`; selected source Hebrew and printed blanks are retained. Questions adapted to choices and supplemental comprehension are labeled separately.
 
-The scan on PDF page 104 (printed 93) permits photographing rooms and furniture and forbids smoking inside; the former rule item misrepresented the permissions. The synagogue reading on PDF page 114 (printed 102) names רם כרמי as the architect; מאיר יעקב שיק is associated with the synagogue's name. The housing dialogue's elderly speaker is דפנה. The compound בית matching task appears on PDF page 125 (printed 113), not page 124.
+The scan on PDF page 105 (printed 93) permits photographing rooms and furniture and forbids smoking inside; the former rule item misrepresented the permissions. The synagogue reading on PDF page 114 (printed 102) names רם כרמי as the architect; מאיר יעקב שיק is associated with the synagogue's name. The housing dialogue's elderly speaker is דפנה. Its original future fill-ins and the printed future-tense exercise now appear in Reading Practice with the Hebrew lines visible. The prior test version changed בית בן קומה אחת into בית עם גינה אחת; the wording is corrected to the scan. The indirect-question example cites PDF 103, the future table PDF 107, and the personal modal practice is labeled as supplemental where it extends the printed model. The photo and בית השנטי excerpts were corrected to match the scan exactly. The compound בית matching task appears on PDF page 125 (printed 113), not page 124.
 
 ## Chapter 41 corrections
 

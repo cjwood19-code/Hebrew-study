@@ -94,7 +94,7 @@ for(const level of [38,39]){
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
 for(const level of [40,41]){
-  assert.equal(banks[level].length,level===40?13:12);
+  assert.equal(banks[level].length,level===40?9:12);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));
   assert.ok(banks[level].every((q,i,b)=>i===0||q.sourcePage>=b[i-1].sourcePage));
 }
@@ -102,6 +102,10 @@ assert.ok(banks[40].every(q=>q.explanation&&q.practiceOrigin&&/[\u0590-\u05FF]/.
 assert.ok(banks[41].every(q=>q.explanation&&q.practiceOrigin&&/[\u0590-\u05FF]/.test(q.prompt)));
 assert.ok(!banks[41].some(q=>/reading|dialogue|story/i.test(q.category)));
 assert.ok(!banks[40].some(q=>q.category.startsWith('Reading')));
+assert.equal(banks[40].find(q=>q.sourceExercise==='reported-question.1').sourcePage,103);
+assert.ok(banks[40].filter(q=>q.sourceExercise.startsWith('modal-rule.')).every(q=>q.sourcePage===105));
+assert.equal(banks[40].find(q=>q.sourceExercise==='future-table.1').sourcePage,107);
+assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[40].every(q=>q.explanation&&q.sourceExercise));
 assert.equal(banks[40].find(q=>q.sourceExercise==='matching.1').sourcePage,125);
 for(const level of [42,43]){
   assert.equal(banks[level].length,level===42?10:8);

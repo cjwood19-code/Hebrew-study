@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const start=app.indexOf('const readingPassages=['),end=app.indexOf('\nlet readingSession=null;',start);
 assert.ok(start>=0&&end>start);
 const passages=vm.runInNewContext(app.slice(start,end)+'\nreadingPassages',{D:{readingPassages:[]}});
-assert.equal(passages.length,169);
+assert.equal(passages.length,171);
 for(const [id,page,count,phrase] of [['ulpan4-36-jonathan',49,3,'98 נוסעים'],['ulpan4-36-jerusalem',53,2,'שלמה המלך']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson 36.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)&&new Set(q.opts).size===4));}
 for(const [id,lesson,page,count,phrase] of [['ulpan-7-notes',7,73,5,'אני נמצא בגן הציבורי'],['ulpan-7-tradition',7,75,3,'הוא תמיד אוכל מצות'],['ulpan-7-apartment',7,78,3,'שלושה חדרים גדולים'],['ulpan-8-mythology',8,81,3,'לספינקס המצרי אין כנפיים'],['ulpan-8-roni',8,84,3,'אין לי זמן עכשיו']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page'+(id==='ulpan-7-notes'?'s':'')+' '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
 for(const [id,lesson,page,count,phrase] of [['ulpan-5-golan-family',5,56,4,'יעקב בן 36'],['ulpan-5-weekend-travel',5,58,3,'בסוף השבוע הם נוסעים למשפחות שלהם'],['ulpan-6-good-student',6,71,4,'אני צריכה להישאר בבית']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('lesson '+lesson+'.*PDF page '+page));assert.ok(p.he.includes(phrase),id);assert.equal(p.questions.length,count,id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
@@ -312,9 +312,13 @@ for(const p of passages.filter(p=>/^(אולפן עברית|עברית בשניי
  assert.ok(p.he.trim()&&p.source.includes('PDF page'));
  for(const q of p.questions){assert.equal(q.opts.length,4);assert.ok(q.opts.includes(q.a));assert.ok(q.explanation)}
 }
-for(const id of ['shnayim-4-open-houses','shnayim-4-photo','shnayim-4-synagogue','shnayim-4-hadid','shnayim-4-architect-cloze','shnayim-4-shanti','shnayim-4-wise-man']){
+for(const id of ['shnayim-4-open-houses','shnayim-4-photo','shnayim-4-future-fill','shnayim-4-housing-dialogue','shnayim-4-synagogue','shnayim-4-hadid','shnayim-4-architect-cloze','shnayim-4-shanti','shnayim-4-wise-man']){
  const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,/chapter 4.*PDF page/);assert.ok(p.questions.every(q=>q.explanation&&q.kind));
 }
+const future40=passages.find(p=>p.id==='shnayim-4-future-fill');assert.equal(future40.questions.length,3);assert.ok(future40.he.includes('לבנות (את) _____')&&future40.questions.every(q=>q.kind.includes('Printed fill-in')));
+const housing40=passages.find(p=>p.id==='shnayim-4-housing-dialogue');assert.equal(housing40.questions.length,2);assert.ok(housing40.he.includes('בית בן קומה אחת בלי מדרגות')&&housing40.he.includes('כש_____ (להיות) זקנה'));
+assert.ok(passages.find(p=>p.id==='shnayim-4-photo').he.includes('לא ידעו מי הוא'));
+assert.ok(passages.find(p=>p.id==='shnayim-4-shanti').he.includes('כי היה להם קשה להישאר'));
 assert.ok(passages.find(p=>p.id==='shnayim-4-synagogue').questions.some(q=>q.a==='רם כרמי'));
 assert.ok(passages.find(p=>p.id==='shnayim-4-architect-cloze').he.includes('_____ בבתי קפה'));
 for(const id of ['bilingual','facebook','szold','father','sparta','finland','goldberg','yalan','harlow','darwish','robin']){
