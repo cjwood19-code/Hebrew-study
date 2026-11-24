@@ -138,4 +138,12 @@ cards.forEach((card,i)=>{
 const discipline=cards.find(c=>c.id==="shnayim-5-003");
 if(!discipline||discipline.he!=="משמעת"||discipline.sourcePage!==136)throw Error("Chapter 41 study-note cue mismatch");
 discipline.transliteration="MEESHMA'AT";
+for(const [id,word,page,cue] of [
+ ["shnayim-8-003","שוויון",238,"SHEEVEE'ON"],
+ ["shnayim-9-002","אשפה",246,"ASHPAH"]
+]){
+ const card=cards.find(c=>c.id===id);
+ if(!card||card.he!==word||card.sourcePage!==page)throw Error("Study-note cue mismatch: "+id);
+ card.transliteration=cue;
+}
 })();

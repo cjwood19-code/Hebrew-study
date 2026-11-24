@@ -37,6 +37,8 @@ assert.equal(travel.exampleEn,'Tomorrow it is worthwhile to set out on a long jo
 assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-2-003').exampleHe,/קבוצה של אנשים שחיים ביחד/);
 assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-3-003').exampleHe,/פסיפסים/);
 assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-5-003').transliteration,"MEESHMA'AT");
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-8-003').transliteration,"SHEEVEE'ON");
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-9-002').transliteration,"ASHPAH");
 assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-5-002').sourcePage,133);
 assert.match(fs.readFileSync(path.join(__dirname,'index.html'),'utf8'),/id="flashcardTransliteration"/);
 element('flashcardExit').onclick();
