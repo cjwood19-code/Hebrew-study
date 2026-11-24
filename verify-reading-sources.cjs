@@ -324,6 +324,14 @@ assert.ok(passages.find(p=>p.id==='shnayim-4-architect-cloze').he.includes('____
 for(const id of ['bilingual','facebook','szold','father','sparta','finland','goldberg','yalan','harlow','darwish','robin']){
  const p=passages.find(x=>x.id==='shnayim-5-'+id);assert.ok(p,id);assert.match(p.source,/chapter 5.*PDF page/);assert.ok(p.questions.every(q=>q.explanation&&q.kind));
 }
+assert.ok(passages.find(p=>p.id==='shnayim-5-facebook').he.includes('ספרי קריאה בתרגום לעברית'));
+assert.match(passages.find(p=>p.id==='shnayim-5-facebook').source,/PDF page 129/);
+assert.match(passages.find(p=>p.id==='shnayim-5-szold').source,/PDF page 133/);
+assert.ok(!passages.find(p=>p.id==='shnayim-5-facebook').he.includes('מספיקים ללמוד בשתי השפות'));
+assert.ok(passages.find(p=>p.id==='shnayim-5-father').he.includes('אסור להשתמש במילה'));
+assert.ok(!passages.find(p=>p.id==='shnayim-5-szold').he.includes('כפר סאלד'));
+assert.ok(passages.find(p=>p.id==='shnayim-5-szold').he.includes('בית ספר לעבודה סוציאלית'));
+assert.ok(passages.find(p=>p.id==='shnayim-5-darwish').he.includes('עיניו כחולות'));
 assert.ok(passages.find(p=>p.id==='shnayim-5-harlow').he.includes('לאם מבד'));
 assert.ok(passages.find(p=>p.id==='shnayim-5-robin').he.includes('(לספר, אני)'));
 for(const [id,page,count,phrase] of [['ulpan-2-bank-dialogue',19,3,'יעקב לוי'],['ulpan-2-good-friends',22,4,'מיכאל עובד במסעדה']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('אולפן עברית.*lesson 2.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));}

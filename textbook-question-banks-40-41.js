@@ -3,7 +3,7 @@
 (function(){"use strict";
 const rows={
 40:[
-[103,"reported-question.1","Reported questions","מנהל האירוע שאל: ״האם יבואו אנשים לביקור בבתים הפתוחים?״ השלימו: מנהל האירוע שאל _____ יבואו אנשים לביקור בבתים הפתוחים.","אם","למה","מתי","כמה","משפט שאלה בלי מילת שאלה מקבל אם בדיבור עקיף.","Printed transformation • adapted to choices"],
+[103,"reported-question.1","Reported questions","מנהל האירוע שאל: ״האם יבואו אנשים לביקור בבתים הפתוחים?״ השלימו: מנהל האירוע שאל _____ יבואו אנשים לביקור בבתים הפתוחים.","אם","למה","מתי","כמה","משפט שאלה בלי מילת שאלה מקבל אם בדיבור עקיף.","Supplemental past-tense transformation • lesson verb"],
 [105,"modal-rule.1","Home visit rules","השלימו את הכלל: _____ לעשן בתוך הבתים.","אסור","אפשר","כדאי","קל","בעמוד 93 הכלל אוסר לעשן בתוך הבתים.","Printed rule • adapted to choices"],
 [105,"modal-rule.2","Home visit rules","השלימו את הכלל: _____ לצלם את החדרים ואת הרהיטים.","אפשר","אסור","לא כדאי","קשה","הכללים בעמוד 93 מתירים לצלם את החדרים ואת הרהיטים.","Printed rule • adapted to choices"],
 [105,"modal-rule.3","Home visit rules","השלימו את הכלל: _____ לכבד את בעלי הבית.","צריך","אסור","אי אפשר","לא כדאי","הכללים בעמוד 93 אומרים שצריך לכבד את בעלי הבית.","Printed rule • adapted to choices"],
@@ -14,18 +14,18 @@ const rows={
 [125,"matching.2","Compound בית names","בתרגיל שמות הבתים: בית משפט הוא _____","בית שבו שופטים מחליטים מי יהיה בבית כלא","בית שלומדים בו","בית לתיירים","בית של אנשים מתים","עמוד 113 מתאים בית משפט לבית שבו שופטים מחליטים מי יהיה בבית כלא.","Printed matching • adapted to choices"]
 ],
 41:[
-[128,"pronoun-table.1","Object pronouns","השלימו לפי הדוגמה: התלמידים השתמשו _____ מילונים.","באותם","באותה","באותו","באותן","המילה מילונים היא רבים בזכר, לכן משתמשים בבאותם.","Printed pronoun pattern • adapted to choices"],
-[130,"future-table.1","Future • לבקש","מחר אני _____ מן המורה עזרה. (לבקש)","אבקש","ביקשתי","מבקשים","יבקש","טבלת לבקש בעמוד 119 נותנת אני אבקש. המשפט הוא תרגול משלים.","Supplemental sentence • printed conjugation table"],
-[132,"past-transformation.1","Past • לשפר","כתבו בעבר: אנחנו נשפר את רמת הידע שלנו בהיסטוריה. אתמול אנחנו _____ את רמת הידע שלנו בהיסטוריה.","שיפרנו","נשפר","משפרים","שיפרו","התרגיל בעמוד 121 מבקש לכתוב בעבר; אנחנו + לשפר בעבר הוא שיפרנו.","Printed transformation • adapted to choices"],
+[128,"pronoun-table.1","Object pronouns","השלימו לפי הדוגמה: התלמידים השתמשו _____ המילונים.","באותם","באותה","באותו","באותן","המילה מילונים היא רבים בזכר, לכן משתמשים בבאותם.","Printed model • adapted to choices"],
+[131,"future-table.1","Future • לבקש","מחר אני _____ מן המורה עזרה. (לבקש)","אבקש","ביקשתי","מבקשים","יבקש","טבלת לבקש בעמוד 119 נותנת אני אבקש. המשפט הוא תרגול משלים.","Supplemental sentence • printed conjugation table"],
+[132,"past-transformation.1","Past • לשפר","כתבו בעבר: אנחנו נשפר את רמת הידע שלנו בהיסטוריה. אתמול אנחנו _____ את רמת הידע שלנו בהיסטוריה.","שיפרנו","נשפר","משפרים","שיפרו","הפועל לשפר מופיע בתרגיל בעמוד 120; בתרגול המשלים אנחנו בעבר הוא שיפרנו.","Supplemental past-tense transformation • lesson verb"],
 [132,"future-table.2","Future • לתרגם","מחר אתן _____ את הסיפורים לעברית. (לתרגם)","תתרגמו","תרגמתן","מתרגמות","נתרגם","הצורה בעתיד של אתן + לתרגם היא תתרגמו, לפי תרגיל הפעלים בעמוד 120.","Supplemental sentence • lesson verb"],
 [136,"cause-table.1","Cause words","השלימו לפי דוגמת הספר: _____ השכר הנמוך דוד רוצה לעבוד במקום אחר.","בגלל","לכן","ואילו","כדי","בגלל בא לפני שם עצם: השכר הנמוך. זו דוגמת מילות הסיבה בעמוד 124.","Printed cause example • adapted to choices"],
-[138,"reason-exercise.1","Cause words","לא הגעתי בזמן לאוניברסיטה _____ שביתת נהגי הרכבות.","בגלל","לכן","מפני ש","ואילו","בגלל מופיע לפני שם העצם שביתת; מפני ש צריך אחריו משפט.","Printed word choice • adapted to choices"],
 [138,"result-table.1","Result words","בספרטה היו בעיות כלכליות, _____ חלק מהתושבים עזבו אותה.","לכן","בגלל","מפני ש","ואילו","לכן מציין תוצאה אחרי משפט הסיבה, כפי שמראה תיבת מילות התוצאה בעמוד 126.","Printed result example • adapted to choices"],
-[140,"noun-table.1","Inflected nouns","מה צורת הרבים של דוד לפי הטבלה?","דודים","דודות","דודי","דודה","בטבלת שם העצם בנטייה בעמוד 129, רבים של דוד הוא דודים.","Printed noun table • adapted to choices"],
-[142,"possessive-table.1","Possessive nouns","כיתותיי פירושו _____","הכיתות שלי","הכיתות שלו","הכיתה שלך","הכיתה שלה","סיומת ־יי בטבלת הכיתות מציינת שלי ברבים.","Printed possessive form • adapted to choices"],
-[142,"possessive-exercise.2","Possessive nouns","השלימו: הילדים שלי = _____","ילדיי","ילדיו","ילדינו","ילדיך","טבלת שם העצם בנטייה בעמוד 129 מראה את סיומת הרבים בגוף ראשון; ילדיי הוא הילדים שלי.","Supplemental possessive practice • printed table"],
-[148,"word-match.1","Lesson vocabulary","בתרגיל אוצר המילים: אנתרופולוגיה היא _____","מחקר התרבות של בני האדם","מחקר החיות","מדע הכוכבים","אומנות הבנייה","תרגיל ההתאמה בעמוד 137 מגדיר אנתרופולוגיה כמחקר התרבות של בני האדם.","Printed vocabulary match • adapted to choices"],
-[148,"word-match.2","Lesson vocabulary","בתרגיל אוצר המילים: אדריכלות היא _____","אומנות הבנייה","מחקר החיות","מדע הכוכבים","מדע הסביבה","תרגיל ההתאמה בעמוד 137 מגדיר אדריכלות כאומנות הבנייה.","Printed vocabulary match • adapted to choices"]
+[139,"reason-exercise.1","Cause words","לא הגעתי בזמן לאוניברסיטה _____ שביתת נהגי הרכבות.","בגלל","לכן","מפני ש","ואילו","בגלל מופיע לפני שם העצם שביתת; מפני ש צריך אחריו משפט.","Printed word choice • adapted to choices"],
+[141,"noun-table.1","Inflected nouns","מה צורת הרבים של דוד לפי הטבלה?","דודים","דודות","דודי","דודה","בטבלת שם העצם בנטייה בעמוד 129 מופיע דוד, וברבים דודים.","Printed noun table • adapted to choices"],
+[141,"possessive-table.1","Possessive nouns","דודיי פירושו _____","הדודים שלי","הדודים שלו","הדוד שלך","הדודות שלי","בטבלת דוד בעמוד 129, דודיי פירושו הדודים שלי.","Printed possessive form • adapted to choices"],
+[141,"possessive-exercise.2","Possessive nouns","השלימו: הילדים שלי = _____","ילדיי","ילדיו","ילדינו","ילדיך","טבלת דוד בעמוד 129 מלמדת את סיומת ־יי לגוף ראשון ברבים; בתרגול המשלים ילדיי הוא הילדים שלי.","Supplemental possessive practice • printed table"],
+[149,"word-match.1","Lesson vocabulary","בתרגיל אוצר המילים: אנתרופולוגיה היא _____","מחקר התרבות של בני האדם","מחקר החיות","מדע הכוכבים","אומנות הבנייה","תרגיל ההתאמה בעמוד 137 מגדיר אנתרופולוגיה כמחקר התרבות של בני האדם.","Printed vocabulary match • adapted to choices"],
+[149,"word-match.2","Lesson vocabulary","בתרגיל אוצר המילים: אדריכלות היא _____","אומנות הבנייה","מחקר החיות","מדע הכוכבים","מדע הסביבה","תרגיל ההתאמה בעמוד 137 מגדיר אדריכלות כאומנות הבנייה.","Printed vocabulary match • adapted to choices"]
 
 ]};
 window.HEBREW_TEXTBOOK_QUESTION_BANKS=Object.assign(window.HEBREW_TEXTBOOK_QUESTION_BANKS||{},Object.fromEntries(Object.entries(rows).map(([level,items])=>[level,items.map(([sourcePage,sourceExercise,category,prompt,answer,a,b,c,explanation,practiceOrigin])=>({sourcePage,sourceExercise,category,prompt,answer,options:[answer,a,b,c],...(explanation?{explanation,practiceOrigin}: {})}))])));

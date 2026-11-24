@@ -36,6 +36,11 @@ const travel=context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-2-
 assert.equal(travel.exampleEn,'Tomorrow it is worthwhile to set out on a long journey.');
 assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-2-003').exampleHe,/קבוצה של אנשים שחיים ביחד/);
 assert.match(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-3-003').exampleHe,/פסיפסים/);
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-5-003').transliteration,"MEESHMA'AT");
+assert.equal(context.window.HEBREW_GENERAL_FLASHCARDS.find(c=>c.id==='shnayim-5-002').sourcePage,133);
+assert.match(fs.readFileSync(path.join(__dirname,'index.html'),'utf8'),/id="flashcardTransliteration"/);
 element('flashcardExit').onclick();
+element('flashcardSet').value='41';element('flashcardDirection').value='he-en';element('flashcardSet').onchange();element('flashcardStart').onclick();
+let sawDiscipline=false;for(let i=0;i<4;i++){const word=element('flashcardFront').textContent;element('flashcardReveal').onclick();if(word==='משמעת'){sawDiscipline=true;assert.equal(element('flashcardTransliteration').textContent,"Pronunciation from student notes: MEESHMA'AT");assert.equal(element('flashcardTransliteration').hidden,false);}else assert.equal(element('flashcardTransliteration').hidden,true);element('flashcardKnown').onclick();element('flashcardNext').onclick();}assert.equal(sawDiscipline,true);
 assert.equal(JSON.parse(storage.get('hebrewGeneralFlashcardsV1')).cards['lilmod-7-8-002'].status,'known');
 console.log('PASS: all 220 context examples; reveal timing; both directions; review ratings and saved progress intact.');

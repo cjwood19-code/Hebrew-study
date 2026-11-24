@@ -107,6 +107,8 @@ assert.ok(banks[40].filter(q=>q.sourceExercise.startsWith('modal-rule.')).every(
 assert.equal(banks[40].find(q=>q.sourceExercise==='future-table.1').sourcePage,107);
 assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[40].every(q=>q.explanation&&q.sourceExercise));
 assert.equal(banks[40].find(q=>q.sourceExercise==='matching.1').sourcePage,125);
+for(const [exercise,page] of [['future-table.1',131],['result-table.1',138],['reason-exercise.1',139],['noun-table.1',141],['possessive-table.1',141],['word-match.1',149],['word-match.2',149]])assert.equal(banks[41].find(q=>q.sourceExercise===exercise).sourcePage,page);
+assert.ok(context.window.HEBREW_CHAPTER_INTERPRETATION[41].every(q=>q.explanation&&q.sourceExercise));
 for(const level of [42,43]){
   assert.equal(banks[level].length,level===42?10:8);
   assert.ok(banks[level].every(q=>typeof q.sourceExercise==='string'&&q.sourceExercise));

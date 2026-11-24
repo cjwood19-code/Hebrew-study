@@ -134,4 +134,8 @@ cards.forEach((card,i)=>{
  if(card.he!==word||!he.includes(word)||!en)throw new Error("Flashcard example mismatch: "+card.id);
  card.exampleHe=he;card.exampleEn=en;card.exampleKind=(card.id.startsWith("ulpan-")||card.id.startsWith("ulpan4-"))?"Textbook sentence":"Supplemental practice example";
 });
+// The pronunciation cue is from the user’s notes; Hebrew and page come from the textbook.
+const discipline=cards.find(c=>c.id==="shnayim-5-003");
+if(!discipline||discipline.he!=="משמעת"||discipline.sourcePage!==136)throw Error("Chapter 41 study-note cue mismatch");
+discipline.transliteration="MEESHMA'AT";
 })();

@@ -39,6 +39,8 @@ function show(){
   $("flashcardExampleHe").textContent=c.exampleHe;
   $("flashcardExampleEn").textContent=c.exampleEn;
   $("flashcardExampleKind").textContent="Example in context · "+(c.exampleKind||"Supplemental practice");
+  $("flashcardTransliteration").textContent=c.transliteration?"Pronunciation from student notes: "+c.transliteration:"";
+  $("flashcardTransliteration").hidden=!c.transliteration;
   $("flashcardExample").hidden=true;
   $("flashcardSource").textContent=c.book+" · Chapter "+c.chapter+" · PDF page "+c.sourcePage;
   $("flashcardReveal").hidden=false;

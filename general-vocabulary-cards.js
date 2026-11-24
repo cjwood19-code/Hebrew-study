@@ -526,7 +526,7 @@ window.HEBREW_GENERAL_FLASHCARDS = [
  {"id": "shnayim-4-003", "he": "אוצר", "en": "treasure", "chapter": 40, "sourcePage": 122, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-4-004", "he": "נערים", "en": "youths", "chapter": 40, "sourcePage": 120, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-5-001", "he": "דו־לשוני", "en": "bilingual", "chapter": 41, "sourcePage": 126, "book": "עברית בשניים לרמה ב׳"},
- {"id": "shnayim-5-002", "he": "הדסה", "en": "Hadassah", "chapter": 41, "sourcePage": 132, "book": "עברית בשניים לרמה ב׳"},
+ {"id": "shnayim-5-002", "he": "הדסה", "en": "Hadassah", "chapter": 41, "sourcePage": 133, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-5-003", "he": "משמעת", "en": "discipline", "chapter": 41, "sourcePage": 136, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-5-004", "he": "משוררת", "en": "female poet", "chapter": 41, "sourcePage": 144, "book": "עברית בשניים לרמה ב׳"},
  {"id": "shnayim-6-001", "he": "גטו", "en": "ghetto", "chapter": 42, "sourcePage": 152, "book": "עברית בשניים לרמה ב׳"},
