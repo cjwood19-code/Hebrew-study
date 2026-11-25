@@ -31,7 +31,7 @@ const checks={
 8:[
 [81,'myth.reading','לספינקס המצרי אין כנפיים.','The Egyptian sphinx has no wings.',['The Egyptian sphinx has no wings.','The Egyptian sphinx has wings.','The Greek sphinx has no wings.','The Egyptian sphinx has no head.'],'אין כנפיים מציין היעדר כנפיים.'],
 [84,'possession.dialogue','אין לי זמן עכשיו.','I do not have time now.',['I do not have time now.','I have time now.','She does not have time tomorrow.','I have no computer now.'],'אימא אומרת אין לי זמן עכשיו; אין לי מבטא חוסר.'],
-[86,'notice.1','אני לא יכול להגיע היום.','I cannot come today.',['I cannot come today.','I can come today.','I cannot come tomorrow.','I am leaving today.'],'בפתק של שלומי לא יכול להגיע היום מציין שאינו יכול לבוא היום.']
+[86,'notice.shlomi','אני לא מגיע הביתה.','I am not coming home.',['I am not coming home.','I am coming home tomorrow.','I am leaving the base today.','I am waiting at home.'],'בפתק לאבא שלומי כותב: אני לא מגיע הביתה. הוא נשאר בבסיס.']
 ]};
 for(const [level,items] of Object.entries(checks))window.HEBREW_CHAPTER_INTERPRETATION[level]=items.map(([sourcePage,sourceExercise,he,answer,options,explanation])=>({sourcePage,sourceExercise,category:'Interpretation • Hebrew to English',prompt:'What does this Hebrew mean?\n'+he,answer,options,explanation,interpretation:true}));
 })();

@@ -11,7 +11,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 5 | אולפן עברית 1 | 5 | 50–62 | 8 | 8 | 3 | 7 | 0 | 3 | 0 | 0 |
 | 6 | אולפן עברית 1 | 6 | 63–72 | 8 | 8 | 3 | 4 | 0 | 3 | 0 | 0 |
 | 7 | אולפן עברית 1 | 7 | 73–80 | 8 | 8 | 3 | 11 | 0 | 3 | 0 | 0 |
-| 8 | אולפן עברית 1 | 8 | 81–89 | 8 | 8 | 3 | 6 | 0 | 3 | 0 | 0 |
+| 8 | אולפן עברית 1 | 8 | 81–89 | 8 | 8 | 3 | 10 | 0 | 3 | 0 | 0 |
 | 9 | אולפן עברית 1 | 9 | 90–101 | 8 | 8 | 3 | 5 | 0 | 3 | 0 | 0 |
 | 10 | אולפן עברית 1 | 10 | 102–112 | 7 | 7 | 3 | 9 | 0 | 3 | 0 | 0 |
 | 11 | אולפן עברית 4 | 30 | 1–7 | 9 | 9 | 3 | 13 | 0 | 3 | 0 | 0 |
@@ -51,7 +51,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 | 45 | עברית בשניים ב׳ | 9 | 240–274 | 17 | 17 | 3 | 21 | 0 | 4 | 0 | 0 |
 | 46 | עברית בשניים ב׳ | 10 | 275–308 | 21 | 21 | 3 | 25 | 0 | 4 | 0 | 0 |
 
-**Loaded totals:** 701 active chapter-bank questions; 138 Hebrew interpretation checks; 171 Reading Practice activities with 599 questions; 0 context-dependent bank items held out of chapter tests; 220 flashcards. 46/46 chapters are indexed ready.
+**Loaded totals:** 701 active chapter-bank questions; 138 Hebrew interpretation checks; 172 Reading Practice activities with 603 questions; 0 context-dependent bank items held out of chapter tests; 220 flashcards. 46/46 chapters are indexed ready.
 
 ## Reading Practice placement
 
@@ -69,6 +69,7 @@ Generated from the scripts loaded by `index.html` with `node audit-curriculum.cj
 - ulpan-7-apartment: 3 questions; chapter 7; אולפן עברית • lesson 7 • PDF page 78 (printed page 90) • original dialogue; printed number questions on PDF page 79 adapted to choices.
 - ulpan-8-mythology: 3 questions; chapter 8; אולפן עברית • lesson 8 • PDF page 81 (printed page 93) • original reading and printed comprehension adapted to choices.
 - ulpan-8-roni: 3 questions; chapter 8; אולפן עברית • lesson 8 • PDF page 84 (printed page 96) • selected original dialogue; printed questions adapted to choices.
+- ulpan-8-shlomi-notice: 4 questions; chapter 8; אולפן עברית • lesson 8 • PDF page 86 (printed page 98) • original note; printed true/false statements.
 - ulpan-5-golan-family: 4 questions; chapter 5; אולפן עברית • lesson 5 • PDF page 56 (printed page 68) • original reading; printed comprehension adapted to choices.
 - ulpan-5-weekend-travel: 3 questions; chapter 5; אולפן עברית • lesson 5 • PDF page 58 (printed page 70) • selected original reading with marked omission; printed questions adapted to choices.
 - ulpan-6-good-student: 4 questions; chapter 6; אולפן עברית • lesson 6 • PDF page 71 (printed page 83) • original dialogue and printed fill-in; choices adapted.

@@ -34,6 +34,11 @@ function tick(){const pending=[...timers.values()];timers.clear();pending.forEac
 function saved(){return JSON.parse(storage.get('hebrewTextbookProgressV1'))}
 function begin(level){get('chapterSelect').value=String(level);get('chapterSelect').onchange();assert.equal(get('chapterStart').disabled,false);get('chapterStart').click()}
 function answer(level,wrong=false){const pool=[...context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[level],...context.window.HEBREW_CHAPTER_INTERPRETATION[level]];const q=pool.find(q=>q.prompt===get('chapterPrompt').textContent);assert.ok(q);const b=get('chapterOptions').children.find(b=>wrong?b.textContent!==q.answer:b.textContent===q.answer);assert.ok(b);b.click();b.click()}
+const shlomi=context.window.HEBREW_CHAPTER_INTERPRETATION[8].find(q=>q.sourceExercise==='notice.shlomi');
+assert.ok(shlomi);
+assert.match(shlomi.prompt,/אני לא מגיע הביתה/);
+assert.doesNotMatch(shlomi.prompt,/אני לא יכול להגיע היום/);
+assert.equal(shlomi.sourcePage,86);
 assert.equal(get('textbookCurrent').textContent,'7 / 46');
 begin(7);assert.equal(get('chapterQuestion').textContent,'Question 1 of 11');assert.match(get('chapterDirection').textContent,/lesson 7.*PDF page 76/);
 answer(7);tick();assert.match(get('chapterQuestion').textContent,/^Question 2 /);

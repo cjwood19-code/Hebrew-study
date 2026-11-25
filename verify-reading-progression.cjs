@@ -20,7 +20,16 @@ vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),context,{
 context.D=context.window.TRAINER_DATA;
 vm.runInContext(app.slice(from,to+'\nrenderReadingLibrary();'.length),context,{filename:'reading-excerpt.js'});
 const buttons=get('readingStoryButtons').children;
-assert.equal(buttons.length,171);
+assert.equal(buttons.length,172);
+const notice8=buttons.find(b=>b.textContent==='הודעה ופתק — שלומי לאבא');
+assert.ok(notice8);notice8.onclick();
+assert.match(get('readingSource').textContent,/lesson 8.*PDF page 86/);
+assert.match(get('readingPassage').textContent,/אני לא מגיע הביתה\.\nאני נשאר בבסיס/);
+assert.equal(get('readingChoices').children.length,2);
+get('readingChoices').children.find(b=>b.textContent==='נכון').onclick();
+assert.match(get('readingQuestionFeedback').textContent,/Correct answer: לא נכון/);
+get('nextReadingQuestionBtn').onclick();
+assert.match(get('readingQuestionProgress').textContent,/Printed true\/false.*Question 2 of 4/);
 const housing40=buttons.find(b=>b.textContent==='שאול ודפנה — בית בלי מדרגות');assert.ok(housing40);housing40.onclick();assert.match(get('readingPassage').textContent,/בית בן קומה אחת בלי מדרגות/);assert.match(get('readingSource').textContent,/chapter 4.*PDF page 110/);const wrong40=get('readingChoices').children.find(b=>b.textContent!=='אהיה; אעלה');wrong40.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: אהיה; אעלה/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
 const future40=buttons.find(b=>b.textContent==='עתיד — השלמת פעלים');assert.ok(future40);future40.onclick();assert.match(get('readingPassage').textContent,/לבנות \(את\) _____/);assert.match(get('readingQuestionProgress').textContent,/Question 1 of 3$/);
 const green45=buttons.find(b=>b.textContent==='משפחות ירוקות — בחירת מילים');assert.ok(green45);green45.onclick();assert.match(get('readingSource').textContent,/chapter 9.*PDF page 270/);assert.match(get('readingPassage').textContent,/לחיות \/ להפסיד/);const greenWrong=get('readingChoices').children.find(b=>b.textContent!=='לחיות');greenWrong.onclick();assert.match(get('readingQuestionFeedback').textContent,/Correct answer: לחיות/);assert.equal(get('nextReadingQuestionBtn').classList.contains('hidden'),false);get('nextReadingQuestionBtn').onclick();assert.match(get('readingQuestionProgress').textContent,/Question 2 of 2$/);
