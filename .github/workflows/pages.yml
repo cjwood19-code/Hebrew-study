@@ -50,7 +50,7 @@ jobs:
         with:
           path: "."
       - name: Allow artifact registration
-        run: sleep 12
+        run: sleep 30
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
