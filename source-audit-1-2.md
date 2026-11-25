@@ -11,6 +11,8 @@ The first lesson teaches the printed and written alphabet, vowel marks, word rec
 
 The old chapter 2 bank had 23 standalone items and no item-specific explanations or exercise labels. I compared every item with PDF 15–30 and replaced the bank with 15 scan-backed items. The unsupported Rita sentence and other page-mismatched recall are no longer scored. The remaining items adapt the printed pronoun table, completions, present-tense forms, and age forms, with source page, exercise identifier, and correction.
 
+Follow-up comparison on PDF page 15 (printed page 27) found that the feminine answer is **היא מארגנטינה**, while **מאנגליה** belongs to the masculine question. The chapter 2 bank now preserves that pairing. The interpretation sentence on PDF page 22 (printed page 34) is **אנחנו גם עובדים**; the omitted **גם** and its English meaning have been restored. These changes retain the same question IDs, lesson scope, and scoring structure.
+
 The original dialogue בבנק from PDF 19 and reading חברים טובים from PDF 22 are shown beside adapted printed comprehension questions in Reading Practice. The text is selected source Hebrew, with omissions marked in the dialogue; it is not presented as a complete passage. The four chapter 2 flashcards quote sentences from חברים טובים, giving each term a visible example.
 
 A chapter 1 or 2 test now requires at least two of three Hebrew interpretation checks plus 85% overall. Correct answers advance automatically; an incorrect answer shows the correction and waits for Next. The existing progress key and separate adaptive-practice data were retained.

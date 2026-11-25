@@ -30,6 +30,11 @@ vm.createContext(context);
 const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
 for(const script of scripts.filter(s=>s.startsWith('textbook-')))vm.runInContext(fs.readFileSync(path.join(__dirname,script),'utf8'),context,{filename:script});
+const sourcePronoun=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[2].find(q=>q.sourceExercise==='completion.a.2');
+assert.equal(sourcePronoun.prompt,'מאין היא? — _____ מארגנטינה.');
+const sourceInterpretation=context.window.HEBREW_CHAPTER_INTERPRETATION[2].find(q=>q.sourceExercise==='plural.pronoun.table');
+assert.equal(sourceInterpretation.prompt,'What does this Hebrew mean?\nאנחנו גם עובדים.');
+assert.equal(sourceInterpretation.answer,'We also work.');
 function tick(){const pending=[...timers.values()];timers.clear();pending.forEach(fn=>fn())}
 function saved(){return JSON.parse(storage.get('hebrewTextbookProgressV1'))}
 function begin(level){get('chapterSelect').value=String(level);get('chapterSelect').onchange();assert.equal(get('chapterStart').disabled,false);get('chapterStart').click()}

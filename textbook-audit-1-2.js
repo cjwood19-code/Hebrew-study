@@ -2,7 +2,7 @@
 (function(){'use strict';
 const rows=[
  [15,'completion.a.1','Pronouns • completion','מי הוא? — _____ דניאל.','הוא','היא','אני','אתם','הדוגמה בעמוד 15 משיבה הוא דניאל לשאלה מי הוא.'],
- [15,'completion.a.2','Pronouns • completion','מאין היא? — _____ מאנגליה.','היא','הוא','אני','הם','הדוגמה בעמוד 15 משתמשת בהיא למי שמגיעה מאנגליה.'],
+ [15,'completion.a.2','Pronouns • completion','מאין היא? — _____ מארגנטינה.','היא','הוא','אני','הם','התרגיל בעמוד 15 משיב היא מארגנטינה לשאלה מאין היא.'],
  [18,'read.complete.a.1','Adjectives • completion','רוברטו עולה _____ מברזיל.','חדש','חדשה','חדשים','חדשות','רוברטו הוא זכר יחיד; בתרגיל המודפס הצורה היא עולה חדש.'],
  [18,'read.complete.b.1','Prepositions • completion','היא גרה _____ כרמיאל.','ב','ל','מ','על','בתרגיל ההשלמה כותבים גרה בכרמיאל; ב־ מסמנת מקום.'],
  [21,'pronoun.table.1','Pronouns • table','מה שמך? — _____ שרה.','אני','הוא','הם','אתן','בדוגמת הטבלה שרה מדברת על עצמה ולכן אומרת אני שרה.'],
@@ -25,7 +25,7 @@ window.HEBREW_CHAPTER_INTERPRETATION[1]=[
 ].map(([sourcePage,sourceExercise,he,answer,options,explanation])=>({sourcePage,sourceExercise,category:'Interpretation • Hebrew to English',prompt:'What does this Hebrew mean?\n'+he,answer,options,explanation,interpretation:true}));
 window.HEBREW_CHAPTER_INTERPRETATION[2]=[
  [21,'pronoun.table','אני שרה.','I am Sarah.',['I am Sarah.','She is Sarah.','You are Sarah.','Sarah is new.'],'אני מציין את הדוברת; הדוגמה בעמוד 21 היא אני שרה.'],
- [22,'plural.pronoun.table','אנחנו עובדים.','We work.',['We work.','They work.','You work.','I work.'],'אנחנו הוא גוף ראשון רבים, ועובדים היא צורת הרבים בקטע.'],
+ [22,'plural.pronoun.table','אנחנו גם עובדים.','We also work.',['We also work.','They also work.','You also work.','I also work.'],'אנחנו הוא גוף ראשון רבים, ובקריאה כתוב אנחנו גם עובדים.'],
  [22,'good.friends','מיכאל עובד במסעדה.','Michael works in a restaurant.',['Michael works in a restaurant.','Michael works in a library.','Michael studies in a restaurant.','Michael lives in a restaurant.'],'בסיפור חברים טובים נאמר שמיכאל עובד במסעדה.']
 ].map(([sourcePage,sourceExercise,he,answer,options,explanation])=>({sourcePage,sourceExercise,category:'Interpretation • Hebrew to English',prompt:'What does this Hebrew mean?\n'+he,answer,options,explanation,interpretation:true}));
 })();
