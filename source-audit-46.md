@@ -12,6 +12,8 @@ Reading Practice shows selected source Hebrew, with omissions marked, for Espera
 
 Corrections against the scan: the dialogue is about a hotel guest who first says **יומיים**, not two weeks at an ulpan. The להבין table on PDF 281 displays present forms, not the unsupported future form previously tested. The Esperanto and Babel excerpts were checked for transcription errors. The Hebrew script interpretation line uses **אנשים רבים** as printed. The three interpretation checks cite the scan and remain required in the Chapter Test.
 
+Follow-up scan check: on PDF page 281 (printed page 268), **״אני רוצה לבוא יומיים למלון שלכם״** and **״שבועיים זה טוב?״** belong to different speakers. The Reading Practice excerpt now separates their lines. The questions and scoring answers did not change. The supplementary student notes were consulted only as study material; no answer was imported into scoring from them.
+
 Validation: `node validate-trainer.cjs`, `node verify-reading-sources.cjs`, `node verify-reading-progression.cjs`, `node verify-flashcards.cjs`, and `node verify-chapter-46.cjs` cover syntax, bank schemas, source page ranges, visible reading context, corrections, automatic advance, wrong-answer Next, saved progress, and separate practice. The Pages workflow runs project checks before deployment.
 
 This is a chapter 46 audit, not a claim that all 46 chapters or the independent adaptive practice are source-verified. The curriculum note says 39 chapters; the established app index has 46 because it includes seven אולפן עברית Fourth Part lessons. That mapping remains unresolved.
