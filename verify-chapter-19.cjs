@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const read=f=>fs.readFileSync(path.join(__dirname,f),'utf8');
 const html=read('index.html');
-assert.match(html,/app\.js\?v=\d{8}-(?:lilmod-\d+|shnayim-\d+)-audit-v\d+/);
+assert.match(html,/app\.js\?v=\d{8}-(?:lilmod|shnayim|ulpan)-\d+-audit-v\d+/);
 const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
 const store=new Map([['hebrewTextbookProgressV1',JSON.stringify({level:19,best:{18:100},history:[{level:18,correct:16,attempted:16,passed:true}]})],['hebrewGeneralFlashcardsV1','{"version":1,"cards":{"existing":{"status":"review"}}}'],['existingAdaptiveProgress','{"level":5}']]);
 class E{constructor(){this.textContent='';this.value='';this.children=[];this.classList={s:new Set(),add(v){this.s.add(v)},remove(v){this.s.delete(v)},contains(v){return this.s.has(v)}};this.style={};this.disabled=false}set innerHTML(v){this.children=[]}appendChild(x){this.children.push(x)}click(){if(!this.disabled&&this.onclick)this.onclick()}}

@@ -30,6 +30,11 @@ vm.createContext(context);
 const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^" ]*)?"><\/script>/g)].map(m=>m[1]);
 for(const script of scripts.filter(s=>s.startsWith('textbook-')))vm.runInContext(fs.readFileSync(path.join(__dirname,script),'utf8'),context,{filename:script});
+const definite=context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[4].filter(q=>q.sourcePage===44);
+assert.deepEqual(Array.from(definite,q=>[q.sourceExercise,q.answer]),[
+ ['definite.exercise.1','המחשב'],['definite.exercise.2','האישה'],['definite.exercise.3','הספרים']
+]);
+assert.ok(!context.window.HEBREW_TEXTBOOK_QUESTION_BANKS[4].some(q=>q.prompt.includes('אלה שולחנות')||q.prompt.includes('אלה רחובות')));
 function tick(){const pending=[...timers.values()];timers.clear();pending.forEach(fn=>fn())}
 function saved(){return JSON.parse(storage.get('hebrewTextbookProgressV1'))}
 function begin(level){get('chapterSelect').value=String(level);get('chapterSelect').onchange();assert.equal(get('chapterStart').disabled,false);get('chapterStart').click()}

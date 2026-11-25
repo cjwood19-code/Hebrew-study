@@ -11,6 +11,8 @@ I compared every active chapter 3–4 bank question and interpretation check aga
 
 The chapter tests now draw from the printed noun number chart and exercise, adjective agreement, verb completions, profession sentences, definite forms, possession, demonstratives, and יש/אין. They retain Hebrew prompts and the source exercise type; four-choice options are adaptations. All 25 scored items have in-range pages, exercise identifiers, and explanations tied to the displayed lesson. Six Hebrew interpretation questions use source sentences and cite their PDF pages.
 
+Follow-up comparison found three chapter 4 questions misattributed to PDF page 44: plural adjective transformations from chapter 3 had been labeled as that page's demonstrative exercise. They have been replaced with the printed page 44 definite-article transformations **המחשב**, **האישה**, and **הספרים**. Chapter 3's own adjective practice remains in chapter 3. The office reading on PDF page 46 now includes the previously omitted sentence identifying גברת שרה לוי as the secretary.
+
 Reading Practice places selected original Hebrew alongside questions for על חוף הים באילת (PDF 33), על עבודה ומקצוע (35), כפר־סבא (41), the יש/אין office reading (46), and the original blank structure of האולפן בכרמיאל (48). Omissions in selected excerpts are marked. Fifteen questions adapt printed comprehension and fill-in exercises, with supplemental place comprehension labeled. The eight new flashcards use source sentences as contextual examples.
 
 The existing textbook progress key, chapter order, and independent adaptive practice are unchanged. Tests check correct-answer automatic advance, correction followed by Next on wrong answers, the two-of-three Hebrew interpretation gate, and saved progress.

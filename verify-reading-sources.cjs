@@ -346,6 +346,7 @@ assert.ok(passages.find(p=>p.id==='shnayim-5-harlow').he.includes('לאם מבד
 assert.ok(passages.find(p=>p.id==='shnayim-5-robin').he.includes('(לספר, אני)'));
 for(const [id,page,count,phrase] of [['ulpan-2-bank-dialogue',19,3,'יעקב לוי'],['ulpan-2-good-friends',22,4,'מיכאל עובד במסעדה']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('אולפן עברית.*lesson 2.*PDF page '+page));assert.equal(p.questions.length,count);assert.ok(p.he.includes(phrase));assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)));}
 for(const [id,unit,page,count,phrase] of [['ulpan-3-eilat-dialogue',3,33,3,'אני מטייל באילת'],['ulpan-3-work-professions',3,35,3,'דן פקיד'],['ulpan-4-kfar-saba',4,41,2,'האולפן בין השוק'],['ulpan-4-office',4,46,4,'אין טלוויזיה'],['ulpan-4-karmiel-cloze',4,48,3,'_____ כיתות']]){const p=passages.find(x=>x.id===id);assert.ok(p,id);assert.match(p.source,new RegExp('אולפן עברית.*lesson '+unit+'.*PDF page '+page));assert.equal(p.questions.length,count,id);assert.ok(p.he.includes(phrase),id);assert.ok(p.questions.every(q=>q.kind&&q.explanation&&q.opts.includes(q.a)),id);}
+assert.ok(byId('ulpan-4-office').he.includes('במשרד של מר יוסף כהן עובדת גברת שרה לוי. היא מזכירה.'));
 const communication=passages.find(p=>p.id==='shnayim-10-communication-language');
 assert.ok(communication);
 assert.match(communication.source,/עברית בשניים.*chapter 10.*PDF page 275/);
